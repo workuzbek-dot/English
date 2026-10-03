@@ -2,6 +2,7 @@
 <html lang="uz"><head><meta charset="utf-8">
 <meta name="google-site-verification" content="cM8Bq4a-NyAgiyyEL201eqC2-cmOOy3v--Zi-9yR7gA" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
 <title>SpeakUp English</title>
 <style>
 :root{--bg1:#eef1ff;--bg2:#fdf0f7;--glass:rgba(255,255,255,.72);--tx:#1d1d1f;--mut:#86868b;--pri:#0071e3;--ok:#30a14e;--bad:#e5484d;--bd:rgba(0,0,0,.08);--seg:rgba(120,120,128,.14);--sh:0 10px 40px rgba(0,0,0,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -86,6 +87,9 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
 .x{position:absolute;top:10px;right:8px;border:0;background:none;color:var(--mut);font-size:22px;cursor:pointer}
 .chip{background:var(--seg);border:1px solid var(--bd);color:var(--tx);border-radius:10px;padding:6px 12px;font:inherit;font-size:14px;margin:6px 6px 0 0;cursor:pointer}
 #tc{overflow-x:auto}#tc button{white-space:nowrap;flex:0 0 auto;padding:9px 12px}
+.ait{font:800 30px/1.1 "Playfair Display",ui-serif,Georgia,serif;letter-spacing:.04em;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.chat{height:min(44vh,400px);overflow:auto;display:flex;flex-direction:column;gap:10px;padding:10px 2px;margin:10px 0}
+.b{max-width:86%;padding:10px 14px;border-radius:20px;line-height:1.45;text-align:left;font-size:16px}.b.u{align-self:flex-end;background:var(--gold);color:var(--on)}.b.a{align-self:flex-start;background:var(--seg)}.b .en{color:var(--pri);font-style:italic;font-weight:700}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
 <div class="seg tabs" id="tb"><button id="t1" class="on">🎧 Listening</button><button id="t2">📚 Lug'at</button><button id="t3">✍️ Diktant</button></div>
@@ -145,13 +149,19 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
   <div class="sp" id="am"></div>
  </div><p class="note" id="cc"></p><div class="grid" id="cg"></div></div>
 <div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"><button data-k="tot" class="on">Jami</button><button data-k="b">Beginner</button><button data-k="e">Elementary</button><button data-k="p">Pre-Int</button><button data-k="c">Custom</button><button data-k="t">⏱ Vaqt</button></div><div id="tw"></div></div>
+<div id="s8" class="hide"><div class="card" style="text-align:center">
+ <div class="big">🎓</div><div class="ait">Ai Teacher</div><div class="uz">O'zbekcha ham, inglizcha ham gaplashing</div>
+ <div class="chat" id="ch"></div><div class="sp" id="as2"></div>
+ <div class="row"><button class="pill" id="lg">🇺🇿 O'zbek</button><button class="mic" id="am2" aria-label="Mikrofon">🎤</button><button class="pill" id="vo">🔊</button></div>
+ <div style="display:flex;gap:8px;margin-top:10px"><input id="ai" placeholder="Yoki shu yerga yozing..." style="margin:0;font-size:16px;text-align:left" autocomplete="off"><button class="pill blue" id="ag">➤</button></div>
+ <div class="uz" id="an" style="margin-top:8px"></div></div></div>
 <div id="s7" class="hide"><div class="card"><div class="big" id="pbig">🙂</div><div class="avs" id="pa"></div>
  <input id="pn" placeholder="Ismingiz" maxlength="24" autocomplete="off"><input id="pg" placeholder="Maqsadingiz (masalan: IELTS 6.5)" maxlength="60" autocomplete="off">
  <div class="row"><button class="pill blue" id="ps">Saqlash</button></div><div class="sp" id="pm">Ismingiz umumiy reytingda ko'rinadi.</div></div></div>
 </div>
 <div class="ov" id="ov"></div>
 <div class="drw" id="drw"><h2>Menu</h2>
-<button class="mi" data-n="4">🌐 Tarjimon</button><button class="mi" data-n="5">⭐ Custom</button><button class="mi" data-n="1">🎧 Listening</button><button class="mi" data-n="6">🏆 TOP</button><button class="mi" data-n="7">👤 Profil</button></div>
+<button class="mi" data-n="4">🌐 Tarjimon</button><button class="mi" data-n="1">🎧 Listening</button><button class="mi" data-n="8">🎓 Ai Teacher</button><button class="mi" data-n="5">⭐ Custom</button><button class="mi" data-n="6">🏆 TOP</button><button class="mi" data-n="7">👤 Profil</button></div>
 <script>
 const D={
 "Beginner":[["son","o'g'il","👦","My son plays football every day."],["daughter","qiz farzand","👧","Her daughter is five years old."],["person","odam","🧑","He is a very kind person."],["face","yuz","🙂","She has a happy face."],["finger","barmoq","☝️","I hurt my finger."],["job","ish","💼","I love my new job."],["town","shahar","🏘️","We live in a small town."],["animal","hayvon","🐶","A dog is a friendly animal."]],
@@ -200,8 +210,8 @@ $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
 let onTop=false;
-function tab(n){[1,2,3,4,5,6,7].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n>3);$("tb").classList.toggle("hide",n>3);$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
- if(n==2)vocab();if(n==3)dShow();if(n==5)cList();if(n==6)topR();scrollTo(0,0)}
+function tab(n){try{speechSynthesis.cancel()}catch(e){}[1,2,3,4,5,6,7,8].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n>3);$("tb").classList.toggle("hide",n>3);$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+ if(n==2)vocab();if(n==3)dShow();if(n==5)cList();if(n==6)topR();if(n==8)aGreet();scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>{const p=D[lvl].filter(w=>w[3]);return p.length?p:D[lvl]},dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>dc()[3]||dc()[0];
 function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=lvl+" · "+(dI%dp().length+1)+"/"+dp().length;setTimeout(()=>say(dS()),250)}
@@ -288,5 +298,30 @@ $("ps").onclick=()=>{prof.n=$("pn").value.trim();prof.g=$("pg").value.trim();try
 $("pn").value=prof.n;$("pg").value=prof.g;pa();
 $("hb").onclick=()=>{$("drw").classList.add("open");$("ov").classList.add("open")};$("ov").onclick=()=>{$("drw").classList.remove("open");$("ov").classList.remove("open")};
 $("drw").onclick=e=>{const b=e.target.closest(".mi");if(b)tab(+b.dataset.n)};$("av").onclick=()=>tab(7);
+
+let alang="uz-UZ",avo=true,ahist=[],abusy=false,agr=false;
+const nm=()=>prof.n||"do'stim";
+const SYS=()=>`Sen "Ai Teacher"san — SpeakUp saytining do'stona ingliz tili o'qituvchisi. Foydalanuvchining ismi: ${nm()}. Unga ismi bilan murojaat qil. Ravon, tabiiy o'zbek tilida (lotin yozuvida) gapir, ingliz tilida ham gapira olasan. Ba'zan yengil, yoqimli hazil qil. Javoblar qisqa bo'lsin (2-4 gap), chunki ovoz bilan o'qiladi. Barcha inglizcha so'z va gaplarni {en}...{/en} ichiga yoz. Emoji, markdown va ro'yxat belgilari ishlatma. Foydalanuvchi inglizcha gapirsa, inglizcha javob ber va xatolarini o'zbekcha yumshoq tuzat. Sayt haqida bilimlaring: Menu'da Tarjimon (so'z va gaplarni avtomatik tarjima qiladi, o'qilishini ko'rsatadi, ovozni sekin yoki tez qiladi, History bor, tarjimalar Custom'ga o'zi saqlanadi), Custom (o'z so'zlari), Listening (Listening: so'z yoki gapni eshitib ayting va yozing; Lug'at; Diktant), TOP (so'zlar va vaqt bo'yicha reyting), Profil (ism va avatar). Darajalar: Beginner, Elementary, Pre-Intermediate, har birida 100 ta so'z. Bilmagan narsani to'qima, shuni ochiq ayt.`;
+const FB=[[/salom|assalom|hello|\bhi\b/i,"Salom! Men Ai Teacher'man. Hozir aqlli javob xizmati bilan aloqa yo'q, lekin sayt haqida so'rashingiz mumkin."],[/tarjim/i,"Menu'dagi Tarjimon bo'limida so'z yozsangiz, tarjima o'zi chiqadi va Custom'ga saqlanadi."],[/reyting|top/i,"TOP bo'limida so'zlar va saytda o'tkazgan vaqt bo'yicha reyting bor."],[/custom/i,"Custom bo'limida o'zingiz qo'shgan va tarjima qilingan so'zlar saqlanadi."],[/listening|diktant|lug/i,"Menu'dagi Listening bo'limida Listening, Lug'at va Diktant mashqlari bor."],[/profil|ism/i,"Menu'dagi Profil bo'limida ismingiz va avatarni o'zgartirasiz."]];
+const fb=q=>{const x=FB.find(a=>a[0].test(q));return x?x[1]:"Kechirasiz, hozir AI xizmati bilan aloqa yo'q. Internetni tekshirib, birozdan keyin qayta urinib ko'ring."};
+async function llm(m){const c=new AbortController(),t=setTimeout(()=>c.abort(),25000);
+ try{const x=await fetch("https://text.pollinations.ai/openai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"openai",messages:m,temperature:.8}),signal:c.signal});if(!x.ok)return null;const j=await x.json();return j.choices[0].message.content}catch(e){return null}finally{clearTimeout(t)}}
+function aadd(role,txt){const d=document.createElement("div");d.className="b "+(role=="u"?"u":"a");d.innerHTML=es(txt).replace(/\{en\}([\s\S]*?)\{\/en\}/g,'<span class="en">$1</span>').replace(/\n/g,"<br>");$("ch").appendChild(d);$("ch").scrollTop=1e9}
+function asay(txt){if(!avo)return;try{speechSynthesis.cancel();const vs=speechSynthesis.getVoices(),ps=[];let last=0,miss=false;
+ txt.replace(/\{en\}([\s\S]*?)\{\/en\}/g,(m,a,k)=>{if(k>last)ps.push([txt.slice(last,k),"uz"]);ps.push([a,"en"]);last=k+m.length;return m});if(last<txt.length)ps.push([txt.slice(last),"uz"]);
+ ps.forEach(([t,l])=>{t=t.trim();if(!t)return;const v=vs.find(z=>z.lang.toLowerCase().startsWith(l));if(l=="uz"&&!v){miss=true;return}const u=new SpeechSynthesisUtterance(t);u.lang=l=="uz"?"uz-UZ":"en-US";if(v)u.voice=v;u.rate=.95;speechSynthesis.speak(u)});
+ $("an").textContent=miss?"ℹ️ Qurilmangizda o'zbekcha ovoz topilmadi, shuning uchun o'zbekcha qismlar o'qilmaydi. Android telefonda Google TTS'ga o'zbek tilini yuklab oling.":""}catch(e){}}
+async function asend(q){q=q.trim();if(!q||abusy)return;abusy=true;aadd("u",q);$("ai").value="";ahist.push({role:"user",content:q});$("as2").textContent="O'ylayapman...";
+ let a=await llm([{role:"system",content:SYS()},...ahist.slice(-10)]);a=(a||fb(q)).trim();
+ ahist.push({role:"assistant",content:a});aadd("a",a);asay(a);$("as2").textContent="";abusy=false}
+function aGreet(){if(agr)return;agr=true;const g=`Salom, ${nm()}! Men Ai Teacher'man. {en}Hello! Nice to meet you.{/en} Bugun nimani o'rganamiz? Ingliz tili yoki sayt haqida so'rang, yo'qsa hazillashib ham gaplashamiz.`+(prof.n?"":" Ismingizni Profil bo'limida yozsangiz, sizni ismingiz bilan chaqiraman.");aadd("a",g);asay(g)}
+$("am2").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){$("as2").textContent="Brauzeringiz mikrofonni qo'llamaydi (Chrome ishlating). Pastga yozib yuboring.";return}
+ try{speechSynthesis.cancel()}catch(e){}const x=new SR();x.lang=alang;$("as2").textContent="Tinglayapman...";$("am2").classList.add("rec");
+ x.onresult=e=>asend(e.results[0][0].transcript);x.onerror=()=>{$("as2").textContent="Mikrofon ruxsatini tekshiring."};
+ x.onend=()=>{$("am2").classList.remove("rec");if($("as2").textContent=="Tinglayapman...")$("as2").textContent=""};try{x.start()}catch(e){}};
+$("lg").onclick=()=>{alang=alang=="uz-UZ"?"en-US":"uz-UZ";$("lg").textContent=alang=="uz-UZ"?"🇺🇿 O'zbek":"🇬🇧 English"};
+$("vo").onclick=()=>{avo=!avo;$("vo").textContent=avo?"🔊":"🔇";if(!avo)try{speechSynthesis.cancel()}catch(e){}};
+$("ag").onclick=()=>asend($("ai").value);$("ai").onkeydown=e=>{if(e.key=="Enter")asend($("ai").value)};
+try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>{}}catch(e){}
 lvls();show();tab(4);
 </script></body></html>
