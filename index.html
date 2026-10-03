@@ -65,9 +65,29 @@ h1{font:800 40px/1.05 ui-serif,"New York","Playfair Display",Georgia,serif;lette
 input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-shadow:0 0 0 4px color-mix(in srgb,var(--pri) 22%,transparent)}
 .v{border-radius:26px;box-shadow:var(--sh)}.v b{font:700 19px ui-serif,Georgia,serif}
 .res .g{color:var(--ok)}
+
+.top>div{display:flex;align-items:center;gap:10px}
+.hb{width:44px;height:44px;border-radius:50%;border:1px solid var(--bd);background:var(--glass);color:var(--tx);font-size:20px;cursor:pointer;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.ov{display:none;position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.45);backdrop-filter:blur(6px)}.ov.open{display:block}
+.drw{position:fixed;top:0;bottom:0;left:0;width:min(80vw,310px);z-index:21;padding:calc(env(safe-area-inset-top,0px) + 28px) 16px 24px;background:color-mix(in srgb,var(--bg1) 90%,transparent);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border-right:1px solid var(--bd);transform:translateX(-105%);transition:transform .32s cubic-bezier(.3,.9,.3,1)}.drw.open{transform:none}
+.drw h2{font:800 28px ui-serif,Georgia,serif;margin:0 8px 18px;color:var(--pri)}
+.mi{display:flex;width:100%;align-items:center;gap:12px;text-align:left;border:0;background:none;color:var(--tx);font-weight:600;font-size:18px;font-family:inherit;padding:15px 12px;border-radius:18px;cursor:pointer}.mi:hover,.mi:active{background:var(--seg)}
+.lr{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}.lr b{flex:1;text-align:left}
+.to{font:700 28px/1.3 ui-serif,Georgia,serif;text-align:left;min-height:40px;margin:10px 0 4px;color:var(--pri)}
+.hi{display:flex;justify-content:space-between;gap:12px;padding:12px 2px;border-bottom:1px solid var(--bd);cursor:pointer}.hi span{color:var(--pri);text-align:right}
+.tr{display:flex;align-items:center;gap:12px;margin-bottom:12px;padding:16px;text-align:left}.tr>div:first-child{min-width:110px}.tr small{display:block;color:var(--mut)}.tr .bar{margin:0}
+.avs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}.avb{width:50px;height:50px;border-radius:50%;border:2px solid transparent;background:var(--seg);font-size:25px;cursor:pointer}.avb.on{border-color:var(--pri)}
+.bars{display:flex;gap:8px;align-items:flex-end;height:130px}.bc{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px}.bc i{width:100%;background:var(--gold);border-radius:8px}.bc small{color:var(--mut)}
+#s4 .card,#s6 .card,#s7 .card{margin-bottom:12px}#s7 input{margin-top:10px}
+.w{padding-bottom:40px}
+.seg.tabs{position:static;transform:none;width:auto;margin:0 0 12px;padding:4px;border-radius:18px;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}.seg.tabs button{border-radius:14px;padding:10px 4px}
+.tg{text-align:left}.tg.r{background:color-mix(in srgb,var(--pri) 9%,var(--glass))}.ph{color:var(--mut);font-size:15px;margin:6px 0}.row.l{justify-content:flex-start;margin:10px 0 0}
+.x{position:absolute;top:10px;right:8px;border:0;background:none;color:var(--mut);font-size:22px;cursor:pointer}
+.chip{background:var(--seg);border:1px solid var(--bd);color:var(--tx);border-radius:10px;padding:6px 12px;font:inherit;font-size:14px;margin:6px 6px 0 0;cursor:pointer}
+#tc{overflow-x:auto}#tc button{white-space:nowrap;flex:0 0 auto;padding:9px 12px}
 </style></head><body><div class="w">
-<div class="top"><h1>SpeakUp</h1><span class="sc" id="score"></span></div>
-<div class="seg tabs"><button id="t1" class="on">🎤 Speaking</button><button id="t2">📚 Lug'at</button><button id="t3">✍️ Diktant</button></div>
+<div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
+<div class="seg tabs" id="tb"><button id="t1" class="on">🎧 Listening</button><button id="t2">📚 Lug'at</button><button id="t3">✍️ Diktant</button></div>
 <div class="seg sm" id="lv"></div>
 
 <div id="s1">
@@ -86,15 +106,8 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
 </div>
 
 <div id="s2" class="hide">
- <div class="card f">
-  <b>➕ O'z so'zingizni qo'shing</b>
-  <input id="aw" placeholder="Inglizcha so'z (masalan: window)" autocomplete="off" autocapitalize="off" spellcheck="false">
-  <input id="au" placeholder="O'zbekcha ma'nosi (deraza)" autocomplete="off">
-  <input id="as" placeholder="Misol gap (ixtiyoriy)" autocomplete="off" autocapitalize="off" spellcheck="false">
-  <div class="row" style="margin-bottom:0"><button class="pill blue" id="ab">Qo'shish</button></div>
-  <div class="sp" id="am"></div>
- </div>
- <p class="note">Kartani bossangiz, so'z o'qiladi. 🔔 — so'z Speaking'da aytiladi, 🔕 — aytilmaydi.</p><div class="row" style="margin-top:0;justify-content:flex-start"><button class="pill" id="ex"></button></div>
+ 
+ <p class="note">Kartani bossangiz, so'z o'qiladi. 🔔 — so'z Listening'da aytiladi, 🔕 — aytilmaydi.</p><div class="row" style="margin-top:0;justify-content:flex-start"><button class="pill" id="ex"></button></div>
  <div class="grid" id="vg"></div>
 </div>
 <div id="s3" class="hide">
@@ -108,7 +121,36 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
   <div class="row"><button class="pill blue" id="dc">Tekshirish</button><button class="pill" id="da">👁 Javob</button><button class="pill" id="dn">Keyingi →</button></div>
  </div>
 </div>
+<div id="s4" class="hide">
+ <div class="lr"><b id="l1">English</b><button class="pill" id="sw">⇄</button><b id="l2" style="text-align:right">O'zbek</b></div>
+ <div class="card tg">
+  <div style="position:relative"><textarea class="ta" id="tq" placeholder="Matn kiriting" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea><button class="x hide" id="tx" aria-label="Tozalash">✕</button></div>
+  <div class="ph" id="ph"></div>
+  <div class="row l"><button class="pill" id="mc">🎤</button><button class="pill" id="sa">🔊</button><button class="pill" id="hs">🕘 History</button></div>
+ </div>
+ <div class="card tg r">
+  <div class="to" id="to"></div><div class="ph" id="ph2"></div><div id="al"></div><div class="uz" id="tn"></div>
+  <div class="row l"><button class="pill" id="sb">🔊</button><button class="pill" id="cp">📋</button></div>
+  <div class="seg sm" id="spd" style="margin:12px 0 0"><button data-s=".5">🐢 Sekin</button><button data-s=".85" class="on">Oddiy</button><button data-s="1.2">🐇 Tez</button></div>
+ </div>
+ <div class="card hide" id="hp" style="text-align:left"><div class="lr"><b>🕘 History</b><button class="pill" id="hc">Tozalash</button></div><div id="hl"></div></div>
 </div>
+<div id="s5" class="hide"><div class="card f">
+  <b>➕ O'z so'zingizni qo'shing</b>
+  <input id="aw" placeholder="Inglizcha so'z (masalan: window)" autocomplete="off" autocapitalize="off" spellcheck="false">
+  <input id="au" placeholder="O'zbekcha ma'nosi (deraza)" autocomplete="off">
+  <input id="as" placeholder="Misol gap (ixtiyoriy)" autocomplete="off" autocapitalize="off" spellcheck="false">
+  <div class="row" style="margin-bottom:0"><button class="pill blue" id="ab">Qo'shish</button></div>
+  <div class="sp" id="am"></div>
+ </div><p class="note" id="cc"></p><div class="grid" id="cg"></div></div>
+<div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"><button data-k="tot" class="on">Jami</button><button data-k="b">Beginner</button><button data-k="e">Elementary</button><button data-k="p">Pre-Int</button><button data-k="c">Custom</button><button data-k="t">⏱ Vaqt</button></div><div id="tw"></div></div>
+<div id="s7" class="hide"><div class="card"><div class="big" id="pbig">🙂</div><div class="avs" id="pa"></div>
+ <input id="pn" placeholder="Ismingiz" maxlength="24" autocomplete="off"><input id="pg" placeholder="Maqsadingiz (masalan: IELTS 6.5)" maxlength="60" autocomplete="off">
+ <div class="row"><button class="pill blue" id="ps">Saqlash</button></div><div class="sp" id="pm">Ismingiz umumiy reytingda ko'rinadi.</div></div></div>
+</div>
+<div class="ov" id="ov"></div>
+<div class="drw" id="drw"><h2>Menu</h2>
+<button class="mi" data-n="4">🌐 Tarjimon</button><button class="mi" data-n="5">⭐ Custom</button><button class="mi" data-n="1">🎧 Listening</button><button class="mi" data-n="6">🏆 TOP</button><button class="mi" data-n="7">👤 Profil</button></div>
 <script>
 const D={
 "Beginner":[["son","o'g'il","👦","My son plays football every day."],["daughter","qiz farzand","👧","Her daughter is five years old."],["person","odam","🧑","He is a very kind person."],["face","yuz","🙂","She has a happy face."],["finger","barmoq","☝️","I hurt my finger."],["job","ish","💼","I love my new job."],["town","shahar","🏘️","We live in a small town."],["animal","hayvon","🐶","A dog is a friendly animal."]],
@@ -126,7 +168,7 @@ const Ls=()=>Object.keys(D);let lvl=Ls()[0],i=0,sent=false,shown=false,learned=n
 try{learned=new Set(JSON.parse(localStorage.getItem("learned")||"[]"))}catch(e){}
 const $=id=>document.getElementById(id);
 const save=()=>{try{localStorage.setItem("learned",JSON.stringify([...learned]))}catch(e){}};
-function say(t,rt){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=rt||.85;speechSynthesis.speak(u)}catch(e){}}
+function say(t,rt,lg){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang=lg||"en-US";u.rate=rt||.85;speechSynthesis.speak(u)}catch(e){}}
 function mark(w){learned.add(w);save();upd()}
 function upd(){$("score").textContent="⭐ "+learned.size;$("pb").style.width=(pool().filter(x=>learned.has(x[0])).length/pool().length*100)+"%"}
 const pool=()=>{const p=D[lvl].filter(w=>!muted.has(w[0])&&(extraOn||!w[4]));return p.length?p:D[lvl]};const cur=()=>{const p=pool();return p[i%p.length]};
@@ -136,7 +178,7 @@ function render(){const w=cur();$("em").textContent=w[2];$("uz").textContent=w[1
 function show(){sent=Math.random()<.45&&!!cur()[3];shown=false;$("inp").value="";$("sp").textContent="";$("msg").textContent="";render();upd()}
 function lvls(){$("lv").innerHTML="";Ls().forEach(l=>{const b=document.createElement("button");b.textContent=l==CK?"⭐ Mening":l;if(l==lvl)b.className="on";b.onclick=()=>{lvl=l;i=0;dI=0;lvls();show();vocab();if(!$("s3").classList.contains("hide"))dShow()};$("lv").appendChild(b)})}
 function vocab(){$("vg").innerHTML="";D[lvl].forEach(w=>{const d=document.createElement("div"),k=learned.has(w[0])||w[4];d.className="v"+(k?"":" lock");
- d.innerHTML=k?`<button class="mt" aria-label="Speaking'da">${muted.has(w[0])?"🔕":"🔔"}</button>${lvl==CK?'<button class="dl" aria-label="O\'chirish">✕</button>':''}<div class="e">${w[2]}</div><b>${w[0]}</b><small>${w[1]}</small><i>${w[3]||""}</i>`:`<div class="e">🔒</div><b>?</b><small>Speaking'da oching</small>`;
+ d.innerHTML=k?`<button class="mt" aria-label="Listening'da">${muted.has(w[0])?"🔕":"🔔"}</button>${lvl==CK?'<button class="dl" aria-label="O\'chirish">✕</button>':''}<div class="e">${w[2]}</div><b>${w[0]}</b><small>${w[1]}</small><i>${w[3]||""}</i>`:`<div class="e">🔒</div><b>?</b><small>Listening'da oching</small>`;
  if(k)d.onclick=()=>say(w[3]||w[0]);
  const mt=d.querySelector(".mt");if(mt)mt.onclick=e=>{e.stopPropagation();muted.has(w[0])?muted.delete(w[0]):muted.add(w[0]);sm();vocab()};
  const x=d.querySelector(".dl");if(x)x.onclick=e=>{e.stopPropagation();custom=custom.filter(c=>c!==w);cs();if(!custom.length){delete D[CK];lvl=Ls()[0]}else D[CK]=custom;i=0;dI=0;lvls();show();vocab()};$("vg").appendChild(d)})}
@@ -156,7 +198,9 @@ $("mic").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechReco
 $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w){$("msg").innerHTML='<span class="ok">✅ To\'g\'ri!</span>';mark(w);shown=true;render();say(sent?cur()[3]:w)}else $("msg").innerHTML='<span class="bad">Noto\'g\'ri, qayta urining</span>'};
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
-function tab(n){$("s3").classList.toggle("hide",n!=3);$("t3").className=n==3?"on":"";if(n==3)dShow();$("s1").classList.toggle("hide",n!=1);$("s2").classList.toggle("hide",n!=2);$("t1").className=n==1?"on":"";$("t2").className=n==2?"on":"";if(n==2)vocab()}
+let onTop=false;
+function tab(n){[1,2,3,4,5,6,7].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n>3);$("tb").classList.toggle("hide",n>3);$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+ if(n==2)vocab();if(n==3)dShow();if(n==5)cList();if(n==6)topR();scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>{const p=D[lvl].filter(w=>w[3]);return p.length?p:D[lvl]},dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>dc()[3]||dc()[0];
 function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=lvl+" · "+(dI%dp().length+1)+"/"+dp().length;setTimeout(()=>say(dS()),250)}
@@ -168,13 +212,80 @@ $("dc").onclick=()=>{const t=$("dt").value;if(!norm(t).length)return;const tg=no
  else{const hit=tg.filter(w=>us.includes(w)).length;$("dr").innerHTML='<span class="bad">'+Math.round(hit/tg.length*100)+'% to\'g\'ri. Yana urining.</span>'}};
 $("da").onclick=()=>{$("dr").innerHTML=dMark($("dt").value)};
 $("dn").onclick=()=>{dI=(dI+1)%dp().length;dShow()};
-function exs(){$("ex").textContent="Yangi so'zlar Speaking'da: "+(extraOn?"Yoqilgan ✓":"O'chirilgan")}
+function exs(){$("ex").textContent="Yangi so'zlar Listening'da: "+(extraOn?"Yoqilgan ✓":"O'chirilgan")}
 $("ex").onclick=()=>{extraOn=!extraOn;sm();exs();i=0;show()};exs();
 function cs(){try{localStorage.setItem("custom",JSON.stringify(custom))}catch(e){}}
 $("ab").onclick=()=>{const w=$("aw").value.trim().toLowerCase(),u=$("au").value.trim(),t=$("as").value.trim();
  if(!/^[a-z' -]+$/.test(w)||!u){$("am").innerHTML='<span class="bad">Inglizcha so\'z va o\'zbekcha ma\'noni kiriting.</span>';return}
  if(Object.values(D).some(a=>a.some(x=>x[0]==w))){$("am").innerHTML='<span class="bad">Bu so\'z allaqachon bor.</span>';return}
  custom.push([w,u,"✍️",t]);D[CK]=custom;cs();mark(w);lvl=CK;i=custom.length-1;dI=0;
- ["aw","au","as"].forEach(k=>$(k).value="");$("am").innerHTML='<span class="ok">✅ Qo\'shildi! Speaking va Diktantda ham chiqadi.</span>';say(w);lvls();vocab();show()};
-lvls();show();
+ ["aw","au","as"].forEach(k=>$(k).value="");$("am").innerHTML='<span class="ok">✅ Qo\'shildi! Listening va Diktantda ham chiqadi.</span>';say(w);lvls();vocab();show()};
+
+const es=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const nz=t=>t.toLowerCase().replace(/[’ʻʼ‘`´]/g,"'").trim();
+let tf="en",trs=.85,hist=[],prof={n:"",a:"🙂",g:""},tm={t:0,d:{}};
+try{hist=JSON.parse(localStorage.getItem("hist")||"[]");Object.assign(prof,JSON.parse(localStorage.getItem("prof")||"{}"));tm=JSON.parse(localStorage.getItem("time"))||tm}catch(e){}
+const sh=()=>{try{localStorage.setItem("hist",JSON.stringify(hist.slice(0,100)))}catch(e){}};
+const LG={en:"en-US",uz:"uz-UZ"},LN={en:"English",uz:"O'zbek"};
+const spk=(t,l)=>{if(t&&t!="—"&&t!="…")say(t,trs,LG[l])};
+function lb(){$("l1").textContent=LN[tf];$("l2").textContent=LN[tf=="en"?"uz":"en"]}
+function lloc(q){const a=Object.values(D).flat();if(tf=="en"){const x=a.find(w=>w[0]==q);return x&&x[1]}
+ const x=a.find(w=>nz(w[1])==q)||a.find(w=>nz(w[1]).split(/[,;]/).map(z=>z.trim()).includes(q));return x&&x[0]}
+const PS={noun:"Ot",verb:"Fe'l",adjective:"Sifat",adverb:"Ravish",pronoun:"Olmosh",preposition:"Predlog",conjunction:"Bog'lovchi",interjection:"Undov"};
+async function lapi(q){const c=new AbortController(),t=setTimeout(()=>c.abort(),6000),cl=x=>x.replace(/[<>&"]/g,"");
+ try{const o=tf=="en"?"uz":"en",rs=await fetch("https://api.mymemory.translated.net/get?q="+encodeURIComponent(q)+"&langpair="+tf+"|"+o,{signal:c.signal}),j=await rs.json(),m=j.responseData&&j.responseData.translatedText;if(!m||j.responseStatus!=200)return null;const t0=cl(m),al=[...new Set((j.matches||[]).map(x=>cl(String(x.translation||"")).trim()).filter(x=>x&&x.toLowerCase()!=t0.toLowerCase()))].slice(0,6);return{t:t0,alts:al}}catch(e){return null}finally{clearTimeout(t)}}
+async function lph(w){if(!/^[a-z]+$/.test(w))return null;const c=new AbortController(),t=setTimeout(()=>c.abort(),4000);
+ try{const j=await(await fetch("https://api.dictionaryapi.dev/v2/entries/en/"+w,{signal:c.signal})).json();if(!Array.isArray(j))return null;const e=j[0],p=e.phonetic||((e.phonetics||[]).find(x=>x.text)||{}).text||"",pos=[...new Set((e.meanings||[]).map(m=>PS[m.partOfSpeech]||m.partOfSpeech))].slice(0,3).join(", ");return{p:String(p),pos}}catch(e){return null}finally{clearTimeout(t)}}
+function addC(e,u){e=e.replace(/[<>&"]/g,"").trim().slice(0,60);u=String(u).replace(/[<>&"]/g,"").trim();if(e.length<2||!u||custom.some(x=>x[0]==e))return;
+ custom.push([e,u,"🌐",""]);D[CK]=custom;cs();upd();lvls();if(!$("s5").classList.contains("hide"))cList()}
+let tk=0,dt,ct,pend=null;
+function chips(a){$("al").innerHTML="";a.forEach(x=>{const b=document.createElement("button");b.className="chip";b.textContent=x;b.onclick=()=>{$("to").textContent=x;if(pend)pend[1]=x};$("al").appendChild(b)})}
+async function trn(){const q=nz($("tq").value),my=++tk;$("tx").classList.toggle("hide",!q);$("ph").textContent=$("ph2").textContent="";
+ if(!q){$("to").textContent=$("tn").textContent="";$("al").innerHTML="";pend=null;return}
+ $("tn").textContent="…";let res=lloc(q),alts=[],src="Lug'atdan";
+ if(!res){const a=await lapi(q);if(my!=tk)return;if(a){res=a.t;alts=a.alts;src="Onlayn tarjima"}}
+ if(my!=tk)return;
+ if(!res){$("to").textContent="";$("al").innerHTML="";$("tn").textContent="Tarjima topilmadi (internet kerak yoki boshqa so'z yozing)";pend=null;return}
+ $("to").textContent=res;$("tn").textContent=src;chips(alts);pend=[q,res,tf,my];clearTimeout(ct);ct=setTimeout(commit,1500);
+ const en=tf=="en"?q:nz(res),p=await lph(en);if(my!=tk||!p)return;
+ (tf=="en"?$("ph"):$("ph2")).textContent=[p.p,p.pos].filter(Boolean).join("   ·   ")}
+function commit(){if(!pend||pend[3]!=tk)return;const[q,res,f]=pend;pend=null;
+ hist=hist.filter(h=>!(h[0]==q&&h[2]==f));hist.unshift([q,res,f]);sh();f=="en"?addC(q,res):addC(nz(res),q)}
+function hR(){$("hl").innerHTML=hist.length?"":'<div class="uz">Hali tarjima yo\'q</div>';hist.forEach(h=>{const d=document.createElement("div");d.className="hi";d.innerHTML=`<b>${es(h[0])}</b><span>${es(h[1])}</span>`;d.onclick=()=>{tf=h[2];lb();$("tq").value=h[0];$("hp").classList.add("hide");trn()};$("hl").appendChild(d)})}
+$("tq").oninput=()=>{clearTimeout(dt);dt=setTimeout(trn,400)};
+$("tq").onkeydown=e=>{if(e.key=="Enter"&&!e.shiftKey){e.preventDefault();clearTimeout(dt);trn().then(commit)}};$("tq").onblur=()=>{clearTimeout(ct);ct=setTimeout(commit,300)};
+$("tx").onclick=()=>{$("tq").value="";trn();$("tq").focus()};
+$("sa").onclick=()=>spk($("tq").value,tf);$("sb").onclick=()=>spk($("to").textContent,tf=="en"?"uz":"en");
+$("cp").onclick=()=>{try{navigator.clipboard.writeText($("to").textContent)}catch(e){}};
+$("mc").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;const x=new SR();x.lang=LG[tf];x.onresult=e=>{$("tq").value=e.results[0][0].transcript;trn()};try{x.start()}catch(e){}};
+$("sw").onclick=()=>{const v=$("to").textContent;tf=tf=="en"?"uz":"en";lb();if(v){$("tq").value=v}trn()};
+$("hs").onclick=()=>{hR();$("hp").classList.toggle("hide")};$("hc").onclick=()=>{hist=[];sh();hR()};
+$("spd").onclick=e=>{const b=e.target.closest("button");if(!b)return;trs=+b.dataset.s;[...$("spd").children].forEach(x=>x.classList.toggle("on",x==b))};
+function cList(){$("cc").textContent=custom.length+" ta so'z · Tarjimondagi so'zlar shu yerga avtomatik qo'shiladi";$("cg").innerHTML="";
+ custom.slice().reverse().forEach(w=>{const d=document.createElement("div");d.className="v";d.innerHTML=`<button class="dl">✕</button><div class="e">${w[2]}</div><b>${es(w[0])}</b><small>${es(w[1])}</small>`;d.onclick=()=>say(w[0]);d.querySelector(".dl").onclick=e=>{e.stopPropagation();custom=custom.filter(c=>c!==w);cs();if(custom.length)D[CK]=custom;else{delete D[CK];if(lvl==CK)lvl=Ls()[0]}i=0;dI=0;lvls();show();cList()};$("cg").appendChild(d)})}
+$("ab").addEventListener("click",()=>setTimeout(cList,50));
+const fm=t=>{const h=Math.floor(t/3600),m=Math.floor(t%3600/60);return h?h+" soat "+m+" daq":m?m+" daq "+t%60+" son":t+" son"};
+const dk=()=>new Date().toISOString().slice(0,10);
+const DB="";/* Firebase Realtime Database URL, masalan: https://loyiha-default-rtdb.firebaseio.com */
+let uid=localStorage.getItem("uid");if(!uid){uid=Math.random().toString(36).slice(2,10)+Date.now().toString(36);try{localStorage.setItem("uid",uid)}catch(e){}}
+let tkey="tot",lbd=null,pc=0;const nn=x=>+x||0;
+const stats=()=>{const g=a=>a.filter(w=>learned.has(w[0])).length;return{n:prof.n||"Mehmon",a:prof.a,b:g(D.Beginner),e:g(D.Elementary),p:g(D["Pre-Intermediate"]),c:custom.length,t:tm.t,ts:Date.now()}};
+const val=(r,k)=>k=="tot"?nn(r.b)+nn(r.e)+nn(r.p)+nn(r.c):nn(r[k]);
+async function push(){if(!DB)return;try{await fetch(DB+"/users/"+uid+".json",{method:"PUT",body:JSON.stringify(stats())})}catch(e){}}
+async function lbl(){await push();if(DB){try{lbd=await(await fetch(DB+"/users.json")).json()}catch(e){lbd=null}}lbR()}
+function lbR(){const me=Object.assign({id:uid},stats());let rows=lbd?Object.entries(lbd).filter(x=>x[1]&&x[0]!=uid).map(([id,v])=>Object.assign({id},v)):[];rows.push(me);
+ $("tw0").innerHTML=`<div class="big">${es(prof.a)}</div><b>${es(prof.n||"Siz")}</b><div class="uz">Topilgan so'zlar: ${val(me,"tot")} · Bugun: ${fm(tm.d[dk()]||0)}</div>`;
+ rows=rows.filter(r=>val(r,tkey)>0||r.id==uid).sort((a,b)=>val(b,tkey)-val(a,tkey)).slice(0,50);
+ $("tw").innerHTML=(!DB?'<div class="uz">Umumiy reyting hali ulanmagan — hozircha faqat siz ko\'rinasiz.</div>':"")+rows.map((r,k)=>`<div class="card tr"><b style="min-width:34px">${["🥇","🥈","🥉"][k]||k+1}</b><span style="font-size:26px">${es(r.a||"🙂")}</span><b style="flex:1;text-align:left">${es(r.n||"Mehmon")}${r.id==uid?" (siz)":""}</b><b>${tkey=="t"?fm(nn(r.t)):val(r,tkey)}</b></div>`).join("")}
+function topR(){lbR();lbl()}
+$("tc").onclick=e=>{const b=e.target.closest("button");if(!b)return;tkey=b.dataset.k;[...$("tc").children].forEach(x=>x.classList.toggle("on",x==b));lbR()};
+setInterval(()=>{if(document.hidden)return;tm.t+=5;tm.d[dk()]=(tm.d[dk()]||0)+5;try{localStorage.setItem("time",JSON.stringify(tm))}catch(e){}if(onTop)lbR();if(++pc%6==0)push()},5000);
+const AV=["🙂","😎","🧑‍🎓","👩‍💻","🦁","🦊","🐼","🚀","👑","🌟"];
+function pa(){$("pa").innerHTML=AV.map(a=>`<button class="avb${a==prof.a?" on":""}" data-a="${a}">${a}</button>`).join("");$("av").textContent=$("pbig").textContent=prof.a}
+$("pa").onclick=e=>{const b=e.target.closest("button");if(b){prof.a=b.dataset.a;pa();try{localStorage.setItem("prof",JSON.stringify(prof))}catch(x){}}};
+$("ps").onclick=()=>{prof.n=$("pn").value.trim();prof.g=$("pg").value.trim();try{localStorage.setItem("prof",JSON.stringify(prof))}catch(e){}$("pm").innerHTML='<span class="ok">✅ Profil saqlandi</span>';push()};
+$("pn").value=prof.n;$("pg").value=prof.g;pa();
+$("hb").onclick=()=>{$("drw").classList.add("open");$("ov").classList.add("open")};$("ov").onclick=()=>{$("drw").classList.remove("open");$("ov").classList.remove("open")};
+$("drw").onclick=e=>{const b=e.target.closest(".mi");if(b)tab(+b.dataset.n)};$("av").onclick=()=>tab(7);
+lvls();show();tab(4);
 </script></body></html>
