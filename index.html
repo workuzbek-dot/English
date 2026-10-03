@@ -90,6 +90,15 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
 .ait{font:800 30px/1.1 "Playfair Display",ui-serif,Georgia,serif;letter-spacing:.04em;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
 .chat{height:min(44vh,400px);overflow:auto;display:flex;flex-direction:column;gap:10px;padding:10px 2px;margin:10px 0}
 .b{max-width:86%;padding:10px 14px;border-radius:20px;line-height:1.45;text-align:left;font-size:16px}.b.u{align-self:flex-end;background:var(--gold);color:var(--on)}.b.a{align-self:flex-start;background:var(--seg)}.b .en{color:var(--pri);font-style:italic;font-weight:700}
+.orbw{display:flex;justify-content:center;margin:20px 0 10px}
+.orb{width:230px;height:230px;border-radius:50%;border:0;padding:0;cursor:pointer;position:relative;overflow:hidden;background:radial-gradient(circle at 35% 28%,#fff 0,rgba(232,236,255,.7) 18%,transparent 45%),radial-gradient(circle at 72% 22%,#7381ff 0,transparent 55%),linear-gradient(180deg,#7f8dff 0%,#9fb0ff 50%,#f2f4ff 100%);box-shadow:0 24px 70px -10px rgba(120,140,255,.75),inset 0 -24px 50px rgba(255,255,255,.55);animation:breathe 4s ease-in-out infinite;transition:transform .12s}
+.orb::before,.orb::after{content:"";position:absolute;inset:-25%;background:radial-gradient(38% 28% at 40% 72%,rgba(255,255,255,.9),transparent 70%),radial-gradient(34% 26% at 66% 58%,rgba(255,255,255,.65),transparent 70%);animation:drift 10s linear infinite}
+.orb::after{animation-duration:16s;animation-direction:reverse;opacity:.7}
+@keyframes drift{to{transform:rotate(360deg)}}@keyframes breathe{50%{transform:scale(1.04)}}
+@keyframes lis{0%,100%{transform:scale(1);box-shadow:0 24px 70px -10px rgba(120,140,255,.75),0 0 0 0 rgba(130,150,255,.5)}50%{transform:scale(1.07);box-shadow:0 24px 70px -10px rgba(120,140,255,.9),0 0 0 28px rgba(130,150,255,0)}}
+.orb.listen{animation:lis 1.3s ease-in-out infinite}.orb.think::before{animation-duration:2s}.orb.think::after{animation-duration:3s}.orb.think{animation:breathe 1.2s ease-in-out infinite}
+.orb.talk{animation:none;transform:scale(var(--s,1))}.orb.talk::before{animation-duration:4s}.orb.talk::after{animation-duration:6s}
+.cap{font:600 19px/1.5 ui-serif,Georgia,serif;min-height:56px;max-height:30vh;overflow:auto;margin:4px 0 12px}.cap .en{color:var(--pri);font-style:italic}.us{color:var(--mut);font-size:14px;min-height:20px}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
 <div class="seg tabs" id="tb"><button id="t1" class="on">🎧 Listening</button><button id="t2">📚 Lug'at</button><button id="t3">✍️ Diktant</button></div>
@@ -150,10 +159,12 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
  </div><p class="note" id="cc"></p><div class="grid" id="cg"></div></div>
 <div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"><button data-k="tot" class="on">Jami</button><button data-k="b">Beginner</button><button data-k="e">Elementary</button><button data-k="p">Pre-Int</button><button data-k="c">Custom</button><button data-k="t">⏱ Vaqt</button></div><div id="tw"></div></div>
 <div id="s8" class="hide"><div class="card" style="text-align:center">
- <div class="big">🎓</div><div class="ait">Ai Teacher</div><div class="uz">O'zbekcha ham, inglizcha ham gaplashing</div>
- <div class="chat" id="ch"></div><div class="sp" id="as2"></div>
- <div class="row"><button class="pill" id="lg">🇺🇿 O'zbek</button><button class="mic" id="am2" aria-label="Mikrofon">🎤</button><button class="pill" id="vo">🔊</button></div>
- <div style="display:flex;gap:8px;margin-top:10px"><input id="ai" placeholder="Yoki shu yerga yozing..." style="margin:0;font-size:16px;text-align:left" autocomplete="off"><button class="pill blue" id="ag">➤</button></div>
+ <div class="ait">Ai Teacher</div>
+ <div class="orbw"><button class="orb" id="orb" aria-label="Gaplashish"></button></div>
+ <div class="sp" id="as2">Sharni bosing va gapiring</div>
+ <div class="us" id="us"></div><div class="cap" id="cap"></div>
+ <div class="row"><button class="pill" id="lg">🇺🇿 O'zbek</button><button class="pill" id="vo">🔊</button><button class="pill" id="tg2">💬 Yozuv</button></div>
+ <div class="hide" id="tp"><div class="chat" id="ch"></div><div style="display:flex;gap:8px"><input id="ai" placeholder="Yoki shu yerga yozing..." style="margin:0;font-size:16px;text-align:left" autocomplete="off"><button class="pill blue" id="ag">➤</button></div></div>
  <div class="uz" id="an" style="margin-top:8px"></div></div></div>
 <div id="s7" class="hide"><div class="card"><div class="big" id="pbig">🙂</div><div class="avs" id="pa"></div>
  <input id="pn" placeholder="Ismingiz" maxlength="24" autocomplete="off"><input id="pg" placeholder="Maqsadingiz (masalan: IELTS 6.5)" maxlength="60" autocomplete="off">
@@ -210,7 +221,7 @@ $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
 let onTop=false;
-function tab(n){try{speechSynthesis.cancel()}catch(e){}[1,2,3,4,5,6,7,8].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n>3);$("tb").classList.toggle("hide",n>3);$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+function tab(n){if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}[1,2,3,4,5,6,7,8].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n>3);$("tb").classList.toggle("hide",n>3);$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
  if(n==2)vocab();if(n==3)dShow();if(n==5)cList();if(n==6)topR();if(n==8)aGreet();scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>{const p=D[lvl].filter(w=>w[3]);return p.length?p:D[lvl]},dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>dc()[3]||dc()[0];
@@ -299,29 +310,58 @@ $("pn").value=prof.n;$("pg").value=prof.g;pa();
 $("hb").onclick=()=>{$("drw").classList.add("open");$("ov").classList.add("open")};$("ov").onclick=()=>{$("drw").classList.remove("open");$("ov").classList.remove("open")};
 $("drw").onclick=e=>{const b=e.target.closest(".mi");if(b)tab(+b.dataset.n)};$("av").onclick=()=>tab(7);
 
-let alang="uz-UZ",avo=true,ahist=[],abusy=false,agr=false;
+let alang="uz-UZ",avo=true,ahist=[],abusy=false,agr=false,gsp=false,gt="";try{ahist=JSON.parse(localStorage.getItem("ahist")||"[]").slice(-12)}catch(e){}
 const nm=()=>prof.n||"do'stim";
-const SYS=()=>`Sen "Ai Teacher"san — SpeakUp saytining do'stona ingliz tili o'qituvchisi. Foydalanuvchining ismi: ${nm()}. Unga ismi bilan murojaat qil. Ravon, tabiiy o'zbek tilida (lotin yozuvida) gapir, ingliz tilida ham gapira olasan. Ba'zan yengil, yoqimli hazil qil. Javoblar qisqa bo'lsin (2-4 gap), chunki ovoz bilan o'qiladi. Barcha inglizcha so'z va gaplarni {en}...{/en} ichiga yoz. Emoji, markdown va ro'yxat belgilari ishlatma. Foydalanuvchi inglizcha gapirsa, inglizcha javob ber va xatolarini o'zbekcha yumshoq tuzat. Sayt haqida bilimlaring: Menu'da Tarjimon (so'z va gaplarni avtomatik tarjima qiladi, o'qilishini ko'rsatadi, ovozni sekin yoki tez qiladi, History bor, tarjimalar Custom'ga o'zi saqlanadi), Custom (o'z so'zlari), Listening (Listening: so'z yoki gapni eshitib ayting va yozing; Lug'at; Diktant), TOP (so'zlar va vaqt bo'yicha reyting), Profil (ism va avatar). Darajalar: Beginner, Elementary, Pre-Intermediate, har birida 100 ta so'z. Bilmagan narsani to'qima, shuni ochiq ayt.`;
+const tod=()=>{const h=new Date().getHours();return h<5?"tun":h<11?"ertalab":h<17?"kunduz":h<22?"kech":"tun"};
+const SYS=()=>`Sen "Ai Teacher"san: SpeakUp saytidagi iliq, quvnoq va jonli ingliz tili o'qituvchi-do'st. Hozir ${tod()} payti. Foydalanuvchining ismi: ${nm()}${prof.g?"; maqsadi: "+prof.g:""}. Unga ismi bilan, samimiy "siz" deb murojaat qil.
+Gaplashish uslubing: haqiqiy suhbatdosh kabi gapir, robot yoki ensiklopediya kabi emas. Hol-ahvol so'ra, kayfiyatiga e'tibor ber (charchagan bo'lsa hamdard bo'l, xursand bo'lsa birga quvon). "Ha, tushundim", "Voy, qiziq-ku!", "Ho'sh" kabi tabiiy so'zlarni ishlat. Odatda 1-3 qisqa gap yoz va ko'pincha bitta qisqa savol bilan suhbatni davom ettir (lekin har safar emas). Ro'yxat, sarlavha va uzun ma'ruza yozma. Yengil, yoqimli hazil qil. Oldin aytilganlarni eslab, suhbatni davom ettir.
+O'qitish: ingliz tilini suhbat ichiga singdir: yangi so'z taklif qil, xatoni muloyim va qisqa tuzat. Foydalanuvchi inglizcha gapirsa, inglizcha javob ber va keyin o'zbekcha qisqa izoh ber. Dars o'qima, suhbat bo'lsin.
+Rostgo'y bo'l: so'rashsa, sun'iy intellekt ekaningni ochiq ayt, odam deb ko'rsatma. Bilmagan narsani to'qima.
+Format: o'zbekcha lotin yozuvida yoz. Barcha inglizcha so'z va gaplarni {en}...{/en} ichiga ol. Emoji va markdown ishlatma.
+Sayt haqida: Menu'da Tarjimon (so'z va gaplarni avtomatik tarjima qiladi, o'qilishini ko'rsatadi, ovozni sekin yoki tez qiladi, History bor, tarjimalar Custom'ga o'zi saqlanadi), Listening (Listening: so'z yoki gapni eshitib ayting va yozing; Lug'at; Diktant), Ai Teacher (sen), Custom (o'z so'zlari), TOP (so'zlar va vaqt bo'yicha reyting), Profil (ism va avatar). Darajalar: Beginner, Elementary, Pre-Intermediate, har birida 100 ta so'z.`;
+
 const FB=[[/salom|assalom|hello|\bhi\b/i,"Salom! Men Ai Teacher'man. Hozir aqlli javob xizmati bilan aloqa yo'q, lekin sayt haqida so'rashingiz mumkin."],[/tarjim/i,"Menu'dagi Tarjimon bo'limida so'z yozsangiz, tarjima o'zi chiqadi va Custom'ga saqlanadi."],[/reyting|top/i,"TOP bo'limida so'zlar va saytda o'tkazgan vaqt bo'yicha reyting bor."],[/custom/i,"Custom bo'limida o'zingiz qo'shgan va tarjima qilingan so'zlar saqlanadi."],[/listening|diktant|lug/i,"Menu'dagi Listening bo'limida Listening, Lug'at va Diktant mashqlari bor."],[/profil|ism/i,"Menu'dagi Profil bo'limida ismingiz va avatarni o'zgartirasiz."]];
 const fb=q=>{const x=FB.find(a=>a[0].test(q));return x?x[1]:"Kechirasiz, hozir AI xizmati bilan aloqa yo'q. Internetni tekshirib, birozdan keyin qayta urinib ko'ring."};
+const GKEY="";/* Google AI Studio API kaliti (aistudio.google.com/apikey) */
+async function gem(){for(const md of["gemini-3.6-flash","gemini-2.5-flash"]){try{const x=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+md+":generateContent?key="+GKEY,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({systemInstruction:{parts:[{text:SYS()}]},contents:ahist.slice(-10).map(h=>({role:h.role=="user"?"user":"model",parts:[{text:h.content}]})),generationConfig:{temperature:.95}})});if(x.status==404)continue;if(!x.ok)return null;const j=await x.json();return j.candidates[0].content.parts.map(p=>p.text||"").join("")}catch(e){return null}}return null}
 async function llm(m){const c=new AbortController(),t=setTimeout(()=>c.abort(),25000);
- try{const x=await fetch("https://text.pollinations.ai/openai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"openai",messages:m,temperature:.8}),signal:c.signal});if(!x.ok)return null;const j=await x.json();return j.choices[0].message.content}catch(e){return null}finally{clearTimeout(t)}}
-function aadd(role,txt){const d=document.createElement("div");d.className="b "+(role=="u"?"u":"a");d.innerHTML=es(txt).replace(/\{en\}([\s\S]*?)\{\/en\}/g,'<span class="en">$1</span>').replace(/\n/g,"<br>");$("ch").appendChild(d);$("ch").scrollTop=1e9}
-function asay(txt){if(!avo)return;try{speechSynthesis.cancel();const vs=speechSynthesis.getVoices(),ps=[];let last=0,miss=false;
+ try{const x=await fetch("https://text.pollinations.ai/openai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"openai",messages:m,temperature:.9}),signal:c.signal});if(!x.ok)return null;const j=await x.json();return j.choices[0].message.content}catch(e){return null}finally{clearTimeout(t)}}
+let live=false,rt=null,miss0=0;
+const orbS=c=>{$("orb").className="orb "+c};
+const hh=t=>es(t).replace(/\{en\}([\s\S]*?)\{\/en\}/g,'<span class="en">$1</span>').replace(/\n/g,"<br>");
+function aadd(role,txt){const d=document.createElement("div");d.className="b "+(role=="u"?"u":"a");d.innerHTML=hh(txt);$("ch").appendChild(d);$("ch").scrollTop=1e9;if(role=="a")$("cap").innerHTML=hh(txt);else $("us").textContent="Siz: "+txt}
+function asay(txt){return new Promise(res=>{let fin=false;const o=$("orb"),iv=setInterval(()=>o.style.setProperty("--s",(1+Math.random()*.1).toFixed(3)),120),done=()=>{if(fin)return;fin=true;clearInterval(iv);o.style.removeProperty("--s");res()},est=Math.min(7000,1200+txt.length*45);
+ try{if(!avo){setTimeout(done,est);return}
+ speechSynthesis.cancel();const vs=speechSynthesis.getVoices(),ps=[],us=[];let last=0,miss=false;
  txt.replace(/\{en\}([\s\S]*?)\{\/en\}/g,(m,a,k)=>{if(k>last)ps.push([txt.slice(last,k),"uz"]);ps.push([a,"en"]);last=k+m.length;return m});if(last<txt.length)ps.push([txt.slice(last),"uz"]);
- ps.forEach(([t,l])=>{t=t.trim();if(!t)return;const v=vs.find(z=>z.lang.toLowerCase().startsWith(l));if(l=="uz"&&!v){miss=true;return}const u=new SpeechSynthesisUtterance(t);u.lang=l=="uz"?"uz-UZ":"en-US";if(v)u.voice=v;u.rate=.95;speechSynthesis.speak(u)});
- $("an").textContent=miss?"ℹ️ Qurilmangizda o'zbekcha ovoz topilmadi, shuning uchun o'zbekcha qismlar o'qilmaydi. Android telefonda Google TTS'ga o'zbek tilini yuklab oling.":""}catch(e){}}
-async function asend(q){q=q.trim();if(!q||abusy)return;abusy=true;aadd("u",q);$("ai").value="";ahist.push({role:"user",content:q});$("as2").textContent="O'ylayapman...";
- let a=await llm([{role:"system",content:SYS()},...ahist.slice(-10)]);a=(a||fb(q)).trim();
- ahist.push({role:"assistant",content:a});aadd("a",a);asay(a);$("as2").textContent="";abusy=false}
-function aGreet(){if(agr)return;agr=true;const g=`Salom, ${nm()}! Men Ai Teacher'man. {en}Hello! Nice to meet you.{/en} Bugun nimani o'rganamiz? Ingliz tili yoki sayt haqida so'rang, yo'qsa hazillashib ham gaplashamiz.`+(prof.n?"":" Ismingizni Profil bo'limida yozsangiz, sizni ismingiz bilan chaqiraman.");aadd("a",g);asay(g)}
-$("am2").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){$("as2").textContent="Brauzeringiz mikrofonni qo'llamaydi (Chrome ishlating). Pastga yozib yuboring.";return}
- try{speechSynthesis.cancel()}catch(e){}const x=new SR();x.lang=alang;$("as2").textContent="Tinglayapman...";$("am2").classList.add("rec");
- x.onresult=e=>asend(e.results[0][0].transcript);x.onerror=()=>{$("as2").textContent="Mikrofon ruxsatini tekshiring."};
- x.onend=()=>{$("am2").classList.remove("rec");if($("as2").textContent=="Tinglayapman...")$("as2").textContent=""};try{x.start()}catch(e){}};
+ ps.forEach(([t,l])=>{t=t.trim();if(!t)return;const v=vs.find(z=>z.lang.toLowerCase().startsWith(l));if(l=="uz"&&!v){miss=true;return}const u=new SpeechSynthesisUtterance(t);u.lang=l=="uz"?"uz-UZ":"en-US";if(v)u.voice=v;u.rate=.95;us.push(u)});
+ $("an").textContent=miss?"ℹ️ Qurilmangizda o'zbekcha ovoz topilmadi, shuning uchun o'zbekcha qismlar o'qilmaydi (yozuv ko'rinishida chiqadi). Android telefonda Google TTS'ga o'zbek tilini yuklab oling.":"";
+ if(!us.length){setTimeout(done,est);return}
+ us.forEach((u,k)=>{u.onend=u.onerror=()=>{if(k==us.length-1)done()};speechSynthesis.speak(u)});setTimeout(done,est+txt.length*120+4000)}catch(e){done()}})}
+async function asend(q){q=q.trim();if(!q||abusy)return;abusy=true;nameCap(q);aadd("u",q);$("ai").value="";ahist.push({role:"user",content:q});orbS("think");$("as2").textContent="O'ylayapman...";
+ let a=GKEY?await gem():null;if(!a)a=await llm([{role:"system",content:SYS()},...ahist.slice(-10)]);a=(a||fb(q)).trim();
+ ahist.push({role:"assistant",content:a});try{localStorage.setItem("ahist",JSON.stringify(ahist.slice(-12)))}catch(e){}aadd("a",a);orbS("talk");$("as2").textContent="Gapiryapman...";await asay(a);abusy=false;
+ if(live){aListen()}else{orbS("");$("as2").textContent="Sharni bosing va gapiring"}}
+function aListen(){if(!live)return;const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){live=false;orbS("");$("as2").textContent="Brauzeringiz mikrofonni qo'llamaydi (Chrome ishlating). Yozuv orqali yuboring.";return}
+ try{speechSynthesis.cancel()}catch(e){}const x=new SR();rt=x;let got=false;x.lang=alang;orbS("listen");$("as2").textContent="Tinglayapman...";
+ x.onresult=e=>{got=true;miss0=0;asend(e.results[0][0].transcript)};
+ x.onerror=e=>{if(e.error=="not-allowed"||e.error=="service-not-allowed"){live=false;orbS("");$("as2").textContent="Mikrofon ruxsatini bering."}};
+ x.onend=()=>{if(live&&!got&&!abusy){if(++miss0>4){live=false;orbS("");$("as2").textContent="Davom etish uchun sharni bosing";return}setTimeout(aListen,300)}};
+ try{x.start()}catch(e){}}
+function nameCap(q){if(prof.n||ahist.some(h=>h.role=="user")||!ahist.some(h=>h.role=="assistant")||q.split(/\s+/).length>6)return;
+ const w=q.toLowerCase().replace(/[^a-z'ʻ’ ]/g," ").split(/\s+/).filter(x=>x&&!["mening","ismim","men","menga","deb","chaqiring","chaqir","ism","my","name","is","im","i","am","the","bu","meni"].includes(x));
+ if(w[0]&&w[0].length>1&&w[0].length<19){prof.n=w[0][0].toUpperCase()+w[0].slice(1);try{localStorage.setItem("prof",JSON.stringify(prof))}catch(e){}$("pn").value=prof.n}}
+function aStop(){live=false;try{rt&&rt.abort()}catch(e){}try{speechSynthesis.cancel()}catch(e){}if(!abusy){orbS("");$("as2").textContent="Sharni bosing va gapiring"}}
+function aGreet(){if(agr)return;agr=true;const t=tod(),hi=t=="ertalab"?"Xayrli tong":t=="kunduz"?"Xayrli kun":t=="kech"?"Xayrli kech":"Salom";
+ gt=ahist.length?`Yana ko'rishganimdan xursandman${prof.n?", "+prof.n:""}! Ishlaringiz qalay, kayfiyat yaxshimi? {en}How are you doing?{/en}`:prof.n?`${hi}, ${prof.n}! Qalaysiz, hol-ahvollar yaxshimi? {en}How are you today?{/en}`:`${hi}! Men Ai Teacher'man. Tanishib olaylik, ismingiz nima? Sizni ismingiz bilan chaqirsam bo'ladimi?`;aadd("a",gt)}
+$("orb").onclick=async()=>{if(live){aStop();return}live=true;miss0=0;if(abusy)return;
+ if(!gsp){gsp=true;abusy=true;ahist.push({role:"assistant",content:gt});orbS("talk");$("as2").textContent="Gapiryapman...";await asay(gt);abusy=false;if(!live)return}
+ aListen()};
+$("tg2").onclick=()=>$("tp").classList.toggle("hide");
 $("lg").onclick=()=>{alang=alang=="uz-UZ"?"en-US":"uz-UZ";$("lg").textContent=alang=="uz-UZ"?"🇺🇿 O'zbek":"🇬🇧 English"};
 $("vo").onclick=()=>{avo=!avo;$("vo").textContent=avo?"🔊":"🔇";if(!avo)try{speechSynthesis.cancel()}catch(e){}};
 $("ag").onclick=()=>asend($("ai").value);$("ai").onkeydown=e=>{if(e.key=="Enter")asend($("ai").value)};
 try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>{}}catch(e){}
-lvls();show();tab(4);
+lvls();show();tab(8);
 </script></body></html>
