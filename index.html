@@ -266,7 +266,7 @@ function cList(){$("cc").textContent=custom.length+" ta so'z · Tarjimondagi so'
 $("ab").addEventListener("click",()=>setTimeout(cList,50));
 const fm=t=>{const h=Math.floor(t/3600),m=Math.floor(t%3600/60);return h?h+" soat "+m+" daq":m?m+" daq "+t%60+" son":t+" son"};
 const dk=()=>new Date().toISOString().slice(0,10);
-const DB="";/* Firebase Realtime Database URL, masalan: https://loyiha-default-rtdb.firebaseio.com */
+const DB="https://speakup-ce74b-default-rtdb.europe-west1.firebasedatabase.app";/* Firebase Realtime Database URL, masalan: https://loyiha-default-rtdb.firebaseio.com */
 let uid=localStorage.getItem("uid");if(!uid){uid=Math.random().toString(36).slice(2,10)+Date.now().toString(36);try{localStorage.setItem("uid",uid)}catch(e){}}
 let tkey="tot",lbd=null,pc=0;const nn=x=>+x||0;
 const stats=()=>{const g=a=>a.filter(w=>learned.has(w[0])).length;return{n:prof.n||"Mehmon",a:prof.a,b:g(D.Beginner),e:g(D.Elementary),p:g(D["Pre-Intermediate"]),c:custom.length,t:tm.t,ts:Date.now()}};
