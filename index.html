@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="uz"><head><meta charset="utf-8">
 <meta name="google-site-verification" content="cM8Bq4a-NyAgiyyEL201eqC2-cmOOy3v--Zi-9yR7gA" />
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
 <title>SpeakUp English</title>
@@ -113,8 +114,31 @@ select{appearance:none;-webkit-appearance:none;padding-right:38px!important;back
 .spw .ddl{top:auto;bottom:calc(100% + 8px);left:auto;right:0;width:150px}
 .spb{border:0;background:var(--gold);color:var(--on);font:inherit;font-weight:700;font-size:15px;padding:11px 16px;border-radius:999px;cursor:pointer;box-shadow:0 12px 30px -8px rgba(169,122,44,.7)}
 .w{padding-bottom:90px}
+.hh{text-align:center;margin:2px 0 16px}.hh small{display:block;letter-spacing:.3em;font-size:11px;font-weight:700;color:var(--pri)}
+.hh h2{font:800 46px/1.05 ui-serif,"Playfair Display",Georgia,serif;margin:6px 0;background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hh p{margin:0 auto;color:var(--mut);font-size:15px;max-width:340px}
+.hero{display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;padding:22px;border-radius:30px;border:1px solid var(--bd);background:radial-gradient(120% 140% at 100% 50%,color-mix(in srgb,var(--pri) 24%,transparent),transparent 62%),var(--glass);box-shadow:var(--sh);cursor:pointer;margin-bottom:14px}
+.hero h3{font:800 32px/1.1 ui-serif,Georgia,serif;margin:8px 0 6px}.hero p{margin:0 0 14px;color:var(--mut);font-size:14px}
+.hero .orb{display:block;width:110px;height:110px;flex:0 0 auto;pointer-events:none}
+.hg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hc{display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;padding:16px;border-radius:24px;border:1px solid var(--bd);background:var(--glass);box-shadow:var(--sh);cursor:pointer;position:relative;color:var(--tx);font:inherit}
+.hc i{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;font-size:24px;font-style:normal;background:var(--gold);box-shadow:0 8px 20px -6px rgba(169,122,44,.6)}
+.hc b{font:700 19px ui-serif,Georgia,serif}.hc span{color:var(--mut);font-size:13px;line-height:1.35}
+.hc em{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;border:1px solid var(--bd);display:grid;place-items:center;font-style:normal;color:var(--pri)}
+.hc.soon{opacity:.5;cursor:default}.hc.soon em{width:auto;padding:0 10px;border-radius:999px;font-size:11px;height:24px}
+.join{display:flex;align-items:center;gap:12px;margin-top:14px;padding:14px 16px;border-radius:20px;border:1px solid var(--bd);background:var(--glass);text-decoration:none;color:var(--tx);font-weight:700}
+.join small{display:block;color:var(--mut);font-weight:500}
+body.home .top h1{visibility:hidden}
+@media(max-width:420px){.hh h2{font-size:38px}.hero .orb{width:88px;height:88px}.hero h3{font-size:28px}}
+.acc{display:flex;width:100%;justify-content:space-between;align-items:center;padding:18px 20px;border:0;border-bottom:1px solid var(--bd);background:none;color:var(--tx);font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.acc em{font-style:normal;color:var(--pri);font-size:22px;transition:transform .25s}.acc.open em{transform:rotate(90deg)}.accb{padding:8px 20px 20px;border-bottom:1px solid var(--bd)}
+.hb{overflow:hidden;padding:0}.hb img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}#pbig img{width:96px;height:96px;border-radius:50%;object-fit:cover}
+.av2{position:relative;display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--seg);font-size:26px;flex:0 0 auto}.av2 img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.dot{position:absolute;right:-1px;bottom:-1px;width:13px;height:13px;border-radius:50%;background:#30d158;border:2px solid var(--bg2)}
+#s10 .hh h2{font-size:42px}#mfl .tr{cursor:pointer}.pill.sm{padding:8px 14px;font-size:13px}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
+<button class="pill hide" id="bk" style="margin:0 0 12px">← Back</button>
 <div class="seg tabs" id="tb"><button id="t1" class="on">🎧 Listening</button><button id="t2">📚 Vocabulary</button><button id="t3">✍️ Dictation</button></div>
 <div class="seg sm" id="lv"></div>
 
@@ -148,6 +172,39 @@ select{appearance:none;-webkit-appearance:none;padding-right:38px!important;back
   <div class="res" id="dr"></div>
   <div class="row"><button class="pill blue" id="dc">Tekshirish</button><button class="pill" id="da">👁 Javob</button><button class="pill" id="dn">Keyingi →</button></div>
  </div>
+</div>
+<div id="s0" class="hide">
+ <div class="hh"><small>WELCOME TO SPEAKUP</small><h2>SpeakUp</h2><div class="uz" id="wb" style="margin:0 0 6px"></div><p>Your daily dose of real English: words, stories, and speaking practice.</p></div>
+ <div class="hero" data-n="8"><div><span class="badge">● AI POWERED</span><h3>Ai Teacher</h3><p>Ovoz bilan gaplashing, tezkor javob va tuzatishlar oling.</p><span class="pill blue">Explore Now →</span></div><span class="orb"></span></div>
+ <div class="hg">
+  <button class="hc" data-n="1"><i>🎧</i><b>Listening</b><span>So'z va gaplarni eshiting, ayting va yozing. Vocabulary va Dictation ham shu yerda.</span><em>→</em></button>
+  <button class="hc soon"><i>🎤</i><b>Speaking</b><span>Real hayotiy savollar bilan gapirish mashqlari.</span><em>Tez kunda</em></button>
+  <button class="hc soon"><i>📖</i><b>Reading</b><span>Qiziqarli matnlar va tushunish mashqlari.</span><em>Tez kunda</em></button>
+  <button class="hc soon"><i>✏️</i><b>Writing</b><span>Yozish topshiriqlari va fikr-mulohaza.</span><em>Tez kunda</em></button>
+ </div>
+</div>
+<div id="s10" class="hide">
+ <div class="hh"><small>MULTIPLAYER</small><h2>Play Together</h2><p>Do'stlaringiz bilan o'ynab, ingliz tilini birga o'rganing.</p></div>
+ <div class="hero" data-n="11"><div><span class="badge">● FRIENDS</span><h3>Friends</h3><p>Username orqali do'st chaqiring va yozishing.</p><span class="pill blue">Open →</span></div><span class="orb"></span></div>
+ <div class="hg">
+  <button class="hc soon"><i>⚔️</i><b>Word Battle</b><span>Do'st bilan so'z tarjimasi bo'yicha jang.</span><em>Tez kunda</em></button>
+  <button class="hc soon"><i>⌨️</i><b>Spelling Race</b><span>Eshitib kim tezroq to'g'ri yozadi.</span><em>Tez kunda</em></button>
+  <button class="hc soon"><i>🧠</i><b>Memory Match</b><span>So'z va tarjimani juftlash o'yini.</span><em>Tez kunda</em></button>
+  <button class="hc soon"><i>⚡</i><b>Quiz Duel</b><span>Tezkor savol-javob 1 ga 1.</span><em>Tez kunda</em></button>
+ </div>
+</div>
+<div id="s11" class="hide">
+ <div id="mfv">
+  <div class="card" style="text-align:left"><b>➕ Add friend</b>
+   <input id="mfu" placeholder="@username" maxlength="21" autocomplete="off" autocapitalize="off" spellcheck="false">
+   <div class="row" style="margin:10px 0 0"><button class="pill blue" id="mfa">Send request</button></div><div class="sp" id="mfm"></div></div>
+  <div id="mfw"><div id="mfl"></div></div><div class="note" id="mfn" style="text-align:center"></div>
+ </div>
+ <div id="mcv" class="hide"><div class="card" style="padding:16px">
+  <div class="lr"><button class="pill sm" id="mcb">← Friends</button><b id="mcn" style="text-align:center"></b><span style="width:92px"></span></div>
+  <div class="chat" id="mcm"></div>
+  <div style="display:flex;gap:8px"><input id="mct" placeholder="Xabar yozing..." maxlength="300" style="margin:0;font-size:16px;text-align:left" autocomplete="off"><button class="pill blue" id="mcs">➤</button></div>
+ </div></div>
 </div>
 <div id="s4" class="hide">
  <div class="lr"><b id="l1">English</b><button class="pill" id="sw">⇄</button><b id="l2" style="text-align:right">O'zbek</b></div>
@@ -198,22 +255,33 @@ select{appearance:none;-webkit-appearance:none;padding-right:38px!important;back
   <li><b>Listening</b>: eshitib ayting va yozing (Listening), Vocabulary, Dictation.</li>
   <li><b>Ai Teacher</b>: ovoz bilan jonli suhbat, o'zbekcha va inglizcha.</li>
   <li><b>Custom</b>: o'z so'zlaringiz, rasmdan qo'shish, o'z so'zlaringiz bilan Listening va Dictation.</li>
-  <li><b>TOP</b>: topgan so'zlar va saytda o'tkazgan vaqt bo'yicha reyting.</li>
-  <li><b>Profil</b>: ism va avatar.</li></ul>
+  <li><b>Top</b>: topgan so'zlar va saytda o'tkazgan vaqt bo'yicha reyting.</li>
+  <li><b>Multiplayer</b>: do'stlar bilan o'yinlar va yozishma (Friends).</li>
+  <li><b>Settings</b>: profil (ism, username, rasm), Night va Day mode.</li></ul>
  <b>Maslahat</b>
  <p class="note" style="margin:6px 0 12px">Mikrofon uchun Chrome brauzeridan foydalaning va ruxsat bering. Natijalaringiz shu qurilmada saqlanadi.</p>
  <b>Admin bilan bog'lanish</b>
  <p class="note" style="margin:6px 0 12px">Savol, taklif yoki xato bo'lsa, adminga Telegram orqali yozing.</p>
  <a class="pill blue" href="https://t.me/KHAN_EN" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">✈️ Telegram: @KHAN_EN</a>
 </div></div>
-<div id="s7" class="hide"><div class="card"><div class="big" id="pbig">🙂</div><div class="avs" id="pa"></div>
- <input id="pn" placeholder="Ismingiz" maxlength="24" autocomplete="off"><input id="pg" placeholder="Maqsadingiz (masalan: IELTS 6.5)" maxlength="60" autocomplete="off">
- <div class="row"><button class="pill blue" id="ps">Saqlash</button></div><div class="sp" id="pm">Ismingiz umumiy reytingda ko'rinadi.</div></div></div>
+<div id="s7" class="hide"><div class="card" style="text-align:left;padding:0;overflow:hidden">
+ <button class="acc" id="sa1"><span>👤 Profile</span><em>›</em></button>
+ <div class="accb hide" id="sb1">
+  <div style="text-align:center"><div class="big" id="pbig">🙂</div>
+   <div class="row" style="margin:6px 0"><button class="pill" id="pbt">📷 Upload photo</button><button class="pill" id="pr">Remove</button></div><input type="file" id="pf" accept="image/*" class="hide">
+   <div class="avs" id="pa"></div></div>
+  <div class="uz" style="margin:8px 0 0">Name (ism, takrorlanishi mumkin)</div><input id="pn" placeholder="Ismingiz" maxlength="24" autocomplete="off">
+  <div class="uz" style="margin:12px 0 0">Username (noyob, takrorlanmaydi)</div><input id="pu" placeholder="masalan: ali_2026" maxlength="20" autocomplete="off" autocapitalize="off" spellcheck="false">
+  <div class="uz" style="margin:12px 0 0">Goal (maqsad)</div><input id="pg" placeholder="Maqsadingiz (masalan: IELTS 6.5)" maxlength="60" autocomplete="off">
+  <div class="row"><button class="pill blue" id="ps">Save</button></div><div class="sp" id="pm">Name va username umumiy reytingda ko'rinadi.</div></div>
+ <button class="acc" id="sa2"><span>🌓 Appearance</span><em>›</em></button>
+ <div class="accb hide" id="sb2" style="border-bottom:0"><div class="seg sm" id="th" style="margin:6px 0 0"><button data-t="dark">🌙 Night mode</button><button data-t="light">☀️ Day mode</button></div></div>
+</div></div>
 </div>
 <div class="spw"><div class="ddl hide" id="spl"></div><button class="spb" id="spb">🔊 1x</button></div>
 <div class="ov" id="ov"></div>
 <div class="drw" id="drw"><h2>Menu</h2>
-<button class="mi" data-n="4">🌐 Translation</button><button class="mi" data-n="1">🎧 Listening</button><button class="mi" data-n="8">🎓 Ai Teacher</button><button class="mi" data-n="5">⭐ Custom</button><button class="mi" data-n="6">🏆 TOP</button><button class="mi" data-n="7">👤 Profil</button><button class="mi" data-n="9">❓ Help</button></div>
+<button class="mi" data-n="0">🏠 Dashboard</button><button class="mi" data-n="4">🌐 Translation</button><button class="mi" data-n="10">🎮 Multiplayer</button><button class="mi" data-n="5">⭐ Custom</button><button class="mi" data-n="6">🏆 Top</button><button class="mi" data-n="7">⚙️ Settings</button><button class="mi" data-n="9">❓ Help</button></div>
 <script>
 const D={
 "Beginner":[["son","o'g'il","👦","My son plays football every day."],["daughter","qiz farzand","👧","Her daughter is five years old."],["person","odam","🧑","He is a very kind person."],["face","yuz","🙂","She has a happy face."],["finger","barmoq","☝️","I hurt my finger."],["job","ish","💼","I love my new job."],["town","shahar","🏘️","We live in a small town."],["animal","hayvon","🐶","A dog is a friendly animal."]],
@@ -268,9 +336,9 @@ $("mic").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechReco
 $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w){$("msg").innerHTML='<span class="ok">✅ To\'g\'ri!</span>';mark(w);shown=true;render();say(sent?cur()[3]:w)}else $("msg").innerHTML='<span class="bad">Noto\'g\'ri, qayta urining</span>'};
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
-let onTop=false;
-function tab(n){if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[1,2,3,4,5,6,7,8,9].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n>3);$("tb").classList.toggle("hide",n>3);$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
- if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
+let onTop=false,curN=0;
+function tab(n){if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+ if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==0)$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>D[lvl],dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
 async function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=(lvl==CK?"Custom · "+clv:lvl)+" · "+(dI%dp().length+1)+"/"+dp().length;
@@ -341,21 +409,22 @@ const dk=()=>new Date().toISOString().slice(0,10);
 const DB="https://speakup-ce74b-default-rtdb.europe-west1.firebasedatabase.app";/* Firebase Realtime Database URL, masalan: https://loyiha-default-rtdb.firebaseio.com */
 let uid=localStorage.getItem("uid");if(!uid){uid=Math.random().toString(36).slice(2,10)+Date.now().toString(36);try{localStorage.setItem("uid",uid)}catch(e){}}
 let tkey="tot",lbd=null,pc=0;const nn=x=>+x||0;
-const stats=()=>{const g=a=>a.filter(w=>learned.has(w[0])).length;return{n:prof.n||"Mehmon",a:prof.a,b:g(D.Beginner),e:g(D.Elementary),p:g(D["Pre-Intermediate"]),c:custom.length,t:tm.t,ts:Date.now()}};
+const stats=()=>{const g=a=>a.filter(w=>learned.has(w[0])).length;return{n:prof.n||"Mehmon",a:prof.a,b:g(D.Beginner),e:g(D.Elementary),p:g(D["Pre-Intermediate"]),c:custom.length,t:tm.t,ts:{".sv":"timestamp"},u:prof.u||"",ph:prof.p||""}};
 const val=(r,k)=>k=="tot"?nn(r.b)+nn(r.e)+nn(r.p)+nn(r.c):nn(r[k]);
+async function ping(){if(!DB)return;try{await fetch(DB+"/users/"+uid+".json",{method:"PATCH",body:JSON.stringify({ts:{".sv":"timestamp"},t:tm.t})})}catch(e){}}
 async function push(){if(!DB)return;try{await fetch(DB+"/users/"+uid+".json",{method:"PUT",body:JSON.stringify(stats())})}catch(e){}}
 async function lbl(){await push();if(DB){try{lbd=await(await fetch(DB+"/users.json")).json()}catch(e){lbd=null}}lbR()}
-function lbR(){const me=Object.assign({id:uid},stats());let rows=lbd?Object.entries(lbd).filter(x=>x[1]&&x[0]!=uid).map(([id,v])=>Object.assign({id},v)):[];rows.push(me);
- $("tw0").innerHTML=`<div class="big">${es(prof.a)}</div><b>${es(prof.n||"Siz")}</b><div class="uz">Topilgan so'zlar: ${val(me,"tot")} · Bugun: ${fm(tm.d[dk()]||0)}</div>`;
+function lbR(){const ref=lbd&&lbd[uid]?nn(lbd[uid].ts):0;const me=Object.assign({id:uid},stats());let rows=lbd?Object.entries(lbd).filter(x=>x[1]&&x[0]!=uid).map(([id,v])=>Object.assign({id},v)):[];rows.push(me);
+ $("tw0").innerHTML=`<div class="big">${prof.p?`<img src="${prof.p}" style="width:64px;height:64px;border-radius:50%;object-fit:cover" alt="">`:es(prof.a)}</div><b>${es(prof.n||"Siz")}</b><div class="uz">Topilgan so'zlar: ${val(me,"tot")} · Bugun: ${fm(tm.d[dk()]||0)}</div>`;
  rows=rows.filter(r=>val(r,tkey)>0||r.id==uid).sort((a,b)=>val(b,tkey)-val(a,tkey)).slice(0,50);
- $("tw").innerHTML=(!DB?'<div class="uz">Umumiy reyting hali ulanmagan — hozircha faqat siz ko\'rinasiz.</div>':"")+rows.map((r,k)=>`<div class="card tr"><b style="min-width:34px">${["🥇","🥈","🥉"][k]||k+1}</b><span style="font-size:26px">${es(r.a||"🙂")}</span><b style="flex:1;text-align:left">${es(r.n||"Mehmon")}${r.id==uid?" (siz)":""}</b><b>${tkey=="t"?fm(nn(r.t)):val(r,tkey)}</b></div>`).join("")}
+ $("tw").innerHTML=(!DB?'<div class="uz">Umumiy reyting hali ulanmagan — hozircha faqat siz ko\'rinasiz.</div>':"")+rows.map((r,k)=>{const on=r.id==uid||(ref&&nn(r.ts)>0&&ref-nn(r.ts)<90000),pi=r.ph&&String(r.ph).startsWith("data:image/")?`<img src="${es(r.ph)}" alt="">`:es(r.a||"🙂");return`<div class="card tr"><b style="min-width:34px">${["🥇","🥈","🥉"][k]||k+1}</b><span class="av2">${pi}${on?'<i class="dot"></i>':""}</span><b style="flex:1;text-align:left">${es(r.n||"Mehmon")}${r.id==uid?" (siz)":""}${r.u?`<small>@${es(r.u)}</small>`:""}</b><b>${tkey=="t"?fm(nn(r.t)):val(r,tkey)}</b></div>`}).join("")}
 function topR(){lbR();lbl()}
 $("tc").onclick=e=>{const b=e.target.closest("button");if(!b)return;tkey=b.dataset.k;[...$("tc").children].forEach(x=>x.classList.toggle("on",x==b));lbR()};
-setInterval(()=>{if(document.hidden)return;tm.t+=5;tm.d[dk()]=(tm.d[dk()]||0)+5;try{localStorage.setItem("time",JSON.stringify(tm))}catch(e){}if(onTop)lbR();if(++pc%6==0)push()},5000);
+setInterval(()=>{if(document.hidden)return;tm.t+=5;tm.d[dk()]=(tm.d[dk()]||0)+5;try{localStorage.setItem("time",JSON.stringify(tm))}catch(e){}if(onTop)lbR();if(++pc%24==0)push();else if(pc%6==0)ping()},5000);
 const AV=["🙂","😎","🧑‍🎓","👩‍💻","🦁","🦊","🐼","🚀","👑","🌟"];
-function pa(){$("pa").innerHTML=AV.map(a=>`<button class="avb${a==prof.a?" on":""}" data-a="${a}">${a}</button>`).join("");$("av").textContent=$("pbig").textContent=prof.a}
+function pa(){$("pa").innerHTML=AV.map(a=>`<button class="avb${a==prof.a?" on":""}" data-a="${a}">${a}</button>`).join("");const im=prof.p&&String(prof.p).startsWith("data:image/")?`<img src="${prof.p}" alt="">`:null;$("av").innerHTML=im||prof.a;$("pbig").innerHTML=im||prof.a}
 $("pa").onclick=e=>{const b=e.target.closest("button");if(b){prof.a=b.dataset.a;pa();try{localStorage.setItem("prof",JSON.stringify(prof))}catch(x){}}};
-$("ps").onclick=()=>{prof.n=$("pn").value.trim();prof.g=$("pg").value.trim();try{localStorage.setItem("prof",JSON.stringify(prof))}catch(e){}$("pm").innerHTML='<span class="ok">✅ Profil saqlandi</span>';push()};
+$("ps").onclick=()=>{prof.n=$("pn").value.trim();prof.g=$("pg").value.trim();try{localStorage.setItem("prof",JSON.stringify(prof))}catch(e){}$("pm").innerHTML='<span class="ok">✅ Saqlandi</span>';push()};
 $("pn").value=prof.n;$("pg").value=prof.g;pa();
 $("hb").onclick=()=>{$("drw").classList.add("open");$("ov").classList.add("open")};$("ov").onclick=()=>{$("drw").classList.remove("open");$("ov").classList.remove("open")};
 $("drw").onclick=e=>{const b=e.target.closest(".mi");if(b)tab(+b.dataset.n)};$("av").onclick=()=>tab(7);
@@ -368,9 +437,9 @@ Gaplashish uslubing: haqiqiy suhbatdosh kabi gapir, robot yoki ensiklopediya kab
 O'qitish: ingliz tilini suhbat ichiga singdir: yangi so'z taklif qil, xatoni muloyim va qisqa tuzat. Foydalanuvchi inglizcha gapirsa, inglizcha javob ber va keyin o'zbekcha qisqa izoh ber. Dars o'qima, suhbat bo'lsin.
 Rostgo'y bo'l: so'rashsa, sun'iy intellekt ekaningni ochiq ayt, odam deb ko'rsatma. Bilmagan narsani to'qima.
 Format: o'zbekcha lotin yozuvida yoz. Barcha inglizcha so'z va gaplarni {en}...{/en} ichiga ol. Emoji va markdown ishlatma.
-Sayt haqida: Menu'da Translation (so'z va gaplarni avtomatik tarjima qiladi, o'qilishini ko'rsatadi, ovozni sekin yoki tez qiladi, History bor, tarjimalar Custom'ga o'zi saqlanadi), Listening (Listening: so'z yoki gapni eshitib ayting va yozing; Vocabulary; Dictation), Ai Teacher (sen), Custom (o'z so'zlari), TOP (so'zlar va vaqt bo'yicha reyting), Profil (ism va avatar). Darajalar: Beginner, Elementary, Pre-Intermediate, har birida 100 ta so'z.`;
+Sayt haqida: Menu'da Translation (so'z va gaplarni avtomatik tarjima qiladi, o'qilishini ko'rsatadi, ovozni sekin yoki tez qiladi, History bor, tarjimalar Custom'ga o'zi saqlanadi), Listening (Listening: so'z yoki gapni eshitib ayting va yozing; Vocabulary; Dictation), Ai Teacher (sen), Custom (o'z so'zlari), Top (so'zlar va vaqt bo'yicha reyting), Settings (profil, username, rasm, Night va Day mode). Darajalar: Beginner, Elementary, Pre-Intermediate, har birida 100 ta so'z.`;
 
-const FB=[[/salom|assalom|hello|\bhi\b/i,"Salom! Men Ai Teacher'man. Hozir aqlli javob xizmati bilan aloqa yo'q, lekin sayt haqida so'rashingiz mumkin."],[/tarjim/i,"Menu'dagi Translation bo'limida so'z yozsangiz, tarjima o'zi chiqadi va Custom'ga saqlanadi."],[/reyting|top/i,"TOP bo'limida so'zlar va saytda o'tkazgan vaqt bo'yicha reyting bor."],[/custom/i,"Custom bo'limida o'zingiz qo'shgan va tarjima qilingan so'zlar saqlanadi."],[/listening|diktant|lug/i,"Menu'dagi Listening bo'limida Listening, Vocabulary va Dictation mashqlari bor."],[/profil|ism/i,"Menu'dagi Profil bo'limida ismingiz va avatarni o'zgartirasiz."]];
+const FB=[[/salom|assalom|hello|\bhi\b/i,"Salom! Men Ai Teacher'man. Hozir aqlli javob xizmati bilan aloqa yo'q, lekin sayt haqida so'rashingiz mumkin."],[/tarjim/i,"Menu'dagi Translation bo'limida so'z yozsangiz, tarjima o'zi chiqadi va Custom'ga saqlanadi."],[/reyting|top/i,"Top bo'limida so'zlar va saytda o'tkazgan vaqt bo'yicha reyting bor."],[/custom/i,"Custom bo'limida o'zingiz qo'shgan va tarjima qilingan so'zlar saqlanadi."],[/listening|diktant|lug/i,"Menu'dagi Listening bo'limida Listening, Vocabulary va Dictation mashqlari bor."],[/profil|ism/i,"Menu'dagi Settings → Profile bo'limida ismingiz va avatarni o'zgartirasiz."]];
 const fb=q=>{const x=FB.find(a=>a[0].test(q));return x?x[1]:"Kechirasiz, hozir AI xizmati bilan aloqa yo'q. Internetni tekshirib, birozdan keyin qayta urinib ko'ring."};
 const GKEY="";const AIURL="https://speakup-ai.workuzbek.workers.dev";/* AIURL: Cloudflare Worker havolasi *//* Google AI Studio API kaliti (aistudio.google.com/apikey) */
 let gerr=0;
@@ -478,5 +547,61 @@ $("im").onchange=async()=>{const f=$("im").files[0];$("im").value="";if(!f)retur
   const o=await gj([{text:'Rasmdagi inglizcha so\'z va iboralarni ajratib ol. Agar rasmda ularning tarjimasi berilgan bo\'lsa (qaysi tilda bo\'lmasin), o\'sha tarjimani o\'zbek tiliga o\'girib ishlat; berilmagan bo\'lsa, o\'zing o\'zbekchaga tarjima qil. Faqat JSON massiv qaytar: [{"en":"word","uz":"tarjima"}]. Inglizcha qismni kichik harfda yoz. Eng ko\'pi bilan 60 ta.'},{inlineData:{mimeType:"image/jpeg",data:b}}]);
   const a=Array.isArray(o)?o:(o&&o.words)||[];let n=0;a.slice(0,60).forEach(x=>{if(x&&x.en&&x.uz){const bf=custom.length;addC(String(x.en).toLowerCase().trim(),String(x.uz));if(custom.length>bf)n++}});
   $("am").innerHTML=n?`<span class="ok">✅ ${n} ta so'z qo'shildi va tarjima qilindi</span>`:'<span class="bad">Rasmdan yangi so\'z topilmadi yoki xato (kod: '+(gerr||"?")+')</span>'}catch(e){$("am").textContent="Rasmni o'qib bo'lmadi."}};
-lvls();show();tab(8);
+
+$("pn").value=prof.n||"";$("pu").value=prof.u||"";$("pg").value=prof.g||"";
+$("sa1").onclick=()=>{$("sa1").classList.toggle("open");$("sb1").classList.toggle("hide")};
+$("sa2").onclick=()=>{$("sa2").classList.toggle("open");$("sb2").classList.toggle("hide")};
+function setTh(t){document.documentElement.dataset.theme=t;try{localStorage.setItem("theme",t)}catch(e){}[...$("th").children].forEach(b=>b.classList.toggle("on",b.dataset.t==t))}
+setTh(document.documentElement.dataset.theme||"dark");$("th").onclick=e=>{const b=e.target.closest("button");if(b)setTh(b.dataset.t)};
+const psv=()=>{try{localStorage.setItem("prof",JSON.stringify(prof))}catch(e){}};
+$("pbt").onclick=()=>$("pf").click();
+$("pr").onclick=()=>{prof.p="";psv();pa();push()};
+$("pf").onchange=()=>{const f=$("pf").files[0];$("pf").value="";if(!f)return;const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{const c=document.createElement("canvas");c.width=c.height=96;const k=Math.max(96/im.width,96/im.height),w=im.width*k,h=im.height*k;c.getContext("2d").drawImage(im,(96-w)/2,(96-h)/2,w,h);prof.p=c.toDataURL("image/jpeg",.78);URL.revokeObjectURL(u);psv();pa();push()};im.src=u};
+$("ps").onclick=async()=>{const u=$("pu").value.trim().toLowerCase(),old=prof.u||"";const bad=m=>{$("pm").innerHTML='<span class="bad">'+m+'</span>'};
+ if(u&&!/^[a-z0-9_]{3,20}$/.test(u))return bad("Username: 3-20 ta belgi (a-z, 0-9 yoki _) bo'lsin.");
+ if(u!==old){
+  if(u){if(!DB)return bad("Username tekshirib bo'lmadi: reyting bazasi ulanmagan.");
+   try{const cur=await(await fetch(DB+"/usernames/"+u+".json")).json();if(cur&&cur!==uid)return bad("Bu username band, boshqasini tanlang.");
+    await fetch(DB+"/usernames/"+u+".json",{method:"PUT",body:JSON.stringify(uid)})}catch(e){return bad("Internetga ulanib bo'lmadi, username tekshirilmadi.")}}
+  if(old&&DB)fetch(DB+"/usernames/"+old+".json",{method:"DELETE"}).catch(()=>{});
+  prof.u=u}
+ prof.n=$("pn").value.trim();prof.g=$("pg").value.trim();psv();pa();push();$("pm").innerHTML='<span class="ok">✅ Saqlandi</span>'};
+
+let fT=null,cT=null,cF=null;
+const J=async(p,o)=>(await fetch(DB+p+".json",o)).json();
+const pair=id=>[uid,id].sort().join("_");
+const avh=(f,on)=>{const pi=f.ph&&String(f.ph).startsWith("data:image/")?`<img src="${es(f.ph)}" alt="">`:es(f.a||"🙂");return`<span class="av2">${pi}${on?'<i class="dot"></i>':""}</span>`};
+function fclr(){clearInterval(fT);clearInterval(cT)}
+async function frL(){const w=$("mfl"),n=$("mfn");
+ if(!DB){w.innerHTML="";n.textContent="Do'stlar uchun reyting bazasi (Firebase) ulanishi kerak.";return}
+ if(!prof.u){w.innerHTML="";n.innerHTML="Avval <b>Settings → Profile</b> bo'limida username yarating, shunda do'stlar sizni topadi.";return}
+ n.textContent="";
+ try{await ping();const me=await J("/users/"+uid),ref=nn(me&&me.ts),fr=Object.keys(await J("/friends/"+uid)||{}),rq=Object.keys(await J("/requests/"+uid)||{}),get=async id=>Object.assign({id},await J("/users/"+id)||{});
+  const[F,R]=await Promise.all([Promise.all(fr.slice(0,30).map(get)),Promise.all(rq.slice(0,20).map(get))]);
+  let h="";
+  if(R.length)h+='<div class="uz" style="text-align:left;margin:12px 0 6px">Friend requests</div>'+R.map(f=>`<div class="card tr">${avh(f,0)}<b style="flex:1;text-align:left">${es(f.n||"Mehmon")}${f.u?`<small>@${es(f.u)}</small>`:""}</b><button class="pill blue sm" data-ok="${es(f.id)}">Accept</button><button class="pill sm" data-no="${es(f.id)}">✕</button></div>`).join("");
+  h+='<div class="uz" style="text-align:left;margin:12px 0 6px">Friends ('+F.length+')</div>'+(F.length?F.map(f=>`<div class="card tr" data-chat="${es(f.id)}">${avh(f,ref&&nn(f.ts)>0&&ref-nn(f.ts)<90000)}<b style="flex:1;text-align:left">${es(f.n||"Mehmon")}${f.u?`<small>@${es(f.u)}</small>`:""}</b><span class="pill sm">💬 Chat</span></div>`).join(""):'<div class="uz">Hali do\'st yo\'q. Yuqoridan username bilan qo\'shing.</div>');
+  w.innerHTML=h;w._f=F}catch(e){n.textContent="Internetga ulanib bo'lmadi."}}
+function mpOpen(){push();cF=null;clearInterval(cT);$("mcv").classList.add("hide");$("mfv").classList.remove("hide");frL();clearInterval(fT);fT=setInterval(frL,20000)}
+$("mfl").onclick=async e=>{const ok=e.target.closest("[data-ok]"),no=e.target.closest("[data-no]"),ch=e.target.closest("[data-chat]");
+ try{if(ok){const f=ok.dataset.ok;await J("/friends/"+uid+"/"+f,{method:"PUT",body:"true"});await J("/friends/"+f+"/"+uid,{method:"PUT",body:"true"});await J("/requests/"+uid+"/"+f,{method:"DELETE"});frL()}
+ else if(no){await J("/requests/"+uid+"/"+no.dataset.no,{method:"DELETE"});frL()}
+ else if(ch){const f=($("mfl")._f||[]).find(x=>x.id==ch.dataset.chat);if(f)chOpen(f)}}catch(x){}};
+$("mfa").onclick=async()=>{const u=$("mfu").value.trim().toLowerCase().replace(/^@/,""),m=(t,c)=>{$("mfm").innerHTML=`<span class="${c}">${t}</span>`};
+ if(!DB||!prof.u)return m("Avval Settings → Profile'da username yarating.","bad");
+ if(!/^[a-z0-9_]{3,20}$/.test(u))return m("Username noto'g'ri.","bad");
+ try{const t=await J("/usernames/"+u);if(!t)return m("Bunday username topilmadi.","bad");if(t==uid)return m("Bu sizning o'zingizning username'ingiz.","bad");
+  if(await J("/friends/"+uid+"/"+t))return m("Siz allaqachon do'stsiz.","bad");
+  await J("/requests/"+t+"/"+uid,{method:"PUT",body:JSON.stringify(Date.now())});$("mfu").value="";m("✅ So'rov yuborildi. Do'stingiz uni qabul qilgach, ro'yxatda chiqadi.","ok")}catch(e){m("Internetga ulanib bo'lmadi.","bad")}};
+function chOpen(f){cF=f;clearInterval(fT);$("mfv").classList.add("hide");$("mcv").classList.remove("hide");$("mcn").textContent=f.n||"Mehmon";$("mcm").innerHTML="";chL();clearInterval(cT);cT=setInterval(chL,3000)}
+async function chL(){if(!cF)return;try{const o=await J("/chats/"+pair(cF.id))||{},ks=Object.keys(o).sort().slice(-60),bx=$("mcm"),end=bx.scrollHeight-bx.scrollTop-bx.clientHeight<80;
+ bx.innerHTML=ks.map(k=>`<div class="b ${o[k].f==uid?"u":"a"}">${es(o[k].t||"")}</div>`).join("");if(end||!ks.length)bx.scrollTop=1e9}catch(e){}}
+async function chS(){const t=$("mct").value.trim().slice(0,300);if(!t||!cF)return;$("mct").value="";
+ try{await J("/chats/"+pair(cF.id),{method:"POST",body:JSON.stringify({f:uid,t,ts:{".sv":"timestamp"}})});$("mcm").scrollTop=1e9;chL()}catch(e){}}
+$("mcs").onclick=chS;$("mct").onkeydown=e=>{if(e.key=="Enter")chS()};
+$("mcb").onclick=()=>mpOpen();
+$("bk").onclick=()=>tab(curN==11?10:0);
+$("s10").onclick=e=>{const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
+$("s0").onclick=e=>{const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
+lvls();show();tab(0);
 </script></body></html>
