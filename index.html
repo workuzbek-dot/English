@@ -40,7 +40,7 @@ input:focus{border-color:var(--pri);box-shadow:0 0 0 4px color-mix(in srgb,var(-
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .v{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--bd);border-radius:22px;padding:16px 12px;text-align:center;box-shadow:var(--sh);cursor:pointer;transition:.2s}
 .v:active{transform:scale(.97)}.v.lock{opacity:.5;cursor:default}.v .e{font-size:42px}.v b{display:block;font-size:18px}.v small{color:var(--mut);display:block}.v i{font-style:normal;font-size:12px;color:var(--mut);display:block;margin-top:6px}
-.ta{font:inherit;font-size:19px;width:100%;min-height:96px;resize:none;padding:14px;margin-top:12px;border-radius:16px;border:1.5px solid var(--bd);background:var(--seg);color:var(--tx);outline:none;text-align:left}.ta:focus{border-color:var(--pri);box-shadow:0 0 0 4px color-mix(in srgb,var(--pri) 20%,transparent)}.res{font-size:20px;font-weight:600;line-height:1.5;margin-top:10px}.res .g{color:var(--ok)}.res .x{color:var(--bad);text-decoration:underline wavy}.big{font-size:64px;margin:6px 0}.f{margin-bottom:16px;padding:18px}.f input{font-size:16px;margin-top:8px;font-weight:500}.f b{font-size:17px}.v .dl{position:absolute;top:8px;right:10px;border:0;background:none;color:var(--mut);font-size:16px;cursor:pointer}.v{position:relative}.mt{position:absolute;top:8px;left:10px;border:0;background:none;font-size:15px;cursor:pointer}.seg.sm button{font-size:12px;padding:9px 2px}.note{color:var(--mut);font-size:14px;margin:0 4px 14px}
+.ta{font:inherit;font-size:19px;width:100%;min-height:96px;resize:none;padding:14px;margin-top:12px;border-radius:16px;border:1.5px solid var(--bd);background:var(--seg);color:var(--tx);outline:none;text-align:left}.ta:focus{border-color:var(--pri);box-shadow:0 0 0 4px color-mix(in srgb,var(--pri) 20%,transparent)}.res{font-size:20px;font-weight:600;line-height:1.5;margin-top:10px}.res .wg{color:var(--ok)}.res .wx{color:var(--bad);text-decoration:underline wavy}.big{font-size:64px;margin:6px 0}.f{margin-bottom:16px;padding:18px}.f input{font-size:16px;margin-top:8px;font-weight:500}.f b{font-size:17px}.v .dl{position:absolute;top:8px;right:10px;border:0;background:none;color:var(--mut);font-size:16px;cursor:pointer}.v{position:relative}.mt{position:absolute;top:8px;left:10px;border:0;background:none;font-size:15px;cursor:pointer}.seg.sm button{font-size:12px;padding:9px 2px}.note{color:var(--mut);font-size:14px;margin:0 4px 14px}
 
 /* ===== Luxury iPhone Max ===== */
 :root{--bg1:#f7f3ec;--bg2:#e9e0d1;--glass:rgba(255,253,249,.74);--tx:#1b1713;--mut:#8a8173;--pri:#a97a2c;--gold:linear-gradient(135deg,#f3d58a,#c9983f 55%,#9a6f22);--bd:rgba(120,92,40,.16);--seg:rgba(120,100,60,.12);--sh:0 24px 60px -18px rgba(90,64,20,.28);--on:#1b1206}
@@ -66,7 +66,7 @@ h1{font:800 40px/1.05 ui-serif,"New York","Playfair Display",Georgia,serif;lette
 .mic.rec{background:linear-gradient(135deg,#ff453a,#ff9f0a);color:#fff}
 input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-shadow:0 0 0 4px color-mix(in srgb,var(--pri) 22%,transparent)}
 .v{border-radius:26px;box-shadow:var(--sh)}.v b{font:700 19px ui-serif,Georgia,serif}
-.res .g{color:var(--ok)}
+.res .wg{color:var(--ok)}
 
 .top>div{display:flex;align-items:center;gap:10px}
 .hb{width:44px;height:44px;border-radius:50%;border:1px solid var(--bd);background:var(--glass);color:var(--tx);font-size:20px;cursor:pointer;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
@@ -99,6 +99,20 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
 .orb.listen{animation:lis 1.3s ease-in-out infinite}.orb.think::before{animation-duration:2s}.orb.think::after{animation-duration:3s}.orb.think{animation:breathe 1.2s ease-in-out infinite}
 .orb.talk{animation:none;transform:scale(var(--s,1))}.orb.talk::before{animation-duration:4s}.orb.talk::after{animation-duration:6s}
 .cap{font:600 19px/1.5 ui-serif,Georgia,serif;min-height:56px;max-height:30vh;overflow:auto;margin:4px 0 12px}.cap .en{color:var(--pri);font-style:italic}.us{color:var(--mut);font-size:14px;min-height:20px}
+select option{background:var(--bg2);color:var(--tx)}
+select{appearance:none;-webkit-appearance:none;padding-right:38px!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23c9983f' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chips button{flex:0 0 auto;border:1px solid var(--bd);background:var(--glass);color:var(--tx);border-radius:999px;padding:9px 15px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;backdrop-filter:blur(20px)}
+.chips button.on{background:var(--gold);color:var(--on);border:0;box-shadow:0 6px 16px -4px rgba(169,122,44,.55)}
+.dd{position:relative}.ddb{width:100%;display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:16px;border:1px solid var(--bd);background:var(--glass);color:var(--tx);font:inherit;font-size:16px;font-weight:600;cursor:pointer;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.ddb::after{content:"";width:9px;height:9px;border-right:2px solid var(--pri);border-bottom:2px solid var(--pri);transform:rotate(45deg);margin:-4px 2px 0 0}
+.ddl{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:30;background:var(--bg2);border:1px solid var(--bd);border-radius:18px;padding:6px;box-shadow:0 20px 50px -10px rgba(0,0,0,.55);max-height:48vh;overflow:auto}
+.ddl button{display:block;width:100%;text-align:left;border:0;background:none;color:var(--tx);font:inherit;font-size:16px;padding:12px 14px;border-radius:12px;cursor:pointer}
+.ddl button.on{background:var(--gold);color:var(--on);font-weight:700}.ddl button:not(.on):active{background:var(--seg)}
+.spw{position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:25}
+.spw .ddl{top:auto;bottom:calc(100% + 8px);left:auto;right:0;width:150px}
+.spb{border:0;background:var(--gold);color:var(--on);font:inherit;font-weight:700;font-size:15px;padding:11px 16px;border-radius:999px;cursor:pointer;box-shadow:0 12px 30px -8px rgba(169,122,44,.7)}
+.w{padding-bottom:90px}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
 <div class="seg tabs" id="tb"><button id="t1" class="on">🎧 Listening</button><button id="t2">📚 Vocabulary</button><button id="t3">✍️ Dictation</button></div>
@@ -149,7 +163,7 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
  </div>
  <div class="card hide" id="hp" style="text-align:left"><div class="lr"><b>🕘 History</b><button class="pill" id="hc">Tozalash</button></div><div id="hl"></div></div>
 </div>
-<div id="s5" class="hide"><div class="seg sm" style="margin-bottom:12px"><button id="c1" class="on">📋 So'zlarim</button><button id="c2">🎧 Listening</button><button id="c3">✍️ Dictation</button></div><div id="cw1"><div class="card f">
+<div id="s5" class="hide"><div class="seg sm" style="margin-bottom:12px"><button id="c1" class="on">📋 So'zlarim</button><button id="c2">🎧 Listening</button><button id="c3">✍️ Dictation</button></div><div id="cl" class="hide" style="margin-bottom:12px"><div class="uz" style="margin:0 0 6px;text-align:left">Gaplar darajasi (AI shu darajada gap tuzadi):</div><div class="dd"><button class="ddb" id="clb"></button><div class="ddl hide" id="cll"></div></div></div><div id="cw1"><div class="card f">
   <b>➕ O'z so'zingizni qo'shing</b>
   <input id="aw" placeholder="Inglizcha so'z (masalan: window)" autocomplete="off" autocapitalize="off" spellcheck="false">
   <input id="au" placeholder="O'zbekcha ma'nosi (deraza)" autocomplete="off">
@@ -196,6 +210,7 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
  <input id="pn" placeholder="Ismingiz" maxlength="24" autocomplete="off"><input id="pg" placeholder="Maqsadingiz (masalan: IELTS 6.5)" maxlength="60" autocomplete="off">
  <div class="row"><button class="pill blue" id="ps">Saqlash</button></div><div class="sp" id="pm">Ismingiz umumiy reytingda ko'rinadi.</div></div></div>
 </div>
+<div class="spw"><div class="ddl hide" id="spl"></div><button class="spb" id="spb">🔊 1x</button></div>
 <div class="ov" id="ov"></div>
 <div class="drw" id="drw"><h2>Menu</h2>
 <button class="mi" data-n="4">🌐 Translation</button><button class="mi" data-n="1">🎧 Listening</button><button class="mi" data-n="8">🎓 Ai Teacher</button><button class="mi" data-n="5">⭐ Custom</button><button class="mi" data-n="6">🏆 TOP</button><button class="mi" data-n="7">👤 Profil</button><button class="mi" data-n="9">❓ Help</button></div>
@@ -216,7 +231,14 @@ const Ls=()=>Object.keys(D);let lvl=Ls()[0],i=0,sent=false,shown=false,learned=n
 try{learned=new Set(JSON.parse(localStorage.getItem("learned")||"[]"))}catch(e){}
 const $=id=>document.getElementById(id);
 const save=()=>{try{localStorage.setItem("learned",JSON.stringify([...learned]))}catch(e){}};
-function say(t,rt,lg){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang=lg||"en-US";u.rate=rt||.85;speechSynthesis.speak(u)}catch(e){}}
+const SAYC=new Map();let sayTk=0,spd=1;try{spd=+localStorage.getItem("spd")||1}catch(e){}
+async function say(t,rt,lg){const tk=++sayTk;try{speechSynthesis.cancel()}catch(e){}try{if(curA)curA.pause()}catch(e){}
+ if(AIURL&&t&&t.length<260){const key=gvo+"|"+t;let u=SAYC.get(key);if(!u){u=await gtts(t);if(u)SAYC.set(key,u)}
+  if(tk!=sayTk)return;
+  if(u){const a=new Audio(u);curA=a;a.playbackRate=Math.min(2.5,Math.max(.5,spd*(rt||.85)/.85));a.play().catch(()=>dev(t,rt,lg));return}}
+ if(tk==sayTk)dev(t,rt,lg)}
+function bestV(l){const vs=speechSynthesis.getVoices().filter(v=>v.lang.toLowerCase().startsWith(l));return vs.find(v=>/natural|neural|online/i.test(v.name))||vs.find(v=>/google/i.test(v.name))||vs.find(v=>/aria|jenny|guy|samantha|zira/i.test(v.name))||vs[0]}
+function dev(t,rt,lg){try{const u=new SpeechSynthesisUtterance(t);u.lang=lg||"en-US";u.rate=Math.min(2,Math.max(.4,.9*spd*(rt||.85)/.85));const v=bestV((lg||"en-US").slice(0,2));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
 function mark(w){learned.add(w);save();upd()}
 function upd(){$("score").textContent="⭐ "+learned.size;$("pb").style.width=(pool().filter(x=>learned.has(x[0])).length/pool().length*100)+"%"}
 const pool=()=>{const p=D[lvl].filter(w=>!muted.has(w[0])&&(extraOn||!w[4]));return p.length?p:D[lvl]};const cur=()=>{const p=pool();return p[i%p.length]};
@@ -250,11 +272,11 @@ let onTop=false;
 function tab(n){if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[1,2,3,4,5,6,7,8,9].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n>3);$("tb").classList.toggle("hide",n>3);$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
  if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
-let dI=0;const dp=()=>D[lvl],dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>dc()[3]||dc()[0];
-async function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=(lvl==CK?"Custom":lvl)+" · "+(dI%dp().length+1)+"/"+dp().length;
- if(!dc()[3]){$("dr").textContent="Gap tuzilyapti...";const p=dp(),st=dI%p.length;await ensureS([...p.slice(st),...p.slice(0,st)]);$("dr").textContent=""}
+let dI=0;const dp=()=>D[lvl],dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
+async function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=(lvl==CK?"Custom · "+clv:lvl)+" · "+(dI%dp().length+1)+"/"+dp().length;
+ if(lvl==CK?!(SL[clv]&&SL[clv][dc()[0]]):!dc()[3]){$("dr").textContent="Gap tuzilyapti...";const p=dp(),st=dI%p.length;await ensureS([...p.slice(st),...p.slice(0,st)],lvl==CK?clv:undefined);$("dr").textContent=""}
  setTimeout(()=>say(dS()),250)}
-function dMark(t,full){const tg=norm(dS()),us=norm(t);return tg.map(w=>{const k=us.indexOf(w);if(k>-1){us[k]=null;return`<span class="g">${w}</span>`}return`<span class="x">${w}</span>`}).join(" ")}
+function dMark(t,full){const tg=norm(dS()),us=norm(t);return tg.map(w=>{const k=us.indexOf(w);if(k>-1){us[k]=null;return`<span class="wg">${w}</span>`}return`<span class="wx">${w}</span>`}).join(" ")}
 $("dh").onclick=()=>say(dS());$("ds").onclick=()=>say(dS(),.5);
 $("dc").onclick=()=>{const t=$("dt").value;if(!norm(t).length)return;const tg=norm(dS()),us=norm(t);
  const ok=tg.length==us.length&&tg.every((w,k)=>w==us[k]);
@@ -377,10 +399,10 @@ async function gtts(t){const body=JSON.stringify({contents:[{role:"user",parts:[
  try{const x=await fetch(AIURL+"/tts",{method:"POST",headers:{"Content-Type":"application/json"},body});if(!x.ok){gterr=x.status;return null}
   const j=await x.json(),p=j.candidates[0].content.parts.find(z=>z.inlineData),m=(p.inlineData.mimeType||"").match(/rate=(\d+)/),d=Uint8Array.from(atob(p.inlineData.data),c=>c.charCodeAt(0));
   return URL.createObjectURL(new Blob([wavB(d,m?+m[1]:24000)],{type:"audio/wav"}))}catch(e){gterr="tarmoq";return null}}
-const playU=u=>new Promise(res=>{const a=new Audio(u);curA=a;let f=0;const e=()=>{if(f++)return;URL.revokeObjectURL(u);res()};a.onended=a.onerror=a.onpause=e;setTimeout(e,90000);a.play().catch(e)});
+const playU=u=>new Promise(res=>{const a=new Audio(u);curA=a;a.playbackRate=spd;let f=0;const e=()=>{if(f++)return;URL.revokeObjectURL(u);res()};a.onended=a.onerror=a.onpause=e;setTimeout(e,90000);a.play().catch(e)});
 const upl=t=>{const o=[];let b="";t.replace(/\s+/g," ").split(/(?<=[.!?,;:])\s/).forEach(p=>{if((b+" "+p).length>170){if(b)o.push(b);b=p}else b=b?b+" "+p:p});if(b)o.push(b);return o.flatMap(x=>x.length>190?x.match(/.{1,180}(\s|$)/g):[x])};
 const playG=t=>new Promise(res=>{const a=new Audio("https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=uz&q="+encodeURIComponent(t)),tm=setTimeout(()=>{try{a.pause()}catch(e){}res(false)},20000);curA=a;{const P=PR[vpre]||PR.n;a.preservesPitch=a.webkitPreservesPitch=a.mozPreservesPitch=false;a.playbackRate=P.pb}a.onended=()=>{clearTimeout(tm);res(true)};a.onerror=()=>{clearTimeout(tm);res(false)};a.play().catch(()=>{clearTimeout(tm);res(false)})});
-const spU=(t,l,v)=>new Promise(r=>{const u=new SpeechSynthesisUtterance(t);u.lang=l=="uz"?"uz-UZ":"en-US";if(v)u.voice=v;{const P=PR[vpre]||PR.n;u.rate=P.r;u.pitch=P.p}u.onend=u.onerror=r;speechSynthesis.speak(u)});
+const spU=(t,l,v)=>new Promise(r=>{const u=new SpeechSynthesisUtterance(t);u.lang=l=="uz"?"uz-UZ":"en-US";if(v)u.voice=v;{const P=PR[vpre]||PR.n;u.rate=Math.min(2,P.r*spd);u.pitch=P.p}u.onend=u.onerror=r;speechSynthesis.speak(u)});
 function asay(txt){return new Promise(async res=>{const tk=++spTk,o=$("orb"),iv=setInterval(()=>o.style.setProperty("--s",(1+Math.random()*.1).toFixed(3)),120),est=Math.min(7000,1200+txt.length*45);let fin=false;
  const done=()=>{if(fin)return;fin=true;clearInterval(iv);o.style.removeProperty("--s");res()},wait=ms=>new Promise(r=>setTimeout(r,ms));
  try{if(!avo){await wait(est);return done()}
@@ -425,18 +447,29 @@ try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=vfill}catch(e){}
 
 let SC={};try{SC=JSON.parse(localStorage.getItem("sc")||"{}")}catch(e){}
 Object.values(D).flat().forEach(w=>{if(!w[3]&&SC[w[0]])w[3]=SC[w[0]]});
+let SL={},clv="Beginner";try{SL=JSON.parse(localStorage.getItem("sl")||"{}");clv=localStorage.getItem("clv")||"Beginner"}catch(e){}
+const LV={"Beginner":"A1: juda sodda, hozirgi zamon, 5-7 so'z","Elementary":"A2: sodda, hozirgi va o'tgan zamon, 6-9 so'z","Pre-Intermediate":"A2-B1: oddiy bog'lovchilar bilan, 8-11 so'z","Intermediate":"B1: turli zamonlar, shart gaplar, 9-13 so'z","Upper-Intermediate":"B2: murakkab tuzilmalar, majhul nisbat, 11-15 so'z","Advanced":"C1: boy lug'at va murakkab tuzilmalar, 13-18 so'z","IELTS":"IELTS 7+ (C1-C2): akademik, rasmiy uslub, 14-20 so'z"};
 async function gj(parts){if(!AIURL)return null;try{const x=await fetch(AIURL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{role:"user",parts}],generationConfig:{responseMimeType:"application/json",temperature:.6}})});if(!x.ok){gerr=x.status;return null}const j=await x.json(),t=j.candidates[0].content.parts.map(p=>p.text||"").join("");return JSON.parse(t.replace(/^```json|```$/g,"").trim())}catch(e){return null}}
 let gsP=null;
-function ensureS(ws){if(gsP)return gsP;ws=ws.filter(w=>!w[3]).slice(0,25);if(!ws.length)return Promise.resolve();
- gsP=(async()=>{const o=await gj([{text:`Quyidagi inglizcha so'zlarning har biri uchun sodda, 6-10 so'zli, grammatik to'g'ri inglizcha gap yoz (so'z gapda aynan shu shaklda qatnashsin). Faqat JSON obyekt qaytar: {"so'z":"gap",...}. So'zlar: ${ws.map(w=>w[0]).join(", ")}`}]);
-  if(o&&typeof o=="object")ws.forEach(w=>{const t=o[w[0]];if(typeof t=="string"&&t.length>3&&t.length<160){w[3]=t.replace(/[<>&"]/g,"");SC[w[0]]=w[3]}});
-  try{localStorage.setItem("sc",JSON.stringify(SC))}catch(e){}cs()})().finally(()=>{gsP=null});return gsP}
+function ensureS(ws,lv){if(gsP)return gsP;ws=ws.filter(w=>lv?!(SL[lv]&&SL[lv][w[0]]):!w[3]).slice(0,25);if(!ws.length)return Promise.resolve();
+ gsP=(async()=>{const o=await gj([{text:(lv?`Quyidagi inglizcha so'zlarning har biri uchun "${lv}" darajasiga mos inglizcha gap yoz. Daraja: ${LV[lv]}. So'z gapda qatnashsin (iloji boricha aynan shu shaklda). `:`Quyidagi inglizcha so'zlarning har biri uchun sodda, 6-10 so'zli, grammatik to'g'ri inglizcha gap yoz (so'z gapda aynan shu shaklda qatnashsin). `)+`Faqat JSON obyekt qaytar: {"so'z":"gap",...}. So'zlar: ${ws.map(w=>w[0]).join(", ")}`}]);
+  if(o&&typeof o=="object")ws.forEach(w=>{const t=o[w[0]];if(typeof t=="string"&&t.length>3&&t.length<220){const c=t.replace(/[<>&"]/g,"");if(lv){(SL[lv]=SL[lv]||{})[w[0]]=c}else{w[3]=c;SC[w[0]]=c}}});
+  try{localStorage.setItem("sc",JSON.stringify(SC));localStorage.setItem("sl",JSON.stringify(SL))}catch(e){}cs()})().finally(()=>{gsP=null});return gsP}
 function cSub(n){if(n>1&&!custom.length){$("am").innerHTML='<span class="bad">Avval so\'z qo\'shing yoki tarjima qiling.</span>';n=1}
- [1,2,3].forEach(k=>$("c"+k).className=k==n?"on":"");$("cw1").classList.toggle("hide",n!=1);
+ [1,2,3].forEach(k=>$("c"+k).className=k==n?"on":"");$("cw1").classList.toggle("hide",n!=1);$("cl").classList.toggle("hide",n!=3);
  if(n==1){$("s1").classList.add("hide");$("s3").classList.add("hide");return}
  const h=$("cw2");h.appendChild($("s1"));h.appendChild($("s3"));lvl=CK;i=0;dI=0;
  $("s1").classList.toggle("hide",n!=2);$("s3").classList.toggle("hide",n!=3);
  if(n==2){show();ensureS(D[CK])}else dShow()}
+const LT={"Beginner":"A1","Elementary":"A2","Pre-Intermediate":"A2–B1","Intermediate":"B1","Upper-Intermediate":"B2","Advanced":"C1","IELTS":"7+"};
+function cch(){$("clb").textContent=clv+" · "+LT[clv];$("cll").innerHTML=Object.keys(LV).map(k=>`<button class="${k==clv?"on":""}" data-k="${k}">${k} <small style="opacity:.7">${LT[k]}</small></button>`).join("")}
+cch();$("clb").onclick=e=>{e.stopPropagation();$("cll").classList.toggle("hide")};
+$("cll").onclick=e=>{const b=e.target.closest("button");if(!b)return;clv=b.dataset.k;try{localStorage.setItem("clv",clv)}catch(x){}cch();$("cll").classList.add("hide");dI=0;dShow()};
+const SPD=[.5,.75,.9,1,1.25,1.5,2];
+function spr(){$("spb").textContent="🔊 "+spd+"x";$("spl").innerHTML=SPD.map(v=>`<button class="${v==spd?"on":""}" data-v="${v}">${v}x${v==1?" · oddiy":""}</button>`).join("")}
+spr();$("spb").onclick=e=>{e.stopPropagation();$("spl").classList.toggle("hide")};
+$("spl").onclick=e=>{const b=e.target.closest("button");if(!b)return;spd=+b.dataset.v;try{localStorage.setItem("spd",spd)}catch(x){}spr();$("spl").classList.add("hide")};
+document.addEventListener("click",()=>{$("spl").classList.add("hide");$("cll").classList.add("hide")});
 $("c1").onclick=()=>cSub(1);$("c2").onclick=()=>cSub(2);$("c3").onclick=()=>cSub(3);
 $("ib").onclick=()=>$("im").click();
 $("im").onchange=async()=>{const f=$("im").files[0];$("im").value="";if(!f)return;if(!AIURL){$("am").textContent="AI ulanmagan.";return}
