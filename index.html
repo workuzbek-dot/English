@@ -164,12 +164,14 @@ input,.ta{border-radius:20px}input:focus,.ta:focus{border-color:var(--pri);box-s
  <div class="sp" id="as2">Sharni bosing va gapiring</div>
  <div class="us" id="us"></div><div class="cap" id="cap"></div>
  <div class="row"><button class="pill" id="lg">🇺🇿 O'zbek</button><button class="pill" id="vo">🔊</button><button class="pill" id="tg2">💬 Yozuv</button><button class="pill" id="vb">🎙 Ovoz</button></div>
- <div class="hide" id="vp" style="text-align:left;margin:10px 0"><div class="uz" style="margin:0 0 6px">Qurilmadagi ovoz:</div>
+ <div class="hide" id="vp" style="text-align:left;margin:10px 0"><div class="uz" style="margin:0 0 6px">Ai Teacher ovozi (Gemini):</div>
+ <select id="gv" style="width:100%;padding:12px;border-radius:14px;border:1.5px solid var(--bd);background:var(--seg);color:var(--tx);font:inherit;font-size:15px;margin-bottom:12px"></select>
+ <div class="uz" style="margin:0 0 6px">Zaxira: qurilmadagi ovoz:</div>
  <select id="vs" style="width:100%;padding:12px;border-radius:14px;border:1.5px solid var(--bd);background:var(--seg);color:var(--tx);font:inherit;font-size:15px"></select>
  <div class="uz" style="margin:12px 0 6px">Ovoz uslubi:</div>
  <div class="seg sm" id="vpr" style="margin:0 0 10px"><button data-p="n">Oddiy</button><button data-p="y">Yosh</button><button data-p="q">Qalin</button><button data-p="h">Hazilkash</button></div>
  <div class="row" style="margin:6px 0 0"><button class="pill blue" id="vt">▶ Sinab ko'rish</button></div>
- <div class="uz" style="margin-top:8px;font-size:13px">Uslublar o'zbekcha onlayn ovozni ham o'zgartiradi. Qurilmadagi ovozlar soni telefon va kompyuterga bog'liq.</div></div>
+ <div class="uz" style="margin-top:8px;font-size:13px">Asosiy ovoz yuqoridagi Gemini ovozi (o'zbekcha ham, inglizcha ham o'qiydi). Pastdagi sozlamalar Gemini ishlamaganda zaxira sifatida ishlatiladi.</div></div>
 <div class="hide" id="tp"><div class="chat" id="ch"></div><div style="display:flex;gap:8px"><input id="ai" placeholder="Yoki shu yerga yozing..." style="margin:0;font-size:16px;text-align:left" autocomplete="off"><button class="pill blue" id="ag">➤</button></div></div>
  <div class="uz" id="an" style="margin-top:8px"></div></div></div>
 <div id="s7" class="hide"><div class="card"><div class="big" id="pbig">🙂</div><div class="avs" id="pa"></div>
@@ -342,23 +344,33 @@ let live=false,rt=null,miss0=0;
 const orbS=c=>{$("orb").className="orb "+c};
 const hh=t=>es(t).replace(/\{en\}([\s\S]*?)\{\/en\}/g,'<span class="en">$1</span>').replace(/\n/g,"<br>");
 function aadd(role,txt){const d=document.createElement("div");d.className="b "+(role=="u"?"u":"a");d.innerHTML=hh(txt);$("ch").appendChild(d);$("ch").scrollTop=1e9;if(role=="a")$("cap").innerHTML=hh(txt);else $("us").textContent="Siz: "+txt}
-let spTk=0,curA=null,vsel="",vpre="n";
+let spTk=0,curA=null,vsel="",vpre="n",gvo="Aoede",gterr=0;
 const PR={n:{p:1,r:.95,pb:1},y:{p:1.55,r:1.05,pb:1.2},q:{p:.55,r:.9,pb:.85},h:{p:1.25,r:1.2,pb:1.12}};
-try{const z=JSON.parse(localStorage.getItem("avoice")||"{}");vsel=z.v||"";vpre=PR[z.p]?z.p:"n"}catch(e){}
-const vsv=()=>{try{localStorage.setItem("avoice",JSON.stringify({v:vsel,p:vpre}))}catch(e){}};
+try{const z=JSON.parse(localStorage.getItem("avoice")||"{}");vsel=z.v||"";vpre=PR[z.p]?z.p:"n";gvo=z.g||"Aoede"}catch(e){}
+const vsv=()=>{try{localStorage.setItem("avoice",JSON.stringify({v:vsel,p:vpre,g:gvo}))}catch(e){}};
 const vf=(l,vs)=>{const x=vs.find(z=>z.name==vsel);return x&&x.lang.toLowerCase().startsWith(l)?x:vs.find(z=>z.lang.toLowerCase().startsWith(l))};
 function vfill(){const vs=speechSynthesis.getVoices();$("vs").innerHTML='<option value="">Avtomatik</option>'+vs.filter(v=>/^(en|uz)/i.test(v.lang)).map(v=>`<option value="${es(v.name)}">${es(v.name)} (${v.lang})</option>`).join("");$("vs").value=vsel;[...$("vpr").children].forEach(b=>b.classList.toggle("on",b.dataset.p==vpre))}
+const GV=[["Aoede","yengil"],["Kore","qat'iyatli"],["Puck","quvnoq"],["Charon","ma'lumotli"],["Fenrir","hayajonli"],["Leda","yosh"],["Zephyr","yorqin"],["Achird","do'stona"],["Sulafat","iliq"],["Gacrux","yetuk"],["Algieba","silliq"],["Schedar","bir tekis"],["Enceladus","nafasli"],["Sadachbia","jonli"]];
+const spl=(t,m)=>{const o=[];let b="";t.replace(/\s+/g," ").trim().split(/(?<=[.!?])\s/).forEach(p=>{if(b&&(b+" "+p).length>m){o.push(b);b=p}else b=b?b+" "+p:p});if(b)o.push(b);return o};
+function wavB(d,rate){if(d[0]==82&&d[1]==73&&d[2]==70&&d[3]==70)return d;const h=new DataView(new ArrayBuffer(44)),w=(o,s)=>[...s].forEach((c,k)=>h.setUint8(o+k,c.charCodeAt(0)));w(0,"RIFF");h.setUint32(4,36+d.length,true);w(8,"WAVEfmt ");h.setUint32(16,16,true);h.setUint16(20,1,true);h.setUint16(22,1,true);h.setUint32(24,rate,true);h.setUint32(28,rate*2,true);h.setUint16(32,2,true);h.setUint16(34,16,true);w(36,"data");h.setUint32(40,d.length,true);const o=new Uint8Array(44+d.length);o.set(new Uint8Array(h.buffer));o.set(d,44);return o}
+async function gtts(t){const body=JSON.stringify({contents:[{role:"user",parts:[{text:t}]}],generationConfig:{responseModalities:["AUDIO"],speechConfig:{voiceConfig:{voice:gvo}}}});
+ try{const x=await fetch(AIURL+"/tts",{method:"POST",headers:{"Content-Type":"application/json"},body});if(!x.ok){gterr=x.status;return null}
+  const j=await x.json(),p=j.candidates[0].content.parts.find(z=>z.inlineData),m=(p.inlineData.mimeType||"").match(/rate=(\d+)/),d=Uint8Array.from(atob(p.inlineData.data),c=>c.charCodeAt(0));
+  return URL.createObjectURL(new Blob([wavB(d,m?+m[1]:24000)],{type:"audio/wav"}))}catch(e){gterr="tarmoq";return null}}
+const playU=u=>new Promise(res=>{const a=new Audio(u);curA=a;let f=0;const e=()=>{if(f++)return;URL.revokeObjectURL(u);res()};a.onended=a.onerror=a.onpause=e;setTimeout(e,90000);a.play().catch(e)});
 const upl=t=>{const o=[];let b="";t.replace(/\s+/g," ").split(/(?<=[.!?,;:])\s/).forEach(p=>{if((b+" "+p).length>170){if(b)o.push(b);b=p}else b=b?b+" "+p:p});if(b)o.push(b);return o.flatMap(x=>x.length>190?x.match(/.{1,180}(\s|$)/g):[x])};
 const playG=t=>new Promise(res=>{const a=new Audio("https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=uz&q="+encodeURIComponent(t)),tm=setTimeout(()=>{try{a.pause()}catch(e){}res(false)},20000);curA=a;{const P=PR[vpre]||PR.n;a.preservesPitch=a.webkitPreservesPitch=a.mozPreservesPitch=false;a.playbackRate=P.pb}a.onended=()=>{clearTimeout(tm);res(true)};a.onerror=()=>{clearTimeout(tm);res(false)};a.play().catch(()=>{clearTimeout(tm);res(false)})});
 const spU=(t,l,v)=>new Promise(r=>{const u=new SpeechSynthesisUtterance(t);u.lang=l=="uz"?"uz-UZ":"en-US";if(v)u.voice=v;{const P=PR[vpre]||PR.n;u.rate=P.r;u.pitch=P.p}u.onend=u.onerror=r;speechSynthesis.speak(u)});
 function asay(txt){return new Promise(async res=>{const tk=++spTk,o=$("orb"),iv=setInterval(()=>o.style.setProperty("--s",(1+Math.random()*.1).toFixed(3)),120),est=Math.min(7000,1200+txt.length*45);let fin=false;
  const done=()=>{if(fin)return;fin=true;clearInterval(iv);o.style.removeProperty("--s");res()},wait=ms=>new Promise(r=>setTimeout(r,ms));
  try{if(!avo){await wait(est);return done()}
+ let gfail=false;
+ if(AIURL){const ch=spl(txt.replace(/\{\/?en\}/g,""),450);let nx=gtts(ch[0]),ok0=false;for(let k=0;k<ch.length;k++){const u=await nx;if(tk!=spTk)return done();if(k+1<ch.length)nx=gtts(ch[k+1]);if(!u){if(k==0)gfail=true;break}ok0=true;await playU(u)}if(ok0){$("an").textContent="";return done()}}
  speechSynthesis.cancel();const vs=speechSynthesis.getVoices(),ps=[];let last=0,spoke=false,fail=false;
  txt.replace(/\{en\}([\s\S]*?)\{\/en\}/g,(m,a,k)=>{if(k>last)ps.push([txt.slice(last,k),"uz"]);ps.push([a,"en"]);last=k+m.length;return m});if(last<txt.length)ps.push([txt.slice(last),"uz"]);
  for(let[t,l]of ps){if(tk!=spTk)break;t=t.trim();if(!t)continue;const v=vf(l,vs);
   if(l=="en"||v){await spU(t,l,v);spoke=true}else{for(const c of upl(t)){if(tk!=spTk)break;if(await playG(c))spoke=true;else{fail=true;break}}}}
- $("an").textContent=fail?"ℹ️ O'zbekcha ovozni olib bo'lmadi (qurilmada o'zbek ovozi yo'q, onlayn ovoz ham ishlamadi). Javob yozuv ko'rinishida chiqadi.":"";
+ $("an").textContent=(gfail?"ℹ️ Gemini ovozi ishlamadi (kod: "+gterr+"), zaxira ovoz ishlatildi. ":"")+(fail?"O'zbekcha qismlar yozuv ko'rinishida chiqadi.":"");
  if(!spoke&&tk==spTk)await wait(est)}catch(e){}done()})}
 async function asend(q){q=q.trim();if(!q||abusy)return;abusy=true;nameCap(q);aadd("u",q);$("ai").value="";ahist.push({role:"user",content:q});orbS("think");$("as2").textContent="O'ylayapman...";
  let a=(GKEY||AIURL)?await gem():null;if(!a)a=await llm([{role:"system",content:SYS()},...ahist.slice(-10)]);const fbk=!a;a=(a||fb(q)).trim();
@@ -381,6 +393,7 @@ $("orb").onclick=async()=>{if(live){aStop();return}live=true;miss0=0;if(abusy)re
  if(!gsp){gsp=true;abusy=true;ahist.push({role:"assistant",content:gt});orbS("talk");$("as2").textContent="Gapiryapman...";await asay(gt);abusy=false;if(!live)return}
  aListen()};
 $("vb").onclick=()=>{vfill();$("vp").classList.toggle("hide")};
+$("gv").innerHTML=GV.map(v=>`<option value="${v[0]}">${v[0]} — ${v[1]}</option>`).join("");$("gv").value=gvo;$("gv").onchange=()=>{gvo=$("gv").value;vsv()};
 $("vs").onchange=()=>{vsel=$("vs").value;vsv()};
 $("vpr").onclick=e=>{const b=e.target.closest("button");if(!b)return;vpre=b.dataset.p;vsv();vfill()};
 $("vt").onclick=async()=>{if(abusy)return;abusy=true;orbS("talk");await asay("Salom! Men Ai Teacher'man. {en}Hello! This is how I sound.{/en} Mana shunday gapiraman.");abusy=false;orbS(live?"listen":"")};
