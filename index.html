@@ -136,6 +136,15 @@ body.home .top h1{visibility:hidden}
 .av2{position:relative;display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--seg);font-size:26px;flex:0 0 auto}.av2 img{width:100%;height:100%;border-radius:50%;object-fit:cover}
 .dot{position:absolute;right:-1px;bottom:-1px;width:13px;height:13px;border-radius:50%;background:#30d158;border:2px solid var(--bg2)}
 #s10 .hh h2{font-size:42px}#mfl .tr{cursor:pointer}.pill.sm{padding:8px 14px;font-size:13px}
+.mdl{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:grid;place-items:center;padding:20px}.mdl.hide{display:none}.mdc{width:min(92vw,380px);display:flex;flex-direction:column;gap:10px}
+.inv{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:8px;width:min(94vw,420px);padding:12px 14px;border-radius:20px;background:var(--bg2);border:1px solid var(--bd);box-shadow:var(--sh)}.inv.hide{display:none}.inv span{flex:1;font-size:14px;font-weight:600}
+.gopt{display:block;width:100%;margin:8px 0;text-align:left;font-size:16px}.gopt.gok{background:#30a14e;color:#fff}.gopt.gno{background:#e5484d;color:#fff}.gopt.sel{outline:2px solid var(--pri)}
+#tl{margin-top:-6px}
+.chips.w{flex-wrap:wrap;overflow:visible}
+.k0{color:#8b93ff}.k1{color:#f5b800}.k2{color:#2dd4bf}.k3{color:#f472b6}.k4{color:#4ade80}
+.kr{padding:10px 0;border-top:1px solid var(--bd)}.kr b{font-size:15px}.kr .row{margin:6px 0 0;justify-content:flex-start;flex-wrap:wrap}
+.sqa{font:500 16px/1.65 -apple-system,BlinkMacSystemFont,sans-serif;margin:8px 0}.sqa .kw{font-weight:700}
+#sgt .hc{align-items:center;text-align:center}#sgt .hc span{text-align:center}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
 <button class="pill hide" id="bk" style="margin:0 0 12px">← Back</button>
@@ -178,19 +187,30 @@ body.home .top h1{visibility:hidden}
  <div class="hero" data-n="8"><div><span class="badge">● AI POWERED</span><h3>Ai Teacher</h3><p>Ovoz bilan gaplashing, tezkor javob va tuzatishlar oling.</p><span class="pill blue">Explore Now →</span></div><span class="orb"></span></div>
  <div class="hg">
   <button class="hc" data-n="1"><i>🎧</i><b>Listening</b><span>So'z va gaplarni eshiting, ayting va yozing. Vocabulary va Dictation ham shu yerda.</span><em>→</em></button>
-  <button class="hc soon"><i>🎤</i><b>Speaking</b><span>Real hayotiy savollar bilan gapirish mashqlari.</span><em>Tez kunda</em></button>
+  <button class="hc" data-n="13"><i>🎤</i><b>Speaking</b><span>Real hayotiy savollar, namunaviy javob va yozib olish.</span><em>→</em></button>
   <button class="hc soon"><i>📖</i><b>Reading</b><span>Qiziqarli matnlar va tushunish mashqlari.</span><em>Tez kunda</em></button>
   <button class="hc soon"><i>✏️</i><b>Writing</b><span>Yozish topshiriqlari va fikr-mulohaza.</span><em>Tez kunda</em></button>
  </div>
 </div>
+<div id="s13" class="hide">
+ <div class="hh"><small>SPEAKING</small><h2 style="font-size:38px">Speaking</h2><p>Speaking darajangizni native darajaga olib chiqamiz.</p></div>
+ <div class="chips w" id="sgl" style="margin-bottom:14px"></div>
+ <div class="hg" id="sgt"></div>
+ <div id="sgq" class="hide"><button class="pill sm" id="sgb">← All topics</button><div class="main" id="sgh" style="text-align:left;margin:12px 0"></div><div id="sgi"></div></div>
+</div>
+<div id="s12" class="hide"><div class="card" style="text-align:center">
+ <div class="lr"><b id="gn1" style="text-align:left"></b><b id="gn2" style="text-align:right"></b></div>
+ <div class="bar"><i id="gpb"></i></div>
+ <div class="uz" id="gst"></div><div class="main" id="gq"></div><div id="go"></div>
+</div></div>
 <div id="s10" class="hide">
  <div class="hh"><small>MULTIPLAYER</small><h2>Play Together</h2><p>Do'stlaringiz bilan o'ynab, ingliz tilini birga o'rganing.</p></div>
  <div class="hero" data-n="11"><div><span class="badge">● FRIENDS</span><h3>Friends</h3><p>Username orqali do'st chaqiring va yozishing.</p><span class="pill blue">Open →</span></div><span class="orb"></span></div>
  <div class="hg">
-  <button class="hc soon"><i>⚔️</i><b>Word Battle</b><span>Do'st bilan so'z tarjimasi bo'yicha jang.</span><em>Tez kunda</em></button>
-  <button class="hc soon"><i>⌨️</i><b>Spelling Race</b><span>Eshitib kim tezroq to'g'ri yozadi.</span><em>Tez kunda</em></button>
+  <button class="hc" data-g="wb"><i>⚔️</i><b>Word Battle</b><span>So'z tarjimasini kim tezroq topadi.</span><em>▶</em></button>
+  <button class="hc" data-g="sr"><i>⌨️</i><b>Spelling Race</b><span>Eshitib kim tezroq to'g'ri yozadi.</span><em>▶</em></button>
   <button class="hc soon"><i>🧠</i><b>Memory Match</b><span>So'z va tarjimani juftlash o'yini.</span><em>Tez kunda</em></button>
-  <button class="hc soon"><i>⚡</i><b>Quiz Duel</b><span>Tezkor savol-javob 1 ga 1.</span><em>Tez kunda</em></button>
+  <button class="hc" data-g="qd"><i>⚡</i><b>Quiz Duel</b><span>Gapdagi tushib qolgan so'zni toping.</span><em>▶</em></button>
  </div>
 </div>
 <div id="s11" class="hide">
@@ -228,7 +248,7 @@ body.home .top h1{visibility:hidden}
   <div class="row" style="margin-bottom:0"><button class="pill blue" id="ab">Qo'shish</button><button class="pill" id="ib">📷 Rasmdan</button><input type="file" id="im" accept="image/*" class="hide"></div>
   <div class="sp" id="am"></div>
  </div><p class="note" id="cc"></p><div class="grid" id="cg"></div></div><div id="cw2"></div></div>
-<div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"><button data-k="tot" class="on">Jami</button><button data-k="b">Beginner</button><button data-k="e">Elementary</button><button data-k="p">Pre-Int</button><button data-k="c">Custom</button><button data-k="t">⏱ Vaqt</button></div><div id="tw"></div></div>
+<div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"></div><div class="seg sm" id="tl"><button data-v="b" class="on">Beginner</button><button data-v="e">Elementary</button><button data-v="p">Pre-Intermediate</button></div><div id="tw"></div></div>
 <div id="s8" class="hide"><div class="card" style="text-align:center">
  <div class="ait">Ai Teacher</div>
  <div class="orbw"><button class="orb" id="orb" aria-label="Gaplashish"></button></div>
@@ -278,6 +298,12 @@ body.home .top h1{visibility:hidden}
  <div class="accb hide" id="sb2" style="border-bottom:0"><div class="seg sm" id="th" style="margin:6px 0 0"><button data-t="dark">🌙 Night mode</button><button data-t="light">☀️ Day mode</button></div></div>
 </div></div>
 </div>
+<div id="mdl" class="mdl hide"><div class="mdc card"><b id="mdt" style="font-size:20px"></b>
+ <button class="pill blue" id="mrn">🎲 Random player</button>
+ <button class="pill" id="mus">🔎 Find by username</button><div id="mub" class="hide"><input id="mui" placeholder="@username" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="row" style="margin:8px 0 0"><button class="pill blue" id="muc">Challenge</button></div></div>
+ <button class="pill" id="mfr">👥 Play with a friend</button><div id="mfb" class="hide" style="text-align:left"></div>
+ <div class="sp" id="mmg"></div><button class="pill sm" id="mcl">Close</button></div></div>
+<div id="inv" class="inv hide"><span id="invt"></span><button class="pill blue sm" id="inva">Accept</button><button class="pill sm" id="invn">✕</button></div>
 <div class="spw"><div class="ddl hide" id="spl"></div><button class="spb" id="spb">🔊 1x</button></div>
 <div class="ov" id="ov"></div>
 <div class="drw" id="drw"><h2>Menu</h2>
@@ -337,8 +363,8 @@ $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
 let onTop=false,curN=0;
-function tab(n){if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
- if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==0)$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
+function tab(n){if(n!=12&&typeof gLeave=="function")gLeave();if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+ if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==0)$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>D[lvl],dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
 async function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=(lvl==CK?"Custom · "+clv:lvl)+" · "+(dI%dp().length+1)+"/"+dp().length;
@@ -416,6 +442,7 @@ async function push(){if(!DB)return;try{await fetch(DB+"/users/"+uid+".json",{me
 async function lbl(){await push();if(DB){try{lbd=await(await fetch(DB+"/users.json")).json()}catch(e){lbd=null}}lbR()}
 function lbR(){const ref=lbd&&lbd[uid]?nn(lbd[uid].ts):0;const me=Object.assign({id:uid},stats());let rows=lbd?Object.entries(lbd).filter(x=>x[1]&&x[0]!=uid).map(([id,v])=>Object.assign({id},v)):[];rows.push(me);
  $("tw0").innerHTML=`<div class="big">${prof.p?`<img src="${prof.p}" style="width:64px;height:64px;border-radius:50%;object-fit:cover" alt="">`:es(prof.a)}</div><b>${es(prof.n||"Siz")}</b><div class="uz">Topilgan so'zlar: ${val(me,"tot")} · Bugun: ${fm(tm.d[dk()]||0)}</div>`;
+ if(!tkey){$("tw").innerHTML='<div class="card"><div class="uz">Bu bo\'lim tez kunda qo\'shiladi. Natijalar shu yerda alohida ko\'rinadi.</div></div>';return}
  rows=rows.filter(r=>val(r,tkey)>0||r.id==uid).sort((a,b)=>val(b,tkey)-val(a,tkey)).slice(0,50);
  $("tw").innerHTML=(!DB?'<div class="uz">Umumiy reyting hali ulanmagan — hozircha faqat siz ko\'rinasiz.</div>':"")+rows.map((r,k)=>{const on=r.id==uid||(ref&&nn(r.ts)>0&&ref-nn(r.ts)<90000),pi=r.ph&&String(r.ph).startsWith("data:image/")?`<img src="${es(r.ph)}" alt="">`:es(r.a||"🙂");return`<div class="card tr"><b style="min-width:34px">${["🥇","🥈","🥉"][k]||k+1}</b><span class="av2">${pi}${on?'<i class="dot"></i>':""}</span><b style="flex:1;text-align:left">${es(r.n||"Mehmon")}${r.id==uid?" (siz)":""}${r.u?`<small>@${es(r.u)}</small>`:""}</b><b>${tkey=="t"?fm(nn(r.t)):val(r,tkey)}</b></div>`}).join("")}
 function topR(){lbR();lbl()}
@@ -602,6 +629,128 @@ $("mcs").onclick=chS;$("mct").onkeydown=e=>{if(e.key=="Enter")chS()};
 $("mcb").onclick=()=>mpOpen();
 $("bk").onclick=()=>tab(curN==11?10:0);
 $("s10").onclick=e=>{const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
+
+const GN={wb:"Word Battle",sr:"Spelling Race",qd:"Quiz Duel"};
+let gR=null,gId=null,gT=null,mT=null,qg=null,selG=null,gSt={r:-1,rst:0,sub:false,both:0};
+const allW=()=>["Beginner","Elementary","Pre-Intermediate"].flatMap(l=>D[l]);
+const shuf=a=>{a=a.slice();for(let x=a.length-1;x>0;x--){const y=Math.floor(Math.random()*(x+1));[a[x],a[y]]=[a[y],a[x]]}return a};
+function mkQ(g){const W=allW(),S=W.filter(w=>w[3]&&new RegExp("\\b"+w[0]+"\\b","i").test(w[3]));
+ if(g=="qd"&&S.length>=4)return shuf(S).slice(0,10).map(w=>{const o=shuf([w,...shuf(S.filter(x=>x[0]!=w[0])).slice(0,3)]);return{t:w[3].replace(new RegExp("\\b"+w[0]+"\\b","i"),"____"),o:o.map(x=>x[0]),c:o.findIndex(x=>x[0]==w[0]),h:w[1]}});
+ if(g=="sr")return shuf(W).slice(0,10).map(w=>({s:w[0],c:w[0],h:w[1]}));
+ return shuf(W).slice(0,10).map(w=>{const o=shuf([w,...shuf(W.filter(x=>x[0]!=w[0])).slice(0,3)]);return{t:w[0],o:o.map(x=>x[1]),c:o.findIndex(x=>x[0]==w[0]),s:w[0]}})}
+async function mkRoom(g,pl,st,oi){const id=Math.random().toString(36).slice(2,10),p={[uid]:{n:prof.n||"Mehmon",a:prof.a||"🙂"}};if(oi)p[pl[1]]=oi;
+ await J("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:g=="qd"&&allW().filter(w=>w[3]).length<4?"wb":g,h:uid,o:pl,st,r:0,q:mkQ(g),p})});return id}
+const gOk=(q,v,g)=>g=="sr"?String(v).trim().toLowerCase()==q.c:v==q.c;
+function gScore(R,u){let t=0;(R.q||[]).forEach((q,k)=>{const a=R.ans&&R.ans[k]&&R.ans[k][u];if(a&&gOk(q,a.v,R.g))t+=10+Math.max(0,Math.round((15000-Math.min(15000,a.t||15000))/3000))});return t}
+function gLeave(){clearInterval(gT);clearInterval(mT);gT=mT=null;if(qg){J("/queue/"+qg+"/"+uid,{method:"DELETE"}).catch(()=>{});qg=null}
+ if(gId){const id=gId;gId=null;if(gR&&gR.st!="done")J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({st:"done",lf:uid})}).catch(()=>{})}gR=null}
+function enterRoom(id){gLeave();gId=id;gR=null;gSt={r:-1,rst:0,sub:false,both:0};tab(12);$("gn1").textContent=$("gn2").textContent="";$("gpb").style.width="0";$("gst").textContent="";$("gq").textContent="Loading...";$("go").innerHTML="";gT=setInterval(gPoll,1200);gPoll()}
+function gShow(R,r,q){$("gst").textContent=GN[R.g]+" · Round "+(r+1)+"/"+R.q.length;$("gpb").style.width=(r/R.q.length*100)+"%";
+ if(R.g=="sr"){$("gq").innerHTML='<div class="uz">'+es(q.h)+'</div>';$("go").innerHTML='<button class="pill" data-sp>🔊 Listen</button><input id="gin" placeholder="Eshitgan so\'zingizni yozing" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:10px"><div class="row"><button class="pill blue" data-sb>Submit</button></div>';setTimeout(()=>say(q.s,.85),300)}
+ else{$("gq").textContent=q.t;$("go").innerHTML=q.o.map((t,k)=>`<button class="pill gopt" data-k="${k}">${es(t)}</button>`).join("")+(q.h?'<div class="uz">'+es(q.h)+'</div>':"")}}
+function gRev(R,r,q,A){if(R.g=="sr"){$("gm")&&0;const me=A[uid];$("gq").innerHTML='<div class="uz">'+es(q.h)+'</div><b>'+es(q.c)+'</b>';return}
+ [...$("go").querySelectorAll("[data-k]")].forEach(b=>{const k=+b.dataset.k;if(k==q.c)b.classList.add("gok");else if(A[uid]&&A[uid].v==k)b.classList.add("gno")})}
+async function gAns(v){if(gSt.sub||!gId)return;gSt.sub=true;const t=Date.now()-gSt.rst;
+ if(gR&&gR.g!="sr")[...$("go").querySelectorAll("[data-k]")].forEach(b=>{if(+b.dataset.k==v)b.classList.add("sel")});else{const i2=$("gin");if(i2)i2.disabled=true}
+ try{await J("/rooms/"+gId+"/ans/"+gSt.r+"/"+uid,{method:"PUT",body:JSON.stringify({v,t})})}catch(e){gSt.sub=false}}
+$("go").onclick=e=>{const k=e.target.closest("[data-k]"),sp=e.target.closest("[data-sp]"),sb=e.target.closest("[data-sb]"),bk=e.target.closest("[data-back]");
+ if(k)gAns(+k.dataset.k);else if(sp&&gR&&gR.q)say(gR.q[gSt.r].s,.85);else if(sb){const v=$("gin").value.trim();if(v)gAns(v)}else if(bk)tab(10)};
+$("go").onkeydown=e=>{if(e.key=="Enter"&&e.target.id=="gin"){const v=e.target.value.trim();if(v)gAns(v)}};
+function gFin(R,opp){clearInterval(gT);gT=null;const a=gScore(R,uid),b=gScore(R,opp);let t=a>b?"🏆 Siz yutdingiz!":a<b?"😔 Raqib yutdi":"🤝 Durang";if(R.lf&&R.lf!=uid)t="🏆 Raqib chiqib ketdi, siz yutdingiz!";
+ $("gst").textContent="Result";$("gq").innerHTML=t+'<div class="uz">'+a+" : "+b+"</div>";$("go").innerHTML='<button class="pill blue" data-back>Back to games</button>';$("gpb").style.width="100%"}
+async function gPoll(){if(!gId)return;let R;try{R=await J("/rooms/"+gId)}catch(e){return}
+ if(!R){$("gst").textContent="";$("gq").textContent="Raqib rad etdi yoki o'yindan chiqdi.";$("go").innerHTML='<button class="pill blue" data-back>Back to games</button>';clearInterval(gT);gId=null;return}
+ gR=R;const opp=(R.o||[]).find(k=>k!=uid),pm=R.p||{};
+ if(R.st=="wait"){$("gst").textContent="Waiting";$("gq").textContent="Raqib qabul qilishini kutyapmiz...";$("go").innerHTML="";return}
+ $("gn1").textContent=((pm[uid]||{}).n||"Siz")+" · "+gScore(R,uid);$("gn2").textContent=gScore(R,opp)+" · "+((pm[opp]||{}).n||"Raqib");
+ if(R.st=="done")return gFin(R,opp);
+ const r=R.r||0,q=(R.q||[])[r];if(!q)return;
+ if(gSt.r!=r){gSt.r=r;gSt.rst=Date.now();gSt.sub=false;gSt.both=0;gShow(R,r,q)}
+ const A=(R.ans&&R.ans[r])||{},both=A[uid]!=null&&A[opp]!=null;
+ if(both&&!gSt.both){gSt.both=Date.now();gRev(R,r,q,A)}
+ if(R.h==uid&&((both&&Date.now()-gSt.both>1400)||Date.now()-gSt.rst>17000)){const last=r+1>=R.q.length;try{await J("/rooms/"+gId,{method:"PATCH",body:JSON.stringify(last?{st:"done"}:{r:r+1})})}catch(e){}}}
+async function challenge(t,g){try{const id=await mkRoom(g,[uid,t],"wait");await J("/invites/"+t+"/"+uid,{method:"PUT",body:JSON.stringify({room:id,g,n:prof.n||"Mehmon"})});enterRoom(id)}catch(e){alert("Internetga ulanib bo'lmadi.")}}
+async function qJoin(g){gLeave();qg=g;tab(12);$("gn1").textContent=$("gn2").textContent="";$("gpb").style.width="0";$("gst").textContent=GN[g];$("gq").textContent="Random o'yinchi qidirilmoqda...";$("go").innerHTML='<button class="pill" data-back>Cancel</button>';
+ const tick=async()=>{if(!qg)return;try{const m=await J("/match/"+uid);if(m){await J("/match/"+uid,{method:"DELETE"});qg=null;clearInterval(mT);return enterRoom(m)}
+  await J("/queue/"+qg+"/"+uid,{method:"PUT",body:JSON.stringify({".sv":"timestamp"})});
+  const q=await J("/queue/"+qg)||{},me=nn(q[uid]),ot=Object.keys(q).filter(k=>k!=uid&&Math.abs(me-nn(q[k]))<10000).sort();
+  if(ot.length&&[uid,ot[0]].sort()[0]==uid){const o=ot[0],g1=qg,u=await J("/users/"+o)||{},id=await mkRoom(g1,[uid,o],"play",{n:u.n||"Mehmon",a:u.a||"🙂"});
+   await J("/match/"+o,{method:"PUT",body:JSON.stringify(id)});await J("/queue/"+g1+"/"+o,{method:"DELETE"});await J("/queue/"+g1+"/"+uid,{method:"DELETE"});qg=null;clearInterval(mT);enterRoom(id)}}catch(e){}};
+ mT=setInterval(tick,1500);tick()}
+async function invChk(){if(!DB||document.hidden||gId||qg)return;try{const o=await J("/invites/"+uid);if(!o){$("inv").classList.add("hide");return}
+ for(const[from,v]of Object.entries(o)){const st=await J("/rooms/"+v.room+"/st");if(st!="wait"){J("/invites/"+uid+"/"+from,{method:"DELETE"});continue}
+  $("invt").textContent=(v.n||"Mehmon")+" sizni "+(GN[v.g]||"o'yin")+"ga chaqirdi";$("inv")._v=Object.assign({from},v);$("inv").classList.remove("hide");return}
+ $("inv").classList.add("hide")}catch(e){}}
+$("inva").onclick=async()=>{const v=$("inv")._v;if(!v)return;$("inv").classList.add("hide");try{await J("/rooms/"+v.room,{method:"PATCH",body:JSON.stringify({st:"play",["p/"+uid]:{n:prof.n||"Mehmon",a:prof.a||"🙂"}})});await J("/invites/"+uid+"/"+v.from,{method:"DELETE"});enterRoom(v.room)}catch(e){}};
+$("invn").onclick=()=>{const v=$("inv")._v;$("inv").classList.add("hide");if(v){J("/invites/"+uid+"/"+v.from,{method:"DELETE"}).catch(()=>{});J("/rooms/"+v.room,{method:"DELETE"}).catch(()=>{})}};
+setInterval(invChk,6000);
+const mmsg=t=>{$("mmg").textContent=t},mdClose=()=>$("mdl").classList.add("hide");
+function mdOpen(g){selG=g;$("mdt").textContent=GN[g];mmsg("");$("mub").classList.add("hide");$("mfb").classList.add("hide");$("mdl").classList.remove("hide")}
+$("mrn").onclick=()=>{if(!DB)return mmsg("Reyting bazasi (Firebase) ulanmagan.");mdClose();qJoin(selG)};
+$("mus").onclick=()=>$("mub").classList.toggle("hide");
+$("muc").onclick=async()=>{const u=$("mui").value.trim().toLowerCase().replace(/^@/,"");if(!DB)return mmsg("Reyting bazasi (Firebase) ulanmagan.");if(!/^[a-z0-9_]{3,20}$/.test(u))return mmsg("Username noto'g'ri.");
+ try{const t=await J("/usernames/"+u);if(!t)return mmsg("Bunday username topilmadi.");if(t==uid)return mmsg("Bu sizning o'zingiz.");mdClose();challenge(t,selG)}catch(e){mmsg("Internetga ulanib bo'lmadi.")}};
+$("mfr").onclick=async()=>{const b=$("mfb");b.classList.toggle("hide");if(b.classList.contains("hide"))return;if(!DB){b.innerHTML="Firebase ulanmagan.";return}b.innerHTML="...";
+ try{const ids=Object.keys(await J("/friends/"+uid)||{}),F=await Promise.all(ids.slice(0,20).map(async id=>Object.assign({id},await J("/users/"+id)||{})));
+  b.innerHTML=F.length?F.map(f=>`<div class="card tr">${avh(f,0)}<b style="flex:1;text-align:left">${es(f.n||"Mehmon")}</b><button class="pill blue sm" data-t="${es(f.id)}">⚔️ Play</button></div>`).join(""):'<div class="uz">Hali do\'st yo\'q. Avval Friends bo\'limida qo\'shing.</div>'}catch(e){b.textContent="Internetga ulanib bo'lmadi."}};
+$("mfb").onclick=e=>{const b=e.target.closest("[data-t]");if(b){mdClose();challenge(b.dataset.t,selG)}};
+$("mcl").onclick=mdClose;
+$("bk").onclick=()=>{if(curN==12){gLeave();tab(10)}else tab(curN==11?10:0)};
+$("s10").onclick=e=>{const g=e.target.closest("[data-g]");if(g){mdOpen(g.dataset.g);return}const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
+const TC=[["lis","🎧 Listening"],["spk","🎤 Speaking"],["rd","📖 Reading"],["wr","✏️ Writing"],["cu","⭐ Custom"],["tm","⏱ Time"]];let tcat="lis",tlv="b";
+function tkSet(){tkey=tcat=="lis"?tlv:tcat=="cu"?"c":tcat=="tm"?"t":null;$("tc").innerHTML=TC.map(c=>`<button data-c="${c[0]}" class="${c[0]==tcat?"on":""}">${c[1]}</button>`).join("");[...$("tl").children].forEach(b=>b.classList.toggle("on",b.dataset.v==tlv));$("tl").classList.toggle("hide",!["lis","spk","rd","wr"].includes(tcat))}
+$("tc").onclick=e=>{const b=e.target.closest("button");if(!b)return;tcat=b.dataset.c;tkSet();lbR()};
+$("tl").onclick=e=>{const b=e.target.closest("button");if(!b)return;tlv=b.dataset.v;tkSet();lbR()};
+tkSet();
+
+const SPL=[["Beginner","🌱","A1"],["Elementary","📖","A2"],["Pre-Intermediate","💬","A2-B1"],["Intermediate","🗣️","B1-B2"],["IELTS","🎓","band 6.5-8"]];
+const SPT={
+"Beginner":[["🍎","Food"],["👋","Greetings & About Me"],["👨‍👩‍👧","Family"],["🏠","Home"],["🎨","Things I Like"],["⛅","Weather"],["🐾","Animals"],["🎉","Free Time & Hobbies"],["🎒","School"],["⏰","Daily Routine"],["👕","Clothes"],["🏘️","My Town"]],
+"Elementary":[["🛒","Shopping"],["✈️","Travel & Holidays"],["🩺","Health"],["💼","Jobs"],["🚌","Transport"],["🎂","Celebrations"],["📱","Technology"],["⚽","Sports"],["🍽️","Restaurants"],["📅","Last Weekend"],["🔮","Future Plans"],["🤝","Friends"]],
+"Pre-Intermediate":[["🎓","Education"],["🌍","Environment"],["📲","Social Media"],["🎎","Cultures & Traditions"],["🥗","Healthy Lifestyle"],["🎬","Music & Movies"],["🏙️","City vs Village"],["💰","Money & Budget"],["🧠","Memories"],["💡","Advice & Problems"],["🛍️","Online Shopping"],["🤲","Volunteering"]],
+"Intermediate":[["⚖️","Work-Life Balance"],["🤖","Technology & AI"],["🧳","Travel Experiences"],["📰","News & Media"],["🧭","Careers"],["💞","Relationships"],["😮‍💨","Stress"],["🌐","Globalisation"],["🎭","Art & Creativity"],["🧩","Culture Shock"],["🗣️","Pros & Cons"],["🚀","Future of Education"]],
+"IELTS":[["📚","Part 1: Work or Study"],["🏡","Part 1: Hometown"],["🎮","Part 1: Free Time"],["🧑","Part 2: Describe a Person"],["📍","Part 2: Describe a Place"],["🎉","Part 2: Describe an Event"],["🏛️","Part 3: Society"],["🏫","Part 3: Education Systems"],["💻","Part 3: Technology & Society"],["🌱","Part 3: Environment & Climate"],["🏃","Part 3: Health & Lifestyle"],["📺","Part 3: Media & Advertising"]]};
+let spLv="Beginner",spT=null,spRec=null,spIt=[],spc={};try{spc=JSON.parse(localStorage.getItem("spc")||"{}")}catch(e){}
+const spsv=()=>{try{localStorage.setItem("spc",JSON.stringify(spc))}catch(e){}};
+function spLvR(){$("sgl").innerHTML=SPL.map(l=>`<button class="${l[0]==spLv?"on":""}" data-l="${l[0]}">${l[1]} ${l[0]}</button>`).join("");$("sgt").innerHTML=SPT[spLv].map((t,k)=>`<button class="hc" data-t="${k}"><i>${t[0]}</i><b>${es(t[1])}</b><span>10 questions</span></button>`).join("")}
+function spInit(){$("sgq").classList.add("hide");$("sgt").classList.remove("hide");spLvR()}
+const spD=lv=>(SPL.find(x=>x[0]==lv)||[])[2];
+async function spQs(lv,t){const k="q|"+lv+"|"+t;if(spc[k])return spc[k];
+ const o=await gj([{text:`Create 10 speaking practice questions for English learners at "${lv}" level (${spD(lv)}) on the topic "${t}". Questions must be natural and match the level (for IELTS: Part 1 = short personal questions, Part 2 = cue card starting with "Describe...", Part 3 = abstract discussion questions). Return only a JSON array of 10 strings.`}]);
+ if(Array.isArray(o)&&o.length){spc[k]=o.slice(0,10).map(String);spsv();return spc[k]}return null}
+async function spAn(lv,q){const k="a|"+lv+"|"+q;if(spc[k])return spc[k];
+ const n=lv=="IELTS"?"110-140":lv=="Intermediate"?"80-110":"40-70";
+ const o=await gj([{text:`Question: "${q}". Level: ${lv} (${spD(lv)}). Write a model spoken answer of ${n} words in natural spoken English suitable for this level. Choose 5 key words or phrases that appear EXACTLY (same spelling) in your answer. Return only JSON: {"a":"answer","k":[{"e":"phrase","u":"Uzbek translation (Latin)","r":"Russian translation"}]}`}]);
+ if(o&&typeof o.a=="string"&&Array.isArray(o.k)){o.k=o.k.slice(0,5);spc[k]=o;spsv();return o}return null}
+function sp2(t,l){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang=l;const v=speechSynthesis.getVoices().find(z=>z.lang.replace("_","-").toLowerCase()==l.toLowerCase())||bestV("en");if(v)u.voice=v;u.rate=Math.min(2,.9*spd);speechSynthesis.speak(u)}catch(e){}}
+$("sgl").onclick=e=>{const b=e.target.closest("[data-l]");if(b){spLv=b.dataset.l;spInit()}};
+$("sgt").onclick=async e=>{const b=e.target.closest("[data-t]");if(!b)return;spT=SPT[spLv][+b.dataset.t];$("sgt").classList.add("hide");$("sgq").classList.remove("hide");
+ $("sgh").textContent=spT[0]+" "+spT[1];$("sgi").innerHTML='<div class="uz">Savollar tayyorlanmoqda...</div>';
+ const qs=await spQs(spLv,spT[1]);spIt=[];
+ if(!qs){$("sgi").innerHTML='<div class="uz">Savollarni olib bo\'lmadi (AI bilan aloqa yo\'q'+(gerr?", kod: "+gerr:"")+"). Keyinroq qayta urinib ko'ring.</div>";return}
+ $("sgi").innerHTML=qs.map((q,k)=>{spIt[k]={q};return`<div class="card" style="padding:0;overflow:hidden;margin-bottom:10px;text-align:left"><button class="acc" data-i="${k}"><span>${es(q)}</span><em>›</em></button><div class="accb hide" id="sq${k}"></div></div>`}).join("")};
+$("sgb").onclick=()=>{try{speechSynthesis.cancel();spRec&&spRec.stop()}catch(e){}spInit()};
+function spHL(a,ks){let h=es(a);ks.forEach((k,n)=>{const e=es(k.e).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");h=h.replace(new RegExp(e,"i"),m=>`<span class="kw k${n}">${m}</span>`)});return h}
+async function spOpenQ(k){const box=$("sq"+k),it=spIt[k],btn=box.previousElementSibling;btn.classList.toggle("open");box.classList.toggle("hide");if(box.classList.contains("hide")||it.ans)return;
+ box.innerHTML='<div class="uz">Namunaviy javob tayyorlanmoqda...</div>';const a=await spAn(spLv,it.q);
+ if(!a){box.innerHTML='<div class="uz">Javobni olib bo\'lmadi (kod: '+(gerr||"?")+"). Qayta oching.</div>";return}it.ans=a;
+ box.innerHTML=`<div class="uz" style="margin:0;text-align:left">MODEL ANSWER</div><div class="sqa">${spHL(a.a,a.k)}</div>
+ <div class="row l"><button class="pill sm" data-gb="${k}">GB Listen</button><button class="pill sm" data-us="${k}">US Listen</button></div>
+ <div class="uz" style="margin:14px 0 2px;text-align:left">KEY WORDS & PHRASES</div>`+a.k.map((x,n)=>`<div class="kr"><b class="k${n}">${es(x.e)}</b><div class="row"><button class="pill sm" data-ke="${k}.${n}">🔊</button><span class="chip">UZ ${es(x.u||"")}</span><span class="chip">RU ${es(x.r||"")}</span></div></div>`).join("")
+ +`<div class="uz" style="margin:14px 0 6px;text-align:left">NOW RECORD YOUR OWN ANSWER</div><button class="pill blue" data-rec="${k}">Start recording</button><div class="sp" id="sf${k}" style="text-align:left"></div>`}
+function spRc(k,btn){const SR=window.SpeechRecognition||window.webkitSpeechRecognition,it=spIt[k],f=$("sf"+k);
+ if(!SR){f.textContent="Mikrofon uchun Chrome brauzeridan foydalaning.";return}
+ if(spRec){spRec.stop();return}
+ const x=new SR();x.lang="en-US";x.continuous=true;let tx="";spRec=x;btn.textContent="■ Stop";f.textContent="Tinglayapman... gapiring, tugagach Stop bosing.";
+ x.onresult=e=>{for(let j=e.resultIndex;j<e.results.length;j++)if(e.results[j].isFinal)tx+=e.results[j][0].transcript+" "};
+ x.onerror=()=>{f.textContent="Mikrofon ruxsatini tekshiring."};
+ x.onend=()=>{spRec=null;btn.textContent="Start recording";if(!tx.trim()){f.textContent="Ovoz eshitilmadi. Qayta urinib ko'ring.";return}
+  const low=tx.toLowerCase(),used=it.ans.k.map(z=>low.includes(z.e.toLowerCase()));
+  f.innerHTML=`<div>Siz aytdingiz: <i>${es(tx.trim())}</i></div><div style="margin:6px 0">Key phrases: <b>${used.filter(Boolean).length}/${it.ans.k.length}</b></div>`+it.ans.k.map((z,n)=>`<span class="chip k${n}">${used[n]?"✅":"○"} ${es(z.e)}</span>`).join("")};
+ try{x.start()}catch(e){spRec=null;btn.textContent="Start recording"}}
+$("sgi").onclick=e=>{const a=e.target.closest("[data-i]"),g=e.target.closest("[data-gb]"),u=e.target.closest("[data-us]"),kk=e.target.closest("[data-ke]"),rc=e.target.closest("[data-rec]");
+ if(a)spOpenQ(+a.dataset.i);else if(g)sp2(spIt[+g.dataset.gb].ans.a,"en-GB");else if(u)sp2(spIt[+u.dataset.us].ans.a,"en-US");
+ else if(kk){const[q,n]=kk.dataset.ke.split(".");say(spIt[+q].ans.k[+n].e,.9)}else if(rc)spRc(+rc.dataset.rec,rc)};
 $("s0").onclick=e=>{const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
 lvls();show();tab(0);
 </script></body></html>
