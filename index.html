@@ -456,7 +456,7 @@ $("ab").addEventListener("click",()=>setTimeout(cList,50));
 const fm=t=>{const h=Math.floor(t/3600),m=Math.floor(t%3600/60);return h?h+" soat "+m+" daq":m?m+" daq "+t%60+" son":t+" son"};
 const dk=()=>new Date().toISOString().slice(0,10);
 const DB0="https://speakup-ce74b-default-rtdb.europe-west1.firebasedatabase.app";
-const FBKEY="";/* Firebase Web API Key (Project settings → General) */
+const FBKEY="AIzaSyCDe1gArwjuq6C3wXAF8L0Nfudtg50G0ew";/* Firebase Web API Key (Project settings → General) */
 const ACC=(()=>{try{return JSON.parse(localStorage.getItem("acct")||"null")}catch(e){return null}})();
 const GATE=!!FBKEY&&!ACC;
 const DB=GATE?"":DB0;/* Firebase Realtime Database URL, masalan: https://loyiha-default-rtdb.firebaseio.com */
