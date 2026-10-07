@@ -154,6 +154,19 @@ body.home .top h1{visibility:hidden}
 .trt{font:600 19px/1.7 ui-monospace,Menlo,Consolas,monospace;text-align:left;margin:12px 0;word-break:break-word}.trt .ok{color:var(--ok)}.trt .er{background:rgba(229,72,77,.4)}.trt .cu{border-bottom:2px solid var(--pri)}
 .rw{border-bottom:2px dotted var(--pri);cursor:pointer;font-weight:600}
 .rwd{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);z-index:60;width:min(94vw,440px);background:var(--bg2);border:1px solid var(--bd);border-radius:22px;padding:16px;box-shadow:var(--sh);text-align:left;max-height:70vh;overflow:auto}
+#rvb{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}#rvb .kr{border:1px solid var(--bd);border-radius:16px;padding:12px;background:var(--seg)}
+.wr .kr{border-top:1px solid var(--bd)}.wr ul{margin:6px 0;padding-left:18px;line-height:1.6}
+@media (min-width:768px){
+ .w{max-width:920px;padding-left:28px;padding-right:28px}
+ .hg{grid-template-columns:repeat(3,1fr);gap:16px}
+ .hh h2{font-size:56px}.hh p{font-size:17px;max-width:520px}
+ .hero{padding:32px 36px}.hero h3{font-size:44px}.hero p{font-size:16px;max-width:360px}.hero .orb{width:170px;height:170px}
+ .card{padding:30px}.hc{padding:20px}
+ #s1,#s3,#s4,#s5,#s6,#s7,#s8,#s9,#s11,#s12,#s14,#s15,#rds{max-width:780px;margin-left:auto;margin-right:auto}
+ .seg.tabs,#lv{max-width:780px;margin-left:auto;margin-right:auto}
+ .sqa{font-size:17px}.main{font-size:30px}
+}
+@media (min-width:1100px){.w{max-width:1160px}.hg{grid-template-columns:repeat(4,1fr)}#s10 .hg,#s0 .hg{grid-template-columns:repeat(4,1fr)}}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
 <button class="pill hide" id="bk" style="margin:0 0 12px">← Back</button>
@@ -198,7 +211,7 @@ body.home .top h1{visibility:hidden}
   <button class="hc" data-n="1"><i>🎧</i><b>Listening</b><span>So'z va gaplarni eshiting, ayting va yozing. Vocabulary va Dictation ham shu yerda.</span><em>→</em></button>
   <button class="hc" data-n="13"><i>🎤</i><b>Speaking</b><span>Real hayotiy savollar, namunaviy javob va yozib olish.</span><em>→</em></button>
   <button class="hc" data-n="16"><i>📖</i><b>Reading</b><span>Qisqa hikoyalar, so'z ma'nolari va savollar.</span><em>→</em></button>
-  <button class="hc soon"><i>✏️</i><b>Writing</b><span>Yozish topshiriqlari va fikr-mulohaza.</span><em>Tez kunda</em></button>
+  <button class="hc" data-n="17"><i>✏️</i><b>Writing</b><span>CEFR Task 1.1, 1.2, 2 va AI tekshiruv.</span><em>→</em></button>
  </div>
 </div>
 <div id="s13" class="hide">
@@ -231,6 +244,16 @@ body.home .top h1{visibility:hidden}
    <div class="row l"><button class="pill blue" id="rck">Check Answers</button><button class="pill" id="rrs">Reset</button></div><div class="sp" id="rsc" style="text-align:left"></div>
    <div class="uz" style="text-align:left;margin:14px 0 6px">VOCABULARY BANK</div><div id="rvb"></div></div></div>
 </div>
+<div id="s17" class="hide">
+ <div class="hh"><small>WRITING</small><h2 style="font-size:38px">Writing</h2><p>Yozing, AI tekshiradi: xatolar, ball va tavsiyalar.</p></div>
+ <div class="chips w" id="wlv" style="margin-bottom:10px"></div><div class="chips w hide" id="wtk" style="margin-bottom:10px"></div>
+ <div class="hg" id="wpl"></div><div class="row" style="margin:12px 0"><button class="pill sm" id="wnew">✨ New AI task</button></div>
+ <div id="wed" class="hide"><div class="card" style="text-align:left">
+  <div class="uz" id="wtt" style="margin:0"></div><div class="sqa" id="wpr"></div><div class="uz" id="wtp" style="margin:0 0 8px;text-align:left"></div>
+  <textarea class="ta" id="wtx" style="min-height:220px" placeholder="Shu yerga yozing..." spellcheck="false"></textarea>
+  <div class="row l"><span class="chip" id="wcn">0 words</span><button class="pill blue" id="wck">Check my writing</button><button class="pill sm" id="wcl">Clear</button></div>
+  <div id="wrs"></div></div></div>
+</div>
 <div id="s12" class="hide"><div class="card" style="text-align:center">
  <div class="lr"><b id="gn1" style="text-align:left"></b><b id="gn2" style="text-align:right"></b></div>
  <div class="bar"><i id="gpb"></i></div>
@@ -256,7 +279,7 @@ body.home .top h1{visibility:hidden}
   <div id="mfw"><div id="mfl"></div></div><div class="note" id="mfn" style="text-align:center"></div>
  </div>
  <div id="mcv" class="hide"><div class="card" style="padding:16px">
-  <div class="lr"><button class="pill sm" id="mcb">← Friends</button><b id="mcn" style="text-align:center"></b><span style="width:92px"></span></div>
+  <div class="lr"><button class="pill sm" id="mcb">← Friends</button><b id="mcn" style="text-align:center"></b><button class="pill sm" id="mcc" style="width:92px">📞 Call</button></div>
   <div class="chat" id="mcm"></div>
   <div style="display:flex;gap:8px"><input id="mct" placeholder="Xabar yozing..." maxlength="300" style="margin:0;font-size:16px;text-align:left" autocomplete="off"><button class="pill blue" id="mcs">➤</button></div>
  </div></div>
@@ -354,6 +377,9 @@ body.home .top h1{visibility:hidden}
   <div class="sp" id="gm2" style="text-align:center"></div>
  </div></div></div>
 <div id="rwd" class="rwd hide"></div>
+<div id="cxo" class="gate hide" style="z-index:90"><div class="gc card" style="padding:30px"><div class="big" id="cxav">📞</div><b id="cxn" style="font-size:22px"></b><div class="uz" id="cxs"></div><div class="row"><button class="pill" id="cxm">🎤 Mute</button><button class="pill" id="cxe" style="background:#e5484d;color:#fff">📵 End</button></div></div></div>
+<audio id="cxa" autoplay playsinline></audio>
+<div id="cxi" class="inv hide" style="top:70px"><span id="cxit"></span><button class="pill blue sm" id="cxia">Answer</button><button class="pill sm" id="cxin">✕</button></div>
 <div class="spw"><div class="ddl hide" id="spl"></div><button class="spb" id="spb">🔊 1x</button></div>
 <div class="ov" id="ov"></div>
 <div class="drw" id="drw"><h2>Menu</h2>
@@ -413,8 +439,8 @@ $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
 let onTop=false,curN=0;
-function tab(n){if(n!=15&&typeof trLeave=="function")trLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
- if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==14)mtR();if(n==16)rdInit();if(n==0)$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
+function tab(n){if(n!=15&&typeof trLeave=="function")trLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+ if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==14)mtR();if(n==16)rdInit();if(n==17)wInit();if(n==0)$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>D[lvl],dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
 async function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=(lvl==CK?"Custom · "+clv:lvl)+" · "+(dI%dp().length+1)+"/"+dp().length;
@@ -665,11 +691,11 @@ async function frL(){const w=$("mfl"),n=$("mfn");
   const[F,R]=await Promise.all([Promise.all(fr.slice(0,30).map(get)),Promise.all(rq.slice(0,20).map(get))]);
   let h="";
   if(R.length)h+='<div class="uz" style="text-align:left;margin:12px 0 6px">Friend requests</div>'+R.map(f=>`<div class="card tr">${avh(f,0)}<b style="flex:1;text-align:left">${es(f.n||"Mehmon")}${f.u?`<small>@${es(f.u)}</small>`:""}</b><button class="pill blue sm" data-ok="${es(f.id)}">Accept</button><button class="pill sm" data-no="${es(f.id)}">✕</button></div>`).join("");
-  h+='<div class="uz" style="text-align:left;margin:12px 0 6px">Friends ('+F.length+')</div>'+(F.length?F.map(f=>`<div class="card tr" data-chat="${es(f.id)}">${avh(f,ref&&nn(f.ts)>0&&ref-nn(f.ts)<90000)}<b style="flex:1;text-align:left">${es(f.n||"Mehmon")}${f.u?`<small>@${es(f.u)}</small>`:""}</b><span class="pill sm">💬 Chat</span></div>`).join(""):'<div class="uz">Hali do\'st yo\'q. Yuqoridan username bilan qo\'shing.</div>');
+  h+='<div class="uz" style="text-align:left;margin:12px 0 6px">Friends ('+F.length+')</div>'+(F.length?F.map(f=>`<div class="card tr" data-chat="${es(f.id)}">${avh(f,ref&&nn(f.ts)>0&&ref-nn(f.ts)<90000)}<b style="flex:1;text-align:left">${es(f.n||"Mehmon")}${f.u?`<small>@${es(f.u)}</small>`:""}</b><button class="pill sm" data-call="${es(f.id)}">📞</button><span class="pill sm">💬 Chat</span></div>`).join(""):'<div class="uz">Hali do\'st yo\'q. Yuqoridan username bilan qo\'shing.</div>');
   w.innerHTML=h;w._f=F}catch(e){n.textContent="Internetga ulanib bo'lmadi."}}
 function mpOpen(){push();cF=null;clearInterval(cT);$("mcv").classList.add("hide");$("mfv").classList.remove("hide");frL();clearInterval(fT);fT=setInterval(frL,20000)}
 $("mfl").onclick=async e=>{const ok=e.target.closest("[data-ok]"),no=e.target.closest("[data-no]"),ch=e.target.closest("[data-chat]");
- try{if(ok){const f=ok.dataset.ok;await J("/friends/"+uid+"/"+f,{method:"PUT",body:"true"});await J("/friends/"+f+"/"+uid,{method:"PUT",body:"true"});await J("/requests/"+uid+"/"+f,{method:"DELETE"});frL()}
+ try{const ca=e.target.closest("[data-call]");if(ca){const f=($("mfl")._f||[]).find(x=>x.id==ca.dataset.call);if(f)cCall(f);return}if(ok){const f=ok.dataset.ok;await J("/friends/"+uid+"/"+f,{method:"PUT",body:"true"});await J("/friends/"+f+"/"+uid,{method:"PUT",body:"true"});await J("/requests/"+uid+"/"+f,{method:"DELETE"});frL()}
  else if(no){await J("/requests/"+uid+"/"+no.dataset.no,{method:"DELETE"});frL()}
  else if(ch){const f=($("mfl")._f||[]).find(x=>x.id==ch.dataset.chat);if(f)chOpen(f)}}catch(x){}};
 $("mfa").onclick=async()=>{const u=$("mfu").value.trim().toLowerCase().replace(/^@/,""),m=(t,c)=>{$("mfm").innerHTML=`<span class="${c}">${t}</span>`};
@@ -914,7 +940,7 @@ const RS={"A1":["The Big Pyramid|0","A Day at the Zoo|1","My New Phone|2","The B
 "B1":["The Mystery of the Pyramids|0","Crossing the Desert|1","The Printing Press|2","Working from Home|3","The Power of Walking|4","Saving the Rainforest|5","Amir Temur and His Empire|0","Climbing a Snowy Peak|1","The Rise of Electric Cars|2","Volunteers Who Help|3","The Truth About Sugar|4","Cities and Clean Air|5"],
 "B2":["The Fall of Ancient Rome|0","Surviving at Sea|1","Artificial Intelligence at Work|2","The Gig Economy|3","Mental Health Matters|4","Climate Change and Cities|5","The Golden Age of Islamic Science|0","Exploring the Deep Ocean|1","The Story of the Internet|2","Leaving a Small Town|3","The Science of Habits|4","Renewable Energy Choices|5"]};
 let rLv="B1",rCat=-1,rD=null,rA={},rQs=[];
-function rdInit(){$("rds").classList.add("hide");$("rdl").classList.remove("hide");rdL()}
+function rdInit(){$("bk").classList.remove("hide");$("rds").classList.add("hide");$("rdl").classList.remove("hide");rdL()}
 function rdL(){$("rlv").innerHTML=RL.map(l=>`<button class="${l[0]==rLv?"on":""}" data-l="${l[0]}">${l[2]} ${l[0]} · ${l[1]}</button>`).join("");
  $("rct").innerHTML=['<button class="'+(rCat<0?"on":"")+'" data-c="-1">All stories</button>'].concat(RC.map((c,k)=>`<button class="${k==rCat?"on":""}" data-c="${k}">${RE[k]} ${c}</button>`)).join("");
  const q=$("rsq").value.trim().toLowerCase(),w=RL.find(l=>l[0]==rLv)[3];
@@ -923,7 +949,7 @@ $("rlv").onclick=e=>{const b=e.target.closest("[data-l]");if(b){rLv=b.dataset.l;
 async function rdGen(lv,t){const key="r|"+lv+"|"+t;if(spc[key])return spc[key];const L=RL.find(x=>x[0]==lv);
  const o=await gj([{text:`Write a short nonfiction reading passage titled "${t}" for English learners at CEFR ${lv} (${L[1]}), about ${L[3]} words, in simple clear paragraphs. Choose 8 key vocabulary words that appear EXACTLY in the passage (single words as written). Write 10 True/False statements about the passage (5 true, 5 false, mixed order). Return only JSON: {"p":"passage","k":[{"w":"word","pos":"adj","d":"short English definition","s":"synonym","u":"Uzbek translation (Latin)","r":"Russian translation","e":"example sentence"}],"q":[{"s":"statement","t":true}]}`}]);
  if(o&&typeof o.p=="string"&&Array.isArray(o.k)&&Array.isArray(o.q)){spc[key]=o;spsv();return o}return null}
-$("rgd").onclick=async e=>{const b=e.target.closest("[data-s]");if(!b)return;const[t,c]=RS[rLv][+b.dataset.s].split("|");$("rdl").classList.add("hide");$("rds").classList.remove("hide");
+$("rgd").onclick=async e=>{const b=e.target.closest("[data-s]");if(!b)return;$("bk").classList.add("hide");const[t,c]=RS[rLv][+b.dataset.s].split("|");$("rdl").classList.add("hide");$("rds").classList.remove("hide");
  $("rmt").textContent="Day "+(+b.dataset.s+1)+" · "+RC[+c]+" · "+rLv;$("rtl").textContent=t;$("rps").innerHTML='<div class="uz">Hikoya tayyorlanmoqda...</div>';$("rq").innerHTML=$("rvb").innerHTML=$("rsc").innerHTML="";rD=null;rA={};
  const o=await rdGen(rLv,t);if(!o){$("rps").innerHTML='<div class="uz">Hikoyani olib bo\'lmadi (AI bilan aloqa yo\'q'+(gerr?", kod: "+gerr:"")+"). Keyinroq qayta urinib ko'ring.</div>";return}
  rD=o;rQs=o.q.slice(0,10);let h=es(o.p).replace(/\n+/g,"<br><br>");o.k.forEach((k,n)=>{const w=es(k.w).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");h=h.replace(new RegExp("\\b"+w+"\\b","gi"),m=>`<span class="rw" data-i="${n}">${m}</span>`)});$("rps").innerHTML=h;
@@ -941,6 +967,79 @@ $("rbk").onclick=()=>{$("rwd").classList.add("hide");rdInit()};
 $("rwb").onclick=async()=>{const w=$("rwi").value.trim().toLowerCase();if(!/^[a-z' -]{2,30}$/.test(w))return;const key="w|"+w;let o=spc[key];
  if(!o){$("rwd").innerHTML='<div class="uz">Qidirilmoqda...</div>';$("rwd").classList.remove("hide");o=await gj([{text:`Explain the English word "${w}" for a learner. Return only JSON: {"w":"${w}","pos":"part of speech","d":"short English definition","s":"synonym","u":"Uzbek translation (Latin)","r":"Russian translation","e":"example sentence"}`}]);if(o&&o.w){spc[key]=o;spsv()}}
  if(o&&o.w)rwShow(o);else{$("rwd").innerHTML='<div class="uz">So\'zni topib bo\'lmadi (AI bilan aloqa yo\'q'+(gerr?", kod: "+gerr:"")+")</div>"}};
+
+/* ===== Writing ===== */
+const WL=[["A1","Beginner"],["A2","Elementary"],["B1","Pre-Intermediate"],["B2","Intermediate"],["CEFR","CEFR Exam"]];
+const WP={"A1": [["Write about your family. Say who is in your family and what they do.", 30, 40], ["Describe your daily routine. What do you do in the morning and in the evening?", 30, 40], ["Write about your favourite food. Why do you like it?", 30, 40], ["Describe your room or your home.", 30, 40]], "A2": [["Write an email to a friend about your last weekend. Say where you went and what you did.", 60, 80], ["Describe your best friend. What does he or she look like and why do you like him or her?", 60, 80], ["Write about a place you want to visit and explain why.", 60, 80], ["Describe your typical day at school or at work.", 60, 80]], "B1": [["Write an informal email inviting a friend to your birthday party. Give the time, the place and what you will do.", 100, 130], ["Do you prefer living in a city or in a village? Give reasons for your opinion.", 120, 150], ["Write about a time when you helped someone. What happened and how did you feel?", 120, 150], ["Why is it useful to learn English? Give at least two reasons and examples.", 120, 150]], "B2": [["Some people think that children should start learning a foreign language at primary school. Discuss both views and give your opinion.", 180, 200], ["Social media does more harm than good to young people. To what extent do you agree or disagree?", 180, 200], ["Write a review of a film or a book that you recently enjoyed. Explain why you recommend it.", 180, 200], ["Describe a serious problem in your city and suggest possible solutions.", 180, 200]], "1.1": [["You received a letter from your English-speaking friend, who asks about your hobbies and what you do in your free time. Write a letter to your friend. Write 40-50 words.", 40, 50], ["Your friend is coming to visit your city next month. Write him or her a short letter and say what you plan to do together. Write 40-50 words.", 40, 50], ["Your friend asks you to recommend a good book or film. Write a short letter and give your recommendation. Write 40-50 words.", 40, 50], ["You have just moved to a new house. Write a short letter to your friend and describe your new home. Write 40-50 words.", 40, 50]], "1.2": [["You study at a language centre. Recently you have noticed several problems (old computers, noisy classrooms). Write an email to the manager. Describe the problems and suggest improvements. Write 120-150 words.", 120, 150], ["You bought a mobile phone online, but it arrived damaged. Write an email to the shop manager. Explain the problem and say what you want them to do. Write 120-150 words.", 120, 150], ["You want to join a volunteer programme at your local library. Write a formal letter to the organiser. Say who you are, why you want to join and when you are free. Write 120-150 words.", 120, 150], ["Your neighbours often make a lot of noise at night. Write a formal letter to the building manager. Describe the situation and ask for help. Write 120-150 words.", 120, 150]], "2": [["Some people think that students should wear school uniforms. Others believe that students should wear what they want. Discuss both views and give your opinion. Write 180-200 words.", 180, 200], ["Many people say that online learning is better than studying in a classroom. To what extent do you agree or disagree? Write 180-200 words.", 180, 200], ["Some people believe that technology makes our lives easier. Others think it makes life more difficult. Discuss both views and give your opinion. Write 180-200 words.", 180, 200], ["Nowadays, many young people leave their villages to live in big cities. What are the advantages and disadvantages of this? Write 180-200 words.", 180, 200]]};
+const WTIP={"1.1": "Informal letter: greeting (Dear Anna,), barcha savollarga javob bering, do'stona ohang, yakun (Best wishes,). 40-50 so'z.", "1.2": "Formal letter/email: Dear Sir/Madam, maqsad, tafsilotlar, iltimos/taklif, yakun (Yours faithfully,). 120-150 so'z, rasmiy ohang.", "2": "Essay: kirish (introduction), 2 ta asosiy abzas (misollar bilan), xulosa (conclusion). 180-200 so'z, bog'lovchi so'zlar (however, in addition) ishlating."};
+let wLv="A1",wTk="1.1",wP=null,wX={};
+const wKey=()=>wLv=="CEFR"?wTk:wLv,wc=t=>t.trim().split(/\s+/).filter(Boolean).length;
+function wInit(){$("wed").classList.add("hide");wP=null;wL()}
+function wL(){$("wlv").innerHTML=WL.map(l=>`<button class="${l[0]==wLv?"on":""}" data-l="${l[0]}">${l[0]=="CEFR"?"🎓":l[0]+" ·"} ${l[1]}</button>`).join("");
+ $("wtk").classList.toggle("hide",wLv!="CEFR");$("wtk").innerHTML=["1.1","1.2","2"].map(k=>`<button class="${k==wTk?"on":""}" data-k="${k}">Task ${k}</button>`).join("");
+ const k=wKey(),L=WP[k].concat(wX[k]||[]);$("wpl").innerHTML=L.map((p,i)=>`<button class="hc" data-p="${i}"><b>${wLv=="CEFR"?"Task "+k:wLv} · ${i+1}</b><span>${es(p[0].length>110?p[0].slice(0,110)+"...":p[0])}</span><span>${p[1]}-${p[2]} words</span></button>`).join("")}
+$("wlv").onclick=e=>{const b=e.target.closest("[data-l]");if(b){wLv=b.dataset.l;wInit()}};$("wtk").onclick=e=>{const b=e.target.closest("[data-k]");if(b){wTk=b.dataset.k;wInit()}};
+function wSel(p){wP=p;$("wed").classList.remove("hide");const k=wKey();$("wtt").textContent=(wLv=="CEFR"?"CEFR Exam · Task "+k:wLv+" · "+WL.find(l=>l[0]==wLv)[1]);$("wpr").textContent=p[0];$("wtp").textContent=WTIP[k]||"Jumlalarni tartib bilan yozing, grammatika va so'z tanlashni tekshiring.";$("wtx").value="";$("wrs").innerHTML="";wCnt();$("wed").scrollIntoView({behavior:"smooth"})}
+$("wpl").onclick=e=>{const b=e.target.closest("[data-p]");if(!b)return;const k=wKey();wSel(WP[k].concat(wX[k]||[])[+b.dataset.p])};
+$("wnew").onclick=async()=>{const k=wKey(),lab=wLv=="CEFR"?"CEFR exam Task "+k+" ("+(k=="1.1"?"short informal letter, 40-50 words":k=="1.2"?"formal letter or email, 120-150 words":"essay, 180-200 words")+")":"level "+wLv+" ("+WL.find(l=>l[0]==wLv)[1]+")";
+ $("wnew").textContent="...";const o=await gj([{text:`Create one NEW writing task for English learners, ${lab}. Return only JSON: {"t":"full task instructions in English","min":number,"max":number}`}]);$("wnew").textContent="✨ New AI task";
+ if(o&&o.t){(wX[k]=wX[k]||[]).push([String(o.t),nn(o.min)||40,nn(o.max)||200]);wL();wSel(wX[k][wX[k].length-1])}else alert("Vazifa olib bo'lmadi (AI bilan aloqa yo'q"+(gerr?", kod: "+gerr:"")+")")};
+function wCnt(){const n=wc($("wtx").value),p=wP||["",0,0],ok=n>=p[1]*.9&&n<=p[2]*1.15;$("wcn").textContent=n+" words (target "+p[1]+"-"+p[2]+")";$("wcn").style.color=ok?"var(--ok)":"var(--mut)"}
+$("wtx").oninput=wCnt;$("wcl").onclick=()=>{$("wtx").value="";$("wrs").innerHTML="";wCnt()};
+const wBar=(l,v)=>`<div style="margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:14px"><span>${l}</span><b>${v}/5</b></div><div class="bar" style="margin:4px 0 0"><i style="width:${v/5*100}%"></i></div></div>`;
+$("wck").onclick=async()=>{if(!wP)return;const t=$("wtx").value.trim(),n=wc(t);if(n<10){$("wrs").innerHTML='<div class="uz" style="text-align:left">Kamida 10 ta so\'z yozing.</div>';return}
+ $("wck").disabled=true;$("wrs").innerHTML='<div class="uz" style="text-align:left">AI tekshirmoqda... (10-20 soniya)</div>';
+ const o=await gj([{text:`You are a strict but kind CEFR writing examiner. Task: "${wP[0]}" Target length: ${wP[1]}-${wP[2]} words. Student text:
+"""${t}"""
+Evaluate the text and return only JSON: {"level":"CEFR level shown by the text (A1, A2, B1, B2 or C1)","score":number 0-100,"c":{"task":0-5,"coh":0-5,"lex":0-5,"gram":0-5},"summary":"1-2 sentences overall comment in Uzbek (Latin)","errors":[{"w":"exact wrong phrase from the text","c":"corrected phrase","e":"short explanation in Uzbek (Latin)"}],"improve":["3-5 concrete suggestions in Uzbek (Latin) about what to add or change for a better score"],"better":"an improved version of the whole text with the same meaning and similar length"}. List the 10 most important errors at most.`}]);
+ $("wck").disabled=false;
+ if(!o||!o.c){$("wrs").innerHTML='<div class="uz" style="text-align:left">Tekshirib bo\'lmadi (AI bilan aloqa yo\'q'+(gerr?", kod: "+gerr:"")+"). So'z soni: "+n+" (maqsad "+wP[1]+"-"+wP[2]+")."+"</div>";return}
+ const c=o.c,er=Array.isArray(o.errors)?o.errors:[],im=Array.isArray(o.improve)?o.improve:[],len=n<wP[1]*.9?"Matn qisqa: "+n+" ta so'z (kamida ~"+wP[1]+" kerak).":n>wP[2]*1.15?"Matn uzun: "+n+" ta so'z (maksimum ~"+wP[2]+").":"So'z soni mos: "+n+".";
+ $("wrs").innerHTML=`<div class="wr" style="margin-top:14px"><div class="card" style="padding:16px"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="uz" style="margin:0;text-align:left">Taxminiy daraja</div><b style="font:800 34px ui-serif,Georgia,serif;color:var(--pri)">${es(o.level||"?")}</b></div><div style="text-align:right"><div class="uz" style="margin:0">Ball</div><b style="font-size:30px">${Math.round(nn(o.score))}/100</b></div></div>
+ ${wBar("Task Achievement",nn(c.task))}${wBar("Coherence & Cohesion",nn(c.coh))}${wBar("Lexical Resource",nn(c.lex))}${wBar("Grammar",nn(c.gram))}
+ <div class="uz" style="text-align:left;margin-top:8px">${es(len)}</div>${o.summary?`<p style="margin:8px 0 0">${es(o.summary)}</p>`:""}</div>
+ <div class="uz" style="text-align:left;margin:14px 0 4px">XATOLAR (${er.length})</div>${er.map(x=>`<div class="kr"><span class="bad"><s>${es(x.w||"")}</s></span> → <b class="ok">${es(x.c||"")}</b><div class="uz" style="margin:2px 0 0;text-align:left">${es(x.e||"")}</div></div>`).join("")||'<div class="uz" style="text-align:left">Katta xato topilmadi 👍</div>'}
+ <div class="uz" style="text-align:left;margin:14px 0 4px">NIMALARNI QO'SHSANGIZ YAXSHIROQ BO'LADI</div><ul>${im.map(x=>"<li>"+es(x)+"</li>").join("")}</ul>
+ ${o.better?`<div class="uz" style="text-align:left;margin:14px 0 4px">YAXSHILANGAN VARIANT</div><div class="sqa">${es(o.better).replace(/\n+/g,"<br><br>")}</div>`:""}</div>`};
+
+/* ===== Voice call (WebRTC) ===== */
+let cPC=null,cId=null,cMs=null,cSt=0,cTm=null,cAct=null,cTO=null,cBusy=false,rgT=null,actx=null;
+const ICE={iceServers:[{urls:"stun:stun.l.google.com:19302"},{urls:"stun:stun1.l.google.com:19302"}]};
+function ring(){if(rgT)return;const bp=()=>{try{actx=actx||new(window.AudioContext||window.webkitAudioContext)();const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=480;g.gain.value=.15;o.connect(g);g.connect(actx.destination);o.start();o.stop(actx.currentTime+.4)}catch(e){}};bp();rgT=setInterval(bp,1800)}
+const stopRing=()=>{clearInterval(rgT);rgT=null};
+const cShow=(n,st,a)=>{$("cxn").textContent=n;$("cxs").textContent=st;$("cxav").textContent=a||"📞";$("cxm").textContent="🎤 Mute";$("cxo").classList.remove("hide")};
+const icew=pc=>new Promise(res=>{if(pc.iceGatheringState=="complete")return res();const f=()=>{if(pc.iceGatheringState=="complete"){pc.removeEventListener("icegatheringstatechange",f);res()}};pc.addEventListener("icegatheringstatechange",f);setTimeout(res,3500)});
+async function cNew(){const pc=new RTCPeerConnection(ICE);cPC=pc;pc.ontrack=e=>{$("cxa").srcObject=e.streams[0];$("cxa").play().catch(()=>{})};
+ pc.onconnectionstatechange=()=>{if(pc.connectionState=="connected")cLive();if((pc.connectionState=="failed"||pc.connectionState=="disconnected")&&cId)cEnd(true,"Aloqa uzildi")};
+ cMs=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}});cMs.getTracks().forEach(t=>pc.addTrack(t,cMs));return pc}
+function cLive(){if(cSt)return;cSt=Date.now();clearTimeout(cTO);cTm=setInterval(()=>{const x=Math.floor((Date.now()-cSt)/1000);$("cxs").textContent="🟢 "+String(Math.floor(x/60)).padStart(2,"0")+":"+String(x%60).padStart(2,"0")},1000)}
+function cEnd(notify,msg){clearInterval(cAct);clearInterval(cTm);clearTimeout(cTO);const id=cId;cId=null;cSt=0;
+ if(id&&notify){J("/calls/"+id,{method:"PATCH",body:JSON.stringify({st:"end"})}).catch(()=>{});setTimeout(()=>J("/calls/"+id,{method:"DELETE"}).catch(()=>{}),5000)}
+ try{cMs&&cMs.getTracks().forEach(t=>t.stop())}catch(e){}try{cPC&&cPC.close()}catch(e){}cPC=cMs=null;$("cxa").srcObject=null;
+ if(msg){$("cxs").textContent=msg;setTimeout(()=>{$("cxo").classList.add("hide");cBusy=false},1500)}else{$("cxo").classList.add("hide");cBusy=false}}
+async function cCall(f){if(cBusy)return;if(!DB||!navigator.mediaDevices||!window.RTCPeerConnection){alert("Qo'ng'iroq uchun HTTPS, mikrofon va internet kerak.");return}
+ cBusy=true;cShow(f.n||"Do'st","Qo'ng'iroq qilinmoqda...",f.a);
+ try{const pc=await cNew(),id=Math.random().toString(36).slice(2,10);cId=id;await pc.setLocalDescription(await pc.createOffer());await icew(pc);
+  await J("/calls/"+id,{method:"PUT",body:JSON.stringify({from:uid,to:f.id,st:"ring",offer:JSON.stringify(pc.localDescription)})});
+  await J("/callin/"+f.id,{method:"PUT",body:JSON.stringify({id,from:uid,n:prof.n||"Mehmon",a:prof.a||"🙂"})});
+  $("cxs").textContent="Jiringlamoqda...";cAct=setInterval(cPoll,1000);cTO=setTimeout(()=>{if(!cSt)cEnd(true,"Javob berilmadi")},45000)}
+ catch(e){cEnd(true,"Mikrofon ruxsati yoki internet xatosi")}}
+async function cPoll(){if(!cId)return;try{const c=await J("/calls/"+cId);if(!c){cEnd(false,"Qo'ng'iroq tugadi");return}
+ if(c.st=="end"||c.st=="decline"){cEnd(false,c.st=="decline"?"Rad etildi":"Qo'ng'iroq tugadi");return}
+ if(c.answer&&cPC&&cPC.signalingState=="have-local-offer"){await cPC.setRemoteDescription(JSON.parse(c.answer));$("cxs").textContent="Ulanmoqda..."}}catch(e){}}
+async function cInChk(){if(!DB||document.hidden||cBusy)return;
+ try{const v=await J("/callin/"+uid);if(!v){$("cxi").classList.add("hide");stopRing();return}
+  const c=await J("/calls/"+v.id);if(!c||c.st!="ring"){J("/callin/"+uid,{method:"DELETE"}).catch(()=>{});$("cxi").classList.add("hide");stopRing();return}
+  $("cxit").textContent="📞 "+(v.n||"Do'st")+" qo'ng'iroq qilmoqda...";$("cxi")._v=v;$("cxi").classList.remove("hide");ring()}catch(e){}}
+setInterval(cInChk,2500);
+$("cxia").onclick=async()=>{const v=$("cxi")._v;$("cxi").classList.add("hide");stopRing();if(!v||cBusy)return;cBusy=true;cShow(v.n||"Do'st","Ulanmoqda...",v.a);
+ try{const c=await J("/calls/"+v.id);cId=v.id;const pc=await cNew();await pc.setRemoteDescription(JSON.parse(c.offer));await pc.setLocalDescription(await pc.createAnswer());await icew(pc);
+  await J("/calls/"+v.id,{method:"PATCH",body:JSON.stringify({answer:JSON.stringify(pc.localDescription),st:"live"})});await J("/callin/"+uid,{method:"DELETE"});cAct=setInterval(cPoll,1000);cTO=setTimeout(()=>{if(!cSt)cEnd(true,"Ulanib bo'lmadi")},25000)}
+ catch(e){cEnd(true,"Ulanib bo'lmadi (mikrofon ruxsatini tekshiring)")}};
+$("cxin").onclick=()=>{const v=$("cxi")._v;$("cxi").classList.add("hide");stopRing();if(v){J("/calls/"+v.id,{method:"PATCH",body:JSON.stringify({st:"decline"})}).catch(()=>{});J("/callin/"+uid,{method:"DELETE"}).catch(()=>{})}};
+$("cxm").onclick=()=>{const t=cMs&&cMs.getAudioTracks()[0];if(t){t.enabled=!t.enabled;$("cxm").textContent=t.enabled?"🎤 Mute":"🔇 Unmute"}};
+$("cxe").onclick=()=>cEnd(true,"");
+$("mcc").onclick=()=>{if(cF)cCall(cF)};
 $("s0").onclick=e=>{const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
 lvls();show();tab(0);
 </script></body></html>
