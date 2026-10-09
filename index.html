@@ -180,6 +180,7 @@ body.home .top h1{visibility:hidden}
  #wed .card,#wcu .card{max-width:100%}
 }
 @media (max-width:480px){.w{padding-left:14px;padding-right:14px}.hh h2{font-size:36px}.card{padding:20px 16px}#rvb{grid-template-columns:1fr}}
+#s5>.seg.sm{overflow-x:auto}#s5>.seg.sm button{white-space:nowrap;flex:0 0 auto;padding:9px 14px}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
 <button class="pill hide" id="bk" style="margin:0 0 12px">← Back</button>
@@ -327,7 +328,7 @@ body.home .top h1{visibility:hidden}
  </div>
  <div class="card hide" id="hp" style="text-align:left"><div class="lr"><b>🕘 History</b><button class="pill" id="hc">Tozalash</button></div><div id="hl"></div></div>
 </div>
-<div id="s5" class="hide"><div class="seg sm" style="margin-bottom:12px"><button id="c1" class="on">📋 So'zlarim</button><button id="c2">🎧 Listening</button><button id="c3">✍️ Dictation</button><button id="c4">🧠 Quiz</button></div><div id="cl" class="hide" style="margin-bottom:12px"><div class="uz" style="margin:0 0 6px;text-align:left">Gaplar darajasi (AI shu darajada gap tuzadi):</div><div class="dd"><button class="ddb" id="clb"></button><div class="ddl hide" id="cll"></div></div></div><div id="cw1"><div class="card f">
+<div id="s5" class="hide"><div class="seg sm" style="margin-bottom:12px"><button id="c1" class="on">📋 So'zlarim</button><button id="c2">🎧 Listening</button><button id="c3">✍️ Dictation</button><button id="c4">🧠 Quiz</button><button id="c5">🗣 Gaplar</button><button id="c6">📄 Matnlar</button></div><div id="cl" class="hide" style="margin-bottom:12px"><div class="uz" style="margin:0 0 6px;text-align:left">Gaplar darajasi (AI shu darajada gap tuzadi):</div><div class="dd"><button class="ddb" id="clb"></button><div class="ddl hide" id="cll"></div></div></div><div id="cw1"><div class="card f">
   <b>➕ O'z so'zingizni qo'shing</b>
   <input id="aw" placeholder="Inglizcha so'z (masalan: window)" autocomplete="off" autocapitalize="off" spellcheck="false">
   <input id="au" placeholder="O'zbekcha ma'nosi (deraza)" autocomplete="off">
@@ -338,7 +339,26 @@ body.home .top h1{visibility:hidden}
  <div id="cqz" class="hide"><div class="card" style="text-align:center"><div class="uz" id="cqh"></div><div class="bar"><i id="cqb"></i></div>
   <div class="seg sm" id="cqd" style="margin:0 0 12px"><button data-d="mix" class="on">Aralash</button><button data-d="en">EN → UZ</button><button data-d="uz">UZ → EN</button></div><div class="uz" id="cqt"></div><div class="main" id="cqw"></div>
   <input id="cqi" placeholder="Inglizcha so'z" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="sp" id="cqm"></div>
-  <div class="row"><button class="pill blue" id="cqn">Check</button><button class="pill sm" id="cqk">Skip</button><button class="pill sm" id="cqs">🔊</button></div></div></div></div>
+  <div class="row"><button class="pill blue" id="cqn">Check</button><button class="pill sm" id="cqk">Skip</button><button class="pill sm" id="cqs">🔊</button></div></div></div>
+ <div id="cgs" class="hide">
+  <div class="chips w" id="xsl" style="margin-bottom:10px"></div>
+  <div class="seg sm" id="xsm" style="margin-bottom:12px"><button data-m="ex" class="on">📖 Qanday ishlatiladi</button><button data-m="tr">🔁 Tarjima mashqi</button></div>
+  <div id="xse"><div class="card" style="text-align:center"><div class="row" style="margin:0 0 6px"><button class="pill sm" id="xsp">◀</button><div style="min-width:170px"><div class="main" id="xsw" style="margin:0"></div><div class="uz" id="xsu" style="margin:0"></div></div><button class="pill sm" id="xsn">▶</button></div>
+   <div class="row" style="margin:8px 0 0"><button class="pill sm" id="xsr">🎲 Random</button><button class="pill sm" id="xss">🔊</button></div></div><div id="xsx" style="margin-top:12px"></div></div>
+  <div id="xst" class="hide"><div class="card" style="text-align:center"><div class="uz" id="xsh"></div><div class="uz" style="margin:0">Bu gapni inglizchaga tarjima qiling:</div><div class="main" id="xsq" style="font-size:24px"></div>
+   <div class="row" style="margin:6px 0"><button class="pill sm" id="xsb">💡 Kalit so'z</button><span class="chip" id="xsk"></span></div>
+   <textarea class="ta" id="xsa" style="min-height:90px" placeholder="Inglizcha tarjimasini yozing..." spellcheck="false" autocapitalize="off"></textarea>
+   <div class="row"><button class="pill blue" id="xsc">Check</button><button class="pill sm" id="xsy">Keyingi →</button></div><div id="xsf"></div></div></div>
+ </div>
+ <div id="cgm" class="hide">
+  <div class="chips w" id="mzl" style="margin-bottom:10px"></div>
+  <div class="seg sm" id="mzd" style="margin-bottom:12px"><button data-d="en" class="on">EN → UZ</button><button data-d="uz">UZ → EN</button></div>
+  <div class="card" style="text-align:left"><div class="uz" id="mzh" style="margin:0 0 8px;text-align:left"></div><div id="mzt"></div>
+   <div class="uz" style="margin:12px 0 6px;text-align:left">LUG'ATINGIZDAN SO'ZLAR (matnda ishlatilgan)</div><div id="mzw"></div>
+   <textarea class="ta" id="mza" style="min-height:150px;margin-top:12px" placeholder="Tarjimasini yozing..." spellcheck="false" autocapitalize="off"></textarea>
+   <div class="row l"><span class="chip" id="mzk"></span><button class="pill blue" id="mzc">Check</button><button class="pill sm" id="mzs">👁 Namuna</button><button class="pill sm" id="mzn">✨ Yangi matn</button></div><div id="mzf"></div></div>
+ </div>
+</div>
 <div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"></div><div class="seg sm" id="tl"><button data-v="b" class="on">Beginner</button><button data-v="e">Elementary</button><button data-v="p">Pre-Intermediate</button><button data-v="f" class="wrx hide">CEFR Exam</button><button data-v="i" class="wrx hide">IELTS</button></div><div id="tw"></div></div>
 <div id="s8" class="hide"><div class="card" style="text-align:center">
  <div class="ait">Ai Teacher</div>
@@ -677,8 +697,8 @@ function ensureS(ws,lv){if(gsP)return gsP;ws=ws.filter(w=>lv?!(SL[lv]&&SL[lv][w[
   if(o&&typeof o=="object")ws.forEach(w=>{const t=o[w[0]];if(typeof t=="string"&&t.length>3&&t.length<220){const c=t.replace(/[<>&"]/g,"");if(lv){(SL[lv]=SL[lv]||{})[w[0]]=c}else{w[3]=c;SC[w[0]]=c}}});
   try{localStorage.setItem("sc",JSON.stringify(SC));localStorage.setItem("sl",JSON.stringify(SL))}catch(e){}cs()})().finally(()=>{gsP=null});return gsP}
 function cSub(n){if(n>1&&!custom.length){$("am").innerHTML='<span class="bad">Avval so\'z qo\'shing yoki tarjima qiling.</span>';n=1}
- [1,2,3,4].forEach(k=>$("c"+k).className=k==n?"on":"");$("cw1").classList.toggle("hide",n!=1);$("cl").classList.toggle("hide",n!=3);$("cqz").classList.toggle("hide",n!=4);
- if(n==1||n==4){$("s1").classList.add("hide");$("s3").classList.add("hide");if(n==4)cqStart();return}
+ [1,2,3,4,5,6].forEach(k=>$("c"+k).className=k==n?"on":"");$("cw1").classList.toggle("hide",n!=1);$("cl").classList.toggle("hide",n!=3);$("cqz").classList.toggle("hide",n!=4);$("cgs").classList.toggle("hide",n!=5);$("cgm").classList.toggle("hide",n!=6);
+ if(n==1||n==4||n==5||n==6){$("s1").classList.add("hide");$("s3").classList.add("hide");if(n==4)cqStart();if(n==5)gsInit(1);if(n==6)mzInit();return}
  const h=$("cw2");h.appendChild($("s1"));h.appendChild($("s3"));lvl=CK;i=0;dI=0;
  $("s1").classList.toggle("hide",n!=2);$("s3").classList.toggle("hide",n!=3);
  if(n==2){show();ensureS(D[CK])}else dShow()}
@@ -1194,9 +1214,78 @@ $("cqn").onclick=cqGo;$("cqi").onkeydown=e=>{if(e.key=="Enter")cqGo()};$("cqk").
 $("cqs").onclick=()=>{const x=cq.q[cq.i];if(x)say(x.w[0],.85)};$("c4").onclick=()=>cSub(4);
 $("cqd").onclick=e=>{const b=e.target.closest("button");if(b){cqD=b.dataset.d;cqStart()}};
 $("cba").onclick=()=>{custom.forEach(w=>muted.delete(w[0]));sm();cList()};$("cbn").onclick=()=>{custom.forEach(w=>muted.add(w[0]));sm();cList()};
+/* ===== Custom: Gaplar (usage + translation practice) ===== */
+let xLv="Beginner",xM="ex",xI=0,xS=null,xOk=0,xN=0,xTk=0;
+const xPool=()=>custom.filter(w=>!muted.has(w[0])),xCur=()=>{const p=xPool();return p.length?p[xI%p.length]:null};
+const xEsc=t=>t.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),xHl=(t,w)=>es(t).replace(new RegExp(xEsc(es(w)),"gi"),m=>'<b style="color:var(--pri)">'+m+"</b>");
+function gsInit(rs){if(rs){xI=0;xOk=0;xN=0}$("xsl").innerHTML=Object.keys(LV).map(k=>`<button class="${k==xLv?"on":""}" data-k="${k}">${k}</button>`).join("");[...$("xsm").children].forEach(b=>b.classList.toggle("on",b.dataset.m==xM));$("xse").classList.toggle("hide",xM!="ex");$("xst").classList.toggle("hide",xM!="tr");xM=="ex"?xEx():xTr()}
+async function xEx(){const w=xCur(),my=++xTk;if(!w){$("xsw").textContent="";$("xsu").textContent="";$("xsx").innerHTML='<div class="uz">So\'z yo\'q yoki hammasi 🔕 qilingan.</div>';return}
+ $("xsw").textContent=w[0];$("xsu").textContent=w[1];$("xsx").innerHTML='<div class="uz">AI tushuntirmoqda...</div>';
+ const key="cu|"+xLv+"|"+w[0];let o=spc[key];
+ if(!o){o=await gj([{text:`Explain how the English word or phrase "${w[0]}" (Uzbek meaning: ${w[1]}) is used in sentences, for a learner at "${xLv}" level (${LV[xLv]}). Return only JSON: {"pos":"part of speech (English and Uzbek)","how":"2-4 short sentences in Uzbek (Latin) explaining where it goes in a sentence and how it is used (word order, prepositions, typical patterns)","ex":[{"en":"example sentence at ${xLv} level that contains the word exactly as written","uz":"Uzbek translation (Latin)"}],"tips":["1-2 common mistakes or useful collocations in Uzbek (Latin)"]}. Give exactly 3 examples: simple sentences for low levels and more complex ones for higher levels.`}]);
+  if(o&&Array.isArray(o.ex)&&o.how){spc[key]=o;spsv()}else o=null}
+ if(my!=xTk)return;if(!o){$("xsx").innerHTML='<div class="uz">Tushuntirib bo\'lmadi (AI bilan aloqa yo\'q'+(gerr?", kod: "+gerr:"")+"). Birozdan keyin qayta urinib ko'ring.</div>";return}
+ $("xsx").innerHTML=`<div class="card" style="text-align:left"><div class="uz" style="margin:0;text-align:left">SO'Z TURI</div><b>${es(o.pos||"")}</b><div class="uz" style="margin:12px 0 4px;text-align:left">GAPDA QANDAY ISHLATILADI</div><p style="margin:0;line-height:1.65">${es(o.how)}</p>
+ <div class="uz" style="margin:14px 0 4px;text-align:left">MISOLLAR (${es(xLv)})</div>${o.ex.slice(0,4).map(z=>`<div class="kr"><div class="sqa" style="margin:0">${xHl(String(z.en||""),w[0])}</div><div class="uz" style="margin:2px 0 0;text-align:left">${es(z.uz||"")}</div><button class="pill sm" data-sp="${es(String(z.en||""))}" style="margin-top:6px">🔊</button></div>`).join("")}
+ ${Array.isArray(o.tips)&&o.tips.length?`<div class="uz" style="margin:14px 0 4px;text-align:left">ESDA TUTING</div><ul style="margin:0;padding-left:18px;line-height:1.6">${o.tips.map(t=>"<li>"+es(t)+"</li>").join("")}</ul>`:""}</div>`}
+async function xTr(){const w=xCur(),my=++xTk;$("xsf").innerHTML="";$("xsa").value="";xS=null;$("xsk").textContent="";
+ if(!w){$("xsq").textContent="";$("xsh").textContent="So'z yo'q yoki hammasi 🔕 qilingan.";return}
+ $("xsh").textContent=xLv+" · to'g'ri: "+xOk+"/"+xN;$("xsq").textContent="Gap tayyorlanmoqda...";
+ const key="cs|"+xLv+"|"+w[0];let L=spc[key];
+ if(!L||!L.length){const o=await gj([{text:`Create 5 translation exercises for the English word or phrase "${w[0]}" (Uzbek meaning: ${w[1]}) at "${xLv}" level (${LV[xLv]}). Each exercise is a natural Uzbek sentence (Latin script) that makes the learner use "${w[0]}" when translating it into English, plus the correct English translation. Make the five sentences different from each other. Return only JSON: {"s":[{"uz":"...","en":"..."}]}`}]);
+  L=o&&Array.isArray(o.s)?o.s.filter(z=>z&&z.uz&&z.en).slice(0,5):null;if(L&&L.length){spc[key]=L;spsv()}}
+ if(my!=xTk)return;if(!L||!L.length){$("xsq").textContent="";$("xsh").textContent="Gap tayyorlab bo'lmadi (AI bilan aloqa yo'q"+(gerr?", kod: "+gerr:"")+"). Birozdan keyin qayta urinib ko'ring.";return}
+ xS=Object.assign({w:w[0]},L[Math.floor(Math.random()*L.length)]);$("xsq").textContent=xS.uz}
+const xnz=t=>String(t).toLowerCase().replace(/[’ʻʼ‘`´]/g,"'").replace(/[^a-z0-9' ]/g," ").replace(/\s+/g," ").trim();
+async function xCheck(){if(!xS)return;const ans=$("xsa").value.trim();if(ans.length<2)return;let res;xN++;
+ if(xnz(ans)==xnz(xS.en))res={ok:true,score:100,errors:[],better:xS.en,tip:""};
+ else{$("xsf").innerHTML='<div class="uz">AI tekshirmoqda...</div>';$("xsc").disabled=true;
+  res=await gj([{text:`The learner translates an Uzbek sentence into English. Uzbek: "${xS.uz}". Model English translation: "${xS.en}". Learner's answer: "${ans}". Level: ${xLv}. Decide whether the answer is correct in meaning and grammar (different but correct wording is fine). Return only JSON: {"ok":true or false,"score":number 0-100,"errors":[{"w":"wrong phrase from the learner's answer","c":"corrected phrase","e":"short explanation in Uzbek (Latin)"}],"better":"the best English translation","tip":"one short tip in Uzbek (Latin)"}`}]);$("xsc").disabled=false}
+ if(!res||typeof res.ok=="undefined"){const a=new Set(xnz(ans).split(" ")),b=xnz(xS.en).split(" "),ov=b.filter(x=>a.has(x)).length/Math.max(1,b.length);res={ok:ov>=.85,score:Math.round(ov*100),errors:[],better:xS.en,tip:"AI hozir band, shuning uchun faqat so'zlar mosligi hisoblandi (taxminiy)."}}
+ const ok=res.ok===true||res.ok==="true";if(ok){xOk++;mark(xS.w)}$("xsh").textContent=xLv+" · to'g'ri: "+xOk+"/"+xN;
+ const er=Array.isArray(res.errors)?res.errors:[];
+ $("xsf").innerHTML=`<div class="card" style="margin-top:12px;padding:16px;text-align:left"><b class="${ok?"ok":"bad"}" style="font-size:18px">${ok?"✅ To'g'ri!":"❌ Xato bor"}</b> <span class="uz" style="margin:0">${Math.round(nn(res.score))}/100</span>
+ ${er.map(x=>`<div class="kr"><span class="bad"><s>${es(x.w||"")}</s></span> → <b class="ok">${es(x.c||"")}</b><div class="uz" style="margin:2px 0 0;text-align:left">${es(x.e||"")}</div></div>`).join("")}
+ <div class="uz" style="margin:12px 0 2px;text-align:left">TO'G'RI VARIANT</div><div class="sqa" style="margin:0">${xHl(String(res.better||xS.en),xS.w)}</div>${res.tip?`<div class="uz" style="margin:8px 0 0;text-align:left">💡 ${es(res.tip)}</div>`:""}</div>`}
+$("xsl").onclick=e=>{const b=e.target.closest("[data-k]");if(b){xLv=b.dataset.k;xOk=0;xN=0;gsInit()}};
+$("xsm").onclick=e=>{const b=e.target.closest("[data-m]");if(b){xM=b.dataset.m;gsInit()}};
+$("xsp").onclick=()=>{const n=xPool().length;if(n){xI=(xI-1+n)%n;xEx()}};$("xsn").onclick=()=>{const n=xPool().length;if(n){xI=(xI+1)%n;xEx()}};$("xsr").onclick=()=>{const n=xPool().length;if(n){xI=Math.floor(Math.random()*n);xEx()}};
+$("xss").onclick=()=>{const w=xCur();if(w)say(w[0],.85)};$("xsx").onclick=e=>{const b=e.target.closest("[data-sp]");if(b)say(b.dataset.sp,.85)};
+$("xsb").onclick=()=>{if(xS)$("xsk").textContent="Kalit so'z: "+xS.w};$("xsc").onclick=xCheck;$("xsy").onclick=()=>{const n=xPool().length;if(n){xI=Math.floor(Math.random()*n);xTr()}};
+$("c5").onclick=()=>cSub(5);
+/* ===== Custom: Matnlar (text translation) ===== */
+const TW={Beginner:50,Elementary:75,"Pre-Intermediate":110,Intermediate:140,"Upper-Intermediate":175,Advanced:210,IELTS:230};
+let mzLv="Beginner",mzDir="en",mzT=null,mzN=0,mzSum=0,mzTk=0;
+const hlAll=(t,ws)=>{let h=es(t);ws.forEach(w=>{h=h.replace(new RegExp("\\b"+xEsc(es(w[0]))+"\\b","gi"),m=>'<b style="color:var(--pri)">'+m+"</b>")});return h.replace(/\n+/g,"<br><br>")};
+function mzInit(){$("mzl").innerHTML=Object.keys(LV).map(k=>`<button class="${k==mzLv?"on":""}" data-k="${k}">${k}</button>`).join("");[...$("mzd").children].forEach(b=>b.classList.toggle("on",b.dataset.d==mzDir));mzNew()}
+async function mzNew(){const my=++mzTk;mzT=null;$("mzf").innerHTML="";$("mza").value="";$("mzk").textContent="";const P=xPool();
+ if(!P.length){$("mzt").innerHTML='<div class="uz">So\'z yo\'q yoki hammasi 🔕 qilingan.</div>';$("mzw").innerHTML="";return}
+ const ws=shuf(P).slice(0,Math.min(5,P.length)),n=TW[mzLv];$("mzt").innerHTML='<div class="uz">Matn tayyorlanmoqda...</div>';$("mzw").innerHTML="";$("mzh").textContent=mzLv;
+ const o=await gj([{text:`Write a short text in English for a learner at "${mzLv}" level (${LV[mzLv]}), about ${n} words, in 1-2 simple paragraphs on an everyday or interesting topic. Use ALL of these words or phrases exactly as written: ${ws.map(w=>w[0]).join(", ")}. Also write its natural Uzbek translation (Latin script). Return only JSON: {"en":"the English text","uz":"the Uzbek translation"}`}]);
+ if(my!=mzTk)return;if(!o||typeof o.en!="string"||typeof o.uz!="string"){$("mzt").innerHTML='<div class="uz">Matn tayyorlab bo\'lmadi (AI bilan aloqa yo\'q'+(gerr?", kod: "+gerr:"")+"). Birozdan keyin qayta urinib ko'ring.</div>";return}
+ mzT={en:o.en,uz:o.uz,ws};mzShow()}
+function mzShow(){const t=mzT;if(!t)return;const en=mzDir=="en";$("mzh").textContent=mzLv+" · tekshirilgan: "+mzN+(mzN?" · o'rtacha: "+Math.round(mzSum/mzN)+"/100":"");
+ $("mzt").innerHTML=`<div class="uz" style="margin:0 0 6px;text-align:left">${en?"INGLIZCHA MATN → O'ZBEKCHAGA TARJIMA QILING":"O'ZBEKCHA MATN → INGLIZCHAGA TARJIMA QILING"} (${wc(en?t.en:t.uz)} so'z)</div><div class="sqa" style="margin:0">${en?hlAll(t.en,t.ws):es(t.uz).replace(/\n+/g,"<br><br>")}</div>`;
+ $("mzw").innerHTML=t.ws.map(w=>`<span class="chip">${es(w[0])} — ${es(w[1])}</span>`).join(" ");$("mza").placeholder=en?"O'zbekcha tarjimasini yozing...":"Inglizcha tarjimasini yozing...";mzCnt()}
+function mzCnt(){if(!mzT)return;const en=mzDir=="en";$("mzk").textContent=wc($("mza").value)+" words (matn: "+wc(en?mzT.en:mzT.uz)+" so'z)"}
+async function mzCheck(){if(!mzT)return;const ans=$("mza").value.trim(),en=mzDir=="en";if(wc(ans)<3){$("mzf").innerHTML='<div class="uz">Avval tarjimani yozing.</div>';return}
+ $("mzf").innerHTML='<div class="uz">AI tekshirmoqda... (10-30 soniya)</div>';$("mzc").disabled=true;const src=en?mzT.en:mzT.uz,model=en?mzT.uz:mzT.en;
+ let res=await gj([{text:`The learner translates a text. Source text: """${src}""" Model translation (${en?"Uzbek, Latin script":"English"}): """${model}""" Learner's translation: """${ans}""" Level: ${mzLv}. Judge meaning and grammar; different but correct wording is fine. Return only JSON: {"score":number 0-100,"errors":[{"w":"wrong phrase from the learner's text","c":"corrected phrase","e":"short explanation in Uzbek (Latin)"}],"missed":["important sentences or ideas the learner left out, in Uzbek (Latin)"],"tip":"one short tip in Uzbek (Latin)"}. List at most 8 errors.`}]);
+ $("mzc").disabled=false;
+ if(!res||typeof res.score=="undefined"){const tok=t=>String(t).toLowerCase().replace(/[’ʻʼ‘`´]/g,"'").replace(/[^a-z0-9' ]/g," ").split(/\s+/).filter(Boolean),a=new Set(tok(ans)),b=tok(model);res={score:Math.round(b.filter(x=>a.has(x)).length/Math.max(1,b.length)*100),errors:[],missed:[],tip:"AI hozir band, shuning uchun faqat so'zlar mosligi hisoblandi (taxminiy)."}}
+ const sc=Math.max(0,Math.min(100,Math.round(nn(res.score)))),er=Array.isArray(res.errors)?res.errors:[],ms=Array.isArray(res.missed)?res.missed:[];mzN++;mzSum+=sc;if(sc>=70)mzT.ws.forEach(w=>mark(w[0]));mzShow();
+ $("mzf").innerHTML=`<div class="card" style="margin-top:12px;padding:16px;text-align:left"><div style="display:flex;justify-content:space-between;align-items:center"><b class="${sc>=70?"ok":"bad"}" style="font-size:18px">${sc>=85?"✅ Zo'r!":sc>=70?"✅ Yaxshi":"❌ Yana urinib ko'ring"}</b><b style="font:800 30px ui-serif,Georgia,serif;color:var(--pri)">${sc}/100</b></div>
+ ${er.map(x=>`<div class="kr"><span class="bad"><s>${es(x.w||"")}</s></span> → <b class="ok">${es(x.c||"")}</b><div class="uz" style="margin:2px 0 0;text-align:left">${es(x.e||"")}</div></div>`).join("")}
+ ${ms.length?`<div class="uz" style="margin:12px 0 4px;text-align:left">QOLIB KETGAN JOYLAR</div><ul style="margin:0;padding-left:18px;line-height:1.6">${ms.map(x=>"<li>"+es(x)+"</li>").join("")}</ul>`:""}
+ <div class="uz" style="margin:12px 0 4px;text-align:left">NAMUNAVIY TARJIMA</div><div class="sqa" style="margin:0">${en?es(model).replace(/\n+/g,"<br><br>"):hlAll(model,mzT.ws)}</div>${res.tip?`<div class="uz" style="margin:8px 0 0;text-align:left">💡 ${es(res.tip)}</div>`:""}</div>`}
+$("mzl").onclick=e=>{const b=e.target.closest("[data-k]");if(b){mzLv=b.dataset.k;mzInit()}};
+$("mzd").onclick=e=>{const b=e.target.closest("[data-d]");if(b){mzDir=b.dataset.d;[...$("mzd").children].forEach(x=>x.classList.toggle("on",x==b));$("mza").value="";$("mzf").innerHTML="";mzShow()}};
+$("mzn").onclick=mzNew;$("mzc").onclick=mzCheck;$("mza").oninput=mzCnt;
+$("mzs").onclick=()=>{if(!mzT)return;const en=mzDir=="en",model=en?mzT.uz:mzT.en;$("mzf").innerHTML=`<div class="card" style="margin-top:12px;padding:16px;text-align:left"><div class="uz" style="margin:0 0 4px;text-align:left">NAMUNAVIY TARJIMA</div><div class="sqa" style="margin:0">${en?es(model).replace(/\n+/g,"<br><br>"):hlAll(model,mzT.ws)}</div></div>`};
+$("c6").onclick=()=>cSub(6);
 /* ===== Info ===== */
 const APPV="0.6.0",APPD="2026-10-08";
-const LOGS=[["0.6.0","2026-10-07 (yangilandi: 2026-10-08)",["Custom: 🧠 Quiz endi ikki yo'nalishda so'raydi: inglizcha → o'zbekcha va o'zbekcha → inglizcha (Aralash, EN → UZ, UZ → EN rejimlari). O'zbekcha javobda bir nechta ma'no (vergul, / va qavs ichidagi) qabul qilinadi.","Custom: har bir so'z kartasida 🔔/🔕 tugmasi. 🔕 qilingan so'z Listening, Dictation va Quiz'da so'ralmaydi. \"Hammasi so'ralsin\" va \"Hech biri so'ralmasin\" tugmalari ham bor.","Tuzatish: Custom → Listening'da eski matn qolib ketadigan xato (ikkita elementning nomi bir xil bo'lgani uchun) to'g'rilandi. Translation'dagi ✕ (tozalash) tugmasi ham endi ishlaydi.","Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
+const LOGS=[["0.6.0","2026-10-07 (yangilandi: 2026-10-08)",["Custom: 📄 Matnlar bo'limi. Darajangizni tanlaysiz (Beginner'dan IELTS'gacha), saytda saqlangan so'zlaringizdan foydalanib yozilgan matn beriladi. EN → UZ yoki UZ → EN yo'nalishida tarjima qilasiz, AI ball (0-100) beradi, xatolarni, qolib ketgan joylarni va namunaviy tarjimani ko'rsatadi.","Custom: 🗣 Gaplar bo'limi. So'z gapda qanday ishlatilishi (so'z turi, o'rni, 3 ta misol, esda tutish kerak narsalar) va o'zbekcha gapni inglizchaga tarjima qilish mashqi. 7 ta daraja (Beginner'dan IELTS'gacha) alohida tanlanadi. Xato bo'lsa, AI nima xato ekanini va to'g'ri variantni tushuntiradi.","Custom: 🧠 Quiz endi ikki yo'nalishda so'raydi: inglizcha → o'zbekcha va o'zbekcha → inglizcha (Aralash, EN → UZ, UZ → EN rejimlari). O'zbekcha javobda bir nechta ma'no (vergul, / va qavs ichidagi) qabul qilinadi.","Custom: har bir so'z kartasida 🔔/🔕 tugmasi. 🔕 qilingan so'z Listening, Dictation va Quiz'da so'ralmaydi. \"Hammasi so'ralsin\" va \"Hech biri so'ralmasin\" tugmalari ham bor.","Tuzatish: Custom → Listening'da eski matn qolib ketadigan xato (ikkita elementning nomi bir xil bo'lgani uchun) to'g'rilandi. Translation'dagi ✕ (tozalash) tugmasi ham endi ishlaydi.","Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
 ["0.5.0","2026-10",["Writing: CEFR Task 1.1, 1.2, 2 va AI tekshiruv (xatolar, ball, tavsiyalar).","Noutbuk va telefon uchun moslashgan dizayn."]],
 ["0.4.0","2026-10",["Speaking (60 mavzu) va Reading (hikoyalar, True/False savollar).","Type Race (2-5 kishi, yozish yoki gapirish).","Do'stlar bilan ovozli qo'ng'iroq.","Akkaunt tizimi (Sign in / Create account), parolni o'zgartirish, natijalarni bulutga saqlash."]],
 ["0.3.0","2026-10",["Ai Teacher: ovozli suhbat (Gemini), ovoz tanlash.","Dashboard, Help, Menu, Settings (Night/Day mode, profil, rasm).","Multiplayer: Friends, chat, Word Battle, Spelling Race, Quiz Duel va Multiplayer Top."]],
