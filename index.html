@@ -316,7 +316,7 @@ body.home .top h1{visibility:hidden}
 <div id="s4" class="hide">
  <div class="lr"><b id="l1">English</b><button class="pill" id="sw">⇄</button><b id="l2" style="text-align:right">O'zbek</b></div>
  <div class="card tg">
-  <div style="position:relative"><textarea class="ta" id="tq" placeholder="Matn kiriting" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea><button class="x hide" id="tx" aria-label="Tozalash">✕</button></div>
+  <div style="position:relative"><textarea class="ta" id="tq" placeholder="Matn kiriting" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea><button class="x hide" id="tcl" aria-label="Tozalash">✕</button></div>
   <div class="ph" id="ph"></div>
   <div class="row l"><button class="pill" id="mc">🎤</button><button class="pill" id="sa">🔊</button><button class="pill" id="hs">🕘 History</button></div>
  </div>
@@ -334,9 +334,9 @@ body.home .top h1{visibility:hidden}
   <input id="as" placeholder="Misol gap (ixtiyoriy)" autocomplete="off" autocapitalize="off" spellcheck="false">
   <div class="row" style="margin-bottom:0"><button class="pill blue" id="ab">Qo'shish</button><button class="pill" id="ib">📷 Rasmdan</button><input type="file" id="im" accept="image/*" class="hide"></div>
   <div class="sp" id="am"></div>
- </div><p class="note" id="cc"></p><div class="grid" id="cg"></div></div><div id="cw2"></div>
+ </div><div class="row l" style="margin:0 0 8px"><button class="pill sm" id="cba">🔔 Hammasi so'ralsin</button><button class="pill sm" id="cbn">🔕 Hech biri so'ralmasin</button></div><p class="note" id="cc"></p><div class="grid" id="cg"></div></div><div id="cw2"></div>
  <div id="cqz" class="hide"><div class="card" style="text-align:center"><div class="uz" id="cqh"></div><div class="bar"><i id="cqb"></i></div>
-  <div class="uz">Quyidagi so'zning inglizchasini yozing:</div><div class="main" id="cqw"></div>
+  <div class="seg sm" id="cqd" style="margin:0 0 12px"><button data-d="mix" class="on">Aralash</button><button data-d="en">EN → UZ</button><button data-d="uz">UZ → EN</button></div><div class="uz" id="cqt"></div><div class="main" id="cqw"></div>
   <input id="cqi" placeholder="Inglizcha so'z" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="sp" id="cqm"></div>
   <div class="row"><button class="pill blue" id="cqn">Check</button><button class="pill sm" id="cqk">Skip</button><button class="pill sm" id="cqs">🔊</button></div></div></div></div>
 <div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"></div><div class="seg sm" id="tl"><button data-v="b" class="on">Beginner</button><button data-v="e">Elementary</button><button data-v="p">Pre-Intermediate</button><button data-v="f" class="wrx hide">CEFR Exam</button><button data-v="i" class="wrx hide">IELTS</button></div><div id="tw"></div></div>
@@ -477,7 +477,7 @@ let onTop=false,curN=0;
 function tab(n){if(n!=15&&typeof trLeave=="function")trLeave();if(n!=18&&typeof luLeave=="function")luLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
  if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==14)mtR();if(n==16)rdInit();if(n==17)wInit();if(n==19)infoInit();if(n==0)$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
-let dI=0;const dp=()=>D[lvl],dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
+let dI=0;const dp=()=>{const p=D[lvl];if(lvl!=CK)return p;const q=p.filter(w=>!muted.has(w[0]));return q.length?q:p},dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
 async function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=(lvl==CK?"Custom · "+clv:lvl)+" · "+(dI%dp().length+1)+"/"+dp().length;
  if(lvl==CK?!(SL[clv]&&SL[clv][dc()[0]]):!dc()[3]){$("dr").textContent="Gap tuzilyapti...";const p=dp(),st=dI%p.length;await ensureS([...p.slice(st),...p.slice(0,st)],lvl==CK?clv:undefined);$("dr").textContent=""}
  setTimeout(()=>say(dS()),250)}
@@ -517,7 +517,7 @@ function addC(e,u){e=e.replace(/[<>&"]/g,"").trim().slice(0,60);u=String(u).repl
  custom.push([e,u,"🌐",""]);D[CK]=custom;cs();upd();lvls();if(!$("s5").classList.contains("hide"))cList()}
 let tk=0,dt,ct,pend=null;
 function chips(a){$("al").innerHTML="";a.forEach(x=>{const b=document.createElement("button");b.className="chip";b.textContent=x;b.onclick=()=>{$("to").textContent=x;if(pend)pend[1]=x};$("al").appendChild(b)})}
-async function trn(){const q=nz($("tq").value),my=++tk;$("tx").classList.toggle("hide",!q);$("ph").textContent=$("ph2").textContent="";
+async function trn(){const q=nz($("tq").value),my=++tk;$("tcl").classList.toggle("hide",!q);$("ph").textContent=$("ph2").textContent="";
  if(!q){$("to").textContent=$("tn").textContent="";$("al").innerHTML="";pend=null;return}
  $("tn").textContent="…";let res=lloc(q),alts=[],src="Lug'atdan";
  if(!res){const a=await lapi(q);if(my!=tk)return;if(a){res=a.t;alts=a.alts;src="Onlayn tarjima"}}
@@ -531,15 +531,15 @@ function commit(){if(!pend||pend[3]!=tk)return;const[q,res,f]=pend;pend=null;
 function hR(){$("hl").innerHTML=hist.length?"":'<div class="uz">Hali tarjima yo\'q</div>';hist.forEach(h=>{const d=document.createElement("div");d.className="hi";d.innerHTML=`<b>${es(h[0])}</b><span>${es(h[1])}</span>`;d.onclick=()=>{tf=h[2];lb();$("tq").value=h[0];$("hp").classList.add("hide");trn()};$("hl").appendChild(d)})}
 $("tq").oninput=()=>{clearTimeout(dt);dt=setTimeout(trn,400)};
 $("tq").onkeydown=e=>{if(e.key=="Enter"&&!e.shiftKey){e.preventDefault();clearTimeout(dt);trn().then(commit)}};$("tq").onblur=()=>{clearTimeout(ct);ct=setTimeout(commit,300)};
-$("tx").onclick=()=>{$("tq").value="";trn();$("tq").focus()};
+$("tcl").onclick=()=>{$("tq").value="";trn();$("tq").focus()};
 $("sa").onclick=()=>spk($("tq").value,tf);$("sb").onclick=()=>spk($("to").textContent,tf=="en"?"uz":"en");
 $("cp").onclick=()=>{try{navigator.clipboard.writeText($("to").textContent)}catch(e){}};
 $("mc").onclick=()=>{const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;const x=new SR();x.lang=LG[tf];x.onresult=e=>{$("tq").value=e.results[0][0].transcript;trn()};try{x.start()}catch(e){}};
 $("sw").onclick=()=>{const v=$("to").textContent;tf=tf=="en"?"uz":"en";lb();if(v){$("tq").value=v}trn()};
 $("hs").onclick=()=>{hR();$("hp").classList.toggle("hide")};$("hc").onclick=()=>{hist=[];sh();hR()};
 $("spd").onclick=e=>{const b=e.target.closest("button");if(!b)return;trs=+b.dataset.s;[...$("spd").children].forEach(x=>x.classList.toggle("on",x==b))};
-function cList(){$("cc").textContent=custom.length+" ta so'z · Translation'dagi so'zlar shu yerga avtomatik qo'shiladi";$("cg").innerHTML="";
- custom.slice().reverse().forEach(w=>{const d=document.createElement("div");d.className="v";d.innerHTML=`<button class="dl">✕</button><div class="e">${w[2]}</div><b>${es(w[0])}</b><small>${es(w[1])}</small>`;d.onclick=()=>say(w[0]);d.querySelector(".dl").onclick=e=>{e.stopPropagation();custom=custom.filter(c=>c!==w);cs();if(custom.length)D[CK]=custom;else{delete D[CK];if(lvl==CK)lvl=Ls()[0]}i=0;dI=0;lvls();show();cList()};$("cg").appendChild(d)})}
+function cList(){$("cc").textContent=custom.length+" ta so'z ("+custom.filter(w=>!muted.has(w[0])).length+" tasi mashqlarda so'raladi) · 🔔 so'raladi, 🔕 so'ralmaydi (Listening, Dictation, Quiz)";$("cg").innerHTML="";
+ custom.slice().reverse().forEach(w=>{const d=document.createElement("div");d.className="v";d.innerHTML=`<button class="mt" aria-label="Soralsinmi">${muted.has(w[0])?"🔕":"🔔"}</button><button class="dl">✕</button><div class="e">${w[2]}</div><b>${es(w[0])}</b><small>${es(w[1])}</small>`;if(muted.has(w[0]))d.style.opacity=".55";d.onclick=()=>say(w[0]);d.querySelector(".mt").onclick=e=>{e.stopPropagation();muted.has(w[0])?muted.delete(w[0]):muted.add(w[0]);sm();cList()};d.querySelector(".dl").onclick=e=>{e.stopPropagation();custom=custom.filter(c=>c!==w);cs();if(custom.length)D[CK]=custom;else{delete D[CK];if(lvl==CK)lvl=Ls()[0]}i=0;dI=0;lvls();show();cList()};$("cg").appendChild(d)})}
 $("ab").addEventListener("click",()=>setTimeout(cList,50));
 const fm=t=>{const h=Math.floor(t/3600),m=Math.floor(t%3600/60);return h?h+" soat "+m+" daq":m?m+" daq "+t%60+" son":t+" son"};
 const dk=()=>new Date().toISOString().slice(0,10);
@@ -1174,19 +1174,29 @@ $("lus").onclick=async()=>{if(!luR||luR.h!=uid)return;const ord=shuf(Object.keys
 $("lui2").onclick=()=>mdOpen("lu");$("lux").onclick=()=>{luLeave();tab(10)};
 
 /* ===== Custom Quiz ===== */
-let cq={q:[],i:0,ok:0,st:0,miss:[]};
-function cqStart(){cq={q:shuf(custom).slice(0,10),i:0,ok:0,st:0,miss:[]};cqShow()}
-function cqShow(){const w=cq.q[cq.i],t=cq.q.length;$("cqn").classList.remove("hide");$("cqk").classList.remove("hide");
- if(!w){$("cqh").textContent="Natija";$("cqw").textContent=cq.ok+"/"+t;$("cqb").style.width="100%";$("cqi").classList.add("hide");$("cqk").classList.add("hide");$("cqm").innerHTML=cq.miss.length?"Xato qilingan so'zlar: "+cq.miss.map(x=>"<b>"+es(x[0])+"</b> ("+es(x[1])+")").join(", "):"Hammasini topdingiz! 🎉";$("cqn").textContent="Qayta boshlash";cq.st=2;return}
- $("cqh").textContent="Savol "+(cq.i+1)+"/"+t+" · to'g'ri: "+cq.ok;$("cqb").style.width=(cq.i/t*100)+"%";$("cqw").textContent=w[1];$("cqi").classList.remove("hide");$("cqi").value="";$("cqi").disabled=false;$("cqm").textContent="";$("cqn").textContent="Check";cq.st=0;setTimeout(()=>$("cqi").focus(),50)}
-function cqGo(){if(cq.st==2){cqStart();return}if(cq.st==1){cq.i++;cqShow();return}const w=cq.q[cq.i],v=$("cqi").value.trim().toLowerCase();if(!w||!v)return;
- if(v==String(w[0]).toLowerCase()){cq.ok++;mark(w[0]);$("cqm").innerHTML='<span class="ok">✅ To\'g\'ri!</span>'}else{cq.miss.push([w[0],w[1]]);$("cqm").innerHTML='<span class="bad">❌ To\'g\'ri javob: <b>'+es(w[0])+"</b></span>"}
+let cq={q:[],i:0,ok:0,st:0,miss:[]},cqD="mix";
+const nzu=t=>String(t).toLowerCase().replace(/[’ʻʼ‘`´]/g,"'").replace(/\s+/g," ").trim();
+function uzOk(a,m){a=nzu(a);if(a.length<2)return false;const full=nzu(m),v=new Set([full,full.replace(/\([^)]*\)/g,"").replace(/\s+/g," ").trim()]);
+ full.split(/[,;\/]/).forEach(p=>{p=p.trim();v.add(p);v.add(p.replace(/\([^)]*\)/g,"").replace(/\s+/g," ").trim());(p.match(/\(([^)]*)\)/g)||[]).forEach(x=>v.add(x.slice(1,-1).trim()))});
+ if(v.has(a))return true;return a.length>=4&&full.split(/[^a-z0-9']+/).filter(x=>x.length>=4).includes(a)}
+function cqStart(){const P=custom.filter(w=>!muted.has(w[0]));cq={q:shuf(P).slice(0,10).map(w=>({w,d:cqD=="mix"?(Math.random()<.5?"en":"uz"):cqD})),i:0,ok:0,st:0,miss:[]};cqShow()}
+function cqShow(){const x=cq.q[cq.i],t=cq.q.length;$("cqn").classList.remove("hide");$("cqk").classList.remove("hide");[...$("cqd").children].forEach(b=>b.classList.toggle("on",b.dataset.d==cqD));
+ if(!t){$("cqh").textContent="";$("cqt").textContent="";$("cqw").textContent="";$("cqi").classList.add("hide");$("cqn").classList.add("hide");$("cqk").classList.add("hide");$("cqm").textContent="Ro'yxatdagi hamma so'z 🔕 qilingan. Kamida bitta so'zni 🔔 qiling.";$("cqb").style.width="0";return}
+ if(!x){$("cqh").textContent="Natija";$("cqt").textContent="To'g'ri topganingiz:";$("cqw").textContent=cq.ok+"/"+t;$("cqb").style.width="100%";$("cqi").classList.add("hide");$("cqk").classList.add("hide");$("cqm").innerHTML=cq.miss.length?"Xato qilingan so'zlar: "+cq.miss.map(z=>"<b>"+es(z[0])+"</b> ("+es(z[1])+")").join(", "):"Hammasini topdingiz! 🎉";$("cqn").textContent="Qayta boshlash";cq.st=2;return}
+ $("cqh").textContent="Savol "+(cq.i+1)+"/"+t+" · to'g'ri: "+cq.ok;$("cqb").style.width=(cq.i/t*100)+"%";
+ $("cqt").textContent=x.d=="en"?"Bu so'zning o'zbekchasini yozing:":"Bu so'zning inglizchasini yozing:";$("cqw").textContent=x.d=="en"?x.w[0]:x.w[1];$("cqi").placeholder=x.d=="en"?"O'zbekcha ma'nosi":"Inglizcha so'z";
+ $("cqi").classList.remove("hide");$("cqi").value="";$("cqi").disabled=false;$("cqm").textContent="";$("cqn").textContent="Check";cq.st=0;setTimeout(()=>$("cqi").focus(),50)}
+function cqGo(){if(cq.st==2){cqStart();return}if(cq.st==1){cq.i++;cqShow();return}const x=cq.q[cq.i],v=$("cqi").value.trim();if(!x||!v)return;
+ const ok=x.d=="en"?uzOk(v,x.w[1]):nzu(v)==nzu(x.w[0]);
+ if(ok){cq.ok++;mark(x.w[0]);$("cqm").innerHTML='<span class="ok">✅ To\'g\'ri!</span>'}else{cq.miss.push([x.w[0],x.w[1]]);$("cqm").innerHTML='<span class="bad">❌ To\'g\'ri javob: <b>'+es(x.d=="en"?x.w[1]:x.w[0])+"</b></span>"}
  $("cqi").disabled=true;cq.st=1;$("cqn").textContent=cq.i+1>=cq.q.length?"Natijani ko'rish":"Keyingi →"}
-$("cqn").onclick=cqGo;$("cqi").onkeydown=e=>{if(e.key=="Enter")cqGo()};$("cqk").onclick=()=>{if(cq.st==0){const w=cq.q[cq.i];cq.miss.push([w[0],w[1]]);cq.i++;cqShow()}};
-$("cqs").onclick=()=>{const w=cq.q[cq.i];if(w)say(w[0],.85)};$("c4").onclick=()=>cSub(4);
+$("cqn").onclick=cqGo;$("cqi").onkeydown=e=>{if(e.key=="Enter")cqGo()};$("cqk").onclick=()=>{if(cq.st==0&&cq.q[cq.i]){const w=cq.q[cq.i].w;cq.miss.push([w[0],w[1]]);cq.i++;cqShow()}};
+$("cqs").onclick=()=>{const x=cq.q[cq.i];if(x)say(x.w[0],.85)};$("c4").onclick=()=>cSub(4);
+$("cqd").onclick=e=>{const b=e.target.closest("button");if(b){cqD=b.dataset.d;cqStart()}};
+$("cba").onclick=()=>{custom.forEach(w=>muted.delete(w[0]));sm();cList()};$("cbn").onclick=()=>{custom.forEach(w=>muted.add(w[0]));sm();cList()};
 /* ===== Info ===== */
-const APPV="0.6.0",APPD="2026-10-07";
-const LOGS=[["0.6.0","2026-10-07",["Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
+const APPV="0.6.0",APPD="2026-10-08";
+const LOGS=[["0.6.0","2026-10-07 (yangilandi: 2026-10-08)",["Custom: 🧠 Quiz endi ikki yo'nalishda so'raydi: inglizcha → o'zbekcha va o'zbekcha → inglizcha (Aralash, EN → UZ, UZ → EN rejimlari). O'zbekcha javobda bir nechta ma'no (vergul, / va qavs ichidagi) qabul qilinadi.","Custom: har bir so'z kartasida 🔔/🔕 tugmasi. 🔕 qilingan so'z Listening, Dictation va Quiz'da so'ralmaydi. \"Hammasi so'ralsin\" va \"Hech biri so'ralmasin\" tugmalari ham bor.","Tuzatish: Custom → Listening'da eski matn qolib ketadigan xato (ikkita elementning nomi bir xil bo'lgani uchun) to'g'rilandi. Translation'dagi ✕ (tozalash) tugmasi ham endi ishlaydi.","Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
 ["0.5.0","2026-10",["Writing: CEFR Task 1.1, 1.2, 2 va AI tekshiruv (xatolar, ball, tavsiyalar).","Noutbuk va telefon uchun moslashgan dizayn."]],
 ["0.4.0","2026-10",["Speaking (60 mavzu) va Reading (hikoyalar, True/False savollar).","Type Race (2-5 kishi, yozish yoki gapirish).","Do'stlar bilan ovozli qo'ng'iroq.","Akkaunt tizimi (Sign in / Create account), parolni o'zgartirish, natijalarni bulutga saqlash."]],
 ["0.3.0","2026-10",["Ai Teacher: ovozli suhbat (Gemini), ovoz tanlash.","Dashboard, Help, Menu, Settings (Night/Day mode, profil, rasm).","Multiplayer: Friends, chat, Word Battle, Spelling Race, Quiz Duel va Multiplayer Top."]],
