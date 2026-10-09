@@ -141,7 +141,7 @@ body.home .top h1{visibility:hidden}
 .inv{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:8px;width:min(94vw,420px);padding:12px 14px;border-radius:20px;background:var(--bg2);border:1px solid var(--bd);box-shadow:var(--sh)}.inv.hide{display:none}.inv span{flex:1;font-size:14px;font-weight:600}
 .gopt{display:block;width:100%;margin:8px 0;text-align:left;font-size:16px}.gopt.gok{background:#30a14e;color:#fff}.gopt.gno{background:#e5484d;color:#fff}.gopt.sel{outline:2px solid var(--pri)}
 #tl{margin-top:-6px}
-.chips.w{flex-wrap:wrap;overflow:visible}
+.chips.wrap{flex-wrap:wrap;overflow:visible}.chips.wrap button{flex:1 1 auto}
 .k0{color:#8b93ff}.k1{color:#f5b800}.k2{color:#2dd4bf}.k3{color:#f472b6}.k4{color:#4ade80}
 .kr{padding:10px 0;border-top:1px solid var(--bd)}.kr b{font-size:15px}.kr .row{margin:6px 0 0;justify-content:flex-start;flex-wrap:wrap}
 .sqa{font:500 16px/1.65 -apple-system,BlinkMacSystemFont,sans-serif;margin:8px 0}.sqa .kw{font-weight:700}
@@ -180,7 +180,7 @@ body.home .top h1{visibility:hidden}
  #wed .card,#wcu .card{max-width:100%}
 }
 @media (max-width:480px){.w{padding-left:14px;padding-right:14px}.hh h2{font-size:36px}.card{padding:20px 16px}#rvb{grid-template-columns:1fr}}
-#s5>.seg.sm{overflow-x:auto}#s5>.seg.sm button{white-space:nowrap;flex:0 0 auto;padding:9px 14px}
+#s5>.seg.sm{overflow-x:auto}#s5>.seg.sm button{white-space:nowrap;flex:1 0 auto;padding:9px 14px}#tc button,#mtc button{flex:1 0 auto!important}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
 <button class="pill hide" id="bk" style="margin:0 0 12px">← Back</button>
@@ -230,7 +230,7 @@ body.home .top h1{visibility:hidden}
 </div>
 <div id="s13" class="hide">
  <div class="hh"><small>SPEAKING</small><h2 style="font-size:38px">Speaking</h2><p>Speaking darajangizni native darajaga olib chiqamiz.</p></div>
- <div class="chips w" id="sgl" style="margin-bottom:14px"></div>
+ <div class="chips wrap" id="sgl" style="margin-bottom:14px"></div>
  <div class="hg" id="sgt"></div>
  <div id="sgq" class="hide"><button class="pill sm" id="sgb">← All topics</button><div class="main" id="sgh" style="text-align:left;margin:12px 0"></div><div id="sgi"></div></div>
 </div>
@@ -246,10 +246,10 @@ body.home .top h1{visibility:hidden}
  <div class="uz" id="trst"></div><div class="row"><button class="pill sm" id="trx">Leave</button></div>
 </div></div>
 <div id="s16" class="hide">
- <div id="rdl"><div class="chips w" id="rlv" style="margin-bottom:14px"></div>
+ <div id="rdl"><div class="chips wrap" id="rlv" style="margin-bottom:14px"></div>
   <div class="hero" style="cursor:default;display:block;text-align:center"><h3 style="font-size:30px">Read a little every day.<br><span style="color:var(--pri)">Understand a lot.</span></h3><p style="margin:0">Hikoyani o'qing, ajratilgan so'zni bossangiz, ma'nosi chiqadi.</p></div>
   <input id="rsq" placeholder="Search stories by title..." style="margin-bottom:10px">
-  <div class="chips w" id="rct" style="margin-bottom:14px"></div><div class="hg" id="rgd"></div></div>
+  <div class="chips wrap" id="rct" style="margin-bottom:14px"></div><div class="hg" id="rgd"></div></div>
  <div id="rds" class="hide"><button class="pill sm" id="rbk">← All stories</button>
   <div class="card" style="text-align:left;margin-top:12px"><div class="uz" id="rmt" style="margin:0"></div><div class="main" id="rtl" style="text-align:left"></div>
    <div class="card" style="padding:12px;margin:10px 0"><div class="uz" style="margin:0 0 6px;text-align:left">Curious about a word?</div><div style="display:flex;gap:8px"><input id="rwi" placeholder="Type any English word..." style="margin:0;font-size:16px;text-align:left" autocomplete="off" autocapitalize="off"><button class="pill blue sm" id="rwb">Look up</button></div></div>
@@ -260,14 +260,14 @@ body.home .top h1{visibility:hidden}
 </div>
 <div id="s17" class="hide">
  <div class="hh"><small>WRITING</small><h2 style="font-size:38px">Writing</h2><p>Yozing, AI tekshiradi: xatolar, ball va tavsiyalar.</p></div>
- <div class="chips w" id="wlv" style="margin-bottom:10px"></div><div class="chips w hide" id="wtk" style="margin-bottom:10px"></div>
+ <div class="chips wrap" id="wlv" style="margin-bottom:10px"></div><div class="chips wrap hide" id="wtk" style="margin-bottom:10px"></div>
  <div class="hg" id="wpl"></div><div class="row" style="margin:12px 0" id="wnr"><button class="pill sm" id="wnew">✨ New AI task</button></div>
  <div id="wed" class="hide"><div class="card" style="text-align:left">
   <div class="uz" id="wtt" style="margin:0"></div><div class="sqa" id="wpr"></div><div class="uz" id="wtp" style="margin:0 0 8px;text-align:left"></div>
   <textarea class="ta" id="wtx" style="min-height:220px" placeholder="Shu yerga yozing..." spellcheck="false"></textarea>
   <div class="row l"><span class="chip" id="wcn">0 words</span><button class="pill blue" id="wck">Check my writing</button><button class="pill sm" id="wcl">Clear</button></div>
   <div id="wrs"></div></div></div>
- <div id="wcu" class="hide"><div class="chips w" id="cuk" style="margin-bottom:10px"></div><div class="chips w hide" id="cut" style="margin-bottom:10px"></div>
+ <div id="wcu" class="hide"><div class="chips wrap" id="cuk" style="margin-bottom:10px"></div><div class="chips wrap hide" id="cut" style="margin-bottom:10px"></div>
   <div class="card" style="text-align:left"><div class="uz" id="cuh" style="margin:0 0 8px;text-align:left"></div>
    <div class="uz" style="margin:0 0 4px;text-align:left">Savol / topshiriq</div><textarea class="ta" id="cuq" style="min-height:70px" placeholder="Savolingizni yozing (inglizcha)..." spellcheck="false"></textarea>
    <div class="uz" style="margin:10px 0 4px;text-align:left">Javobingiz</div><textarea class="ta" id="cua" style="min-height:240px" placeholder="Javobingizni shu yerga yozing..." spellcheck="false"></textarea>
@@ -328,7 +328,7 @@ body.home .top h1{visibility:hidden}
  </div>
  <div class="card hide" id="hp" style="text-align:left"><div class="lr"><b>🕘 History</b><button class="pill" id="hc">Tozalash</button></div><div id="hl"></div></div>
 </div>
-<div id="s5" class="hide"><div class="seg sm" style="margin-bottom:12px"><button id="c1" class="on">📋 So'zlarim</button><button id="c2">🎧 Listening</button><button id="c3">✍️ Dictation</button><button id="c4">🧠 Quiz</button><button id="c5">🗣 Gaplar</button><button id="c6">📄 Matnlar</button></div><div id="cl" class="hide" style="margin-bottom:12px"><div class="uz" style="margin:0 0 6px;text-align:left">Gaplar darajasi (AI shu darajada gap tuzadi):</div><div class="dd"><button class="ddb" id="clb"></button><div class="ddl hide" id="cll"></div></div></div><div id="cw1"><div class="card f">
+<div id="s5" class="hide"><div class="seg sm" style="margin-bottom:12px"><button id="c1" class="on">📋 My Words</button><button id="c2">🎧 Listening</button><button id="c3">✍️ Dictation</button><button id="c4">🧠 Quiz</button><button id="c5">🗣 Sentences</button><button id="c6">📄 Texts</button></div><div id="cl" class="hide" style="margin-bottom:12px"><div class="uz" style="margin:0 0 6px;text-align:left">Gaplar darajasi (AI shu darajada gap tuzadi):</div><div class="dd"><button class="ddb" id="clb"></button><div class="ddl hide" id="cll"></div></div></div><div id="cw1"><div class="card f">
   <b>➕ O'z so'zingizni qo'shing</b>
   <input id="aw" placeholder="Inglizcha so'z (masalan: window)" autocomplete="off" autocapitalize="off" spellcheck="false">
   <input id="au" placeholder="O'zbekcha ma'nosi (deraza)" autocomplete="off">
@@ -341,8 +341,8 @@ body.home .top h1{visibility:hidden}
   <input id="cqi" placeholder="Inglizcha so'z" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="sp" id="cqm"></div>
   <div class="row"><button class="pill blue" id="cqn">Check</button><button class="pill sm" id="cqk">Skip</button><button class="pill sm" id="cqs">🔊</button></div></div></div>
  <div id="cgs" class="hide">
-  <div class="chips w" id="xsl" style="margin-bottom:10px"></div>
-  <div class="seg sm" id="xsm" style="margin-bottom:12px"><button data-m="ex" class="on">📖 Qanday ishlatiladi</button><button data-m="tr">🔁 Tarjima mashqi</button></div>
+  <div class="chips wrap" id="xsl" style="margin-bottom:10px"></div>
+  <div class="seg sm" id="xsm" style="margin-bottom:12px"><button data-m="ex" class="on">📖 Usage</button><button data-m="tr">🔁 Translation practice</button></div>
   <div id="xse"><div class="card" style="text-align:center"><div class="row" style="margin:0 0 6px"><button class="pill sm" id="xsp">◀</button><div style="min-width:170px"><div class="main" id="xsw" style="margin:0"></div><div class="uz" id="xsu" style="margin:0"></div></div><button class="pill sm" id="xsn">▶</button></div>
    <div class="row" style="margin:8px 0 0"><button class="pill sm" id="xsr">🎲 Random</button><button class="pill sm" id="xss">🔊</button></div></div><div id="xsx" style="margin-top:12px"></div></div>
   <div id="xst" class="hide"><div class="card" style="text-align:center"><div class="uz" id="xsh"></div><div class="uz" style="margin:0">Bu gapni inglizchaga tarjima qiling:</div><div class="main" id="xsq" style="font-size:24px"></div>
@@ -351,7 +351,7 @@ body.home .top h1{visibility:hidden}
    <div class="row"><button class="pill blue" id="xsc">Check</button><button class="pill sm" id="xsy">Keyingi →</button></div><div id="xsf"></div></div></div>
  </div>
  <div id="cgm" class="hide">
-  <div class="chips w" id="mzl" style="margin-bottom:10px"></div>
+  <div class="chips wrap" id="mzl" style="margin-bottom:10px"></div>
   <div class="seg sm" id="mzd" style="margin-bottom:12px"><button data-d="en" class="on">EN → UZ</button><button data-d="uz">UZ → EN</button></div>
   <div class="card" style="text-align:left"><div class="uz" id="mzh" style="margin:0 0 8px;text-align:left"></div><div id="mzt"></div>
    <div class="uz" style="margin:12px 0 6px;text-align:left">LUG'ATINGIZDAN SO'ZLAR (matnda ishlatilgan)</div><div id="mzw"></div>
@@ -414,7 +414,7 @@ body.home .top h1{visibility:hidden}
  <div class="row" style="margin:10px 0 0"><button class="pill blue" id="cpb">Change password</button><button class="pill" id="lo">Log out</button></div><div class="sp" id="cpm"></div></div>
 </div></div>
 </div>
-<div id="mdl" class="mdl hide"><div class="mdc card"><b id="mdt" style="font-size:20px"></b><div class="chips w hide" id="mlv" style="justify-content:center"></div><div class="seg sm hide" id="mmd"><button data-m="tp" class="on">⌨️ Typing</button><button data-m="sp">🎤 Speaking</button></div>
+<div id="mdl" class="mdl hide"><div class="mdc card"><b id="mdt" style="font-size:20px"></b><div class="chips wrap hide" id="mlv" style="justify-content:center"></div><div class="seg sm hide" id="mmd"><button data-m="tp" class="on">⌨️ Typing</button><button data-m="sp">🎤 Speaking</button></div>
  <button class="pill blue" id="mrn">🎲 Random player</button>
  <button class="pill" id="mus">🔎 Find by username</button><div id="mub" class="hide"><input id="mui" placeholder="@username" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="row" style="margin:8px 0 0"><button class="pill blue" id="muc">Challenge</button></div></div>
  <button class="pill" id="mfr">👥 Play with a friend</button><div id="mfb" class="hide" style="text-align:left"></div>
@@ -611,7 +611,7 @@ const FB=[[/salom|assalom|hello|\bhi\b/i,"Salom! Men Ai Teacher'man. Hozir aqlli
 const fb=q=>{const x=FB.find(a=>a[0].test(q));return x?x[1]:"Kechirasiz, hozir AI xizmati bilan aloqa yo'q. Internetni tekshirib, birozdan keyin qayta urinib ko'ring."};
 const GKEY="";const AIURL="https://speakup-ai.workuzbek.workers.dev";/* AIURL: Cloudflare Worker havolasi *//* Google AI Studio API kaliti (aistudio.google.com/apikey) */
 let gerr=0;
-async function gem(){gerr=0;const body=JSON.stringify({systemInstruction:{parts:[{text:SYS()}]},contents:ahist.slice(-10).map(h=>({role:h.role=="user"?"user":"model",parts:[{text:h.content}]})),generationConfig:{temperature:.95}});
+async function gem(){gerr=0;const body=JSON.stringify({systemInstruction:{parts:[{text:SYS()}]},contents:ahist.slice(-10).map(h=>({role:h.role=="user"?"user":"model",parts:[{text:h.content}]}))});
  if(AIURL){try{const x=await fetch(AIURL,{method:"POST",headers:{"Content-Type":"application/json"},body});if(!x.ok){gerr=x.status;return null}const j=await x.json();return j.candidates[0].content.parts.map(p=>p.text||"").join("")}catch(e){gerr="tarmoq";return null}}
  for(const md of["gemini-3.6-flash","gemini-2.5-flash"]){const u="https://generativelanguage.googleapis.com/v1beta/models/"+md+":generateContent";
   for(const q of[0,1]){try{const x=await fetch(q?u+"?key="+encodeURIComponent(GKEY):u,{method:"POST",headers:q?{"Content-Type":"application/json"}:{"Content-Type":"application/json","x-goog-api-key":GKEY},body});
@@ -690,7 +690,7 @@ const pj=t=>{t=String(t).trim();const a=t.search(/[\[{]/);if(a<0)return null;con
 async function gj(parts){if(!AIURL)return null;const RT=[503,500,429,"tarmoq","format"];
  const go=async cfg=>{try{const x=await fetch(AIURL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({contents:[{role:"user",parts}],generationConfig:cfg})});if(!x.ok){gerr=x.status;return null}
   const j=await x.json(),t=((j.candidates[0].content||{}).parts||[]).filter(p=>!p.thought).map(p=>p.text||"").join("");const o=pj(t);if(!o)gerr=gerr||"format";return o}catch(e){gerr=gerr||"tarmoq";return null}};
- for(let t=0;t<3;t++){gerr=0;let o=await go({responseMimeType:"application/json",temperature:.6});if(!o&&(!gerr||RT.includes(gerr)))o=await go({temperature:.6});if(o)return o;if(gerr&&!RT.includes(gerr))return null;await sleep(1500*(t+1))}return null}
+ for(let t=0;t<3;t++){gerr=0;let o=await go({responseMimeType:"application/json"});if(!o&&(!gerr||RT.includes(gerr)))o=await go({});if(o)return o;if(gerr&&!RT.includes(gerr))return null;await sleep(1500*(t+1))}return null}
 let gsP=null;
 function ensureS(ws,lv){if(gsP)return gsP;ws=ws.filter(w=>lv?!(SL[lv]&&SL[lv][w[0]]):!w[3]).slice(0,25);if(!ws.length)return Promise.resolve();
  gsP=(async()=>{const o=await gj([{text:(lv?`Quyidagi inglizcha so'zlarning har biri uchun "${lv}" darajasiga mos inglizcha gap yoz. Daraja: ${LV[lv]}. So'z gapda qatnashsin (iloji boricha aynan shu shaklda). `:`Quyidagi inglizcha so'zlarning har biri uchun sodda, 6-10 so'zli, grammatik to'g'ri inglizcha gap yoz (so'z gapda aynan shu shaklda qatnashsin). `)+`Faqat JSON obyekt qaytar: {"so'z":"gap",...}. So'zlar: ${ws.map(w=>w[0]).join(", ")}`}]);
@@ -1285,7 +1285,7 @@ $("mzs").onclick=()=>{if(!mzT)return;const en=mzDir=="en",model=en?mzT.uz:mzT.en
 $("c6").onclick=()=>cSub(6);
 /* ===== Info ===== */
 const APPV="0.6.0",APPD="2026-10-08";
-const LOGS=[["0.6.0","2026-10-07 (yangilandi: 2026-10-08)",["Custom: 📄 Matnlar bo'limi. Darajangizni tanlaysiz (Beginner'dan IELTS'gacha), saytda saqlangan so'zlaringizdan foydalanib yozilgan matn beriladi. EN → UZ yoki UZ → EN yo'nalishida tarjima qilasiz, AI ball (0-100) beradi, xatolarni, qolib ketgan joylarni va namunaviy tarjimani ko'rsatadi.","Custom: 🗣 Gaplar bo'limi. So'z gapda qanday ishlatilishi (so'z turi, o'rni, 3 ta misol, esda tutish kerak narsalar) va o'zbekcha gapni inglizchaga tarjima qilish mashqi. 7 ta daraja (Beginner'dan IELTS'gacha) alohida tanlanadi. Xato bo'lsa, AI nima xato ekanini va to'g'ri variantni tushuntiradi.","Custom: 🧠 Quiz endi ikki yo'nalishda so'raydi: inglizcha → o'zbekcha va o'zbekcha → inglizcha (Aralash, EN → UZ, UZ → EN rejimlari). O'zbekcha javobda bir nechta ma'no (vergul, / va qavs ichidagi) qabul qilinadi.","Custom: har bir so'z kartasida 🔔/🔕 tugmasi. 🔕 qilingan so'z Listening, Dictation va Quiz'da so'ralmaydi. \"Hammasi so'ralsin\" va \"Hech biri so'ralmasin\" tugmalari ham bor.","Tuzatish: Custom → Listening'da eski matn qolib ketadigan xato (ikkita elementning nomi bir xil bo'lgani uchun) to'g'rilandi. Translation'dagi ✕ (tozalash) tugmasi ham endi ishlaydi.","Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
+const LOGS=[["0.6.0","2026-10-07 (yangilandi: 2026-10-08)",["Custom bo'limi tugmalari nomi inglizchaga o'zgardi: My Words, Sentences, Texts. Daraja va bo'lim tugmalari qatori to'liq kenglikka yoyildi, ortiqcha bo'sh joy olib tashlandi.","AI: yangi Gemini modellari (3.8, 3.7, 3.6, 3.5) bilan ishlaydigan qilindi. Eskirgan modellar tufayli chiqadigan \"kod: 404\" xatosi tuzatildi.","Custom: 📄 Texts bo'limi. Darajangizni tanlaysiz (Beginner'dan IELTS'gacha), saytda saqlangan so'zlaringizdan foydalanib yozilgan matn beriladi. EN → UZ yoki UZ → EN yo'nalishida tarjima qilasiz, AI ball (0-100) beradi, xatolarni, qolib ketgan joylarni va namunaviy tarjimani ko'rsatadi.","Custom: 🗣 Sentences bo'limi. So'z gapda qanday ishlatilishi (so'z turi, o'rni, 3 ta misol, esda tutish kerak narsalar) va o'zbekcha gapni inglizchaga tarjima qilish mashqi. 7 ta daraja (Beginner'dan IELTS'gacha) alohida tanlanadi. Xato bo'lsa, AI nima xato ekanini va to'g'ri variantni tushuntiradi.","Custom: 🧠 Quiz endi ikki yo'nalishda so'raydi: inglizcha → o'zbekcha va o'zbekcha → inglizcha (Aralash, EN → UZ, UZ → EN rejimlari). O'zbekcha javobda bir nechta ma'no (vergul, / va qavs ichidagi) qabul qilinadi.","Custom: har bir so'z kartasida 🔔/🔕 tugmasi. 🔕 qilingan so'z Listening, Dictation va Quiz'da so'ralmaydi. \"Hammasi so'ralsin\" va \"Hech biri so'ralmasin\" tugmalari ham bor.","Tuzatish: Custom → Listening'da eski matn qolib ketadigan xato (ikkita elementning nomi bir xil bo'lgani uchun) to'g'rilandi. Translation'dagi ✕ (tozalash) tugmasi ham endi ishlaydi.","Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
 ["0.5.0","2026-10",["Writing: CEFR Task 1.1, 1.2, 2 va AI tekshiruv (xatolar, ball, tavsiyalar).","Noutbuk va telefon uchun moslashgan dizayn."]],
 ["0.4.0","2026-10",["Speaking (60 mavzu) va Reading (hikoyalar, True/False savollar).","Type Race (2-5 kishi, yozish yoki gapirish).","Do'stlar bilan ovozli qo'ng'iroq.","Akkaunt tizimi (Sign in / Create account), parolni o'zgartirish, natijalarni bulutga saqlash."]],
 ["0.3.0","2026-10",["Ai Teacher: ovozli suhbat (Gemini), ovoz tanlash.","Dashboard, Help, Menu, Settings (Night/Day mode, profil, rasm).","Multiplayer: Friends, chat, Word Battle, Spelling Race, Quiz Duel va Multiplayer Top."]],
