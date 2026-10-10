@@ -4,7 +4,7 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <meta name="copyright" content="© 2026 SpeakUp. All rights reserved.">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <title>SpeakUp English</title>
 <style>
 :root{--bg1:#eef1ff;--bg2:#fdf0f7;--glass:rgba(255,255,255,.72);--tx:#1d1d1f;--mut:#86868b;--pri:#0071e3;--ok:#30a14e;--bad:#e5484d;--bd:rgba(0,0,0,.08);--seg:rgba(120,120,128,.14);--sh:0 10px 40px rgba(0,0,0,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -184,6 +184,61 @@ body.home .top h1{visibility:hidden}
 .pbig2{width:230px;height:230px;border-radius:50%;margin:10px auto 0;display:grid;place-items:center;background:var(--seg);font-size:100px;overflow:hidden;box-shadow:var(--sh)}.pbig2 img{width:100%;height:100%;object-fit:cover;display:block}
 .mps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0}
 @media (max-width:480px){.pbig2{width:190px;height:190px}}
+/* ===== v0.8 design system ===== */
+.hero>div:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.hero p{margin:0!important}.hero h3{margin:0!important}
+#dst{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}#dst .card{margin:0;padding:16px;text-align:left;border-radius:22px;box-shadow:none}#dst b{font:800 26px ui-serif,Georgia,serif;display:block}#dst .uz{margin:0 0 2px}
+@media (max-width:480px){#dst{grid-template-columns:1fr 1fr 1fr;gap:8px}#dst .card{padding:12px}#dst b{font-size:20px}}
+:root{--cbg:rgba(255,253,249,.80);--bl:rgba(255,255,255,.85);--a1:rgba(255,186,70,.42);--a2:rgba(120,140,255,.30);--a3:rgba(255,120,160,.24);--rad:26px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--cbg:rgba(30,25,18,.70);--bl:rgba(255,255,255,.14);--a1:rgba(255,186,70,.17);--a2:rgba(110,130,255,.17);--a3:rgba(255,100,150,.11)}}
+:root[data-theme="dark"]{--cbg:rgba(30,25,18,.70);--bl:rgba(255,255,255,.14);--a1:rgba(255,186,70,.17);--a2:rgba(110,130,255,.17);--a3:rgba(255,100,150,.11)}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;letter-spacing:-.005em;font-size:16px}
+body::before{content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none;background:radial-gradient(38% 34% at 14% 18%,var(--a1),transparent 70%),radial-gradient(34% 40% at 88% 12%,var(--a2),transparent 70%),radial-gradient(42% 40% at 72% 92%,var(--a3),transparent 70%);filter:blur(34px);animation:aur 26s ease-in-out infinite alternate}
+@keyframes aur{to{transform:translate3d(3%,-2%,0) scale(1.1)}}
+::selection{background:var(--pri);color:var(--on)}
+*{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--pri) 55%,transparent) transparent}
+.card{border:1px solid transparent;border-radius:var(--rad);background:linear-gradient(var(--cbg),var(--cbg)) padding-box,linear-gradient(145deg,var(--bl),color-mix(in srgb,var(--pri) 42%,transparent) 48%,transparent) border-box;box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 30px 60px -32px rgba(70,45,10,.45)}
+.pill{font-weight:700;transition:transform .2s,box-shadow .2s,filter .2s}.pill.blue{box-shadow:0 14px 30px -12px rgba(169,122,44,.8),inset 0 1px 0 rgba(255,255,255,.5)}
+input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
+.top{margin:10px 4px 18px}.hb,.sc{box-shadow:0 8px 24px -12px rgba(60,40,10,.4)}
+.seg.sm,.seg.tabs{border-radius:20px}
+.main,.hero h3,.hh h2{text-wrap:balance}
+/* page entrance */
+@keyframes pg{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.w>div:not(.hide):not(.top):not(.seg){animation:pg .38s cubic-bezier(.2,.8,.2,1)}
+/* dashboard & hub cards */
+.hc,.v{transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s}
+.hc i{color:#fff;box-shadow:0 12px 26px -10px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.35)}
+.hc[data-n="1"] i{background:linear-gradient(135deg,#a695ff,#5b4bdb)}.hc[data-n="13"] i{background:linear-gradient(135deg,#ffd964,#f59e0b)}
+.hc[data-n="16"] i{background:linear-gradient(135deg,#6ee7c0,#16a34a)}.hc[data-n="17"] i{background:linear-gradient(135deg,#ffb581,#f2603a)}
+.hc[data-g="wb"] i{background:linear-gradient(135deg,#ff9a9a,#e5484d)}.hc[data-g="sr"] i{background:linear-gradient(135deg,#7ec8ff,#2f7de1)}
+.hc[data-g="qd"] i{background:linear-gradient(135deg,#c4a2ff,#7b45e0)}.hc[data-g="tr"] i{background:linear-gradient(135deg,#5eead4,#0f9d8a)}
+.hc[data-g="lu"] i{background:linear-gradient(135deg,#ff9ccf,#e0449d)}.hc[data-n="14"] i,.hc[data-n="11"] i{background:linear-gradient(135deg,#ffe08a,#c9983f)}
+.hc.soon i{filter:grayscale(.7) opacity(.8)}
+.hero{border-radius:34px;overflow:hidden;position:relative;background:radial-gradient(90% 140% at 100% 50%,color-mix(in srgb,var(--pri) 30%,transparent),transparent 62%),var(--cbg)}
+.hero .orb{box-shadow:0 30px 80px -10px rgba(120,140,255,.9),inset 0 -24px 50px rgba(255,255,255,.55)}
+.hc em{background:color-mix(in srgb,var(--pri) 12%,transparent);font-weight:800}
+@media (hover:hover){.pill:hover{transform:translateY(-2px)}.pill.blue:hover{filter:brightness(1.06)}.hc:not(.soon):hover,.v:hover{transform:translateY(-5px);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 40px 70px -30px rgba(70,45,10,.55)}.hero:hover{box-shadow:0 40px 80px -30px rgba(70,45,10,.5)}}
+/* menu / navigation */
+.hb#hb{display:none}
+.drw h2{display:flex;align-items:center;gap:10px;font-size:26px}.drw h2 .lg{font-size:26px}
+.mi{transition:background .2s,color .2s,transform .2s}.mi.on{background:var(--gold);color:var(--on);box-shadow:0 10px 24px -10px rgba(169,122,44,.8)}
+.bnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 10px);width:min(94vw,480px);z-index:12;display:flex;gap:2px;padding:6px;border-radius:28px;background:var(--cbg);border:1px solid var(--bd);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);box-shadow:0 22px 50px -14px rgba(0,0,0,.45)}
+.bnav button{flex:1;border:0;background:none;color:var(--mut);font:inherit;font-size:10.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0;border-radius:22px;cursor:pointer;transition:background .2s,color .2s}
+.bnav button b{font-size:20px;line-height:1;font-weight:400}.bnav button.on{background:var(--gold);color:var(--on);box-shadow:0 8px 20px -8px rgba(169,122,44,.8)}
+@media (max-width:1099px){.w{padding-bottom:130px}.spw{bottom:calc(env(safe-area-inset-bottom,0px) + 92px);right:10px}.spb{padding:7px 12px;font-size:13px;opacity:.92}}
+@media (min-width:1100px){
+ .bnav{display:none}
+ body{padding-left:272px}
+ .drw{transform:none!important;width:272px;z-index:6;padding:30px 16px 24px;background:var(--cbg);box-shadow:20px 0 60px -40px rgba(70,45,10,.5)}
+ .drw h2{margin:0 8px 26px}
+ .mi{font-size:16px;padding:14px 16px;margin-bottom:4px}
+ .ov{display:none!important}
+ .top h1,body.home .top h1{display:none}
+ .w{max-width:1180px}
+ .top{justify-content:flex-end}
+}
+@media (prefers-reduced-motion:reduce){body::before,.w>div{animation:none!important}html{scroll-behavior:auto}}
 </style></head><body><div class="w">
 <div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
 <button class="pill hide" id="bk" style="margin:0 0 12px">← Back</button>
@@ -230,6 +285,7 @@ body.home .top h1{visibility:hidden}
   <button class="hc" data-n="16"><i>📖</i><b>Reading</b><span>Qisqa hikoyalar, so'z ma'nolari va savollar.</span><em>→</em></button>
   <button class="hc" data-n="17"><i>✏️</i><b>Writing</b><span>CEFR Task 1.1, 1.2, 2 va AI tekshiruv.</span><em>→</em></button>
  </div>
+<div id="dst"></div>
 </div>
 <div id="s13" class="hide">
  <div class="hh"><small>SPEAKING</small><h2 style="font-size:38px">Speaking</h2><p>Speaking darajangizni native darajaga olib chiqamiz.</p></div>
@@ -444,9 +500,10 @@ body.home .top h1{visibility:hidden}
 <div id="cxo" class="gate hide" style="z-index:90"><div class="gc card" style="padding:30px"><div class="big" id="cxav">📞</div><b id="cxn" style="font-size:22px"></b><div class="uz" id="cxs"></div><div class="row"><button class="pill" id="cxm">🎤 Mute</button><button class="pill" id="cxe" style="background:#e5484d;color:#fff">📵 End</button></div></div></div>
 <audio id="cxa" autoplay playsinline></audio>
 <div id="cxi" class="inv hide" style="top:70px"><span id="cxit"></span><button class="pill blue sm" id="cxia">Answer</button><button class="pill sm" id="cxin">✕</button></div>
+<nav id="bnav" class="bnav"><button data-n="0"><b>🏠</b>Home</button><button data-n="4"><b>🌐</b>Translate</button><button data-n="10"><b>🎮</b>Play</button><button data-n="5"><b>⭐</b>Custom</button><button id="bmn"><b>☰</b>Menu</button></nav>
 <div class="spw"><div class="ddl hide" id="spl"></div><button class="spb" id="spb">🔊 1x</button></div>
 <div class="ov" id="ov"></div>
-<div class="drw" id="drw"><h2>Menu</h2>
+<div class="drw" id="drw"><h2><span class="lg">🎧</span> SpeakUp</h2>
 <button class="mi" data-n="0">🏠 Dashboard</button><button class="mi" data-n="4">🌐 Translation</button><button class="mi" data-n="10">🎮 Multiplayer</button><button class="mi" data-n="5">⭐ Custom</button><button class="mi" data-n="6">🏆 Top</button><button class="mi" data-n="7">⚙️ Settings</button><button class="mi" data-n="19">ℹ️ Info</button><button class="mi" data-n="9">❓ Help</button></div>
 <script>
 const D={
@@ -503,8 +560,8 @@ $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
 let onTop=false,curN=0;
-function tab(n){if(n!=15&&typeof trLeave=="function")trLeave();if(n!=18&&typeof luLeave=="function")luLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");$("mpv").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
- if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==14)mtR();if(n==16)rdInit();if(n==17)wInit();if(n==19)infoInit();if(n==0)$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
+function tab(n){if(n!=15&&typeof trLeave=="function")trLeave();if(n!=18&&typeof luLeave=="function")luLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");$("mpv").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;{const am={11:10,12:10,14:10,15:10,18:10,1:0,2:0,3:0,8:0,13:0,16:0,17:0}[n];const ak=am===undefined?n:am;document.querySelectorAll(".mi,.bnav button[data-n]").forEach(b=>b.classList.toggle("on",+b.dataset.n===ak))}if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+ if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==14)mtR();if(n==16)rdInit();if(n==17)wInit();if(n==19)infoInit();if(n==0){$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";$("dst").innerHTML=[["📚","O'rgangan so'zlar",learned.size],["⏱","Bugun",fm(tm.d[dk()]||0)],["✍️","Tekshirilgan yozuvlar",wS.t||0]].map(x=>`<div class="card"><div class="uz">${x[0]} ${x[1]}</div><b>${es(String(x[2]))}</b></div>`).join("")}if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>{const p=D[lvl];if(lvl!=CK)return p;const q=p.filter(w=>!muted.has(w[0]));return q.length?q:p},dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
 async function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=(lvl==CK?"Custom · "+clv:lvl)+" · "+(dI%dp().length+1)+"/"+dp().length;
@@ -1313,9 +1370,11 @@ $("mpc").onclick=()=>{if(pfU)cCall(pfU)};$("mpm").onclick=()=>{const f=pfU;if(!f
 $("mpa").onclick=async()=>{if(!pfU||!DB)return;try{const t=pfU.id;if(await J("/friends/"+uid+"/"+t))return;await J("/requests/"+t+"/"+uid,{method:"PUT",body:JSON.stringify(Date.now())});$("mpt").innerHTML='<span class="ok">✅ So\'rov yuborildi.</span>';$("mpa").classList.add("hide")}catch(e){$("mpt").textContent="Internetga ulanib bo'lmadi."}};
 $("mpp").onclick=()=>{const u=$("mpp")._u;if(u){$("lbi").src=u;$("lbx").classList.remove("hide")}};$("lbx").onclick=()=>$("lbx").classList.add("hide");
 const pOpen=e=>{const r=e.target.closest("[data-pid]");if(r&&PIDX[r.dataset.pid])profOpen(Object.assign({id:r.dataset.pid},PIDX[r.dataset.pid]))};$("tw").onclick=pOpen;$("mtw").onclick=pOpen;
+$("bnav").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.id=="bmn")$("hb").click();else tab(+b.dataset.n)};
 /* ===== Info ===== */
-const APPV="0.7.0",APPD="2026-10-10";
-const LOGS=[["0.7.0","2026-10-10",["Quiz: natija oynasida 🔁 \"Bilmagan so'zlarni qayta so'rash\" tugmasi. Xato qilgan yoki o'tkazib yuborgan so'zlar yana so'raladi, hammasini topmaguncha takrorlash mumkin.","Top: reytingdagi o'yinchini (Top va Multiplayer Top) bossangiz, uning profili ochiladi: katta rasm, statistika, online holati. Do'st bo'lmasa ➕ Add friend tugmasi, do'st bo'lsa 📞 Call va 💬 Chat tugmalari chiqadi.","Friends: do'stni bossangiz, uning profili ochiladi: katta rasm (bossangiz to'liq ekranda ochiladi), ism, @username, online holati yoki oxirgi marta qachon kirgani, maqsadi, o'rgangan so'zlari, saytda o'tkazgan vaqti, yozuvlari va multiplayer natijalari. Profilda 📞 Call va 💬 Chat tugmalari bor. Rasm endi kattaroq (320x320) sifatda saqlanadi.","Custom: 🧠 Quiz endi hamma so'zlaringizni so'raydi (avval faqat 10 tadan so'rardi). Tepadagi 10, 20 va Hammasi tugmalari bilan nechta so'z so'ralishini tanlash mumkin.","Custom: 🗣 Sentences bo'limi. So'z gapda qanday ishlatilishi (so'z turi, o'rni, 3 ta misol, esda tutish kerak narsalar) va o'zbekcha gapni inglizchaga tarjima qilish mashqi. 7 ta daraja (Beginner'dan IELTS'gacha) alohida tanlanadi. Xato bo'lsa, AI nima xato ekanini va to'g'ri variantni tushuntiradi.","Custom: 📄 Texts bo'limi. Darajangizni tanlaysiz (Beginner'dan IELTS'gacha), saytda saqlangan so'zlaringizdan foydalanib yozilgan matn beriladi. EN → UZ yoki UZ → EN yo'nalishida tarjima qilasiz, AI ball (0-100) beradi, xatolarni, qolib ketgan joylarni va namunaviy tarjimani ko'rsatadi.","Custom bo'limi tugmalari nomi inglizchaga o'zgardi: My Words, Sentences, Texts. Daraja va bo'lim tugmalari qatori to'liq kenglikka yoyildi, ortiqcha bo'sh joy olib tashlandi.","AI: yangi Gemini modellari (3.8, 3.7, 3.6, 3.5) bilan ishlaydigan qilindi. Eskirgan modellar tufayli chiqadigan \"kod: 404\" xatosi tuzatildi."]],
+const APPV="0.8.0",APPD="2026-10-10";
+const LOGS=[["0.8.0","2026-10-10",["Butunlay yangi dizayn: yumshoq harakatlanuvchi rangli fon, shaffof va yorug' chetli kartochkalar, yangi shrift (Plus Jakarta Sans), silliq animatsiyalar.","Noutbukda chap tomonda doimiy menyu paneli (sidebar), telefonda pastda tezkor menyu (Home, Translate, Play, Custom, Menu).","Bosh sahifa: rangli ikonkalar, yaxshilangan Ai Teacher kartasi va o'z natijalaringiz (so'zlar, bugungi vaqt, yozuvlar) qatori.","Faol bo'lim menyuda yoritib ko'rsatiladi."]],
+["0.7.0","2026-10-10",["Quiz: natija oynasida 🔁 \"Bilmagan so'zlarni qayta so'rash\" tugmasi. Xato qilgan yoki o'tkazib yuborgan so'zlar yana so'raladi, hammasini topmaguncha takrorlash mumkin.","Top: reytingdagi o'yinchini (Top va Multiplayer Top) bossangiz, uning profili ochiladi: katta rasm, statistika, online holati. Do'st bo'lmasa ➕ Add friend tugmasi, do'st bo'lsa 📞 Call va 💬 Chat tugmalari chiqadi.","Friends: do'stni bossangiz, uning profili ochiladi: katta rasm (bossangiz to'liq ekranda ochiladi), ism, @username, online holati yoki oxirgi marta qachon kirgani, maqsadi, o'rgangan so'zlari, saytda o'tkazgan vaqti, yozuvlari va multiplayer natijalari. Profilda 📞 Call va 💬 Chat tugmalari bor. Rasm endi kattaroq (320x320) sifatda saqlanadi.","Custom: 🧠 Quiz endi hamma so'zlaringizni so'raydi (avval faqat 10 tadan so'rardi). Tepadagi 10, 20 va Hammasi tugmalari bilan nechta so'z so'ralishini tanlash mumkin.","Custom: 🗣 Sentences bo'limi. So'z gapda qanday ishlatilishi (so'z turi, o'rni, 3 ta misol, esda tutish kerak narsalar) va o'zbekcha gapni inglizchaga tarjima qilish mashqi. 7 ta daraja (Beginner'dan IELTS'gacha) alohida tanlanadi. Xato bo'lsa, AI nima xato ekanini va to'g'ri variantni tushuntiradi.","Custom: 📄 Texts bo'limi. Darajangizni tanlaysiz (Beginner'dan IELTS'gacha), saytda saqlangan so'zlaringizdan foydalanib yozilgan matn beriladi. EN → UZ yoki UZ → EN yo'nalishida tarjima qilasiz, AI ball (0-100) beradi, xatolarni, qolib ketgan joylarni va namunaviy tarjimani ko'rsatadi.","Custom bo'limi tugmalari nomi inglizchaga o'zgardi: My Words, Sentences, Texts. Daraja va bo'lim tugmalari qatori to'liq kenglikka yoyildi, ortiqcha bo'sh joy olib tashlandi.","AI: yangi Gemini modellari (3.8, 3.7, 3.6, 3.5) bilan ishlaydigan qilindi. Eskirgan modellar tufayli chiqadigan \"kod: 404\" xatosi tuzatildi."]],
 ["0.6.0","2026-10-07 (yangilandi: 2026-10-08)",["Custom: 🧠 Quiz endi ikki yo'nalishda so'raydi: inglizcha → o'zbekcha va o'zbekcha → inglizcha (Aralash, EN → UZ, UZ → EN rejimlari). O'zbekcha javobda bir nechta ma'no (vergul, / va qavs ichidagi) qabul qilinadi.","Custom: har bir so'z kartasida 🔔/🔕 tugmasi. 🔕 qilingan so'z Listening, Dictation va Quiz'da so'ralmaydi. \"Hammasi so'ralsin\" va \"Hech biri so'ralmasin\" tugmalari ham bor.","Tuzatish: Custom → Listening'da eski matn qolib ketadigan xato (ikkita elementning nomi bir xil bo'lgani uchun) to'g'rilandi. Translation'dagi ✕ (tozalash) tugmasi ham endi ishlaydi.","Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
 ["0.5.0","2026-10",["Writing: CEFR Task 1.1, 1.2, 2 va AI tekshiruv (xatolar, ball, tavsiyalar).","Noutbuk va telefon uchun moslashgan dizayn."]],
 ["0.4.0","2026-10",["Speaking (60 mavzu) va Reading (hikoyalar, True/False savollar).","Type Race (2-5 kishi, yozish yoki gapirish).","Do'stlar bilan ovozli qo'ng'iroq.","Akkaunt tizimi (Sign in / Create account), parolni o'zgartirish, natijalarni bulutga saqlash."]],
