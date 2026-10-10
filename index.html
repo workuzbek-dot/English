@@ -185,6 +185,8 @@ body.home .top h1{visibility:hidden}
 .mps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0}
 @media (max-width:480px){.pbig2{width:190px;height:190px}}
 /* ===== v0.8 design system ===== */
+#tl{overflow-x:auto}#tl button{white-space:nowrap;flex:1 0 auto}
+#how .hc{align-items:flex-start}
 .hero>div:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.hero p{margin:0!important}.hero h3{margin:0!important}
 #dst{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}#dst .card{margin:0;padding:16px;text-align:left;border-radius:22px;box-shadow:none}#dst b{font:800 26px ui-serif,Georgia,serif;display:block}#dst .uz{margin:0 0 2px}
 @media (max-width:480px){#dst{grid-template-columns:1fr 1fr 1fr;gap:8px}#dst .card{padding:12px}#dst b{font-size:20px}}
@@ -240,10 +242,10 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
 }
 @media (prefers-reduced-motion:reduce){body::before,.w>div{animation:none!important}html{scroll-behavior:auto}}
 </style></head><body><div class="w">
-<div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score"></span><button class="hb" id="av">🙂</button></div></div>
+<div class="top"><div><button class="hb" id="hb" aria-label="Menu">☰</button><h1>SpeakUp</h1></div><div><span class="sc" id="score" title="O'rganilgan so'zlar soni"></span><button class="hb" id="av" title="Profil va sozlamalar" aria-label="Profil va sozlamalar">🙂</button></div></div>
 <button class="pill hide" id="bk" style="margin:0 0 12px">← Back</button>
 <div class="seg tabs" id="tb"><button id="t1" class="on">🎧 Listening</button><button id="t2">📚 Vocabulary</button><button id="t3">✍️ Dictation</button></div>
-<div class="seg sm" id="lv"></div>
+<div class="seg sm" id="lv"></div><p class="note hide" id="lcap" style="margin:-2px 4px 14px"></p>
 
 <div id="s1">
  <div class="bar"><i id="pb"></i></div>
@@ -286,6 +288,11 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
   <button class="hc" data-n="17"><i>✏️</i><b>Writing</b><span>CEFR Task 1.1, 1.2, 2 va AI tekshiruv.</span><em>→</em></button>
  </div>
 <div id="dst"></div>
+ <div id="how" class="card hide" style="margin-top:16px;text-align:left"><b>👋 Qayerdan boshlash kerak?</b>
+  <div class="hg" style="margin-top:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))">
+   <button class="hc" data-n="1"><i>🎧</i><b>1. Mashq qiling</b><span>Listening'da so'zlarni eshiting, ayting va yozing.</span></button>
+   <button class="hc" data-n="4"><i>🌐</i><b>2. Tarjima qiling</b><span>Translation'da so'z yozing. Tarjimasi Custom'ga o'zi saqlanadi.</span></button>
+   <button class="hc" data-n="8"><i>🎤</i><b>3. Gaplashing</b><span>Ai Teacher bilan ovoz orqali suhbatlashing.</span></button></div></div>
 </div>
 <div id="s13" class="hide">
  <div class="hh"><small>SPEAKING</small><h2 style="font-size:38px">Speaking</h2><p>Speaking darajangizni native darajaga olib chiqamiz.</p></div>
@@ -387,7 +394,7 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
  </div>
  <div class="card hide" id="hp" style="text-align:left"><div class="lr"><b>🕘 History</b><button class="pill" id="hc">Tozalash</button></div><div id="hl"></div></div>
 </div>
-<div id="s5" class="hide"><div class="seg sm" style="margin-bottom:12px"><button id="c1" class="on">📋 My Words</button><button id="c2">🎧 Listening</button><button id="c3">✍️ Dictation</button><button id="c4">🧠 Quiz</button><button id="c5">🗣 Sentences</button><button id="c6">📄 Texts</button></div><div id="cl" class="hide" style="margin-bottom:12px"><div class="uz" style="margin:0 0 6px;text-align:left">Gaplar darajasi (AI shu darajada gap tuzadi):</div><div class="dd"><button class="ddb" id="clb"></button><div class="ddl hide" id="cll"></div></div></div><div id="cw1"><div class="card f">
+<div id="s5" class="hide"><div class="seg sm" style="margin-bottom:8px"><button id="c1" class="on">📋 My Words</button><button id="c2">🎧 Listening</button><button id="c3">✍️ Dictation</button><button id="c4">🧠 Quiz</button><button id="c5">🗣 Sentences</button><button id="c6">📄 Texts</button></div><p class="note" id="cdesc" style="margin:0 4px 12px"></p><div id="cl" class="hide" style="margin-bottom:12px"><div class="uz" style="margin:0 0 6px;text-align:left">Gaplar darajasi (AI shu darajada gap tuzadi):</div><div class="dd"><button class="ddb" id="clb"></button><div class="ddl hide" id="cll"></div></div></div><div id="cw1"><div class="card f">
   <b>➕ O'z so'zingizni qo'shing</b>
   <input id="aw" placeholder="Inglizcha so'z (masalan: window)" autocomplete="off" autocapitalize="off" spellcheck="false">
   <input id="au" placeholder="O'zbekcha ma'nosi (deraza)" autocomplete="off">
@@ -418,7 +425,7 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
    <div class="row l"><span class="chip" id="mzk"></span><button class="pill blue" id="mzc">Check</button><button class="pill sm" id="mzs">👁 Namuna</button><button class="pill sm" id="mzn">✨ Yangi matn</button></div><div id="mzf"></div></div>
  </div>
 </div>
-<div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"></div><div class="seg sm" id="tl"><button data-v="b" class="on">Beginner</button><button data-v="e">Elementary</button><button data-v="p">Pre-Intermediate</button><button data-v="f" class="wrx hide">CEFR Exam</button><button data-v="i" class="wrx hide">IELTS</button></div><div id="tw"></div></div>
+<div id="s6" class="hide"><div class="card" id="tw0"></div><div class="seg sm" id="tc"></div><div class="seg sm" id="tl"></div><p class="note" id="tcap" style="margin:8px 4px"></p><div id="tw"></div></div>
 <div id="s8" class="hide"><div class="card" style="text-align:center">
  <div class="ait">Ai Teacher</div>
  <div class="orbw"><button class="orb" id="orb" aria-label="Gaplashish"></button></div>
@@ -437,25 +444,43 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
  <div class="uz" id="an" style="margin-top:8px"></div></div></div>
 <div id="s9" class="hide"><div class="card" style="text-align:left">
  <div class="ait" style="text-align:center;margin-bottom:10px">Help</div>
- <b>SpeakUp haqida</b>
- <p class="note" style="margin:6px 0 12px">Ingliz tilini ovoz bilan o'rganish uchun sayt. Beginner, Elementary va Pre-Intermediate darajalarida so'z, gap va talaffuz mashqlari bor.</p>
+ <b>SpeakUp nima?</b>
+ <p class="note" style="margin:6px 0 14px">Ingliz tilini so'z, gap, ovoz va o'yinlar orqali o'rganish uchun sayt. Darajangizni (Beginner'dan IELTS'gacha) tanlab, mashq qilasiz.</p>
+ <b>Qayerdan boshlash kerak?</b>
+ <ol class="note" style="padding-left:20px;margin:6px 0 14px;line-height:1.75">
+  <li>Bosh sahifada <b>Listening</b> ni oching va so'zlarni eshitib, ayting yoki yozing.</li>
+  <li><b>Translation</b> da so'z yoki gap tarjima qiling. Tarjimalar <b>Custom</b> ga o'zi saqlanadi.</li>
+  <li><b>Ai Teacher</b> bilan ovoz orqali gaplashing.</li>
+  <li><b>Multiplayer</b> da do'stlar bilan o'ynang (avval Settings → Profile'da username yarating).</li>
+ </ol>
  <b>Bo'limlar</b>
- <ul class="note" style="padding-left:18px;margin:6px 0 12px;line-height:1.7">
-  <li><b>Translation</b>: so'z va gapni tarjima qiladi, o'qilishini ko'rsatadi, ovozni sekin yoki tez qiladi. Tarjimalar Custom'ga saqlanadi.</li>
-  <li><b>Listening</b>: eshitib ayting va yozing (Listening), Vocabulary, Dictation.</li>
-  <li><b>Ai Teacher</b>: ovoz bilan jonli suhbat, o'zbekcha va inglizcha.</li>
-  <li><b>Custom</b>: o'z so'zlaringiz, rasmdan qo'shish, o'z so'zlaringiz bilan Listening va Dictation.</li>
-  <li><b>Top</b>: topgan so'zlar va saytda o'tkazgan vaqt bo'yicha reyting.</li>
-  <li><b>Multiplayer</b>: do'stlar bilan o'yinlar va yozishma (Friends).</li>
-  <li><b>Settings</b>: profil (ism, username, rasm), Night va Day mode.</li></ul>
- <b>Maslahat</b>
- <p class="note" style="margin:6px 0 12px">Mikrofon uchun Chrome brauzeridan foydalaning va ruxsat bering. Natijalaringiz shu qurilmada saqlanadi.</p>
+ <ul class="note" style="padding-left:20px;margin:6px 0 14px;line-height:1.75">
+  <li><b>Listening:</b> so'z va gaplarni eshitish, aytish va yozish (Listening, Vocabulary, Dictation).</li>
+  <li><b>Speaking:</b> savolga namunaviy javob, kalit iboralar va o'z javobingizni yozib olish.</li>
+  <li><b>Reading:</b> qisqa hikoyalar, so'zlarni bossangiz ma'nosi chiqadi, True/False savollar.</li>
+  <li><b>Writing:</b> CEFR (Task 1.1, 1.2, 2) va IELTS yozuvlari. AI tekshiradi. Custom bo'limida o'z savolingizni yozasiz.</li>
+  <li><b>Ai Teacher:</b> o'qituvchi bilan jonli suhbat.</li>
+  <li><b>Translation:</b> avtomatik tarjima, o'qilishi, tarixi (History).</li>
+  <li><b>Custom:</b> o'z so'zlaringiz. Ularni Listening, Dictation, Quiz, Sentences va Texts da mashq qilasiz. 🔕 qilingan so'z so'ralmaydi.</li>
+  <li><b>Multiplayer:</b> Friends (do'st qo'shish, yozishma, qo'ng'iroq) va o'yinlar.</li>
+  <li><b>Top:</b> reyting. O'yinchini bossangiz, profili ochiladi.</li>
+  <li><b>Settings:</b> profil, rasm, username, parol, Night/Day mode.</li>
+  <li><b>Info:</b> sayt versiyasi va yangilanishlar ro'yxati.</li>
+ </ul>
+ <b>Ko'p so'raladigan savollar</b>
+ <ul class="note" style="padding-left:20px;margin:6px 0 14px;line-height:1.75">
+  <li><b>Mikrofon ishlamayapti.</b> Saytni Chrome brauzerida oching va mikrofon ruxsatini bering.</li>
+  <li><b>AI javob bermayapti.</b> Birozdan keyin qayta urining, u band yoki kunlik limit tugagan bo'lishi mumkin.</li>
+  <li><b>O'zbekcha ovoz eshitilmayapti.</b> Ba'zi qurilmalarda o'zbek ovozi yo'q. Android telefonda odatda bor.</li>
+  <li><b>Parolni unutdim.</b> Parolni tiklab bo'lmaydi, shuning uchun uni yozib qo'ying.</li>
+  <li><b>Natijalarim yo'qoldi.</b> Akkaunt bilan kirganingizni tekshiring (Settings → Account).</li>
+ </ul>
  <b>Admin bilan bog'lanish</b>
  <p class="note" style="margin:6px 0 12px">Savol, taklif yoki xato bo'lsa, adminga Telegram orqali yozing.</p>
  <a class="pill blue" href="https://t.me/KHAN_EN" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">✈️ Telegram: @KHAN_EN</a>
 </div></div>
 <div id="s7" class="hide"><div class="card" style="text-align:left;padding:0;overflow:hidden">
- <button class="acc" id="sa1"><span>👤 Profile</span><em>›</em></button>
+ <button class="acc" id="sa1"><span>👤 Profile<small style="display:block;color:var(--mut);font-weight:500;font-size:12px">Ism, username, rasm, maqsad</small></span><em>›</em></button>
  <div class="accb hide" id="sb1">
   <div style="text-align:center"><div class="big" id="pbig">🙂</div>
    <div class="row" style="margin:6px 0"><button class="pill" id="pbt">📷 Upload photo</button><button class="pill" id="pr">Remove</button></div><input type="file" id="pf" accept="image/*" class="hide">
@@ -466,9 +491,9 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
    <div id="ucf" class="hide"><input id="ucn" placeholder="Yangi username" maxlength="20" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="row" style="margin:8px 0 0"><button class="pill blue sm" id="ucb">Save new username</button></div></div><div class="sp" id="ucm" style="text-align:left"></div></div>
   <div class="uz" style="margin:12px 0 0">Goal (maqsad)</div><input id="pg" placeholder="Maqsadingiz (masalan: IELTS 6.5)" maxlength="60" autocomplete="off">
   <div class="row"><button class="pill blue" id="ps">Save</button></div><div class="sp" id="pm">Name, username, rasm va goal do'stlaringizga ko'rinadi (reytingda name va username).</div></div>
- <button class="acc" id="sa2"><span>🌓 Appearance</span><em>›</em></button>
+ <button class="acc" id="sa2"><span>🌓 Appearance<small style="display:block;color:var(--mut);font-weight:500;font-size:12px">Night mode yoki Day mode</small></span><em>›</em></button>
  <div class="accb hide" id="sb2" style="border-bottom:0"><div class="seg sm" id="th" style="margin:6px 0 0"><button data-t="dark">🌙 Night mode</button><button data-t="light">☀️ Day mode</button></div></div>
- <button class="acc hide" id="sa3"><span>🔐 Account</span><em>›</em></button>
+ <button class="acc hide" id="sa3"><span>🔐 Account<small style="display:block;color:var(--mut);font-weight:500;font-size:12px">Parolni o'zgartirish, chiqish</small></span><em>›</em></button>
  <div class="accb hide" id="sb3" style="border-bottom:0"><div class="uz" id="acu" style="margin:0 0 10px"></div><div class="uz" style="margin:8px 0 0">Change password</div><input id="cp0" type="password" placeholder="Joriy parol" autocomplete="current-password"><input id="cp1" type="password" placeholder="Yangi parol (kamida 6 ta belgi)" autocomplete="new-password">
  <div class="row" style="margin:10px 0 0"><button class="pill blue" id="cpb">Change password</button><button class="pill" id="lo">Log out</button></div><div class="sp" id="cpm"></div></div>
 </div></div>
@@ -560,8 +585,8 @@ $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
 let onTop=false,curN=0;
-function tab(n){if(n!=15&&typeof trLeave=="function")trLeave();if(n!=18&&typeof luLeave=="function")luLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");$("mpv").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);$("bk").classList.toggle("hide",n==0);curN=n;{const am={11:10,12:10,14:10,15:10,18:10,1:0,2:0,3:0,8:0,13:0,16:0,17:0}[n];const ak=am===undefined?n:am;document.querySelectorAll(".mi,.bnav button[data-n]").forEach(b=>b.classList.toggle("on",+b.dataset.n===ak))}if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
- if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==14)mtR();if(n==16)rdInit();if(n==17)wInit();if(n==19)infoInit();if(n==0){$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";$("dst").innerHTML=[["📚","O'rgangan so'zlar",learned.size],["⏱","Bugun",fm(tm.d[dk()]||0)],["✍️","Tekshirilgan yozuvlar",wS.t||0]].map(x=>`<div class="card"><div class="uz">${x[0]} ${x[1]}</div><b>${es(String(x[2]))}</b></div>`).join("")}if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
+function tab(n){if(n!=15&&typeof trLeave=="function")trLeave();if(n!=18&&typeof luLeave=="function")luLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");$("mpv").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);{const t=$("lcap"),c={1:"🎧 Listening: so'z yoki gapni eshiting, so'ng ayting yoki yozing.",2:"📚 Vocabulary: tanlangan daraja so'zlarining to'liq ro'yxati. Kartani bossangiz, so'zni o'qib beradi. 🔔/🔕 bilan so'ralishini tanlaysiz.",3:"✍️ Dictation: gapni eshiting va aynan shunday yozing."}[n];t.textContent=c||"";t.classList.toggle("hide",!c)}$("bk").classList.toggle("hide",n==0);curN=n;{const am={11:10,12:10,14:10,15:10,18:10,1:0,2:0,3:0,8:0,13:0,16:0,17:0}[n];const ak=am===undefined?n:am;document.querySelectorAll(".mi,.bnav button[data-n]").forEach(b=>b.classList.toggle("on",+b.dataset.n===ak))}if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+ if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==14)mtR();if(n==16)rdInit();if(n==17)wInit();if(n==19)infoInit();if(n==0){$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";$("how").classList.toggle("hide",!!(learned.size||custom.length||wS.t));$("dst").innerHTML=[["📚","O'rgangan so'zlar",learned.size],["⏱","Bugun",fm(tm.d[dk()]||0)],["✍️","Tekshirilgan yozuvlar",wS.t||0]].map(x=>`<div class="card"><div class="uz">${x[0]} ${x[1]}</div><b>${es(String(x[2]))}</b></div>`).join("")}if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>{const p=D[lvl];if(lvl!=CK)return p;const q=p.filter(w=>!muted.has(w[0]));return q.length?q:p},dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
 async function dShow(){$("dt").value="";$("dr").textContent="";$("dbg").textContent=(lvl==CK?"Custom · "+clv:lvl)+" · "+(dI%dp().length+1)+"/"+dp().length;
@@ -625,7 +650,7 @@ $("sw").onclick=()=>{const v=$("to").textContent;tf=tf=="en"?"uz":"en";lb();if(v
 $("hs").onclick=()=>{hR();$("hp").classList.toggle("hide")};$("hc").onclick=()=>{hist=[];sh();hR()};
 $("spd").onclick=e=>{const b=e.target.closest("button");if(!b)return;trs=+b.dataset.s;[...$("spd").children].forEach(x=>x.classList.toggle("on",x==b))};
 function cList(){$("cc").textContent=custom.length+" ta so'z ("+custom.filter(w=>!muted.has(w[0])).length+" tasi mashqlarda so'raladi) · 🔔 so'raladi, 🔕 so'ralmaydi (Listening, Dictation, Quiz)";$("cg").innerHTML="";
- custom.slice().reverse().forEach(w=>{const d=document.createElement("div");d.className="v";d.innerHTML=`<button class="mt" aria-label="Soralsinmi">${muted.has(w[0])?"🔕":"🔔"}</button><button class="dl">✕</button><div class="e">${w[2]}</div><b>${es(w[0])}</b><small>${es(w[1])}</small>`;if(muted.has(w[0]))d.style.opacity=".55";d.onclick=()=>say(w[0]);d.querySelector(".mt").onclick=e=>{e.stopPropagation();muted.has(w[0])?muted.delete(w[0]):muted.add(w[0]);sm();cList()};d.querySelector(".dl").onclick=e=>{e.stopPropagation();custom=custom.filter(c=>c!==w);cs();if(custom.length)D[CK]=custom;else{delete D[CK];if(lvl==CK)lvl=Ls()[0]}i=0;dI=0;lvls();show();cList()};$("cg").appendChild(d)})}
+ custom.slice().reverse().forEach(w=>{const d=document.createElement("div");d.className="v";d.innerHTML=`<button class="mt" aria-label="Soralsinmi">${muted.has(w[0])?"🔕":"🔔"}</button><button class="dl">✕</button><div class="e">${w[2]}</div><b>${es(w[0])}</b><small>${es(w[1])}</small>`;if(muted.has(w[0]))d.style.opacity=".55";d.onclick=()=>say(w[0]);d.querySelector(".mt").onclick=e=>{e.stopPropagation();muted.has(w[0])?muted.delete(w[0]):muted.add(w[0]);sm();cList()};d.querySelector(".dl").onclick=e=>{e.stopPropagation();if(!confirm("\""+w[0]+"\" so'zi o'chirilsinmi?"))return;custom=custom.filter(c=>c!==w);cs();if(custom.length)D[CK]=custom;else{delete D[CK];if(lvl==CK)lvl=Ls()[0]}i=0;dI=0;lvls();show();cList()};$("cg").appendChild(d)})}
 $("ab").addEventListener("click",()=>setTimeout(cList,50));
 const fm=t=>{const h=Math.floor(t/3600),m=Math.floor(t%3600/60);return h?h+" soat "+m+" daq":m?m+" daq "+t%60+" son":t+" son"};
 const dk=()=>new Date().toISOString().slice(0,10);
@@ -642,7 +667,7 @@ async function refTok(){if(!ACC||!ACC.rt)return;try{const r=await _f("https://se
 if(ACC&&ACC.rt){refTok();setInterval(refTok,45*60*1000)}/* Firebase Realtime Database URL, masalan: https://loyiha-default-rtdb.firebaseio.com */
 let uid=localStorage.getItem("uid");if(!uid){uid=Math.random().toString(36).slice(2,10)+Date.now().toString(36);try{localStorage.setItem("uid",uid)}catch(e){}}
 let tkey="tot",lbd=null,pc=0;const nn=x=>+x||0;
-const stats=()=>{const g=a=>a.filter(w=>learned.has(w[0])).length;return{n:prof.n||"Mehmon",a:prof.a,b:g(D.Beginner),e:g(D.Elementary),p:g(D["Pre-Intermediate"]),c:custom.length,t:tm.t,ts:{".sv":"timestamp"},u:prof.u||"",ph:prof.p||"",g:prof.g||"",wa:wS.A1||0,wb:wS.A2||0,wc:wS.B1||0,wf:wS.CEFR||0,wi:wS.IELTS||0}};
+const stats=()=>{const g=a=>a.filter(w=>learned.has(w[0])).length;return{n:prof.n||"Mehmon",a:prof.a,b:g(D.Beginner),e:g(D.Elementary),p:g(D["Pre-Intermediate"]),c:custom.length,t:tm.t,ts:{".sv":"timestamp"},u:prof.u||"",ph:prof.p||"",g:prof.g||"",sa:sS.Beginner||0,sb:sS.Elementary||0,sc:sS["Pre-Intermediate"]||0,sd:sS.Intermediate||0,se:sS.IELTS||0,ra:rS.A1||0,rb:rS.A2||0,rc:rS.B1||0,rd:rS.B2||0,wa:wS.A1||0,wb:wS.A2||0,wc:wS.B1||0,wf:wS.CEFR||0,wi:wS.IELTS||0}};
 const val=(r,k)=>k=="tot"?nn(r.b)+nn(r.e)+nn(r.p)+nn(r.c):nn(r[k]);
 async function ping(){if(!DB)return;try{await fetch(DB+"/users/"+uid+".json",{method:"PATCH",body:JSON.stringify({ts:{".sv":"timestamp"},t:tm.t})})}catch(e){}}
 async function push(){if(!DB)return;try{await fetch(DB+"/users/"+uid+".json",{method:"PUT",body:JSON.stringify(stats())})}catch(e){}}
@@ -763,7 +788,7 @@ function ensureS(ws,lv){if(gsP)return gsP;ws=ws.filter(w=>lv?!(SL[lv]&&SL[lv][w[
   if(o&&typeof o=="object")ws.forEach(w=>{const t=o[w[0]];if(typeof t=="string"&&t.length>3&&t.length<220){const c=t.replace(/[<>&"]/g,"");if(lv){(SL[lv]=SL[lv]||{})[w[0]]=c}else{w[3]=c;SC[w[0]]=c}}});
   try{localStorage.setItem("sc",JSON.stringify(SC));localStorage.setItem("sl",JSON.stringify(SL))}catch(e){}cs()})().finally(()=>{gsP=null});return gsP}
 function cSub(n){if(n>1&&!custom.length){$("am").innerHTML='<span class="bad">Avval so\'z qo\'shing yoki tarjima qiling.</span>';n=1}
- [1,2,3,4,5,6].forEach(k=>$("c"+k).className=k==n?"on":"");$("cw1").classList.toggle("hide",n!=1);$("cl").classList.toggle("hide",n!=3);$("cqz").classList.toggle("hide",n!=4);$("cgs").classList.toggle("hide",n!=5);$("cgm").classList.toggle("hide",n!=6);
+ [1,2,3,4,5,6].forEach(k=>$("c"+k).className=k==n?"on":"");$("cw1").classList.toggle("hide",n!=1);$("cl").classList.toggle("hide",n!=3);$("cqz").classList.toggle("hide",n!=4);$("cgs").classList.toggle("hide",n!=5);$("cgm").classList.toggle("hide",n!=6);$("cdesc").textContent={1:"O'z so'zlaringizni qo'shing: qo'lda, rasmdan yoki Translation orqali (u yerdagi tarjimalar o'zi saqlanadi). 🔔 so'raladi, 🔕 so'ralmaydi.",2:"Custom so'zlaringizni eshiting va ayting yoki yozing.",3:"Custom so'zlaringiz qatnashgan gaplarni eshitib yozing. Daraja tanlanadi.",4:"Custom so'zlaringizni o'zbekcha va inglizcha so'raydi, oxirida natijani ko'rsatadi.",5:"So'z gapda qanday ishlatilishini o'rganing va o'zbekcha gapni inglizchaga tarjima qiling.",6:"So'zlaringiz qatnashgan matnni tarjima qiling, AI baholaydi."}[n]||"";
  if(n==1||n==4||n==5||n==6){$("s1").classList.add("hide");$("s3").classList.add("hide");if(n==4)cqStart();if(n==5)gsInit(1);if(n==6)mzInit();return}
  const h=$("cw2");h.appendChild($("s1"));h.appendChild($("s3"));lvl=CK;i=0;dI=0;
  $("s1").classList.toggle("hide",n!=2);$("s3").classList.toggle("hide",n!=3);
@@ -909,7 +934,12 @@ $("mcl").onclick=mdClose;
 $("bk").onclick=()=>{if(curN==12){gLeave();tab(10)}else tab(curN==11?10:0)};
 $("s10").onclick=e=>{const g=e.target.closest("[data-g]");if(g){mdOpen(g.dataset.g);return}const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
 const TC=[["lis","🎧 Listening"],["spk","🎤 Speaking"],["rd","📖 Reading"],["wr","✏️ Writing"],["cu","⭐ Custom"],["tm","⏱ Time"]];let tcat="lis",tlv="b";
-function tkSet(){if(tcat!="wr"&&(tlv=="f"||tlv=="i"))tlv="b";tkey=tcat=="lis"?tlv:tcat=="cu"?"c":tcat=="tm"?"t":tcat=="wr"?({b:"wa",e:"wb",p:"wc",f:"wf",i:"wi"}[tlv]):null;[...$("tl").querySelectorAll(".wrx")].forEach(b=>b.classList.toggle("hide",tcat!="wr"));$("tc").innerHTML=TC.map(c=>`<button data-c="${c[0]}" class="${c[0]==tcat?"on":""}">${c[1]}</button>`).join("");[...$("tl").children].forEach(b=>b.classList.toggle("on",b.dataset.v==tlv));$("tl").classList.toggle("hide",!["lis","spk","rd","wr"].includes(tcat))}
+const TLV={lis:[["b","Beginner"],["e","Elementary"],["p","Pre-Intermediate"]],spk:[["b","Beginner"],["e","Elementary"],["p","Pre-Intermediate"],["m","Intermediate"],["i","IELTS"]],rd:[["b","A1 Beginner"],["e","A2 Elementary"],["p","B1 Pre-Int."],["m","B2 Intermediate"]],wr:[["b","Beginner"],["e","Elementary"],["p","Pre-Intermediate"],["f","CEFR Exam"],["i","IELTS"]]};
+const TKM={lis:{b:"b",e:"e",p:"p"},spk:{b:"sa",e:"sb",p:"sc",m:"sd",i:"se"},rd:{b:"ra",e:"rb",p:"rc",m:"rd"},wr:{b:"wa",e:"wb",p:"wc",f:"wf",i:"wi"}};
+const TCAP={lis:"Listening mashqlarida topgan so'zlar soni bo'yicha.",spk:"Speaking'da yozib olingan javoblar soni bo'yicha.",rd:"Reading'da tekshirilgan testlar soni bo'yicha.",wr:"Writing'da AI tekshirgan yozuvlar soni bo'yicha.",cu:"Custom'dagi so'zlaringiz soni bo'yicha.",tm:"Saytda o'tkazgan vaqt bo'yicha."};
+function tkSet(){const L=TLV[tcat];if(L&&!L.some(x=>x[0]==tlv))tlv="b";tkey=L?TKM[tcat][tlv]:tcat=="cu"?"c":"t";
+ $("tc").innerHTML=TC.map(c=>`<button data-c="${c[0]}" class="${c[0]==tcat?"on":""}">${c[1]}</button>`).join("");
+ $("tl").classList.toggle("hide",!L);if(L)$("tl").innerHTML=L.map(x=>`<button data-v="${x[0]}" class="${x[0]==tlv?"on":""}">${x[1]}</button>`).join("");$("tcap").textContent=(TCAP[tcat]||"")+" O'yinchini bossangiz, profili ochiladi."}
 $("tc").onclick=e=>{const b=e.target.closest("button");if(!b)return;tcat=b.dataset.c;tkSet();lbR()};
 $("tl").onclick=e=>{const b=e.target.closest("button");if(!b)return;tlv=b.dataset.v;tkSet();lbR()};
 tkSet();
@@ -957,7 +987,7 @@ function spRc(k,btn){const SR=window.SpeechRecognition||window.webkitSpeechRecog
  const x=new SR();x.lang="en-US";x.continuous=true;let tx="";spRec=x;btn.textContent="■ Stop";f.textContent="Tinglayapman... gapiring, tugagach Stop bosing.";
  x.onresult=e=>{for(let j=e.resultIndex;j<e.results.length;j++)if(e.results[j].isFinal)tx+=e.results[j][0].transcript+" "};
  x.onerror=()=>{f.textContent="Mikrofon ruxsatini tekshiring."};
- x.onend=()=>{spRec=null;btn.textContent="Start recording";if(!tx.trim()){f.textContent="Ovoz eshitilmadi. Qayta urinib ko'ring.";return}
+ x.onend=()=>{spRec=null;btn.textContent="Start recording";if(!tx.trim()){f.textContent="Ovoz eshitilmadi. Qayta urinib ko'ring.";return}sS[spLv]=(sS[spLv]||0)+1;try{localStorage.setItem("ssta",JSON.stringify(sS))}catch(e){}push();
   const low=tx.toLowerCase(),used=it.ans.k.map(z=>low.includes(z.e.toLowerCase()));
   f.innerHTML=`<div>Siz aytdingiz: <i>${es(tx.trim())}</i></div>${it.ans.k.length?`<div style="margin:6px 0">Key phrases: <b>${used.filter(Boolean).length}/${it.ans.k.length}</b></div>`:""}`+it.ans.k.map((z,n)=>`<span class="chip k${n}">${used[n]?"✅":"○"} ${es(z.e)}</span>`).join("")};
  try{x.start()}catch(e){spRec=null;btn.textContent="Start recording"}}
@@ -979,7 +1009,7 @@ async function mtR(){const w=$("mtw");[...$("mtc").children].forEach(b=>b.classL
 $("mtc").onclick=e=>{const b=e.target.closest("button");if(!b)return;mtg=b.dataset.g;mtR()};
 $("bk").onclick=()=>{if(curN==12){gLeave();tab(10)}else tab(curN==11||curN==14||curN==15||curN==18?10:0)};
 
-const SK=["learned","custom","prof","sc","sl","time","clv","spd","theme","avoice","ahist","hist","muted","extraOn","uchg","wstat"];
+const SK=["ssta","rsta","learned","custom","prof","sc","sl","time","clv","spd","theme","avoice","ahist","hist","muted","extraOn","uchg","wstat"];
 let lastSnap="";
 const snapO=()=>{const o={};SK.forEach(k=>{const v=localStorage.getItem(k);if(v!=null)o[k]=v});return o};
 async function cloudSave(f){if(!DB||!ACC)return;const j=JSON.stringify(snapO());if(!f&&j==lastSnap)return;lastSnap=j;try{await fetch(DB+"/saves/"+uid+".json",{method:"PUT",body:j,keepalive:true})}catch(e){lastSnap=""}}
@@ -1094,7 +1124,7 @@ $("rwd").onclick=e=>{const g=e.target.closest("[data-gb]"),u=e.target.closest("[
 $("rvb").onclick=e=>{const g=e.target.closest("[data-gb]"),u=e.target.closest("[data-us]");if(g)sp2(g.dataset.gb,"en-GB");if(u)sp2(u.dataset.us,"en-US")};
 $("rps").onclick=e=>{const w=e.target.closest(".rw");if(w&&rD)rwShow(rD.k[+w.dataset.i])};
 $("rq").onclick=e=>{const b=e.target.closest("[data-a]");if(!b)return;const[i2,v]=b.dataset.a.split(":");rA[i2]=+v;[...b.parentNode.children].forEach(x=>x.classList.toggle("blue",x==b))};
-$("rck").onclick=()=>{if(!rD)return;let sc=0;rQs.forEach((q,i2)=>{const row=$("rq").children[i2],ok=rA[i2]!=null&&!!rA[i2]==!!q.t;if(ok)sc++;row.style.color=rA[i2]==null?"":ok?"var(--ok)":"var(--bad)"});$("rsc").innerHTML="Natija: <b>"+sc+"/"+rQs.length+"</b>"};
+$("rck").onclick=()=>{if(!rD)return;if(Object.keys(rA).length){rS[rLv]=(rS[rLv]||0)+1;try{localStorage.setItem("rsta",JSON.stringify(rS))}catch(e){}push()}let sc=0;rQs.forEach((q,i2)=>{const row=$("rq").children[i2],ok=rA[i2]!=null&&!!rA[i2]==!!q.t;if(ok)sc++;row.style.color=rA[i2]==null?"":ok?"var(--ok)":"var(--bad)"});$("rsc").innerHTML="Natija: <b>"+sc+"/"+rQs.length+"</b>"};
 $("rrs").onclick=()=>{rA={};[...$("rq").children].forEach(r2=>{r2.style.color="";[...r2.querySelectorAll("button")].forEach(x=>x.classList.remove("blue"))});$("rsc").textContent=""};
 $("rbk").onclick=()=>{$("rwd").classList.add("hide");rdInit()};
 $("rwb").onclick=async()=>{const w=$("rwi").value.trim().toLowerCase();if(!/^[a-z' -]{2,30}$/.test(w))return;const key="w|"+w;let o=spc[key];
@@ -1111,6 +1141,7 @@ WTIP.I1="IELTS General Training Task 1 (xat): kamida 150 so'z, ~20 daqiqa. Maqsa
 WTIP.I2="IELTS Task 2 (esse): kamida 250 so'z, ~40 daqiqa. Kirish (fikringiz), 2 ta asosiy abzas (sabab + misol), xulosa. Bog'lovchilar va turli grammatik tuzilmalardan foydalaning. (Academic Task 1 grafik tavsifi hozircha yo'q.)";
 let wLv="A1",wTk="1.1",wIk="I1",wP=null,wX={};
 const wKey=()=>wLv=="CEFR"?wTk:wLv=="IELTS"?wIk:wLv,wc=t=>t.trim().split(/\s+/).filter(Boolean).length;
+const sS=(()=>{try{return JSON.parse(localStorage.getItem("ssta")||"{}")}catch(e){return{}}})(),rS=(()=>{try{return JSON.parse(localStorage.getItem("rsta")||"{}")}catch(e){return{}}})();
 const wS=(()=>{try{return JSON.parse(localStorage.getItem("wstat")||"{}")}catch(e){return{}}})();
 function wRec(k){const m={"1.1":"CEFR","1.2":"CEFR","2":"CEFR",I1:"IELTS",I2:"IELTS"}[k]||k;if(!m||m.length>6)return;wS[m]=(wS[m]||0)+1;wS.t=(wS.t||0)+1;try{localStorage.setItem("wstat",JSON.stringify(wS))}catch(e){}push()}
 function wInit(){$("wed").classList.add("hide");wP=null;wL()}
@@ -1372,8 +1403,8 @@ $("mpp").onclick=()=>{const u=$("mpp")._u;if(u){$("lbi").src=u;$("lbx").classLis
 const pOpen=e=>{const r=e.target.closest("[data-pid]");if(r&&PIDX[r.dataset.pid])profOpen(Object.assign({id:r.dataset.pid},PIDX[r.dataset.pid]))};$("tw").onclick=pOpen;$("mtw").onclick=pOpen;
 $("bnav").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.id=="bmn")$("hb").click();else tab(+b.dataset.n)};
 /* ===== Info ===== */
-const APPV="0.8.0",APPD="2026-10-10";
-const LOGS=[["0.8.0","2026-10-10",["Butunlay yangi dizayn: yumshoq harakatlanuvchi rangli fon, shaffof va yorug' chetli kartochkalar, yangi shrift (Plus Jakarta Sans), silliq animatsiyalar.","Noutbukda chap tomonda doimiy menyu paneli (sidebar), telefonda pastda tezkor menyu (Home, Translate, Play, Custom, Menu).","Bosh sahifa: rangli ikonkalar, yaxshilangan Ai Teacher kartasi va o'z natijalaringiz (so'zlar, bugungi vaqt, yozuvlar) qatori.","Faol bo'lim menyuda yoritib ko'rsatiladi."]],
+const APPV="0.7.1",APPD="2026-10-10";
+const LOGS=[["0.7.1","2026-10-10",["Tushunarsiz joylar tuzatildi: Listening, Custom va Top bo'limlari tepasida qisqa tushuntirish yozuvlari paydo bo'ldi (har bir tugma nima qilishi aytilgan).","Top: Speaking va Reading bo'limlari endi \"tez kunda\" emas, haqiqiy reyting beradi (yozib olingan javoblar va tekshirilgan testlar soni). Har bir bo'limda o'z darajalari bor.","Yangi foydalanuvchilar uchun bosh sahifada \"Qayerdan boshlash kerak?\" qadamlari.","Help bo'limi yangilandi: hamma bo'lim tushuntirilgan, ko'p so'raladigan savollar qo'shildi.","Settings'dagi bo'limlar tagida qisqa izoh. Yuqoridagi yulduzcha va rasm ustiga bossangiz nima ekani yozilgan.","Custom'da so'zni o'chirishdan oldin tasdiqlash so'raladi (tasodifan o'chirib yubormaslik uchun).","Butunlay yangi dizayn: yumshoq harakatlanuvchi rangli fon, shaffof va yorug' chetli kartochkalar, yangi shrift (Plus Jakarta Sans), silliq animatsiyalar.","Noutbukda chap tomonda doimiy menyu paneli (sidebar), telefonda pastda tezkor menyu (Home, Translate, Play, Custom, Menu).","Bosh sahifa: rangli ikonkalar, yaxshilangan Ai Teacher kartasi va o'z natijalaringiz (so'zlar, bugungi vaqt, yozuvlar) qatori.","Faol bo'lim menyuda yoritib ko'rsatiladi."]],
 ["0.7.0","2026-10-10",["Quiz: natija oynasida 🔁 \"Bilmagan so'zlarni qayta so'rash\" tugmasi. Xato qilgan yoki o'tkazib yuborgan so'zlar yana so'raladi, hammasini topmaguncha takrorlash mumkin.","Top: reytingdagi o'yinchini (Top va Multiplayer Top) bossangiz, uning profili ochiladi: katta rasm, statistika, online holati. Do'st bo'lmasa ➕ Add friend tugmasi, do'st bo'lsa 📞 Call va 💬 Chat tugmalari chiqadi.","Friends: do'stni bossangiz, uning profili ochiladi: katta rasm (bossangiz to'liq ekranda ochiladi), ism, @username, online holati yoki oxirgi marta qachon kirgani, maqsadi, o'rgangan so'zlari, saytda o'tkazgan vaqti, yozuvlari va multiplayer natijalari. Profilda 📞 Call va 💬 Chat tugmalari bor. Rasm endi kattaroq (320x320) sifatda saqlanadi.","Custom: 🧠 Quiz endi hamma so'zlaringizni so'raydi (avval faqat 10 tadan so'rardi). Tepadagi 10, 20 va Hammasi tugmalari bilan nechta so'z so'ralishini tanlash mumkin.","Custom: 🗣 Sentences bo'limi. So'z gapda qanday ishlatilishi (so'z turi, o'rni, 3 ta misol, esda tutish kerak narsalar) va o'zbekcha gapni inglizchaga tarjima qilish mashqi. 7 ta daraja (Beginner'dan IELTS'gacha) alohida tanlanadi. Xato bo'lsa, AI nima xato ekanini va to'g'ri variantni tushuntiradi.","Custom: 📄 Texts bo'limi. Darajangizni tanlaysiz (Beginner'dan IELTS'gacha), saytda saqlangan so'zlaringizdan foydalanib yozilgan matn beriladi. EN → UZ yoki UZ → EN yo'nalishida tarjima qilasiz, AI ball (0-100) beradi, xatolarni, qolib ketgan joylarni va namunaviy tarjimani ko'rsatadi.","Custom bo'limi tugmalari nomi inglizchaga o'zgardi: My Words, Sentences, Texts. Daraja va bo'lim tugmalari qatori to'liq kenglikka yoyildi, ortiqcha bo'sh joy olib tashlandi.","AI: yangi Gemini modellari (3.8, 3.7, 3.6, 3.5) bilan ishlaydigan qilindi. Eskirgan modellar tufayli chiqadigan \"kod: 404\" xatosi tuzatildi."]],
 ["0.6.0","2026-10-07 (yangilandi: 2026-10-08)",["Custom: 🧠 Quiz endi ikki yo'nalishda so'raydi: inglizcha → o'zbekcha va o'zbekcha → inglizcha (Aralash, EN → UZ, UZ → EN rejimlari). O'zbekcha javobda bir nechta ma'no (vergul, / va qavs ichidagi) qabul qilinadi.","Custom: har bir so'z kartasida 🔔/🔕 tugmasi. 🔕 qilingan so'z Listening, Dictation va Quiz'da so'ralmaydi. \"Hammasi so'ralsin\" va \"Hech biri so'ralmasin\" tugmalari ham bor.","Tuzatish: Custom → Listening'da eski matn qolib ketadigan xato (ikkita elementning nomi bir xil bo'lgani uchun) to'g'rilandi. Translation'dagi ✕ (tozalash) tugmasi ham endi ishlaydi.","Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
 ["0.5.0","2026-10",["Writing: CEFR Task 1.1, 1.2, 2 va AI tekshiruv (xatolar, ball, tavsiyalar).","Noutbuk va telefon uchun moslashgan dizayn."]],
