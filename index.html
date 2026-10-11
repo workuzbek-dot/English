@@ -185,6 +185,9 @@ body.home .top h1{visibility:hidden}
 .mps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0}
 @media (max-width:480px){.pbig2{width:190px;height:190px}}
 /* ===== v0.8 design system ===== */
+.mmg{display:grid;gap:10px;margin:12px 0}.mmc{min-height:78px;border-radius:16px;border:1px solid var(--bd);background:var(--seg);color:var(--tx);font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;transition:transform .2s,background .2s;padding:6px;word-break:break-word}.mmc.f{background:var(--gold);color:var(--on)}.mmc.d{background:color-mix(in srgb,var(--ok) 28%,transparent);border-color:var(--ok);cursor:default}
+.hc[data-g="mm"] i{background:linear-gradient(135deg,#ffb3d9,#c04fb0)}.hc[data-g="sc"] i{background:linear-gradient(135deg,#ffe28a,#e8a317)}
+#s20{max-width:640px;margin-left:auto;margin-right:auto}
 #tl{overflow-x:auto}#tl button{white-space:nowrap;flex:1 0 auto}
 #how .hc{align-items:flex-start}
 .hero>div:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:12px}.hero p{margin:0!important}.hero h3{margin:0!important}
@@ -349,13 +352,17 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
 <div id="s19" class="hide"><div class="card" style="text-align:left"><div class="ait" style="text-align:center">Info</div>
  <div style="text-align:center;margin:8px 0 14px"><span class="badge" id="ifv"></span><div class="uz" id="ifd" style="margin:6px 0 0"></div></div><div id="ifl"></div>
  <p class="note" style="text-align:center;margin:16px 0 0">© 2026 SpeakUp. All rights reserved.</p></div></div>
+<div id="s20" class="hide"><div class="card" style="text-align:center;padding:18px"><div class="ait" id="mgt" style="font-size:26px"></div>
+ <div class="seg sm hide" id="mgz" style="margin:10px 0"><button data-p="4">Oson (4 juft)</button><button data-p="6" class="on">O'rta (6)</button><button data-p="8">Qiyin (8)</button></div>
+ <div class="uz" id="mgs"></div><div id="mgb"></div><div id="mgx"></div>
+ <div class="row"><button class="pill sm" id="mgn">🔄 Qayta boshlash</button><button class="pill sm" id="mgq">← Games</button></div></div></div>
 <div id="s12" class="hide"><div class="card" style="text-align:center">
  <div class="lr"><b id="gn1" style="text-align:left"></b><b id="gn2" style="text-align:right"></b></div>
  <div class="bar"><i id="gpb"></i></div>
  <div class="uz" id="gst"></div><div class="main" id="gq"></div><div id="go"></div>
 </div></div>
 <div id="s10" class="hide">
- <div class="hh"><small>MULTIPLAYER</small><h2>Play Together</h2><p>Do'stlaringiz bilan o'ynab, ingliz tilini birga o'rganing.</p></div>
+ <div class="hh"><small>MULTIPLAYER</small><h2>Play Together</h2><p>Do'stlaringiz bilan yoki yolg'iz (kompyuterga qarshi) o'ynang. Birinchi o'yinni tanlang.</p></div>
  <div class="hero" data-n="11"><div><span class="badge">● FRIENDS</span><h3>Friends</h3><p>Username orqali do'st chaqiring va yozishing.</p><span class="pill blue">Open →</span></div><span class="orb"></span></div>
  <button class="hc" data-n="14" style="width:100%;flex-direction:row;align-items:center;margin-bottom:12px"><i>🏆</i><div style="text-align:left;flex:1"><b style="display:block">Top</b><span>Multiplayer reytingi: kim qaysi o'yinda yutdi</span></div><em style="position:static">→</em></button>
  <div class="hg">
@@ -363,7 +370,9 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
   <button class="hc" data-g="tr"><i>🏁</i><b>Type Race</b><span>2-5 kishi: yozing yoki gapiring, kim birinchi.</span><em>▶</em></button>
   <button class="hc" data-g="wb"><i>⚔️</i><b>Word Battle</b><span>So'z tarjimasini kim tezroq topadi.</span><em>▶</em></button>
   <button class="hc" data-g="sr"><i>⌨️</i><b>Spelling Race</b><span>Eshitib kim tezroq to'g'ri yozadi.</span><em>▶</em></button>
-  <button class="hc soon"><i>🧠</i><b>Memory Match</b><span>So'z va tarjimani juftlash o'yini.</span><em>Tez kunda</em></button>
+  <button class="hc" data-g="mm"><i>🧠</i><b>Memory Match</b><span>So'z va tarjimani juftlang. Yolg'iz o'ynaladi.</span><em>▶</em></button>
+  <button class="hc" data-g="sc"><i>🔤</i><b>Word Scramble</b><span>Aralashgan harflardan so'zni toping. Yolg'iz o'ynaladi.</span><em>▶</em></button>
+  <button class="hc soon" style="display:none"><i>🧠</i><b>Memory Match</b><span>So'z va tarjimani juftlash o'yini.</span><em>Tez kunda</em></button>
   <button class="hc" data-g="qd"><i>⚡</i><b>Quiz Duel</b><span>Gapdagi tushib qolgan so'zni toping.</span><em>▶</em></button>
  </div>
 </div>
@@ -499,7 +508,8 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
 </div></div>
 </div>
 <div id="mdl" class="mdl hide"><div class="mdc card"><b id="mdt" style="font-size:20px"></b><div class="chips wrap hide" id="mlv" style="justify-content:center"></div><div class="seg sm hide" id="mmd"><button data-m="tp" class="on">⌨️ Typing</button><button data-m="sp">🎤 Speaking</button></div>
- <button class="pill blue" id="mrn">🎲 Random player</button>
+ <button class="pill blue" id="msl">🤖 Play alone (vs Computer)</button>
+ <button class="pill" id="mrn">🎲 Random player</button>
  <button class="pill" id="mus">🔎 Find by username</button><div id="mub" class="hide"><input id="mui" placeholder="@username" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="row" style="margin:8px 0 0"><button class="pill blue" id="muc">Challenge</button></div></div>
  <button class="pill" id="mfr">👥 Play with a friend</button><div id="mfb" class="hide" style="text-align:left"></div>
  <div class="sp" id="mmg"></div><button class="pill sm" id="mcl">Close</button></div></div>
@@ -585,7 +595,7 @@ $("chk").onclick=()=>{const w=cur()[0];if($("inp").value.trim().toLowerCase()==w
 $("inp").onkeydown=e=>{if(e.key=="Enter")$("chk").click()};
 $("nx").onclick=()=>{i=(i+1)%pool().length;show()};
 let onTop=false,curN=0;
-function tab(n){if(n!=15&&typeof trLeave=="function")trLeave();if(n!=18&&typeof luLeave=="function")luLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");$("mpv").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);{const t=$("lcap"),c={1:"🎧 Listening: so'z yoki gapni eshiting, so'ng ayting yoki yozing.",2:"📚 Vocabulary: tanlangan daraja so'zlarining to'liq ro'yxati. Kartani bossangiz, so'zni o'qib beradi. 🔔/🔕 bilan so'ralishini tanlaysiz.",3:"✍️ Dictation: gapni eshiting va aynan shunday yozing."}[n];t.textContent=c||"";t.classList.toggle("hide",!c)}$("bk").classList.toggle("hide",n==0);curN=n;{const am={11:10,12:10,14:10,15:10,18:10,1:0,2:0,3:0,8:0,13:0,16:0,17:0}[n];const ak=am===undefined?n:am;document.querySelectorAll(".mi,.bnav button[data-n]").forEach(b=>b.classList.toggle("on",+b.dataset.n===ak))}if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
+function tab(n){if(n!=20&&typeof sg!="undefined")clearInterval(sg.tm);if(n!=15&&typeof trLeave=="function")trLeave();if(n!=18&&typeof luLeave=="function")luLeave();if(n!=12&&typeof gLeave=="function")gLeave();$("rwd").classList.add("hide");$("mpv").classList.add("hide");if(n!=8&&typeof aStop=="function")aStop();try{speechSynthesis.cancel()}catch(e){}["s1","s3"].forEach(d=>{const e=$(d);if(e.parentNode.id=="cw2")document.querySelector(".w").appendChild(e)});if(n!=5&&lvl==CK){lvl=Ls()[0];i=0;dI=0;lvls();show()}[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].forEach(k=>{$("s"+k).classList.toggle("hide",k!=n);if(k>0&&k<4)$("t"+k).className=n==k?"on":""});$("lv").classList.toggle("hide",n<1||n>3);$("tb").classList.toggle("hide",n<1||n>3);document.body.classList.toggle("home",n==0||n==10);{const t=$("lcap"),c={1:"🎧 Listening: so'z yoki gapni eshiting, so'ng ayting yoki yozing.",2:"📚 Vocabulary: tanlangan daraja so'zlarining to'liq ro'yxati. Kartani bossangiz, so'zni o'qib beradi. 🔔/🔕 bilan so'ralishini tanlaysiz.",3:"✍️ Dictation: gapni eshiting va aynan shunday yozing."}[n];t.textContent=c||"";t.classList.toggle("hide",!c)}$("bk").classList.toggle("hide",n==0);curN=n;{const am={11:10,12:10,14:10,15:10,18:10,20:10,1:0,2:0,3:0,8:0,13:0,16:0,17:0}[n];const ak=am===undefined?n:am;document.querySelectorAll(".mi,.bnav button[data-n]").forEach(b=>b.classList.toggle("on",+b.dataset.n===ak))}if(n!=11&&typeof fclr=="function")fclr();if(n==11)mpOpen();document.querySelector(".spw").classList.toggle("hide",![1,2,3,5].includes(n));$("spl").classList.add("hide");$("drw").classList.remove("open");$("ov").classList.remove("open");onTop=n==6;
  if(n==2)vocab();if(n==3)dShow();if(n==5){cList();cSub(1)}if(n==6)topR();if(n==13)spInit();if(n==14)mtR();if(n==16)rdInit();if(n==17)wInit();if(n==19)infoInit();if(n==0){$("wb").textContent=prof.n?"Welcome back, "+prof.n+"!":"";$("how").classList.toggle("hide",!!(learned.size||custom.length||wS.t));$("dst").innerHTML=[["📚","O'rgangan so'zlar",learned.size],["⏱","Bugun",fm(tm.d[dk()]||0)],["✍️","Tekshirilgan yozuvlar",wS.t||0]].map(x=>`<div class="card"><div class="uz">${x[0]} ${x[1]}</div><b>${es(String(x[2]))}</b></div>`).join("")}if(n==8)aGreet();if(n==1)ensureS(D[lvl]);scrollTo(0,0)}
 $("t3").onclick=()=>tab(3);$("t1").onclick=()=>tab(1);$("t2").onclick=()=>tab(2);
 let dI=0;const dp=()=>{const p=D[lvl];if(lvl!=CK)return p;const q=p.filter(w=>!muted.has(w[0]));return q.length?q:p},dc=()=>{const p=dp();return p[dI%p.length]},dS=()=>{const w=dc();return(lvl==CK?(SL[clv]||{})[w[0]]:w[3])||w[0]};
@@ -831,7 +841,7 @@ $("ps").onclick=async()=>{const u=$("pu").value.trim().toLowerCase(),old=prof.u|
  prof.n=$("pn").value.trim();prof.g=$("pg").value.trim();psv();pa();push();$("pm").innerHTML='<span class="ok">✅ Saqlandi</span>'};
 
 let fT=null,cT=null,cF=null;
-const J=async(p,o)=>{const x=await(await fetch(DB+p+".json",o)).json();return x&&typeof x=="object"&&typeof x.error=="string"&&Object.keys(x).length==1?null:x};
+const J=async(p,o)=>{if(p.startsWith("/rooms/L_"))return LJ(p,o);const x=await(await fetch(DB+p+".json",o)).json();return x&&typeof x=="object"&&typeof x.error=="string"&&Object.keys(x).length==1?null:x};
 const pair=id=>[uid,id].sort().join("_");
 const avh=(f,on)=>{const pi=f.ph&&String(f.ph).startsWith("data:image/")?`<img src="${es(f.ph)}" alt="">`:es(f.a||"🙂");return`<span class="av2">${pi}${on?'<i class="dot"></i>':""}</span>`};
 function fclr(){clearInterval(fT);clearInterval(cT)}
@@ -866,7 +876,7 @@ $("mcb").onclick=()=>mpOpen();
 $("bk").onclick=()=>tab(curN==11?10:0);
 $("s10").onclick=e=>{const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
 
-const GN={wb:"Word Battle",sr:"Spelling Race",qd:"Quiz Duel",tr:"Type Race",lu:"LinkUp"};
+const GN={wb:"Word Battle",sr:"Spelling Race",qd:"Quiz Duel",tr:"Type Race",lu:"LinkUp",mm:"Memory Match",sc:"Word Scramble"};
 let gR=null,gId=null,gT=null,mT=null,qg=null,selG=null,gSt={r:-1,rst:0,sub:false,both:0};
 const allW=()=>["Beginner","Elementary","Pre-Intermediate"].flatMap(l=>D[l]);
 const shuf=a=>{a=a.slice();for(let x=a.length-1;x>0;x--){const y=Math.floor(Math.random()*(x+1));[a[x],a[y]]=[a[y],a[x]]}return a};
@@ -874,13 +884,13 @@ function mkQ(g){const W=allW(),S=W.filter(w=>w[3]&&new RegExp("\\b"+w[0]+"\\b","
  if(g=="qd"&&S.length>=4)return shuf(S).slice(0,10).map(w=>{const o=shuf([w,...shuf(S.filter(x=>x[0]!=w[0])).slice(0,3)]);return{t:w[3].replace(new RegExp("\\b"+w[0]+"\\b","i"),"____"),o:o.map(x=>x[0]),c:o.findIndex(x=>x[0]==w[0]),h:w[1]}});
  if(g=="sr")return shuf(W).slice(0,10).map(w=>({s:w[0],c:w[0],h:w[1]}));
  return shuf(W).slice(0,10).map(w=>{const o=shuf([w,...shuf(W.filter(x=>x[0]!=w[0])).slice(0,3)]);return{t:w[0],o:o.map(x=>x[1]),c:o.findIndex(x=>x[0]==w[0]),s:w[0]}})}
-async function mkRoom(g,pl,st,oi){const id=Math.random().toString(36).slice(2,10),p={[uid]:{n:prof.n||"Mehmon",a:prof.a||"🙂"}};if(oi)p[pl[1]]=oi;
+async function mkRoom(g,pl,st,oi,pf){const id=(pf||"")+Math.random().toString(36).slice(2,10),p={[uid]:{n:prof.n||"Mehmon",a:prof.a||"🙂"}};if(oi)p[pl[1]]=oi;
  await J("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:g=="qd"&&allW().filter(w=>w[3]).length<4?"wb":g,h:uid,o:pl,st,r:0,q:mkQ(g),p})});return id}
 const gOk=(q,v,g)=>g=="sr"?String(v).trim().toLowerCase()==q.c:v==q.c;
 function gScore(R,u){let t=0;(R.q||[]).forEach((q,k)=>{const a=R.ans&&R.ans[k]&&R.ans[k][u];if(a&&gOk(q,a.v,R.g))t+=10+Math.max(0,Math.round((15000-Math.min(15000,a.t||15000))/3000))});return t}
 function gLeave(){clearInterval(gT);clearInterval(mT);gT=mT=null;if(qg){J("/queue/"+qg+"/"+uid,{method:"DELETE"}).catch(()=>{});qg=null}
  if(gId){const id=gId;gId=null;if(gR&&gR.st!="done")J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({st:"done",lf:uid})}).catch(()=>{})}gR=null}
-function enterRoom(id){gLeave();gId=id;gR=null;gSt={r:-1,rst:0,sub:false,both:0};tab(12);$("gn1").textContent=$("gn2").textContent="";$("gpb").style.width="0";$("gst").textContent="";$("gq").textContent="Loading...";$("go").innerHTML="";gT=setInterval(gPoll,1200);gPoll()}
+function enterRoom(id){curSolo=String(id).startsWith("L_");gLeave();gId=id;gR=null;gSt={r:-1,rst:0,sub:false,both:0};tab(12);$("gn1").textContent=$("gn2").textContent="";$("gpb").style.width="0";$("gst").textContent="";$("gq").textContent="Loading...";$("go").innerHTML="";gT=setInterval(gPoll,1200);gPoll()}
 function gShow(R,r,q){$("gst").textContent=GN[R.g]+" · Round "+(r+1)+"/"+R.q.length;$("gpb").style.width=(r/R.q.length*100)+"%";
  if(R.g=="sr"){$("gq").innerHTML='<div class="uz">'+es(q.h)+'</div>';$("go").innerHTML='<button class="pill" data-sp>🔊 Listen</button><input id="gin" placeholder="Eshitgan so\'zingizni yozing" autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-top:10px"><div class="row"><button class="pill blue" data-sb>Submit</button></div>';setTimeout(()=>say(q.s,.85),300)}
  else{$("gq").textContent=q.t;$("go").innerHTML=q.o.map((t,k)=>`<button class="pill gopt" data-k="${k}">${es(t)}</button>`).join("")+(q.h?'<div class="uz">'+es(q.h)+'</div>':"")}}
@@ -932,7 +942,7 @@ $("mfr").onclick=async()=>{const b=$("mfb");b.classList.toggle("hide");if(b.clas
 $("mfb").onclick=e=>{const b=e.target.closest("[data-t]");if(b){mdClose();challenge(b.dataset.t,selG)}};
 $("mcl").onclick=mdClose;
 $("bk").onclick=()=>{if(curN==12){gLeave();tab(10)}else tab(curN==11?10:0)};
-$("s10").onclick=e=>{const g=e.target.closest("[data-g]");if(g){mdOpen(g.dataset.g);return}const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
+$("s10").onclick=e=>{const g=e.target.closest("[data-g]");if(g){const k=g.dataset.g;if(k=="mm"||k=="sc")soloMini(k);else mdOpen(k);return}const b=e.target.closest("[data-n]");if(b)tab(+b.dataset.n)};
 const TC=[["lis","🎧 Listening"],["spk","🎤 Speaking"],["rd","📖 Reading"],["wr","✏️ Writing"],["cu","⭐ Custom"],["tm","⏱ Time"]];let tcat="lis",tlv="b";
 const TLV={lis:[["b","Beginner"],["e","Elementary"],["p","Pre-Intermediate"]],spk:[["b","Beginner"],["e","Elementary"],["p","Pre-Intermediate"],["m","Intermediate"],["i","IELTS"]],rd:[["b","A1 Beginner"],["e","A2 Elementary"],["p","B1 Pre-Int."],["m","B2 Intermediate"]],wr:[["b","Beginner"],["e","Elementary"],["p","Pre-Intermediate"],["f","CEFR Exam"],["i","IELTS"]]};
 const TKM={lis:{b:"b",e:"e",p:"p"},spk:{b:"sa",e:"sb",p:"sc",m:"sd",i:"se"},rd:{b:"ra",e:"rb",p:"rc",m:"rd"},wr:{b:"wa",e:"wb",p:"wc",f:"wf",i:"wi"}};
@@ -995,7 +1005,7 @@ $("sgi").onclick=e=>{const a=e.target.closest("[data-i]"),g=e.target.closest("[d
  if(a)spOpenQ(+a.dataset.i);else if(g)sp2(spIt[+g.dataset.gb].ans.a,"en-GB");else if(u)sp2(spIt[+u.dataset.us].ans.a,"en-US");
  else if(kk){const[q,n]=kk.dataset.ke.split(".");say(spIt[+q].ans.k[+n].e,.9)}else if(rc)spRc(+rc.dataset.rec,rc)};
 
-async function mpRec(g,res,sc){if(!DB)return;try{const o=(await J("/mpstats/"+uid))||{},x=o[g]||{p:0,w:0,l:0,d:0,s:0};x.p=nn(x.p)+1;x[res]=nn(x[res])+1;x.s=nn(x.s)+sc;
+async function mpRec(g,res,sc){if(!DB||curSolo)return;try{const o=(await J("/mpstats/"+uid))||{},x=o[g]||{p:0,w:0,l:0,d:0,s:0};x.p=nn(x.p)+1;x[res]=nn(x[res])+1;x.s=nn(x.s)+sc;
  await J("/mpstats/"+uid,{method:"PATCH",body:JSON.stringify({[g]:x,n:prof.n||"Mehmon",a:prof.a||"🙂",u:prof.u||"",ph:prof.p||""})})}catch(e){}}
 let mtg="all";
 async function mtR(){const w=$("mtw");[...$("mtc").children].forEach(b=>b.classList.toggle("on",b.dataset.g==mtg));
@@ -1007,7 +1017,7 @@ async function mtR(){const w=$("mtw");[...$("mtc").children].forEach(b=>b.classL
  w.innerHTML=rows.length?rows.map((r,k)=>{PIDX[r.id]=Object.assign({id:r.id},r.x);const sub=r.t.p+" o'yin · "+Math.round(r.t.w/r.t.p*100)+"% g'alaba"+(mtg=="all"?" · "+G.filter(g=>nn(gg(r.x,g).p)>0).map(g=>ic[g]+nn(gg(r.x,g).w)).join(" "):"");
   return`<div class="card tr" data-pid="${es(r.id)}" style="cursor:pointer"><b style="min-width:34px">${["🥇","🥈","🥉"][k]||k+1}</b>${avh(r.x,0)}<b style="flex:1;text-align:left">${es(r.x.n||"Mehmon")}${r.id==uid?" (siz)":""}${r.x.u?`<small>@${es(r.x.u)}</small>`:""}<small>${es(sub)}</small></b><b>${r.t.w} 🏆</b></div>`}).join(""):'<div class="uz">Hali natija yo\'q. Birinchi o\'yinni o\'ynang!</div>'}
 $("mtc").onclick=e=>{const b=e.target.closest("button");if(!b)return;mtg=b.dataset.g;mtR()};
-$("bk").onclick=()=>{if(curN==12){gLeave();tab(10)}else tab(curN==11||curN==14||curN==15||curN==18?10:0)};
+$("bk").onclick=()=>{if(curN==12){gLeave();tab(10)}else tab(curN==11||curN==14||curN==15||curN==18||curN==20?10:0)};
 
 const SK=["ssta","rsta","learned","custom","prof","sc","sl","time","clv","spd","theme","avoice","ahist","hist","muted","extraOn","uchg","wstat"];
 let lastSnap="";
@@ -1058,7 +1068,7 @@ async function createTR(md,open){const txt=await mkTextL(trLv),id=Math.random().
 async function joinTR(id){try{const R=await J("/rooms/"+id);if(!R||R.st!="lobby"||Object.keys(R.pl||{}).length>=5)return false;await J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({["pl/"+uid]:me0()})});enterTR(id);return true}catch(e){return false}}
 async function quickTR(md){if(!DB)return alert("Reyting bazasi (Firebase) ulanmagan.");try{const o=await J("/open/tr_"+md+"_"+trLv)||{};for(const id of Object.keys(o)){if(await joinTR(id))return;J("/open/tr_"+md+"_"+trLv+"/"+id,{method:"DELETE"}).catch(()=>{})}await createTR(md,true)}catch(e){alert("Internetga ulanib bo'lmadi.")}}
 async function inviteTR(t){try{if(!trId)await createTR(trMd,false);await J("/invites/"+t+"/"+uid,{method:"PUT",body:JSON.stringify({room:trId,g:"tr",n:prof.n||"Mehmon"})})}catch(e){alert("Internetga ulanib bo'lmadi.")}}
-function enterTR(id){gLeave();trLeave();trId=id;trR=null;trS={rs:0,fin:false,c:0,rec:false,t:0};tab(15);$("trl").innerHTML="";$("trh").textContent="";$("trst").textContent="Yuklanmoqda...";["trlb","trg"].forEach(x=>$(x).classList.add("hide"));trT=setInterval(trPoll,800);trPoll()}
+function enterTR(id){curSolo=String(id).startsWith("L_");gLeave();trLeave();trId=id;trR=null;trS={rs:0,fin:false,c:0,rec:false,t:0};tab(15);$("trl").innerHTML="";$("trh").textContent="";$("trst").textContent="Yuklanmoqda...";["trlb","trg"].forEach(x=>$(x).classList.add("hide"));trT=setInterval(trPoll,800);trPoll()}
 function trLeave(){clearInterval(trT);trT=null;try{trS.sr&&trS.sr.abort()}catch(e){}
  if(trId){const id=trId;trId=null;const R=trR;if(R&&R.st=="lobby"){J("/rooms/"+id+"/pl/"+uid,{method:"DELETE"}).catch(()=>{});if(R.h==uid){J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({st:"done"})}).catch(()=>{});J("/open/tr_"+R.md+"_"+(R.lv||"A1")+"/"+id,{method:"DELETE"}).catch(()=>{})}}}trR=null}
 function trSend(pr,fin){if(!trId||trS.fin&&!fin)return;const n=Date.now();if(!fin&&n-trW<350)return;trW=n;J("/rooms/"+trId+"/prog/"+uid,{method:"PATCH",body:JSON.stringify(fin?{p:1,f:{".sv":"timestamp"}}:{p:pr})}).catch(()=>{})}
@@ -1256,7 +1266,7 @@ async function createLU(open){const id=Math.random().toString(36).slice(2,10);aw
 async function joinLU(id){try{const R=await J("/rooms/"+id);if(!R||R.st!="lobby"||Object.keys(R.pl||{}).length>=4)return false;await J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({["pl/"+uid]:lu0()})});enterLU(id);return true}catch(e){return false}}
 async function quickLU(){if(!DB)return alert("Reyting bazasi (Firebase) ulanmagan.");try{const o=await J("/open/lu")||{};for(const id of Object.keys(o)){if(await joinLU(id))return;J("/open/lu/"+id,{method:"DELETE"}).catch(()=>{})}await createLU(true)}catch(e){alert("Internetga ulanib bo'lmadi.")}}
 async function inviteLU(t){try{if(!luId)await createLU(false);await J("/invites/"+t+"/"+uid,{method:"PUT",body:JSON.stringify({room:luId,g:"lu",n:prof.n||"Mehmon"})})}catch(e){alert("Internetga ulanib bo'lmadi.")}}
-function enterLU(id){gLeave();trLeave();luLeave();luId=id;luR=null;luS={seen:0,tn:-1,busy:false,rec:false};tab(18);$("lup").innerHTML="";$("lust").textContent="Yuklanmoqda...";["lulb","lug"].forEach(x=>$(x).classList.add("hide"));luT=setInterval(luPoll,900);luTm=setInterval(luTick,250);luPoll()}
+function enterLU(id){curSolo=String(id).startsWith("L_");gLeave();trLeave();luLeave();luId=id;luR=null;luS={seen:0,tn:-1,busy:false,rec:false};tab(18);$("lup").innerHTML="";$("lust").textContent="Yuklanmoqda...";["lulb","lug"].forEach(x=>$(x).classList.add("hide"));luT=setInterval(luPoll,900);luTm=setInterval(luTick,250);luPoll()}
 function luLeave(){clearInterval(luT);clearInterval(luTm);luT=luTm=null;if(luId){const id=luId,R=luR;luId=null;
  if(R&&R.st=="lobby"){J("/rooms/"+id+"/pl/"+uid,{method:"DELETE"}).catch(()=>{});if(R.h==uid){J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({st:"done"})}).catch(()=>{});J("/open/lu/"+id,{method:"DELETE"}).catch(()=>{})}}
  else if(R&&R.st=="play"&&!(R.el&&R.el[uid])){luElimId(id,R,uid)}}luR=null}
@@ -1402,9 +1412,65 @@ $("mpa").onclick=async()=>{if(!pfU||!DB)return;try{const t=pfU.id;if(await J("/f
 $("mpp").onclick=()=>{const u=$("mpp")._u;if(u){$("lbi").src=u;$("lbx").classList.remove("hide")}};$("lbx").onclick=()=>$("lbx").classList.add("hide");
 const pOpen=e=>{const r=e.target.closest("[data-pid]");if(r&&PIDX[r.dataset.pid])profOpen(Object.assign({id:r.dataset.pid},PIDX[r.dataset.pid]))};$("tw").onclick=pOpen;$("mtw").onclick=pOpen;
 $("bnav").onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.id=="bmn")$("hb").click();else tab(+b.dataset.n)};
+/* ===== Solo play (vs Computer) + mini games ===== */
+const LR={},BOTK={v:1};let curSolo=false;
+function LJ(p,o){const parts=p.slice(7).split("/").filter(Boolean),id=parts.shift(),m=(o&&o.method)||"GET";
+ const put=(r,ps,v)=>{let c=r;for(let i=0;i<ps.length-1;i++){if(c[ps[i]]==null||typeof c[ps[i]]!="object")c[ps[i]]={};c=c[ps[i]]}if(v===null)delete c[ps[ps.length-1]];else c[ps[ps.length-1]]=v},
+  body=o&&o.body?JSON.parse(String(o.body).replace(/\{"\.sv":"timestamp"\}/g,String(Date.now()))):null;
+ if(m=="GET"){const v=parts.reduce((x,k)=>x==null?x:x[k],LR[id]);return Promise.resolve(v===undefined?null:JSON.parse(JSON.stringify(v)))}
+ if(m=="PUT"){if(!parts.length)LR[id]=body;else put(LR[id]||(LR[id]={}),parts,body);return Promise.resolve(body)}
+ if(m=="PATCH"){const R=LR[id]||(LR[id]={});Object.entries(body).forEach(([k,v])=>put(R,parts.concat(k.split("/")),v));return Promise.resolve(body)}
+ if(m=="DELETE"){if(!parts.length)delete LR[id];else if(LR[id])put(LR[id],parts,null);return Promise.resolve(null)}
+ return Promise.resolve(null)}
+const BOT={n:"Computer",a:"🤖"},lid=()=>"L_"+Math.random().toString(36).slice(2,9);
+async function soloGame(g){const id=await mkRoom(g,[uid,"bot1"],"play",BOT,"L_");enterRoom(id);const bt={r:-1},T=setInterval(()=>{if(gId!=id){clearInterval(T);return}const R=LR[id];if(!R||R.st!="play")return;const r=R.r||0,q=(R.q||[])[r];if(!q||bt.r==r||(R.ans&&R.ans[r]&&R.ans[r].bot1!=null))return;bt.r=r;
+  const d=((g=="sr"?5000:3500)+Math.random()*5000)*BOTK.v,ok=Math.random()<(g=="sr"?.6:.7);
+  setTimeout(()=>{if(gId!=id)return;const v=g=="sr"?(ok?q.c:q.c.slice(0,-1)+"x"):(ok?q.c:(q.c+1+Math.floor(Math.random()*3))%q.o.length);LJ("/rooms/"+id+"/ans/"+r+"/bot1",{method:"PUT",body:JSON.stringify({v,t:Math.round(d)})})},d)},500)}
+async function soloTR(md,lv){const txt=await Promise.race([mkTextL(lv),new Promise(r=>setTimeout(()=>r(fbText(LVW[lv]||30)),4000))]),id=lid(),sp=md=="sp",w=txt.split(/\s+/).length,base={A1:25,A2:35,B1:45,B2:55,C1:65}[lv]||35,spd={bot1:base*(.75+Math.random()*.15),bot2:base*(.95+Math.random()*.2)};
+ await LJ("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:"tr",md,lv,h:uid,st:"race",txt,t0:Date.now(),pl:{[uid]:me0(),bot1:{n:"Computer 1",a:"🤖"},bot2:{n:"Computer 2",a:"🦾"}}})});enterTR(id);
+ const s0=Date.now()+3000,T=setInterval(()=>{if(trId!=id){clearInterval(T);return}const e=(Date.now()-s0)/1000/BOTK.v;if(e<0)return;
+  Object.keys(spd).forEach(b=>{const R=LR[id];if(!R||(R.prog&&R.prog[b]&&R.prog[b].f))return;const p=Math.min(1,sp?e*(spd[b]*1.6/60)/w:e*(spd[b]*5/60)/txt.length);LJ("/rooms/"+id+"/prog/"+b,{method:"PUT",body:JSON.stringify(p>=1?{p:1,f:{".sv":"timestamp"}}:{p})})})},500)}
+const LUW="apple able about above actor after again agree alarm album alive allow alone along already always among angry animal answer anyone arrive around artist asleep autumn baby back bacon badge baker ball banana basic basket beach beauty become before begin behind being believe below better beyond bicycle birth bitter black blanket blood board body bottle bottom brain bread bridge bright broken brother brown build butter button cabin camera candle carpet carry castle catch center chair change charge cheap check cheese cherry chicken child choice circle city class clean clear clever climb clock close cloud coffee color common cook copper corner cotton country cousin cover crazy cream cross crowd daily dance danger dark daughter dear decide deep desk dinner doctor dollar door double dream dress drink drive early earth easy eight empty energy engine enjoy enough entire equal evening every exact exist expect extra fabric face fall family famous farmer fast father fever field fight final finger fire first fish flag flat floor flower food foot forest forget friend front fruit funny future garden gentle ghost giant glass globe gold grass great green ground group guest guide happy heart heavy height hello help hidden hobby holiday honey horse hotel house human hungry hunter idea image inside island jacket jelly jewel journey judge juice jungle kettle kitchen knife ladder lake lamp large laugh lazy leader learn leather lemon lesson letter light little lunch machine magic market master matter meadow medal melon memory metal middle mirror money monkey month moon mother mountain music narrow nature never night noble noise north notice number ocean office often olive orange paper parent party pencil people pepper picture pillow planet plate pocket police potato power pretty prince quiet rabbit rain river rocket round sailor salad school season second secret shadow silver simple sister small smile snow soft spoon spring square stone story street summer table teacher thirty ticket tiger today tomato travel under useful valley village water window winter wonder yellow young zebra".split(" ");
+async function soloLU(){const id=lid(),ord=shuf([uid,"bot1"]),pool=allW().map(x=>x[0]).filter(w=>/^[a-z]{4,7}$/.test(w)&&!"xqzj".includes(w.slice(-1))),seed=pool[Math.floor(Math.random()*pool.length)];
+ await LJ("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:"lu",h:uid,st:"play",ord,cu:ord[0],w:[seed],tn:0,pl:{[uid]:lu0(),bot1:BOT}})});enterLU(id);
+ const bt={tn:-1},T=setInterval(()=>{if(luId!=id){clearInterval(T);return}const R=LR[id];if(!R||R.st!="play"||R.cu!="bot1"||(R.el&&R.el.bot1)||bt.tn==(R.tn||0))return;bt.tn=R.tn||0;
+  const L=R.w||[],q=luReq(L[L.length-1],L.length-1),c=LUW.filter(w=>w.startsWith(q.req)&&!L.includes(w)),w=c.length&&Math.random()<.88?c[Math.floor(Math.random()*c.length)]:null,d=(2500+Math.random()*q.sec*350)*BOTK.v;
+  setTimeout(()=>{const R2=LR[id];if(!R2||R2.st!="play"||R2.cu!="bot1"||(R2.tn||0)!=bt.tn)return;if(!w){luElimId(id,R2,"bot1");return}LJ("/rooms/"+id,{method:"PATCH",body:JSON.stringify({["w/"+(R2.w||[]).length]:w,cu:luNext(R2,"bot1"),tn:(R2.tn||0)+1})})},d)},500)}
+function soloStart(g){if(g=="wb"||g=="sr"||g=="qd")soloGame(g);else if(g=="tr")soloTR(trMd,trLv);else if(g=="lu")soloLU()}
+$("msl").onclick=()=>{mdClose();soloStart(selG)};
+/* --- mini games (solo) --- */
+let sg={m:"mm",t0:0,tm:null,mv:0,fl:[],lock:false,cards:[],ok:0,np:6,q:[],i:0,sc:0,hint:0};
+function soloMini(g){sg.m=g;tab(20);$("mgz").classList.toggle("hide",g!="mm");g=="mm"?mmStart():scStart()}
+function mmStart(){clearInterval(sg.tm);const W=shuf(allW().filter(w=>!/\s/.test(w[0])&&w[1].length<24)).slice(0,sg.np);sg.cards=shuf(W.flatMap((w,k)=>[{k,t:w[0]},{k,t:w[1]}]));sg.fl=[];sg.ok=0;sg.mv=0;sg.lock=false;sg.t0=Date.now();
+ $("mgt").textContent="🧠 Memory Match";$("mgx").innerHTML="";[...$("mgz").children].forEach(b=>b.classList.toggle("on",+b.dataset.p==sg.np));mmR();sg.tm=setInterval(mmT,500)}
+function mmR(){$("mgb").className="mmg";$("mgb").style.gridTemplateColumns="repeat("+(sg.np>6?4:3)+",1fr)";$("mgb").innerHTML=sg.cards.map((c,i)=>`<button class="mmc${c.f?" f":""}${c.d?" d":""}" data-i="${i}">${c.f||c.d?es(c.t):"?"}</button>`).join("");mmT()}
+function mmT(){$("mgs").textContent="Harakat: "+sg.mv+" · Vaqt: "+Math.floor((Date.now()-sg.t0)/1000)+" s · Juftlar: "+sg.ok+"/"+sg.np}
+function mmEnd(){clearInterval(sg.tm);const sec=Math.floor((Date.now()-sg.t0)/1000),key="mmb"+sg.np,best=+localStorage.getItem(key)||0;let msg="✅ "+sg.mv+" harakat, "+sec+" soniya.";
+ if(!best||sg.mv<best){try{localStorage.setItem(key,sg.mv)}catch(e){}msg+=" 🏆 Yangi rekord!"}else msg+=" Eng yaxshi natija: "+best+" harakat.";
+ $("mgx").innerHTML='<div class="card" style="margin-top:12px;padding:16px">'+msg+"</div>"}
+const scr=w=>{let s=w;for(let n=0;n<9&&s==w;n++)s=shuf(w.split("")).join("");return s};
+function scStart(){clearInterval(sg.tm);sg.q=shuf(allW().filter(w=>/^[a-z]{4,10}$/.test(w[0]))).slice(0,10);sg.i=0;sg.sc=0;$("mgt").textContent="🔤 Word Scramble";$("mgx").innerHTML="";scShow()}
+function scShow(){clearInterval(sg.tm);const w=sg.q[sg.i];
+ if(!w){const key="scb",best=+localStorage.getItem(key)||0;let msg="Natija: <b>"+sg.sc+"</b> ball.";if(sg.sc>best){try{localStorage.setItem(key,sg.sc)}catch(e){}msg+=" 🏆 Yangi rekord!"}else msg+=" Eng yaxshi: "+best+".";$("mgb").className="";$("mgb").innerHTML='<div class="card" style="padding:16px">'+msg+"</div>";$("mgs").textContent="";return}
+ sg.t0=Date.now();sg.hint=0;$("mgs").textContent="So'z "+(sg.i+1)+"/"+sg.q.length+" · Ball: "+sg.sc;$("mgb").className="";
+ $("mgb").innerHTML=`<div class="uz" style="margin:8px 0 0">${es(w[1])}</div><div class="main" id="scw" style="letter-spacing:.25em;margin:8px 0">${es(scr(w[0]).toUpperCase())}</div><input id="sci" placeholder="So'zni yozing" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="row"><button class="pill blue" data-a="chk">Check</button><button class="pill sm" data-a="hint">💡 Birinchi harf</button><button class="pill sm" data-a="skip">Skip</button></div><div class="sp" id="scm"></div>`;
+ setTimeout(()=>{const i=$("sci");if(i)i.focus()},50);sg.tm=setInterval(()=>{const l=25-Math.floor((Date.now()-sg.t0)/1000);if($("scm")&&!$("scm").dataset.d)$("scm").textContent="⏱ "+Math.max(0,l)+" s";if(l<=0){clearInterval(sg.tm);$("scm").innerHTML='<span class="bad">Vaqt tugadi. To\'g\'ri javob: <b>'+es(w[0])+"</b></span>";setTimeout(()=>{sg.i++;scShow()},1600)}},500)}
+function scGo(a){const w=sg.q[sg.i];if(!w)return;
+ if(a=="hint"){sg.hint=1;$("scm").dataset.d="1";$("scm").textContent="💡 "+w[0][0].toUpperCase()+"...";return}
+ if(a=="skip"){sg.i++;scShow();return}
+ const v=$("sci").value.trim().toLowerCase();if(!v)return;
+ if(v==w[0]){clearInterval(sg.tm);const bonus=sg.hint?0:Math.max(0,5-Math.floor((Date.now()-sg.t0)/5000));sg.sc+=10+bonus;$("scm").dataset.d="1";$("scm").innerHTML='<span class="ok">✅ To\'g\'ri! +'+(10+bonus)+"</span>";setTimeout(()=>{sg.i++;scShow()},900)}
+ else{$("scm").dataset.d="1";$("scm").innerHTML='<span class="bad">❌ Xato, yana urining</span>'}}
+$("mgb").onclick=e=>{if(sg.m=="sc"){const b=e.target.closest("[data-a]");if(b)scGo(b.dataset.a);return}
+ const b=e.target.closest(".mmc");if(!b||sg.lock)return;const c=sg.cards[+b.dataset.i];if(c.f||c.d)return;c.f=1;sg.fl.push(+b.dataset.i);mmR();
+ if(sg.fl.length==2){sg.mv++;const[x,y]=sg.fl.map(k=>sg.cards[k]);sg.lock=true;if(x.k==y.k){x.d=y.d=1;x.f=y.f=0;sg.ok++;sg.fl=[];sg.lock=false;mmR();if(sg.ok==sg.np)mmEnd()}else setTimeout(()=>{x.f=y.f=0;sg.fl=[];sg.lock=false;mmR()},900)}};
+$("mgb").onkeydown=e=>{if(sg.m=="sc"&&e.key=="Enter")scGo("chk")};
+$("mgz").onclick=e=>{const b=e.target.closest("button");if(b){sg.np=+b.dataset.p;mmStart()}};
+$("mgn").onclick=()=>sg.m=="mm"?mmStart():scStart();$("mgq").onclick=()=>tab(10);
 /* ===== Info ===== */
-const APPV="0.7.1",APPD="2026-10-10";
-const LOGS=[["0.7.1","2026-10-10",["Tushunarsiz joylar tuzatildi: Listening, Custom va Top bo'limlari tepasida qisqa tushuntirish yozuvlari paydo bo'ldi (har bir tugma nima qilishi aytilgan).","Top: Speaking va Reading bo'limlari endi \"tez kunda\" emas, haqiqiy reyting beradi (yozib olingan javoblar va tekshirilgan testlar soni). Har bir bo'limda o'z darajalari bor.","Yangi foydalanuvchilar uchun bosh sahifada \"Qayerdan boshlash kerak?\" qadamlari.","Help bo'limi yangilandi: hamma bo'lim tushuntirilgan, ko'p so'raladigan savollar qo'shildi.","Settings'dagi bo'limlar tagida qisqa izoh. Yuqoridagi yulduzcha va rasm ustiga bossangiz nima ekani yozilgan.","Custom'da so'zni o'chirishdan oldin tasdiqlash so'raladi (tasodifan o'chirib yubormaslik uchun).","Butunlay yangi dizayn: yumshoq harakatlanuvchi rangli fon, shaffof va yorug' chetli kartochkalar, yangi shrift (Plus Jakarta Sans), silliq animatsiyalar.","Noutbukda chap tomonda doimiy menyu paneli (sidebar), telefonda pastda tezkor menyu (Home, Translate, Play, Custom, Menu).","Bosh sahifa: rangli ikonkalar, yaxshilangan Ai Teacher kartasi va o'z natijalaringiz (so'zlar, bugungi vaqt, yozuvlar) qatori.","Faol bo'lim menyuda yoritib ko'rsatiladi."]],
+const APPV="0.7.2",APPD="2026-10-11";
+const LOGS=[["0.7.2","2026-10-11",["O'yinlarni yolg'iz ham o'ynash mumkin: Word Battle, Spelling Race, Quiz Duel, Type Race va LinkUp'da yangi \"🤖 Play alone (vs Computer)\" tugmasi. Kompyuter raqib sifatida o'ynaydi (natijalar Top'ga yozilmaydi).","Yangi yolg'iz o'yinlar: 🧠 Memory Match (so'z va tarjimani juftlash, 3 xil qiyinlik, rekord saqlanadi) va 🔤 Word Scramble (aralashgan harflardan so'zni topish, rekord saqlanadi)."]],
+["0.7.1","2026-10-10",["Tushunarsiz joylar tuzatildi: Listening, Custom va Top bo'limlari tepasida qisqa tushuntirish yozuvlari paydo bo'ldi (har bir tugma nima qilishi aytilgan).","Top: Speaking va Reading bo'limlari endi \"tez kunda\" emas, haqiqiy reyting beradi (yozib olingan javoblar va tekshirilgan testlar soni). Har bir bo'limda o'z darajalari bor.","Yangi foydalanuvchilar uchun bosh sahifada \"Qayerdan boshlash kerak?\" qadamlari.","Help bo'limi yangilandi: hamma bo'lim tushuntirilgan, ko'p so'raladigan savollar qo'shildi.","Settings'dagi bo'limlar tagida qisqa izoh. Yuqoridagi yulduzcha va rasm ustiga bossangiz nima ekani yozilgan.","Custom'da so'zni o'chirishdan oldin tasdiqlash so'raladi (tasodifan o'chirib yubormaslik uchun).","Butunlay yangi dizayn: yumshoq harakatlanuvchi rangli fon, shaffof va yorug' chetli kartochkalar, yangi shrift (Plus Jakarta Sans), silliq animatsiyalar.","Noutbukda chap tomonda doimiy menyu paneli (sidebar), telefonda pastda tezkor menyu (Home, Translate, Play, Custom, Menu).","Bosh sahifa: rangli ikonkalar, yaxshilangan Ai Teacher kartasi va o'z natijalaringiz (so'zlar, bugungi vaqt, yozuvlar) qatori.","Faol bo'lim menyuda yoritib ko'rsatiladi."]],
 ["0.7.0","2026-10-10",["Quiz: natija oynasida 🔁 \"Bilmagan so'zlarni qayta so'rash\" tugmasi. Xato qilgan yoki o'tkazib yuborgan so'zlar yana so'raladi, hammasini topmaguncha takrorlash mumkin.","Top: reytingdagi o'yinchini (Top va Multiplayer Top) bossangiz, uning profili ochiladi: katta rasm, statistika, online holati. Do'st bo'lmasa ➕ Add friend tugmasi, do'st bo'lsa 📞 Call va 💬 Chat tugmalari chiqadi.","Friends: do'stni bossangiz, uning profili ochiladi: katta rasm (bossangiz to'liq ekranda ochiladi), ism, @username, online holati yoki oxirgi marta qachon kirgani, maqsadi, o'rgangan so'zlari, saytda o'tkazgan vaqti, yozuvlari va multiplayer natijalari. Profilda 📞 Call va 💬 Chat tugmalari bor. Rasm endi kattaroq (320x320) sifatda saqlanadi.","Custom: 🧠 Quiz endi hamma so'zlaringizni so'raydi (avval faqat 10 tadan so'rardi). Tepadagi 10, 20 va Hammasi tugmalari bilan nechta so'z so'ralishini tanlash mumkin.","Custom: 🗣 Sentences bo'limi. So'z gapda qanday ishlatilishi (so'z turi, o'rni, 3 ta misol, esda tutish kerak narsalar) va o'zbekcha gapni inglizchaga tarjima qilish mashqi. 7 ta daraja (Beginner'dan IELTS'gacha) alohida tanlanadi. Xato bo'lsa, AI nima xato ekanini va to'g'ri variantni tushuntiradi.","Custom: 📄 Texts bo'limi. Darajangizni tanlaysiz (Beginner'dan IELTS'gacha), saytda saqlangan so'zlaringizdan foydalanib yozilgan matn beriladi. EN → UZ yoki UZ → EN yo'nalishida tarjima qilasiz, AI ball (0-100) beradi, xatolarni, qolib ketgan joylarni va namunaviy tarjimani ko'rsatadi.","Custom bo'limi tugmalari nomi inglizchaga o'zgardi: My Words, Sentences, Texts. Daraja va bo'lim tugmalari qatori to'liq kenglikka yoyildi, ortiqcha bo'sh joy olib tashlandi.","AI: yangi Gemini modellari (3.8, 3.7, 3.6, 3.5) bilan ishlaydigan qilindi. Eskirgan modellar tufayli chiqadigan \"kod: 404\" xatosi tuzatildi."]],
 ["0.6.0","2026-10-07 (yangilandi: 2026-10-08)",["Custom: 🧠 Quiz endi ikki yo'nalishda so'raydi: inglizcha → o'zbekcha va o'zbekcha → inglizcha (Aralash, EN → UZ, UZ → EN rejimlari). O'zbekcha javobda bir nechta ma'no (vergul, / va qavs ichidagi) qabul qilinadi.","Custom: har bir so'z kartasida 🔔/🔕 tugmasi. 🔕 qilingan so'z Listening, Dictation va Quiz'da so'ralmaydi. \"Hammasi so'ralsin\" va \"Hech biri so'ralmasin\" tugmalari ham bor.","Tuzatish: Custom → Listening'da eski matn qolib ketadigan xato (ikkita elementning nomi bir xil bo'lgani uchun) to'g'rilandi. Translation'dagi ✕ (tozalash) tugmasi ham endi ishlaydi.","Writing: IELTS (Task 1, Task 2) va Custom bo'limi (Free, CEFR, IELTS) qo'shildi. O'z savolingizni yozib tekshirtirish mumkin.","AI band bo'lganda Writing'da lokal tekshiruv: so'z soni, taxminiy daraja, oddiy xatolar.","LinkUp: 2-4 kishilik so'z zanjiri o'yini. Qiyinlik asta oshib, keyin yengillashadi.","Type Race: 5 ta daraja (A1-C1), matn uzunligi darajaga qarab o'zgaradi.","Custom: 🧠 Quiz tugmasi. So'zlaringizni o'zi so'raydi va nechta topganingizni aytadi.","Username'ni o'zgartirish: 1-marta darrov, keyin 15, 20, 25 kun kutish kerak.","Xavfsizlik: kirish tokenlari, qat'iy Firebase qoidalari, Worker faqat kirgan foydalanuvchilarga ishlaydi, so'rovlar chegarasi. LICENSE qo'shildi.","Top: Writing (daraja, CEFR, IELTS) va LinkUp reytingi. Info bo'limi. Katta ekranlar uchun kengaytirilgan dizayn."]],
 ["0.5.0","2026-10",["Writing: CEFR Task 1.1, 1.2, 2 va AI tekshiruv (xatolar, ball, tavsiyalar).","Noutbuk va telefon uchun moslashgan dizayn."]],
