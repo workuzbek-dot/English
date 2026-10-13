@@ -185,6 +185,17 @@ body.home .top h1{visibility:hidden}
 .mps{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0}
 @media (max-width:480px){.pbig2{width:190px;height:190px}}
 /* ===== v0.8 design system ===== */
+.mdc{width:min(94vw,520px)!important;max-height:90vh;overflow:auto;gap:16px!important;padding:20px!important;text-align:left}
+.mdh{display:flex;align-items:center;justify-content:space-between}.mdh b{font:800 24px ui-serif,Georgia,serif}.mx{width:38px;height:38px;border-radius:50%;border:1px solid var(--bd);background:var(--seg);color:var(--tx);cursor:pointer;font-size:16px}
+.mdk{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}.mdn{font-size:12.5px;color:var(--mut);margin-top:8px;line-height:1.45}
+#mlv{justify-content:flex-start!important;gap:6px}#mlv button,#mgl button{padding:9px 14px;font-size:14px;flex:0 0 auto}
+.mog{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mo{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:14px;border-radius:20px;border:1px solid var(--bd);background:var(--seg);color:var(--tx);font-family:inherit;text-align:left;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.mo i{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:color-mix(in srgb,var(--pri) 18%,transparent);margin-bottom:4px;font-style:normal}
+.mo b{font-size:15px}.mo span{font-size:12px;opacity:.7;line-height:1.3}
+.mo.main{background:var(--gold);color:var(--on);border-color:transparent;box-shadow:0 14px 30px -14px rgba(169,122,44,.9)}.mo.main i{background:rgba(255,255,255,.35)}
+@media (hover:hover){.mo:hover{transform:translateY(-2px)}}
+#mgl{gap:6px}
 .mmg{display:grid;gap:10px;margin:12px 0}.mmc{min-height:78px;border-radius:16px;border:1px solid var(--bd);background:var(--seg);color:var(--tx);font-weight:700;font-size:16px;font-family:inherit;cursor:pointer;transition:transform .2s,background .2s;padding:6px;word-break:break-word}.mmc.f{background:var(--gold);color:var(--on)}.mmc.d{background:color-mix(in srgb,var(--ok) 28%,transparent);border-color:var(--ok);cursor:default}
 .hc[data-g="mm"] i{background:linear-gradient(135deg,#ffb3d9,#c04fb0)}.hc[data-g="sc"] i{background:linear-gradient(135deg,#ffe28a,#e8a317)}
 #s20{max-width:640px;margin-left:auto;margin-right:auto}
@@ -361,6 +372,7 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
  <div style="text-align:center;margin:8px 0 14px"><span class="badge" id="ifv"></span><div class="uz" id="ifd" style="margin:6px 0 0"></div></div><div id="ifl"></div>
  <p class="note" style="text-align:center;margin:16px 0 0">© 2026 SpeakUp. All rights reserved.</p></div></div>
 <div id="s20" class="hide"><div class="card" style="text-align:center;padding:18px"><div class="ait" id="mgt" style="font-size:26px"></div>
+ <div class="uz" style="margin:10px 0 4px">Daraja</div><div class="chips wrap" id="mgl" style="justify-content:center"></div><div class="uz" id="mgc" style="margin:6px 0 0;font-size:12px"></div>
  <div class="seg sm hide" id="mgz" style="margin:10px 0"><button data-p="4">Oson (4 juft)</button><button data-p="6" class="on">O'rta (6)</button><button data-p="8">Qiyin (8)</button></div>
  <div class="uz" id="mgs"></div><div id="mgb"></div><div id="mgx"></div>
  <div class="row"><button class="pill sm" id="mgn">🔄 Qayta boshlash</button><button class="pill sm" id="mgq">← Games</button></div></div></div>
@@ -515,12 +527,20 @@ input,textarea,select{transition:border-color .2s,box-shadow .2s,background .2s}
  <div class="row" style="margin:10px 0 0"><button class="pill blue" id="cpb">Change password</button><button class="pill" id="lo">Log out</button></div><div class="sp" id="cpm"></div></div>
 </div></div>
 </div>
-<div id="mdl" class="mdl hide"><div class="mdc card"><b id="mdt" style="font-size:20px"></b><div class="chips wrap hide" id="mlv" style="justify-content:center"></div><div class="seg sm hide" id="mmd"><button data-m="tp" class="on">⌨️ Typing</button><button data-m="sp">🎤 Speaking</button></div>
- <button class="pill blue" id="msl">🤖 Play alone (vs Computer)</button>
- <button class="pill" id="mrn">🎲 Random player</button>
- <button class="pill" id="mus">🔎 Find by username</button><div id="mub" class="hide"><input id="mui" placeholder="@username" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="row" style="margin:8px 0 0"><button class="pill blue" id="muc">Challenge</button></div></div>
- <button class="pill" id="mfr">👥 Play with a friend</button><div id="mfb" class="hide" style="text-align:left"></div>
- <div class="sp" id="mmg"></div><button class="pill sm" id="mcl">Close</button></div></div>
+<div id="mdl" class="mdl hide"><div class="mdc card">
+ <div class="mdh"><b id="mdt"></b><button class="mx" id="mcl" aria-label="Close">✕</button></div>
+ <div class="mds" id="mls"><div class="mdk">Daraja</div><div class="chips wrap" id="mlv"></div><div class="mdn" id="mlc"></div></div>
+ <div class="mds hide" id="mms"><div class="mdk">Rejim</div><div class="seg sm" id="mmd"><button data-m="tp" class="on">⌨️ Typing</button><button data-m="sp">🎤 Speaking</button></div></div>
+ <div class="mds"><div class="mdk">Qanday o'ynaysiz?</div>
+  <div class="mog">
+   <button class="mo main" id="msl"><i>🤖</i><b>Yolg'iz</b><span>Kompyuterga qarshi</span></button>
+   <button class="mo" id="mrn"><i>🎲</i><b>Tasodifiy</b><span>Online o'yinchi bilan</span></button>
+   <button class="mo" id="mus"><i>🔎</i><b>Username</b><span>Do'stni nomi bilan</span></button>
+   <button class="mo" id="mfr"><i>👥</i><b>Do'stlarim</b><span>Ro'yxatdan tanlash</span></button>
+  </div></div>
+ <div id="mub" class="hide"><input id="mui" placeholder="@username" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="row" style="margin:8px 0 0"><button class="pill blue" id="muc">Challenge</button></div></div>
+ <div id="mfb" class="hide" style="text-align:left"></div>
+ <div id="mmg" class="uz" style="margin:0;text-align:center"></div></div></div>
 <div id="inv" class="inv hide"><span id="invt"></span><button class="pill blue sm" id="inva">Accept</button><button class="pill sm" id="invn">✕</button></div>
 <div id="gate" class="gate hide"><div class="gc card" style="padding:26px 22px">
  <div class="ait" style="font-size:40px;margin-bottom:4px">SpeakUp</div><div class="uz" style="margin:0 0 16px">Ingliz tilini ovoz bilan o'rganing</div>
@@ -888,12 +908,14 @@ const GN={wb:"Word Battle",sr:"Spelling Race",qd:"Quiz Duel",tr:"Type Race",lu:"
 let gR=null,gId=null,gT=null,mT=null,qg=null,selG=null,gSt={r:-1,rst:0,sub:false,both:0};
 const allW=()=>["Beginner","Elementary","Pre-Intermediate"].flatMap(l=>D[l]);
 const shuf=a=>{a=a.slice();for(let x=a.length-1;x>0;x--){const y=Math.floor(Math.random()*(x+1));[a[x],a[y]]=[a[y],a[x]]}return a};
-function mkQ(g){const W=allW(),S=W.filter(w=>w[3]&&new RegExp("\\b"+w[0]+"\\b","i").test(w[3]));
+const GW={A1:()=>D.Beginner,A2:()=>D.Elementary,B1:()=>D["Pre-Intermediate"],B2:()=>allW(),C1:()=>allW().filter(w=>w[0].length>=8)};
+const gPool=lv=>{const a=(GW[lv]||GW.B2)();return a&&a.length>=8?a:allW()};
+function mkQ(g,lv){const W=gPool(lv),S=W.filter(w=>w[3]&&new RegExp("\\b"+w[0]+"\\b","i").test(w[3]));
  if(g=="qd"&&S.length>=4)return shuf(S).slice(0,10).map(w=>{const o=shuf([w,...shuf(S.filter(x=>x[0]!=w[0])).slice(0,3)]);return{t:w[3].replace(new RegExp("\\b"+w[0]+"\\b","i"),"____"),o:o.map(x=>x[0]),c:o.findIndex(x=>x[0]==w[0]),h:w[1]}});
  if(g=="sr")return shuf(W).slice(0,10).map(w=>({s:w[0],c:w[0],h:w[1]}));
  return shuf(W).slice(0,10).map(w=>{const o=shuf([w,...shuf(W.filter(x=>x[0]!=w[0])).slice(0,3)]);return{t:w[0],o:o.map(x=>x[1]),c:o.findIndex(x=>x[0]==w[0]),s:w[0]}})}
 async function mkRoom(g,pl,st,oi,pf){const id=(pf||"")+Math.random().toString(36).slice(2,10),p={[uid]:{n:prof.n||"Mehmon",a:prof.a||"🙂"}};if(oi)p[pl[1]]=oi;
- await J("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:g=="qd"&&allW().filter(w=>w[3]).length<4?"wb":g,h:uid,o:pl,st,r:0,q:mkQ(g),p})});return id}
+ await J("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:g=="qd"&&gPool(trLv).filter(w=>w[3]).length<4?"wb":g,h:uid,o:pl,st,r:0,lv:trLv,q:mkQ(g,trLv),p})});return id}
 const gOk=(q,v,g)=>g=="sr"?String(v).trim().toLowerCase()==q.c:v==q.c;
 function gScore(R,u){let t=0;(R.q||[]).forEach((q,k)=>{const a=R.ans&&R.ans[k]&&R.ans[k][u];if(a&&gOk(q,a.v,R.g))t+=10+Math.max(0,Math.round((15000-Math.min(15000,a.t||15000))/3000))});return t}
 function gLeave(){clearInterval(gT);clearInterval(mT);gT=mT=null;if(qg){J("/queue/"+qg+"/"+uid,{method:"DELETE"}).catch(()=>{});qg=null}
@@ -924,11 +946,11 @@ async function gPoll(){if(!gId)return;let R;try{R=await J("/rooms/"+gId)}catch(e
  if(both&&!gSt.both){gSt.both=Date.now();gRev(R,r,q,A)}
  if(R.h==uid&&((both&&Date.now()-gSt.both>1400)||Date.now()-gSt.rst>17000)){const last=r+1>=R.q.length;try{await J("/rooms/"+gId,{method:"PATCH",body:JSON.stringify(last?{st:"done"}:{r:r+1})})}catch(e){}}}
 async function challenge(t,g){if(g=="tr")return inviteTR(t);if(g=="lu")return inviteLU(t);try{const id=await mkRoom(g,[uid,t],"wait");await J("/invites/"+t+"/"+uid,{method:"PUT",body:JSON.stringify({room:id,g,n:prof.n||"Mehmon"})});enterRoom(id)}catch(e){alert("Internetga ulanib bo'lmadi.")}}
-async function qJoin(g){gLeave();qg=g;tab(12);$("gn1").textContent=$("gn2").textContent="";$("gpb").style.width="0";$("gst").textContent=GN[g];$("gq").textContent="Random o'yinchi qidirilmoqda...";$("go").innerHTML='<button class="pill" data-back>Cancel</button>';
+async function qJoin(g){gLeave();qg=g+"_"+trLv;tab(12);$("gn1").textContent=$("gn2").textContent="";$("gpb").style.width="0";$("gst").textContent=GN[g];$("gq").textContent="Random o'yinchi qidirilmoqda...";$("go").innerHTML='<button class="pill" data-back>Cancel</button>';
  const tick=async()=>{if(!qg)return;try{const m=await J("/match/"+uid);if(m){await J("/match/"+uid,{method:"DELETE"});qg=null;clearInterval(mT);return enterRoom(m)}
   await J("/queue/"+qg+"/"+uid,{method:"PUT",body:JSON.stringify({".sv":"timestamp"})});
   const q=await J("/queue/"+qg)||{},me=nn(q[uid]),ot=Object.keys(q).filter(k=>k!=uid&&Math.abs(me-nn(q[k]))<10000).sort();
-  if(ot.length&&[uid,ot[0]].sort()[0]==uid){const o=ot[0],g1=qg,u=await J("/users/"+o)||{},id=await mkRoom(g1,[uid,o],"play",{n:u.n||"Mehmon",a:u.a||"🙂"});
+  if(ot.length&&[uid,ot[0]].sort()[0]==uid){const o=ot[0],g1=qg,u=await J("/users/"+o)||{},id=await mkRoom(g1.split("_")[0],[uid,o],"play",{n:u.n||"Mehmon",a:u.a||"🙂"});
    await J("/match/"+o,{method:"PUT",body:JSON.stringify(id)});await J("/queue/"+g1+"/"+o,{method:"DELETE"});await J("/queue/"+g1+"/"+uid,{method:"DELETE"});qg=null;clearInterval(mT);enterRoom(id)}}catch(e){}};
  mT=setInterval(tick,1500);tick()}
 async function invChk(){if(!DB||document.hidden||gId||qg||trId||luId)return;try{const o=await J("/invites/"+uid);if(!o){$("inv").classList.add("hide");return}
@@ -939,7 +961,8 @@ $("inva").onclick=async()=>{const v=$("inv")._v;if(!v)return;$("inv").classList.
 $("invn").onclick=()=>{const v=$("inv")._v;$("inv").classList.add("hide");if(v){J("/invites/"+uid+"/"+v.from,{method:"DELETE"}).catch(()=>{});J("/rooms/"+v.room,{method:"DELETE"}).catch(()=>{})}};
 setInterval(invChk,6000);
 const mmsg=t=>{$("mmg").textContent=t},mdClose=()=>$("mdl").classList.add("hide");
-function mdOpen(g){selG=g;$("mdt").textContent=GN[g];$("mmd").classList.toggle("hide",g!="tr");$("mlv").classList.toggle("hide",g!="tr");mmsg("");$("mub").classList.add("hide");$("mfb").classList.add("hide");$("mdl").classList.remove("hide")}
+const GCP={tr:"Daraja matn uzunligini belgilaydi: A1 qisqa, C1 uzun matn.",lu:"Daraja vaqt va qiyinlikni belgilaydi: A1 sekin va oson, C1 tez va ko'p 2 harfli talab.",v:"A1 Beginner so'zlari · A2 Elementary · B1 Pre-Intermediate · B2 hammasi aralash · C1 uzun, qiyin so'zlar."};
+function mdOpen(g){selG=g;$("mdt").innerHTML=({wb:"⚔️",sr:"⌨️",qd:"⚡",tr:"🏁",lu:"🔗"}[g]||"")+" "+GN[g];$("mms").classList.toggle("hide",g!="tr");[...$("mlv").children].forEach(x=>x.classList.toggle("on",x.dataset.k==trLv));$("mlc").textContent=GCP[g]||GCP.v;mmsg("");$("mub").classList.add("hide");$("mfb").classList.add("hide");$("mdl").classList.remove("hide")}
 $("mrn").onclick=()=>{if(!DB)return mmsg("Reyting bazasi (Firebase) ulanmagan.");mdClose();selG=="tr"?quickTR(trMd):selG=="lu"?quickLU():qJoin(selG)};
 $("mus").onclick=()=>$("mub").classList.toggle("hide");
 $("muc").onclick=async()=>{const u=$("mui").value.trim().toLowerCase().replace(/^@/,"");if(!DB)return mmsg("Reyting bazasi (Firebase) ulanmagan.");if(!/^[a-z0-9_]{3,20}$/.test(u))return mmsg("Username noto'g'ri.");
@@ -1263,20 +1286,21 @@ $("mlv").innerHTML=Object.keys(LVT).map(k=>`<button data-k="${k}" class="${k==tr
 $("mlv").onclick=e=>{const b=e.target.closest("button");if(!b)return;trLv=b.dataset.k;[...$("mlv").children].forEach(x=>x.classList.toggle("on",x==b))};
 /* ===== LinkUp ===== */
 const LUS=new Set("ab ac ad ae af ag ai al am an ap ar as at au av aw ba be bi bl bo br bu by ca ce ch ci cl co cr cu da de di do dr du ea ed ef el em en ep er es ev ex fa fe fi fl fo fr fu ga ge gi gl go gr gu ha he hi ho hu hy ic id if il im in ir is it ja je jo ju ke ki kn la le li lo lu ma me mi mo mu na ne ni no nu ob oc of oh ol om on op or os ot ou ov ow pa pe ph pi pl po pr pu qu ra re ri ro ru sa sc se sh si sk sl sm sn so sp st su sw ta te th ti to tr tu tw un up ur us va ve vi vo wa we wh wi wo wr ye yo za".split(" "));
-function luReq(w,n){const ph=n%24,k=ph>=6&&ph<18?2:1,sec=ph<6?30:ph<12?25:ph<18?20:30;let q=w.slice(-k);if(k==2&&!LUS.has(q))q=w.slice(-1);if(q.length==1&&"xqzj".includes(q)&&w.length>1)q=w.slice(-2,-1);return{req:q,sec}}
+const LUP={A1:[[99,1,40]],A2:[[99,1,30]],B1:[[6,1,30],[12,2,25],[18,2,20],[24,1,30]],B2:[[4,1,25],[12,2,20],[20,2,15],[24,1,25]],C1:[[2,1,20],[14,2,15],[22,2,12],[24,1,20]]};
+function luReq(w,n,lv){const t=LUP[lv||(luR&&luR.lv)||"B1"]||LUP.B1,ph=n%24,st=t.find(x=>ph<x[0])||t[t.length-1],k=st[1],sec=st[2];let q=w.slice(-k);if(k==2&&!LUS.has(q))q=w.slice(-1);if(q.length==1&&"xqzj".includes(q)&&w.length>1)q=w.slice(-2,-1);return{req:q,sec}}
 const LUC={};
 async function luOk(w){if(LUC[w]!=null)return LUC[w];if(Object.values(D).flat().some(x=>x[0]==w))return LUC[w]=true;
  try{const c=new AbortController(),t=setTimeout(()=>c.abort(),3500),r=await _f("https://api.dictionaryapi.dev/v2/entries/en/"+w,{signal:c.signal});clearTimeout(t);return LUC[w]=r.status!=404}catch(e){return true}}
 const luNext=(R,u)=>{const o=R.ord||[],i0=o.indexOf(u);for(let k=1;k<=o.length;k++){const c=o[(i0+k)%o.length];if(c!=u&&!(R.el&&R.el[c]))return c}return u};
 let luId=null,luT=null,luTm=null,luR=null,luS={seen:0,tn:-1,busy:false};
 const lu0=()=>({n:prof.n||"Mehmon",a:prof.a||"🙂"});
-async function createLU(open){const id=Math.random().toString(36).slice(2,10);await J("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:"lu",h:uid,st:"lobby",pl:{[uid]:lu0()}})});if(open)await J("/open/lu/"+id,{method:"PUT",body:JSON.stringify({".sv":"timestamp"})});enterLU(id)}
+async function createLU(open){const id=Math.random().toString(36).slice(2,10);await J("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:"lu",h:uid,st:"lobby",lv:trLv,pl:{[uid]:lu0()}})});if(open)await J("/open/lu_"+trLv+"/"+id,{method:"PUT",body:JSON.stringify({".sv":"timestamp"})});enterLU(id)}
 async function joinLU(id){try{const R=await J("/rooms/"+id);if(!R||R.st!="lobby"||Object.keys(R.pl||{}).length>=4)return false;await J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({["pl/"+uid]:lu0()})});enterLU(id);return true}catch(e){return false}}
-async function quickLU(){if(!DB)return alert("Reyting bazasi (Firebase) ulanmagan.");try{const o=await J("/open/lu")||{};for(const id of Object.keys(o)){if(await joinLU(id))return;J("/open/lu/"+id,{method:"DELETE"}).catch(()=>{})}await createLU(true)}catch(e){alert("Internetga ulanib bo'lmadi.")}}
+async function quickLU(){if(!DB)return alert("Reyting bazasi (Firebase) ulanmagan.");try{const o=await J("/open/lu_"+trLv)||{};for(const id of Object.keys(o)){if(await joinLU(id))return;J("/open/lu_"+trLv+"/"+id,{method:"DELETE"}).catch(()=>{})}await createLU(true)}catch(e){alert("Internetga ulanib bo'lmadi.")}}
 async function inviteLU(t){try{if(!luId)await createLU(false);await J("/invites/"+t+"/"+uid,{method:"PUT",body:JSON.stringify({room:luId,g:"lu",n:prof.n||"Mehmon"})})}catch(e){alert("Internetga ulanib bo'lmadi.")}}
 function enterLU(id){curSolo=String(id).startsWith("L_");gLeave();trLeave();luLeave();luId=id;luR=null;luS={seen:0,tn:-1,busy:false,rec:false};tab(18);$("lup").innerHTML="";$("lust").textContent="Yuklanmoqda...";["lulb","lug"].forEach(x=>$(x).classList.add("hide"));luT=setInterval(luPoll,900);luTm=setInterval(luTick,250);luPoll()}
 function luLeave(){clearInterval(luT);clearInterval(luTm);luT=luTm=null;if(luId){const id=luId,R=luR;luId=null;
- if(R&&R.st=="lobby"){J("/rooms/"+id+"/pl/"+uid,{method:"DELETE"}).catch(()=>{});if(R.h==uid){J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({st:"done"})}).catch(()=>{});J("/open/lu/"+id,{method:"DELETE"}).catch(()=>{})}}
+ if(R&&R.st=="lobby"){J("/rooms/"+id+"/pl/"+uid,{method:"DELETE"}).catch(()=>{});if(R.h==uid){J("/rooms/"+id,{method:"PATCH",body:JSON.stringify({st:"done"})}).catch(()=>{});J("/open/lu_"+(R.lv||"B1")+"/"+id,{method:"DELETE"}).catch(()=>{})}}
  else if(R&&R.st=="play"&&!(R.el&&R.el[uid])){luElimId(id,R,uid)}}luR=null}
 async function luElimId(id,R,u){const t=(R.tn||0)+1,el=Object.assign({},R.el||{});el[u]=t;const act=(R.ord||[]).filter(x=>!el[x]),p={["el/"+u]:t,tn:t};
  if(act.length<=1){p.st="done";p.lw=act[0]||""}else if(R.cu==u)p.cu=luNext(Object.assign({},R,{el}),u);
@@ -1288,7 +1312,7 @@ function luTick(){const R=luR;if(!R||R.st!="play")return;const L=R.w||[],q=luReq
  if(left<=0&&!luS.busy&&luS.ed!=(R.tn||0)){if(R.cu==uid){luElim(R,uid)}else if(R.h==uid&&Date.now()-luS.seen>(q.sec+5)*1000){luElim(R,R.cu)}}}
 async function luPoll(){if(!luId)return;let R;try{R=await J("/rooms/"+luId)}catch(e){return}
  if(!R){$("lust").textContent="Xona yopilgan.";["lulb","lug"].forEach(x=>$(x).classList.add("hide"));clearInterval(luT);clearInterval(luTm);luId=null;return}
- luR=R;luPl(R);const np=Object.keys(R.pl||{}).length;$("luh").textContent="🔗 LinkUp · "+np+"/4";
+ luR=R;luPl(R);const np=Object.keys(R.pl||{}).length;$("luh").textContent="🔗 LinkUp · "+(R.lv||"B1")+" · "+np+"/4";
  if(R.st=="lobby"){$("lulb").classList.remove("hide");$("lug").classList.add("hide");$("lut").textContent=R.h==uid?(np<2?"Kamida 2 ta o'yinchi kerak. Do'stlarni taklif qiling.":"Tayyor bo'lsangiz, boshlang."):"Host o'yinni boshlashini kutyapmiz...";$("lus").classList.toggle("hide",R.h!=uid);$("lus").disabled=np<2;$("lust").textContent="";return}
  if(R.st=="play"){$("lulb").classList.add("hide");$("lug").classList.remove("hide");const L=R.w||[],last=L[L.length-1]||"",q=luReq(last,L.length-1);
   if((R.tn||0)!=luS.tn){luS.tn=R.tn||0;luS.seen=Date.now();luS.busy=false;$("lue").textContent="";if(R.cu==uid){$("lui").value="";setTimeout(()=>$("lui").focus(),50)}}
@@ -1305,7 +1329,7 @@ async function luGo(){const R=luR;if(!R||R.st!="play"||R.cu!=uid||luS.busy)retur
  try{await J("/rooms/"+luId,{method:"PATCH",body:JSON.stringify({["w/"+L.length]:w,cu:luNext(R,uid),tn:(R.tn||0)+1})});bad("")}catch(e){}luS.busy=false}
 $("lub").onclick=luGo;$("lui").onkeydown=e=>{if(e.key=="Enter")luGo()};
 $("lus").onclick=async()=>{if(!luR||luR.h!=uid)return;const ord=shuf(Object.keys(luR.pl||{}));if(ord.length<2)return;const pool=allW().map(x=>x[0]).filter(w=>/^[a-z]{4,7}$/.test(w)&&!"xqzj".includes(w.slice(-1))),seed=pool[Math.floor(Math.random()*pool.length)];
- try{await J("/rooms/"+luId,{method:"PATCH",body:JSON.stringify({st:"play",ord,cu:ord[0],w:[seed],tn:0})});J("/open/lu/"+luId,{method:"DELETE"}).catch(()=>{})}catch(e){}};
+ try{await J("/rooms/"+luId,{method:"PATCH",body:JSON.stringify({st:"play",ord,cu:ord[0],w:[seed],tn:0})});J("/open/lu_"+((luR&&luR.lv)||trLv)+"/"+luId,{method:"DELETE"}).catch(()=>{})}catch(e){}};
 $("lui2").onclick=()=>mdOpen("lu");$("lux").onclick=()=>{luLeave();tab(10)};
 
 /* ===== Custom Quiz ===== */
@@ -1440,16 +1464,16 @@ async function soloTR(md,lv){const txt=await Promise.race([mkTextL(lv),new Promi
   Object.keys(spd).forEach(b=>{const R=LR[id];if(!R||(R.prog&&R.prog[b]&&R.prog[b].f))return;const p=Math.min(1,sp?e*(spd[b]*1.6/60)/w:e*(spd[b]*5/60)/txt.length);LJ("/rooms/"+id+"/prog/"+b,{method:"PUT",body:JSON.stringify(p>=1?{p:1,f:{".sv":"timestamp"}}:{p})})})},500)}
 const LUW="apple able about above actor after again agree alarm album alive allow alone along already always among angry animal answer anyone arrive around artist asleep autumn baby back bacon badge baker ball banana basic basket beach beauty become before begin behind being believe below better beyond bicycle birth bitter black blanket blood board body bottle bottom brain bread bridge bright broken brother brown build butter button cabin camera candle carpet carry castle catch center chair change charge cheap check cheese cherry chicken child choice circle city class clean clear clever climb clock close cloud coffee color common cook copper corner cotton country cousin cover crazy cream cross crowd daily dance danger dark daughter dear decide deep desk dinner doctor dollar door double dream dress drink drive early earth easy eight empty energy engine enjoy enough entire equal evening every exact exist expect extra fabric face fall family famous farmer fast father fever field fight final finger fire first fish flag flat floor flower food foot forest forget friend front fruit funny future garden gentle ghost giant glass globe gold grass great green ground group guest guide happy heart heavy height hello help hidden hobby holiday honey horse hotel house human hungry hunter idea image inside island jacket jelly jewel journey judge juice jungle kettle kitchen knife ladder lake lamp large laugh lazy leader learn leather lemon lesson letter light little lunch machine magic market master matter meadow medal melon memory metal middle mirror money monkey month moon mother mountain music narrow nature never night noble noise north notice number ocean office often olive orange paper parent party pencil people pepper picture pillow planet plate pocket police potato power pretty prince quiet rabbit rain river rocket round sailor salad school season second secret shadow silver simple sister small smile snow soft spoon spring square stone story street summer table teacher thirty ticket tiger today tomato travel under useful valley village water window winter wonder yellow young zebra".split(" ");
 async function soloLU(){const id=lid(),ord=shuf([uid,"bot1"]),pool=allW().map(x=>x[0]).filter(w=>/^[a-z]{4,7}$/.test(w)&&!"xqzj".includes(w.slice(-1))),seed=pool[Math.floor(Math.random()*pool.length)];
- await LJ("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:"lu",h:uid,st:"play",ord,cu:ord[0],w:[seed],tn:0,pl:{[uid]:lu0(),bot1:BOT}})});enterLU(id);
+ await LJ("/rooms/"+id,{method:"PUT",body:JSON.stringify({g:"lu",h:uid,st:"play",lv:trLv,ord,cu:ord[0],w:[seed],tn:0,pl:{[uid]:lu0(),bot1:BOT}})});enterLU(id);
  const bt={tn:-1},T=setInterval(()=>{if(luId!=id){clearInterval(T);return}const R=LR[id];if(!R||R.st!="play"||R.cu!="bot1"||(R.el&&R.el.bot1)||bt.tn==(R.tn||0))return;bt.tn=R.tn||0;
   const L=R.w||[],q=luReq(L[L.length-1],L.length-1),c=LUW.filter(w=>w.startsWith(q.req)&&!L.includes(w)),w=c.length&&Math.random()<.88?c[Math.floor(Math.random()*c.length)]:null,d=(2500+Math.random()*q.sec*350)*BOTK.v;
   setTimeout(()=>{const R2=LR[id];if(!R2||R2.st!="play"||R2.cu!="bot1"||(R2.tn||0)!=bt.tn)return;if(!w){luElimId(id,R2,"bot1");return}LJ("/rooms/"+id,{method:"PATCH",body:JSON.stringify({["w/"+(R2.w||[]).length]:w,cu:luNext(R2,"bot1"),tn:(R2.tn||0)+1})})},d)},500)}
 function soloStart(g){if(g=="wb"||g=="sr"||g=="qd")soloGame(g);else if(g=="tr")soloTR(trMd,trLv);else if(g=="lu")soloLU()}
 $("msl").onclick=()=>{mdClose();soloStart(selG)};
 /* --- mini games (solo) --- */
-let sg={m:"mm",t0:0,tm:null,mv:0,fl:[],lock:false,cards:[],ok:0,np:6,q:[],i:0,sc:0,hint:0};
+let sg={lv:"B2",m:"mm",t0:0,tm:null,mv:0,fl:[],lock:false,cards:[],ok:0,np:6,q:[],i:0,sc:0,hint:0};
 function soloMini(g){sg.m=g;tab(20);$("mgz").classList.toggle("hide",g!="mm");g=="mm"?mmStart():scStart()}
-function mmStart(){clearInterval(sg.tm);const W=shuf(allW().filter(w=>!/\s/.test(w[0])&&w[1].length<24)).slice(0,sg.np);sg.cards=shuf(W.flatMap((w,k)=>[{k,t:w[0]},{k,t:w[1]}]));sg.fl=[];sg.ok=0;sg.mv=0;sg.lock=false;sg.t0=Date.now();
+function mmStart(){clearInterval(sg.tm);const P0=gPool(sg.lv).filter(w=>!/\s/.test(w[0])&&w[1].length<24),W=shuf(P0.length>=sg.np?P0:allW().filter(w=>!/\s/.test(w[0])&&w[1].length<24)).slice(0,sg.np);sg.cards=shuf(W.flatMap((w,k)=>[{k,t:w[0]},{k,t:w[1]}]));sg.fl=[];sg.ok=0;sg.mv=0;sg.lock=false;sg.t0=Date.now();
  $("mgt").textContent="🧠 Memory Match";$("mgx").innerHTML="";[...$("mgz").children].forEach(b=>b.classList.toggle("on",+b.dataset.p==sg.np));mmR();sg.tm=setInterval(mmT,500)}
 function mmR(){$("mgb").className="mmg";$("mgb").style.gridTemplateColumns="repeat("+(sg.np>6?4:3)+",1fr)";$("mgb").innerHTML=sg.cards.map((c,i)=>`<button class="mmc${c.f?" f":""}${c.d?" d":""}" data-i="${i}">${c.f||c.d?es(c.t):"?"}</button>`).join("");mmT()}
 function mmT(){$("mgs").textContent="Harakat: "+sg.mv+" · Vaqt: "+Math.floor((Date.now()-sg.t0)/1000)+" s · Juftlar: "+sg.ok+"/"+sg.np}
@@ -1457,7 +1481,7 @@ function mmEnd(){clearInterval(sg.tm);const sec=Math.floor((Date.now()-sg.t0)/10
  if(!best||sg.mv<best){try{localStorage.setItem(key,sg.mv)}catch(e){}msg+=" 🏆 Yangi rekord!"}else msg+=" Eng yaxshi natija: "+best+" harakat.";
  $("mgx").innerHTML='<div class="card" style="margin-top:12px;padding:16px">'+msg+"</div>"}
 const scr=w=>{let s=w;for(let n=0;n<9&&s==w;n++)s=shuf(w.split("")).join("");return s};
-function scStart(){clearInterval(sg.tm);sg.q=shuf(allW().filter(w=>/^[a-z]{4,10}$/.test(w[0]))).slice(0,10);sg.i=0;sg.sc=0;$("mgt").textContent="🔤 Word Scramble";$("mgx").innerHTML="";scShow()}
+function scStart(){clearInterval(sg.tm);{const P0=gPool(sg.lv).filter(w=>/^[a-z]{4,10}$/.test(w[0]));sg.q=shuf(P0.length>=6?P0:allW().filter(w=>/^[a-z]{4,10}$/.test(w[0]))).slice(0,10)}sg.i=0;sg.sc=0;$("mgt").textContent="🔤 Word Scramble";$("mgx").innerHTML="";scShow()}
 function scShow(){clearInterval(sg.tm);const w=sg.q[sg.i];
  if(!w){const key="scb",best=+localStorage.getItem(key)||0;let msg="Natija: <b>"+sg.sc+"</b> ball.";if(sg.sc>best){try{localStorage.setItem(key,sg.sc)}catch(e){}msg+=" 🏆 Yangi rekord!"}else msg+=" Eng yaxshi: "+best+".";$("mgb").className="";$("mgb").innerHTML='<div class="card" style="padding:16px">'+msg+"</div>";$("mgs").textContent="";return}
  sg.t0=Date.now();sg.hint=0;$("mgs").textContent="So'z "+(sg.i+1)+"/"+sg.q.length+" · Ball: "+sg.sc;$("mgb").className="";
@@ -1473,6 +1497,9 @@ $("mgb").onclick=e=>{if(sg.m=="sc"){const b=e.target.closest("[data-a]");if(b)sc
  const b=e.target.closest(".mmc");if(!b||sg.lock)return;const c=sg.cards[+b.dataset.i];if(c.f||c.d)return;c.f=1;sg.fl.push(+b.dataset.i);mmR();
  if(sg.fl.length==2){sg.mv++;const[x,y]=sg.fl.map(k=>sg.cards[k]);sg.lock=true;if(x.k==y.k){x.d=y.d=1;x.f=y.f=0;sg.ok++;sg.fl=[];sg.lock=false;mmR();if(sg.ok==sg.np)mmEnd()}else setTimeout(()=>{x.f=y.f=0;sg.fl=[];sg.lock=false;mmR()},900)}};
 $("mgb").onkeydown=e=>{if(sg.m=="sc"&&e.key=="Enter")scGo("chk")};
+const GCAP="A1: Beginner so'zlari · A2: Elementary · B1: Pre-Intermediate · B2: hammasi aralash · C1: uzun, qiyin so'zlar";
+$("mgl").innerHTML=Object.keys(LVT).map(k=>`<button data-k="${k}" class="${k==sg.lv?"on":""}">${k}</button>`).join("");$("mgc").textContent=GCAP;
+$("mgl").onclick=e=>{const b=e.target.closest("button");if(!b)return;sg.lv=b.dataset.k;[...$("mgl").children].forEach(x=>x.classList.toggle("on",x==b));sg.m=="mm"?mmStart():scStart()};
 $("mgz").onclick=e=>{const b=e.target.closest("button");if(b){sg.np=+b.dataset.p;mmStart()}};
 $("mgn").onclick=()=>sg.m=="mm"?mmStart():scStart();$("mgq").onclick=()=>tab(10);
 /* ===== Emoji → SVG icons ===== */
@@ -1489,8 +1516,9 @@ const EIC={"🙂": "smile", "😎": "glasses", "😔": "frown", "✅": "circlech
  sw(document.body);window.swIcons=sw})();
 function pic(w){return(w[2]=="🌐"||w[2]=="✍️"||w[2]=="✍")?'<span class="ini">'+es(String(w[0]).charAt(0).toUpperCase())+"</span>":w[2]}
 /* ===== Info ===== */
-const APPV="0.7.3",APPD="2026-10-11";
-const LOGS=[["0.7.3","2026-10-11",["Sayt bo'ylab hamma stikerlar (emoji) o'rniga professional, chiziqli ikonkalar qo'yildi. Ular ranglarga va Night/Day rejimiga moslashadi, hamma qurilmada bir xil ko'rinadi.","Custom so'zlarida bir xil globus belgisi o'rniga so'zning birinchi harfi chiroyli doirada ko'rsatiladi."]],
+const APPV="0.7.4",APPD="2026-10-12";
+const LOGS=[["0.7.4","2026-10-12",["O'yin sozlash oynasi yangilandi: daraja, rejim va o'ynash usuli alohida bo'limlarda, qulay kartalar bilan (Yolg'iz, Tasodifiy, Username, Do'stlarim).","Hamma o'yinlarga daraja qo'shildi (A1-C1): Word Battle, Spelling Race, Quiz Duel (so'zlar to'plami darajaga qarab), LinkUp (vaqt va qiyinlik), Memory Match va Word Scramble (sahifa ichida). Tasodifiy raqib bir xil darajadagilar orasidan topiladi."]],
+["0.7.3","2026-10-11",["Sayt bo'ylab hamma stikerlar (emoji) o'rniga professional, chiziqli ikonkalar qo'yildi. Ular ranglarga va Night/Day rejimiga moslashadi, hamma qurilmada bir xil ko'rinadi.","Custom so'zlarida bir xil globus belgisi o'rniga so'zning birinchi harfi chiroyli doirada ko'rsatiladi."]],
 ["0.7.2","2026-10-11",["O'yinlarni yolg'iz ham o'ynash mumkin: Word Battle, Spelling Race, Quiz Duel, Type Race va LinkUp'da yangi \"🤖 Play alone (vs Computer)\" tugmasi. Kompyuter raqib sifatida o'ynaydi (natijalar Top'ga yozilmaydi).","Yangi yolg'iz o'yinlar: 🧠 Memory Match (so'z va tarjimani juftlash, 3 xil qiyinlik, rekord saqlanadi) va 🔤 Word Scramble (aralashgan harflardan so'zni topish, rekord saqlanadi)."]],
 ["0.7.1","2026-10-10",["Tushunarsiz joylar tuzatildi: Listening, Custom va Top bo'limlari tepasida qisqa tushuntirish yozuvlari paydo bo'ldi (har bir tugma nima qilishi aytilgan).","Top: Speaking va Reading bo'limlari endi \"tez kunda\" emas, haqiqiy reyting beradi (yozib olingan javoblar va tekshirilgan testlar soni). Har bir bo'limda o'z darajalari bor.","Yangi foydalanuvchilar uchun bosh sahifada \"Qayerdan boshlash kerak?\" qadamlari.","Help bo'limi yangilandi: hamma bo'lim tushuntirilgan, ko'p so'raladigan savollar qo'shildi.","Settings'dagi bo'limlar tagida qisqa izoh. Yuqoridagi yulduzcha va rasm ustiga bossangiz nima ekani yozilgan.","Custom'da so'zni o'chirishdan oldin tasdiqlash so'raladi (tasodifan o'chirib yubormaslik uchun).","Butunlay yangi dizayn: yumshoq harakatlanuvchi rangli fon, shaffof va yorug' chetli kartochkalar, yangi shrift (Plus Jakarta Sans), silliq animatsiyalar.","Noutbukda chap tomonda doimiy menyu paneli (sidebar), telefonda pastda tezkor menyu (Home, Translate, Play, Custom, Menu).","Bosh sahifa: rangli ikonkalar, yaxshilangan Ai Teacher kartasi va o'z natijalaringiz (so'zlar, bugungi vaqt, yozuvlar) qatori.","Faol bo'lim menyuda yoritib ko'rsatiladi."]],
 ["0.7.0","2026-10-10",["Quiz: natija oynasida 🔁 \"Bilmagan so'zlarni qayta so'rash\" tugmasi. Xato qilgan yoki o'tkazib yuborgan so'zlar yana so'raladi, hammasini topmaguncha takrorlash mumkin.","Top: reytingdagi o'yinchini (Top va Multiplayer Top) bossangiz, uning profili ochiladi: katta rasm, statistika, online holati. Do'st bo'lmasa ➕ Add friend tugmasi, do'st bo'lsa 📞 Call va 💬 Chat tugmalari chiqadi.","Friends: do'stni bossangiz, uning profili ochiladi: katta rasm (bossangiz to'liq ekranda ochiladi), ism, @username, online holati yoki oxirgi marta qachon kirgani, maqsadi, o'rgangan so'zlari, saytda o'tkazgan vaqti, yozuvlari va multiplayer natijalari. Profilda 📞 Call va 💬 Chat tugmalari bor. Rasm endi kattaroq (320x320) sifatda saqlanadi.","Custom: 🧠 Quiz endi hamma so'zlaringizni so'raydi (avval faqat 10 tadan so'rardi). Tepadagi 10, 20 va Hammasi tugmalari bilan nechta so'z so'ralishini tanlash mumkin.","Custom: 🗣 Sentences bo'limi. So'z gapda qanday ishlatilishi (so'z turi, o'rni, 3 ta misol, esda tutish kerak narsalar) va o'zbekcha gapni inglizchaga tarjima qilish mashqi. 7 ta daraja (Beginner'dan IELTS'gacha) alohida tanlanadi. Xato bo'lsa, AI nima xato ekanini va to'g'ri variantni tushuntiradi.","Custom: 📄 Texts bo'limi. Darajangizni tanlaysiz (Beginner'dan IELTS'gacha), saytda saqlangan so'zlaringizdan foydalanib yozilgan matn beriladi. EN → UZ yoki UZ → EN yo'nalishida tarjima qilasiz, AI ball (0-100) beradi, xatolarni, qolib ketgan joylarni va namunaviy tarjimani ko'rsatadi.","Custom bo'limi tugmalari nomi inglizchaga o'zgardi: My Words, Sentences, Texts. Daraja va bo'lim tugmalari qatori to'liq kenglikka yoyildi, ortiqcha bo'sh joy olib tashlandi.","AI: yangi Gemini modellari (3.8, 3.7, 3.6, 3.5) bilan ishlaydigan qilindi. Eskirgan modellar tufayli chiqadigan \"kod: 404\" xatosi tuzatildi."]],
